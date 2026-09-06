@@ -1,0 +1,44 @@
+{
+  "snapshot_at": "2026-09-06",
+  "release_candidate": "local deterministic provider + hybrid RAG",
+  "fine_tuning": {
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "method": "4-bit NF4 QLoRA supervised fine-tuning",
+    "implementation_status": "implemented_not_executed",
+    "approved_examples": 0,
+    "minimum_examples_gate": 20,
+    "adapter_artifact": null,
+    "configuration": {
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+      "epochs": 2,
+      "learning_rate": 0.0002,
+      "warmup_ratio": 0.05,
+      "max_sequence_length": 2048,
+      "per_device_batch_size": 2,
+      "gradient_accumulation_steps": 8,
+      "seed": 42
+    }
+  },
+  "measured_evaluation": {
+    "suite": "ultramedia-release-v1",
+    "provider": "local-deterministic",
+    "cases": 6,
+    "release_decision": "PASS",
+    "metrics": [
+      {"name": "retrieval_recall_at_3", "score": 1.0, "target": 0.75, "passed": true},
+      {"name": "citation_validity", "score": 1.0, "target": 1.0, "passed": true},
+      {"name": "human_review_gate", "score": 1.0, "target": 1.0, "passed": true},
+      {"name": "unsupported_sensitive_inference", "score": 0.0, "target": 0.0, "passed": true}
+    ],
+    "tests": {"passed": 6, "failed": 0}
+  },
+  "limitations": [
+    "No QLoRA adapter was trained because the approval-only data gate was not met.",
+    "The six-case deterministic suite is a smoke test, not a production benchmark.",
+    "No cloud-provider latency or cost benchmark has been executed.",
+    "Fine-tuned model quality must not be inferred from the base-plus-RAG results."
+  ]
+}

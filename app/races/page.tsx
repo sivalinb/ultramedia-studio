@@ -112,7 +112,7 @@ export default function RaceAtlasPage() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#090d0b]/92 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 sm:px-6">
           <Link href="/" className="flex items-center gap-3"><span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground"><Activity className="size-4" /></span><span className="text-sm font-black">ULTRAMEDIA <span className="text-white/45">STUDIO</span></span></Link>
-          <div className="hidden items-center gap-6 text-xs font-semibold text-white/45 md:flex"><Link href="/" className="hover:text-white">Overview</Link><span className="text-primary">Race atlas</span><Link href="/studio" className="hover:text-white">Newsroom</Link><Link href="/#model-lab" className="hover:text-white">Model lab</Link></div>
+          <div className="hidden items-center gap-6 text-xs font-semibold text-white/45 md:flex"><Link href="/" className="hover:text-white">Overview</Link><span className="text-primary">Race atlas</span><Link href="/studio" className="hover:text-white">Newsroom</Link><Link href="/observability" className="hover:text-white">Observability</Link></div>
           <Link href="/studio" className={buttonVariants({ size: 'sm', className: 'rounded-full font-bold' })}>Open newsroom <ArrowUpRight className="size-4" /></Link>
         </div>
       </header>
