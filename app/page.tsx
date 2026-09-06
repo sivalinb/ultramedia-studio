@@ -35,7 +35,7 @@ export default function Home() {
             <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-70" /><span className="relative inline-flex size-2 rounded-full bg-primary" /></span>
             <span className="font-semibold">LIVE · WESTERN STATES 100</span><span className="text-white/40">19:42 PDT</span>
           </div>
-          <a href="#newsroom" className={buttonVariants({ size: 'sm', className: 'rounded-full font-bold' })}>Open newsroom <ArrowUpRight className="size-4" /></a>
+          <a href="/studio" className={buttonVariants({ size: 'sm', className: 'rounded-full font-bold' })}>Open newsroom <ArrowUpRight className="size-4" /></a>
         </div>
       </header>
 

@@ -1,0 +1,56 @@
+{
+  "race": {
+    "id": "wser-demo",
+    "name": "Western States 100 — Simulation",
+    "distance_miles": 100.2,
+    "location": "Olympic Valley to Auburn, California",
+    "status": "simulation"
+  },
+  "timing_events": [
+    {"athlete_bib":"214","athlete_name":"Mara Velez","checkpoint":"Robinson Flat","mile":30.3,"elapsed_seconds":17760,"position_overall":38},
+    {"athlete_bib":"214","athlete_name":"Mara Velez","checkpoint":"Devil's Thumb","mile":47.8,"elapsed_seconds":30360,"position_overall":31},
+    {"athlete_bib":"214","athlete_name":"Mara Velez","checkpoint":"Michigan Bluff","mile":55.7,"elapsed_seconds":35340,"position_overall":20},
+    {"athlete_bib":"214","athlete_name":"Mara Velez","checkpoint":"Foresthill","mile":62.0,"elapsed_seconds":38940,"position_overall":11},
+    {"athlete_bib":"101","athlete_name":"Eli Mercer","checkpoint":"Devil's Thumb","mile":47.8,"elapsed_seconds":23940,"position_overall":2},
+    {"athlete_bib":"101","athlete_name":"Eli Mercer","checkpoint":"Michigan Bluff","mile":55.7,"elapsed_seconds":27660,"position_overall":1},
+    {"athlete_bib":"101","athlete_name":"Eli Mercer","checkpoint":"Foresthill","mile":62.0,"elapsed_seconds":30780,"position_overall":1}
+  ],
+  "knowledge_chunks": [
+    {
+      "id": "wser-course-profile",
+      "title": "Official course profile",
+      "text": "The Western States course starts in Olympic Valley and ends in Auburn. The official description lists more than 18,000 feet of climbing and nearly 23,000 feet of descending across the 100.2-mile course.",
+      "source_url": "https://www.wser.org/",
+      "source_type": "official_course"
+    },
+    {
+      "id": "wser-canyons",
+      "title": "Canyon sector context",
+      "text": "The official race description identifies the California gold-country canyons and the Middle Fork of the American River crossing as defining course features before the finish in Auburn.",
+      "source_url": "https://www.wser.org/",
+      "source_type": "official_course"
+    },
+    {
+      "id": "wser-finish-window",
+      "title": "Official finish window",
+      "text": "The participant guide states that runners must reach the finish no later than the official Sunday-morning deadline to be eligible for an award. Race management communications remain authoritative for operational cutoffs.",
+      "source_url": "https://www.wser.org/participant-guide/",
+      "source_type": "official_rules"
+    },
+    {
+      "id": "wser-history",
+      "title": "Official year-by-year archive",
+      "text": "Western States publishes a year-by-year archive describing the event's history, notable performances, conditions, and participation changes. Historical context must not be represented as current live race data.",
+      "source_url": "https://www.wser.org/year-by-year/",
+      "source_type": "official_archive"
+    },
+    {
+      "id": "simulation-policy",
+      "title": "UltraMedia simulation policy",
+      "text": "All athlete names and live timing events in the portfolio demonstration are synthetic. Drafts must label simulation data internally and require a human editor before external publication.",
+      "source_url": "https://ultramedia-studio.siva-babu.chatgpt.site",
+      "source_type": "product_policy"
+    }
+  ]
+}
+

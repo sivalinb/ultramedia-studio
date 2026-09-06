@@ -28,6 +28,15 @@ yarn-error.log*
 
 # local environment
 .env*
+!.env.example
+backend/.venv/
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+backend/**/*.db
+backend/*.db
+**/__pycache__/
+*.py[cod]
 
 # deployment and generated files
 .vercel
