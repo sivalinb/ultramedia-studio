@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Activity, ArrowUpRight, Bot, CheckCircle2, Clock3, Database, Eye, Film, FlaskConical, Gauge, Layers3, MapPin, Play, Radio, Share2, ShieldCheck, SlidersHorizontal, Sparkles, TrendingUp, Workflow, Zap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -35,7 +36,7 @@ export default function Home() {
             <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-70" /><span className="relative inline-flex size-2 rounded-full bg-primary" /></span>
             <span className="font-semibold">LIVE · WESTERN STATES 100</span><span className="text-white/40">19:42 PDT</span>
           </div>
-          <a href="/studio" className={buttonVariants({ size: 'sm', className: 'rounded-full font-bold' })}>Open newsroom <ArrowUpRight className="size-4" /></a>
+          <div className="flex items-center gap-2"><Link href="/races" className={buttonVariants({ size: 'sm', variant: 'ghost', className: 'hidden rounded-full font-bold sm:inline-flex' })}>Race atlas</Link><Link href="/studio" className={buttonVariants({ size: 'sm', className: 'rounded-full font-bold' })}>Open newsroom <ArrowUpRight className="size-4" /></Link></div>
         </div>
       </header>
 
@@ -49,7 +50,7 @@ export default function Home() {
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[.24em] text-primary">UltraMedia Studio</p>
               <h1 className="max-w-3xl text-[clamp(3.5rem,7.2vw,7.8rem)] font-black uppercase leading-[.82] tracking-[-.075em]">The AI newsroom for every mile.</h1>
               <p className="mt-7 max-w-2xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">UltraMedia helps race organizers, broadcasters, sponsors, and media teams turn live timing, GPS, weather, course, and historical data into verified stories, commentary, social highlights, and personalized finisher recaps.</p>
-              <div className="mt-8 flex flex-wrap gap-3"><a href="#newsroom" className={buttonVariants({ size: 'lg', className: 'rounded-full px-6 font-bold' })}>Explore the product <ArrowUpRight className="size-4" /></a><a href="#model-lab" className={buttonVariants({ size: 'lg', variant: 'outline', className: 'rounded-full border-white/20 bg-black/20 px-6 backdrop-blur hover:bg-white/10' })}>See how the AI works</a></div>
+              <div className="mt-8 flex flex-wrap gap-3"><Link href="/races" className={buttonVariants({ size: 'lg', className: 'rounded-full px-6 font-bold' })}>Explore 10 years of races <ArrowUpRight className="size-4" /></Link><a href="#model-lab" className={buttonVariants({ size: 'lg', variant: 'outline', className: 'rounded-full border-white/20 bg-black/20 px-6 backdrop-blur hover:bg-white/10' })}>See how the AI works</a></div>
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-5 text-[10px] font-bold uppercase tracking-[.15em] text-white/45"><span>Race organizers</span><span>Broadcast teams</span><span>Sponsors</span><span>Athletes & fans</span></div>
           </div>
@@ -156,7 +157,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="flex flex-col items-start justify-between gap-6 py-10 text-xs text-white/35 sm:flex-row sm:items-center"><div className="flex items-center gap-2 font-bold text-white"><Activity className="size-4 text-primary" /> ULTRAMEDIA STUDIO</div><p>Concept product experience · Built for the future of endurance media.</p><div className="flex gap-5"><a href="#top" className="hover:text-primary">Live studio</a><a href="#model-lab" className="hover:text-primary">Model lab</a></div></footer>
+        <footer className="flex flex-col items-start justify-between gap-6 py-10 text-xs text-white/35 sm:flex-row sm:items-center"><div className="flex items-center gap-2 font-bold text-white"><Activity className="size-4 text-primary" /> ULTRAMEDIA STUDIO</div><p>Concept product experience · Built for the future of endurance media.</p><div className="flex gap-5"><Link href="/races" className="hover:text-primary">Race atlas</Link><a href="#model-lab" className="hover:text-primary">Model lab</a></div></footer>
       </div>
     </main>
   );
