@@ -54,3 +54,13 @@ trace_spans: 6
 ## Evidence boundaries
 
 The dashboard is an evidence console for a portfolio implementation, not a production model-monitoring claim. “Implemented” means code or configuration exists. “Measured” means the result was produced by the local deterministic fixture and is reproduced above. “Not run,” “not trained,” and “not produced” are deliberate negative evidence and must remain visible until artifacts exist.
+
+## Visual system flow
+
+The dashboard’s cinematic system map intentionally separates two operating modes:
+
+1. The online lane follows moment detection → hybrid RAG → story generation → fact and safety verification → human review. The green observability rail records privacy-minimized spans across this request path.
+2. The offline lane follows approved edits → minimum dataset gate → QLoRA training → challenger evaluation → adapter merge and local serving. It is visibly stopped at the 0 / 20 dataset gate.
+3. The only bridge from online inference to offline learning is an editor-approved, evidence-linked draft. A trained adapter may return to the live lane only after it beats the prompt + RAG baseline on the model card’s release criteria.
+
+The same structure is available in machine-readable form in [`public/data/model-observability.json`](../public/data/model-observability.json).
