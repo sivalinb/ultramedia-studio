@@ -48,6 +48,28 @@
       {"stage": "human_review_queue", "duration_ms": 1, "status": "passed"}
     ]
   },
+  "system_flow": {
+    "online_inference": [
+      "moment_detector",
+      "hybrid_rag",
+      "story_writer",
+      "fact_and_safety_verification",
+      "human_review_queue"
+    ],
+    "observability_rail": {
+      "stored": ["stage", "duration_ms", "status", "operational_detail"],
+      "excluded": ["raw_prompt", "full_story_body"]
+    },
+    "offline_fine_tuning": [
+      "approved_editor_revisions",
+      "minimum_20_example_gate",
+      "qlora_training",
+      "challenger_evaluation",
+      "merge_and_ollama_serving"
+    ],
+    "current_stop_point": "minimum_20_example_gate",
+    "feedback_rule": "Only human-approved, evidence-linked drafts may cross from the live system into training."
+  },
   "evidence": {
     "register": "https://github.com/sivalinb/ultramedia-studio/blob/main/docs/OBSERVABILITY_EVIDENCE.md",
     "training_data_gate": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/scripts/prepare_training_data.py#L14-L69",
