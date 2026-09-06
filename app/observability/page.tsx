@@ -6,7 +6,7 @@ import { Activity, ArrowLeft, ArrowUpRight, Ban, Boxes, Check, CheckCircle2, Cir
 import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
 
-type View = 'overview' | 'finetuning' | 'evals' | 'traces';
+type View = 'flow' | 'overview' | 'finetuning' | 'evals' | 'traces';
 
 const repo = 'https://github.com/sivalinb/ultramedia-studio';
 const evidence = {
@@ -51,8 +51,24 @@ const methods = [
   { icon: <GitBranch />, number: '05', title: 'Merge and package', body: 'PEFT merges a passing adapter into Qwen3. The merged model can then be converted to GGUF and served locally through Ollama.', facts: ['Safe tensors', 'GGUF conversion path', 'Local-first inference'], href: evidence.merge },
 ];
 
+const liveFlow = [
+  { number: '01', title: 'Moment detected', detail: 'Validate timing signal', metric: 'INPUT', icon: <Radio />, state: 'active' as const, href: `${repo}/blob/main/backend/src/ultramedia/workflow.py#L54-L59` },
+  { number: '02', title: 'Hybrid RAG', detail: 'Retrieve top evidence', metric: 'R@3 100%', icon: <Database />, state: 'pass' as const, href: evidence.retrieval },
+  { number: '03', title: 'Story generated', detail: 'Structured cited draft', metric: 'LOCAL', icon: <Workflow />, state: 'pass' as const, href: `${repo}/blob/main/backend/src/ultramedia/workflow.py#L84-L87` },
+  { number: '04', title: 'Facts + safety', detail: 'Citations and sensitive claims', metric: 'PASS', icon: <ShieldCheck />, state: 'pass' as const, href: `${repo}/blob/main/backend/src/ultramedia/workflow.py#L89-L108` },
+  { number: '05', title: 'Human queue', detail: 'Approve or revise', metric: 'PENDING', icon: <CheckCircle2 />, state: 'pass' as const, href: `${repo}/blob/main/backend/src/ultramedia/workflow.py#L110-L132` },
+];
+
+const trainingFlow = [
+  { number: '01', title: 'Approved edits', detail: 'Evidence-linked examples', metric: '0 READY', icon: <CheckCircle2 />, state: 'active' as const, href: evidence.trainingData },
+  { number: '02', title: 'Dataset gate', detail: 'Minimum 20 required', metric: 'BLOCKED', icon: <Ban />, state: 'gated' as const, href: evidence.trainingData },
+  { number: '03', title: 'QLoRA train', detail: '4-bit adapter tuning', metric: 'WAITING', icon: <SlidersHorizontal />, state: 'waiting' as const, href: evidence.qlora },
+  { number: '04', title: 'Challenger eval', detail: 'Compare with RAG', metric: 'WAITING', icon: <FlaskConical />, state: 'waiting' as const, href: evidence.modelCard },
+  { number: '05', title: 'Merge + serve', detail: 'PEFT → GGUF → Ollama', metric: 'WAITING', icon: <Server />, state: 'waiting' as const, href: evidence.merge },
+];
+
 export default function ObservabilityPage() {
-  const [view, setView] = useState<View>('overview');
+  const [view, setView] = useState<View>('flow');
   return (
     <main className="min-h-screen bg-[#080b09] text-foreground">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080b09]/95 backdrop-blur-xl">
@@ -73,6 +89,7 @@ export default function ObservabilityPage() {
         </section>
 
         <nav className="mt-4 flex gap-1 overflow-x-auto rounded-xl border border-white/10 bg-[#0d120f] p-1" aria-label="Observability views">
+          <NavTab active={view === 'flow'} onClick={() => setView('flow')} icon={<Workflow />} label="Live system flow" />
           <NavTab active={view === 'overview'} onClick={() => setView('overview')} icon={<CircleDot />} label="Overview" />
           <NavTab active={view === 'finetuning'} onClick={() => setView('finetuning')} icon={<SlidersHorizontal />} label="Fine-tuning method" />
           <NavTab active={view === 'evals'} onClick={() => setView('evals')} icon={<FlaskConical />} label="Measured evals" />
@@ -80,6 +97,7 @@ export default function ObservabilityPage() {
           <a href={evidence.index + '#verification-snapshot'} target="_blank" rel="noreferrer" className="ml-auto hidden items-center gap-2 px-3 font-mono text-[9px] text-white/25 transition hover:text-primary md:flex"><Clock3 className="size-3" /> Snapshot · Sep 6, 2026 <ArrowUpRight className="size-2.5" /></a>
         </nav>
 
+        {view === 'flow' && <SystemFlow />}
         {view === 'overview' && <Overview />}
         {view === 'finetuning' && <FineTuning />}
         {view === 'evals' && <Evals />}
@@ -89,6 +107,36 @@ export default function ObservabilityPage() {
       </div>
     </main>
   );
+}
+
+function SystemFlow() {
+  const [focus, setFocus] = useState<'live' | 'training'>('live');
+  return <div className="mt-4 space-y-4">
+    <section className="ops-cinema relative min-h-[250px] overflow-hidden rounded-2xl border border-white/10 bg-[#0d120f] p-5 sm:p-7">
+      <div className="ops-cinema-grid" aria-hidden="true" /><div className="ops-cinema-scan" aria-hidden="true" /><div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+      <div className="relative z-10 flex items-center justify-between border-b border-white/8 pb-4 font-mono text-[8px] uppercase tracking-[.16em] text-white/25"><span className="flex items-center gap-2"><span className="size-1.5 animate-pulse rounded-full bg-red-400" /> Live feed · scene 01</span><span>00:00:07 · 6 spans · 24 fps</span></div>
+      <div className="relative z-10 mt-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+        <div><p className="text-[9px] font-bold uppercase tracking-[.18em] text-primary">Live system map</p><h2 className="mt-2 text-3xl font-black uppercase leading-none tracking-[-.04em] sm:text-5xl">Inference now.<br /><span className="text-white/30">Learning later.</span></h2><p className="mt-4 max-w-3xl text-xs leading-6 text-white/45">Race-day facts move through retrieval and a governed agent workflow in real time. Only human-approved edits may cross into the separate offline fine-tuning loop.</p></div>
+        <fieldset className="flex w-fit rounded-full border border-white/10 bg-black/20 p-1"><legend className="sr-only">Highlight a system flow</legend><button type="button" onClick={() => setFocus('live')} aria-pressed={focus === 'live'} className={`rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[.12em] transition ${focus === 'live' ? 'bg-primary text-primary-foreground' : 'text-white/35 hover:text-white'}`}>Follow live request</button><button type="button" onClick={() => setFocus('training')} aria-pressed={focus === 'training'} className={`rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[.12em] transition ${focus === 'training' ? 'bg-amber-200 text-black' : 'text-white/35 hover:text-white'}`}>Inspect tuning loop</button></fieldset>
+      </div>
+      <div className="relative z-10 mt-8 flex items-center gap-1 overflow-hidden" aria-hidden="true">{Array.from({ length: 24 }).map((_, index) => <span key={index} className={`h-1 min-w-3 flex-1 rounded-full ${index < 17 ? 'bg-primary/35' : 'bg-white/8'}`} />)}</div>
+    </section>
+
+    <FlowLane label="Online inference path" status="RUNNING" tone="live" active={focus === 'live'} nodes={liveFlow} />
+
+    <section className="grid gap-3 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+      <div className="telemetry-film rounded-xl border border-emerald-300/15 bg-emerald-300/[.03] p-4"><div className="flex items-center justify-between gap-3"><span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.14em] text-emerald-300"><Activity className="size-3.5 animate-pulse" /> Observability rail</span><EvidenceLink href={evidence.traceRecorder} compact /></div><div className="mt-3 grid grid-cols-4 gap-2"><FlowMetric value="6" label="spans" /><FlowMetric value="7 ms" label="fixture" /><FlowMetric value="0" label="errors" /><FlowMetric value="redacted" label="prompts" /></div></div>
+      <div className="mx-auto flex flex-col items-center gap-1 text-center"><span className="approval-beam h-5 w-px bg-gradient-to-b from-emerald-300/60 to-amber-200/60" /><span className="rounded-full border border-white/10 bg-[#111713] px-4 py-2 text-[8px] font-bold uppercase tracking-[.14em] text-white/45">approved edits only ↓</span><span className="approval-beam h-5 w-px bg-gradient-to-b from-emerald-300/60 to-amber-200/60" /></div>
+      <div className="rounded-xl border border-amber-200/15 bg-amber-200/[.03] p-4"><div className="flex items-center justify-between gap-3"><span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.14em] text-amber-200"><GitBranch className="size-3.5" /> Learning feedback</span><EvidenceLink href={evidence.trainingData} compact /></div><p className="mt-3 text-[10px] leading-5 text-white/35">Rejected, synthetic, or unreviewed drafts never become training examples. Editor approval is the bridge between the two systems.</p></div>
+    </section>
+
+    <FlowLane label="Offline fine-tuning path" status="GATED" tone="training" active={focus === 'training'} nodes={trainingFlow} />
+
+    <section className="grid gap-4 lg:grid-cols-[1fr_1fr]">
+      <div className="rounded-2xl border border-amber-200/20 bg-amber-200/[.04] p-5"><div className="flex items-start justify-between gap-4"><div><p className="text-[9px] font-bold uppercase tracking-[.16em] text-amber-200">Current stop point</p><h3 className="mt-2 text-xl font-semibold">Dataset gate blocks training</h3></div><span className="rounded-full bg-amber-200/10 px-3 py-1 font-mono text-[9px] text-amber-200">0 / 20</span></div><p className="mt-4 text-xs leading-6 text-white/40">No adapter, challenger benchmark, merge, or local deployment can occur until approved examples meet the minimum gate.</p><div className="mt-4"><EvidenceLink href={evidence.index + '#verification-snapshot'} label="Verify stop point" /></div></div>
+      <div className="rounded-2xl border border-primary/20 bg-primary/[.04] p-5"><div className="flex items-start justify-between gap-4"><div><p className="text-[9px] font-bold uppercase tracking-[.16em] text-primary">Release feedback loop</p><h3 className="mt-2 text-xl font-semibold">A challenger must earn the live lane</h3></div><FlaskConical className="size-5 text-primary" /></div><p className="mt-4 text-xs leading-6 text-white/40">QLoRA returns to production only after the same held-out evaluation proves it beats prompt + RAG on grounding, safety, style, latency, and cost.</p><div className="mt-4"><EvidenceLink href={evidence.modelCard} label="Open release criteria" /></div></div>
+    </section>
+  </div>;
 }
 
 function Overview() { return <div className="mt-4 grid gap-4 xl:grid-cols-[1fr_1fr_360px]">
@@ -107,6 +155,10 @@ function Evals() { return <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0
 
 function Traces() { const total = trace.reduce((sum, item) => sum + item.duration, 0); return <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_390px]"><Panel eyebrow="Measured workflow trace" title="Six agents · one governed draft" icon={<Workflow />} evidenceHref={evidence.workflow}><div className="mt-7 space-y-2">{trace.map((item, index) => <div key={item.stage} className="grid grid-cols-[42px_1fr_auto] items-center gap-3 rounded-xl border border-white/8 bg-white/[.02] p-4"><span className="grid size-8 place-items-center rounded-lg bg-primary/10 font-mono text-[10px] text-primary">0{index + 1}</span><div><p className="font-mono text-xs text-primary">{item.stage}</p><p className="mt-1 text-[10px] leading-5 text-white/40">{item.detail}</p><div className="mt-2 h-1 overflow-hidden rounded-full bg-white/8"><div className="h-full bg-primary" style={{ width: `${Math.max(30, item.duration / 2 * 100)}%` }} /></div></div><div className="text-right"><p className="font-mono text-xs">{item.duration} ms</p><p className="mt-1 text-[9px] text-emerald-300">PASSED</p><div className="mt-2"><EvidenceLink href={item.href} compact /></div></div></div>)}</div></Panel><div className="space-y-4"><Panel eyebrow="Trace summary" title={`${total} ms recorded`} icon={<Clock3 />} evidenceHref={evidence.index + '#verification-snapshot'}><div className="mt-6 grid grid-cols-2 gap-2"><Metric value="6" label="Spans" href={evidence.tests} /><Metric value="0" label="Errors" href={evidence.index + '#verification-snapshot'} /><Metric value="2 ms" label="Longest span" href={evidence.index + '#claim-to-evidence-matrix'} /><Metric value="100%" label="Completed" href={evidence.index + '#verification-snapshot'} /></div><p className="mt-5 text-[10px] leading-5 text-white/35">Durations come from the local deterministic fixture and should not be interpreted as LLM production latency. <span className="ml-1"><EvidenceLink href={evidence.index + '#evidence-boundaries'} compact /></span></p></Panel><Panel eyebrow="Privacy posture" title="Minimal trace payload" icon={<ShieldCheck />} evidenceHref={evidence.traceRecorder}><div className="mt-5 space-y-2"><Inventory label="Stage name" state="Stored" href={evidence.traceRecorder} /><Inventory label="Duration and status" state="Stored" href={evidence.traceRecorder} /><Inventory label="Operational detail" state="Stored" href={evidence.traceRecorder} /><Inventory label="Raw prompts" state="Excluded" href={evidence.traceRecorder} /><Inventory label="Full story body" state="Excluded" href={evidence.traceRecorder} /></div></Panel></div></div>; }
 
+type FlowNodeData = { number: string; title: string; detail: string; metric: string; icon: React.ReactNode; state: 'active' | 'pass' | 'gated' | 'waiting'; href: string };
+function FlowLane({ label, status, tone, active, nodes }: { label: string; status: string; tone: 'live' | 'training'; active: boolean; nodes: FlowNodeData[] }) { const live = tone === 'live'; return <section className={`flow-lane relative overflow-hidden rounded-2xl border p-5 transition duration-500 sm:p-6 ${live ? 'flow-lane-live border-emerald-300/20 bg-emerald-300/[.025]' : 'flow-lane-training border-amber-200/20 bg-amber-200/[.025]'} ${active ? 'scale-[1.005] opacity-100 shadow-[0_0_80px_rgba(196,255,74,.07)]' : 'opacity-45 hover:opacity-90'}`}><div className="relative z-10 mb-5 flex items-center justify-between gap-4"><div className="flex items-center gap-3"><span className={`relative flex size-3 ${live ? 'text-emerald-300' : 'text-amber-200'}`}><span className={`absolute inline-flex size-full animate-ping rounded-full opacity-40 ${live ? 'bg-emerald-300' : 'bg-amber-200'}`} /><span className={`relative inline-flex size-3 rounded-full ${live ? 'bg-emerald-300' : 'bg-amber-200'}`} /></span><h3 className="text-sm font-semibold">{label}</h3></div><span className={`rounded-full border px-3 py-1 font-mono text-[9px] ${live ? 'border-emerald-300/20 text-emerald-300' : 'border-amber-200/20 text-amber-200'}`}>{status}</span></div><div className="relative z-10 flex snap-x gap-2 overflow-x-auto pb-2">{nodes.map((node, index) => <div key={node.title} className="contents"><FlowNode node={node} tone={tone} />{index < nodes.length - 1 && <div className="flow-connector relative my-auto h-px w-8 shrink-0 overflow-visible bg-white/10"><span className={`flow-packet absolute -top-1 left-0 size-2 rounded-full ${live ? 'bg-emerald-300 shadow-[0_0_14px_#6ee7b7]' : 'bg-amber-200 shadow-[0_0_14px_#fde68a]'}`} style={{ animationDelay: `${index * .55}s` }} /><span className="absolute -right-1 -top-2.5 text-sm text-white/20">›</span></div>}</div>)}</div></section>; }
+function FlowNode({ node, tone }: { node: FlowNodeData; tone: 'live' | 'training' }) { const live = tone === 'live'; const gated = node.state === 'gated'; const waiting = node.state === 'waiting'; return <article style={{ animationDelay: `${(Number(node.number) - 1) * .45}s` }} className={`flow-node group min-w-[185px] flex-1 snap-start rounded-xl border p-4 transition hover:-translate-y-0.5 ${gated ? 'flow-node-gated border-amber-200/30 bg-amber-200/[.05]' : waiting ? 'flow-node-waiting border-white/8 bg-black/10' : live ? 'flow-node-live border-emerald-300/15 bg-[#101713]' : 'border-amber-200/15 bg-[#17150f]'}`}><div className="flex items-start justify-between"><span className={`grid size-8 place-items-center rounded-lg [&>svg]:size-4 ${gated ? 'bg-amber-200/10 text-amber-200' : waiting ? 'bg-white/5 text-white/25' : live ? 'bg-emerald-300/10 text-emerald-300' : 'bg-amber-200/10 text-amber-200'}`}>{node.icon}</span><span className="font-mono text-[8px] text-white/20">{node.number}</span></div><p className="mt-5 text-sm font-semibold">{node.title}</p><p className="mt-1 min-h-8 text-[9px] leading-4 text-white/35">{node.detail}</p><div className="mt-4 flex items-center justify-between gap-2"><span className={`font-mono text-[8px] ${gated ? 'text-amber-200' : waiting ? 'text-white/25' : 'text-emerald-300'}`}>{node.metric}</span><EvidenceLink href={node.href} compact /></div></article>; }
+function FlowMetric({ value, label }: { value: string; label: string }) { return <div className="rounded-lg border border-white/6 bg-black/10 p-2 text-center"><p className="font-mono text-xs text-white/70">{value}</p><p className="mt-1 text-[8px] uppercase tracking-[.1em] text-white/25">{label}</p></div>; }
 function NavTab({ active, onClick, icon, label }: { active: boolean; onClick: () => void; icon: React.ReactNode; label: string }) { return <button onClick={onClick} className={`flex shrink-0 items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold transition [&>svg]:size-3.5 ${active ? 'bg-primary text-primary-foreground' : 'text-white/40 hover:bg-white/5 hover:text-white'}`}>{icon}{label}</button>; }
 function EvidenceLink({ href, label = 'Evidence', compact = false }: { href: string; label?: string; compact?: boolean }) { return <a href={href} target="_blank" rel="noreferrer" aria-label={`${label} (opens in a new tab)`} className={`inline-flex shrink-0 items-center gap-1 rounded-full border border-primary/20 bg-primary/[.05] font-semibold text-primary transition hover:border-primary/40 hover:bg-primary/10 ${compact ? 'px-2 py-1 text-[8px]' : 'px-3 py-1.5 text-[9px]'}`}>{compact ? 'EVIDENCE' : label}<ArrowUpRight className="size-2.5" /></a>; }
 function EvidenceListItem({ text, href }: { text: string; href: string }) { return <li className="flex items-start justify-between gap-3"><span>• {text}</span><EvidenceLink href={href} compact /></li>; }
