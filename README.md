@@ -4,6 +4,7 @@ UltraMedia Studio is an AI newsroom for ultramarathons. It converts race timing,
 
 - **Product:** [ultramedia-studio.siva-babu.chatgpt.site](https://ultramedia-studio.siva-babu.chatgpt.site)
 - **Working newsroom:** `/studio`
+- **Model observability:** `/observability`
 - **API docs:** `http://localhost:8000/docs` when the Python service is running
 - **System design:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
@@ -72,6 +73,8 @@ cd backend
 
 The release gate currently measures retrieval recall, citation validity, mandatory human review, and unsupported sensitive inference. The checked-in fixture is deliberately small and synthetic; provider-backed and large-corpus results must be labeled separately from local deterministic results.
 
+The QLoRA training pipeline is implemented but has not produced an adapter. Its approval-only data gate currently has zero eligible examples and requires at least 20; see [`docs/FINETUNING_OBSERVABILITY.md`](docs/FINETUNING_OBSERVABILITY.md) for the measured-versus-planned boundary.
+
 ## Local model and fine-tuning
 
 Run the base model without an API bill:
@@ -114,4 +117,3 @@ backend/data/            Governed synthetic portfolio fixture
 docs/                    Architecture, governance, deployment, model card
 docker-compose.yml       PostgreSQL, API, Phoenix, optional Ollama
 ```
-
