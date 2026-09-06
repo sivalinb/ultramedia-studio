@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Activity, ArrowUpRight, Bot, CheckCircle2, Clock3, Database, Eye, Film, FlaskConical, Gauge, Layers3, MapPin, Play, Radio, Share2, ShieldCheck, SlidersHorizontal, Sparkles, TrendingUp, Workflow, Zap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 
 const stories = [
   { time: '19:42', eyebrow: 'Turning point detected', title: 'The race just changed in the canyons.', copy: 'Mara Velez gained 11 positions from Devil’s Thumb to Michigan Bluff—her strongest sustained climb of the day.', signal: '+11 places' },
@@ -35,7 +35,7 @@ export default function Home() {
             <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-70" /><span className="relative inline-flex size-2 rounded-full bg-primary" /></span>
             <span className="font-semibold">LIVE · WESTERN STATES 100</span><span className="text-white/40">19:42 PDT</span>
           </div>
-          <Button size="sm" className="rounded-full font-bold" asChild><a href="#newsroom">Open newsroom <ArrowUpRight className="size-4" /></a></Button>
+          <a href="#newsroom" className={buttonVariants({ size: 'sm', className: 'rounded-full font-bold' })}>Open newsroom <ArrowUpRight className="size-4" /></a>
         </div>
       </header>
 
@@ -49,7 +49,7 @@ export default function Home() {
               <p className="mb-5 text-[10px] font-bold uppercase tracking-[.24em] text-primary">UltraMedia Studio</p>
               <h1 className="max-w-3xl text-[clamp(3.5rem,7.2vw,7.8rem)] font-black uppercase leading-[.82] tracking-[-.075em]">The AI newsroom for every mile.</h1>
               <p className="mt-7 max-w-2xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">UltraMedia helps race organizers, broadcasters, sponsors, and media teams turn live timing, GPS, weather, course, and historical data into verified stories, commentary, social highlights, and personalized finisher recaps.</p>
-              <div className="mt-8 flex flex-wrap gap-3"><Button size="lg" className="rounded-full px-6 font-bold" asChild><a href="#newsroom">Explore the product <ArrowUpRight className="size-4" /></a></Button><Button size="lg" variant="outline" className="rounded-full border-white/20 bg-black/20 px-6 backdrop-blur hover:bg-white/10" asChild><a href="#model-lab">See how the AI works</a></Button></div>
+              <div className="mt-8 flex flex-wrap gap-3"><a href="#newsroom" className={buttonVariants({ size: 'lg', className: 'rounded-full px-6 font-bold' })}>Explore the product <ArrowUpRight className="size-4" /></a><a href="#model-lab" className={buttonVariants({ size: 'lg', variant: 'outline', className: 'rounded-full border-white/20 bg-black/20 px-6 backdrop-blur hover:bg-white/10' })}>See how the AI works</a></div>
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-5 text-[10px] font-bold uppercase tracking-[.15em] text-white/45"><span>Race organizers</span><span>Broadcast teams</span><span>Sponsors</span><span>Athletes & fans</span></div>
           </div>
@@ -73,7 +73,7 @@ export default function Home() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(196,255,74,.08),transparent_30%)]" />
             <div className="relative z-10 flex h-full flex-col">
               <div className="flex flex-wrap items-center justify-between gap-3"><Badge className="rounded-full bg-primary text-primary-foreground hover:bg-primary"><Sparkles className="mr-1 size-3" /> {story.eyebrow}</Badge><span className="flex items-center gap-1.5 font-mono text-[10px] text-white/40"><Clock3 className="size-3" /> Detected {story.time}</span></div>
-              <div className="my-auto py-10"><h2 className="max-w-4xl text-[clamp(2.8rem,6vw,6.8rem)] font-black uppercase leading-[0.83] tracking-[-0.07em]">{story.title}</h2><p className="mt-7 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">{story.copy}</p><div className="mt-7 flex flex-wrap gap-3"><Button className="rounded-full font-bold" onClick={() => setHighlightBuilt(true)}><Play className="size-4 fill-current" /> {highlightBuilt ? 'Draft ready' : 'Build highlight'}</Button><Button variant="outline" className="rounded-full border-white/15 bg-white/[.03] hover:bg-white/10" asChild><a href="#model-lab" onClick={() => setActiveLab('trace')}><Eye className="size-4" /> Inspect evidence</a></Button></div></div>
+              <div className="my-auto py-10"><h2 className="max-w-4xl text-[clamp(2.8rem,6vw,6.8rem)] font-black uppercase leading-[0.83] tracking-[-0.07em]">{story.title}</h2><p className="mt-7 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">{story.copy}</p><div className="mt-7 flex flex-wrap gap-3"><Button className="rounded-full font-bold" onClick={() => setHighlightBuilt(true)}><Play className="size-4 fill-current" /> {highlightBuilt ? 'Draft ready' : 'Build highlight'}</Button><a href="#model-lab" onClick={() => setActiveLab('trace')} className={buttonVariants({ variant: 'outline', className: 'rounded-full border-white/15 bg-white/[.03] hover:bg-white/10' })}><Eye className="size-4" /> Inspect evidence</a></div></div>
               <div className="rounded-2xl border border-white/10 bg-black/20 p-4 sm:p-5"><div className="mb-3 flex items-center justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/35">Race profile · Mile 62</p><p className="mt-1 text-xs font-semibold">Devil’s Thumb → Michigan Bluff</p></div><span className="font-mono text-xs text-primary">+2,884 ft</span></div><ElevationChart /><div className="mt-3 grid grid-cols-3 gap-2"><Signal label="Record probability" value="68%" /><Signal label="Projected win" value="13:58" /><Signal label="Pace signal" value="Steady" /></div></div>
             </div>
           </article>
