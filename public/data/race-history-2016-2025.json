@@ -1,0 +1,34 @@
+{
+  "snapshot": "2016-2025",
+  "updated": "2026-09-06",
+  "methodology": "Public aggregate and winner data. Cancelled editions remain explicit; null means the source snapshot did not provide that aggregate in this product view.",
+  "sources": {
+    "utmb": "https://montblanc.utmb.world/en/results",
+    "western_states": "https://www.wser.org/results/",
+    "hardrock": "https://www.hardrock100.com/hardrock-pastresults.php",
+    "cocodona": "https://www.aravaiparunning.com/cocodona/"
+  },
+  "races": {
+    "utmb": [
+      {"year":2016,"starters":2555,"finishers":1468,"finish_rate":57.5,"men_winner":"Ludovic Pommeret","men_time":"22:00:02","women_winner":"Caroline Chaverot","women_time":"25:15:40"},
+      {"year":2017,"starters":2537,"finishers":1687,"finish_rate":66.5,"men_winner":"François D'Haene","men_time":"19:01:54","women_winner":"Núria Picas","women_time":"25:46:43"},
+      {"year":2018,"starters":2561,"finishers":1778,"finish_rate":69.4,"men_winner":"Xavier Thévenard","men_time":"20:44:16","women_winner":"Francesca Canepa","women_time":"26:03:48"},
+      {"year":2019,"starters":2543,"finishers":1556,"finish_rate":61.2,"men_winner":"Pau Capell","men_time":"20:19:07","women_winner":"Courtney Dauwalter","women_time":"24:34:26"},
+      {"year":2020,"status":"cancelled"},
+      {"year":2021,"starters":2346,"finishers":1521,"finish_rate":64.8,"men_winner":"François D'Haene","men_time":"20:45:59","women_winner":"Courtney Dauwalter","women_time":"22:30:54"},
+      {"year":2022,"starters":2795,"finishers":1789,"finish_rate":64.0,"men_winner":"Kilian Jornet","men_time":"19:49:30","women_winner":"Katie Schide","women_time":"23:15:12"},
+      {"year":2023,"starters":2693,"finishers":1757,"finish_rate":65.2,"men_winner":"Jim Walmsley","men_time":"19:37:43","women_winner":"Courtney Dauwalter","women_time":"23:29:14"},
+      {"year":2024,"starters":2761,"finishers":1760,"finish_rate":63.7,"men_winner":"Vincent Bouillard","men_time":"19:54:23","women_winner":"Katie Schide","women_time":"22:09:31"},
+      {"year":2025,"starters":2492,"finishers":1665,"finish_rate":66.8,"men_winner":"Tom Evans","men_time":"19:18:58","women_winner":"Ruth Croft","women_time":"22:56:23"}
+    ],
+    "western_states": [
+      {"year":2016,"starters":353,"finishers":280,"finish_rate":79.3,"sub_24":102},{"year":2017,"starters":369,"finishers":248,"finish_rate":67.2,"sub_24":76},{"year":2018,"starters":369,"finishers":299,"finish_rate":81.0,"sub_24":123},{"year":2019,"starters":369,"finishers":319,"finish_rate":86.4,"sub_24":130},{"year":2020,"status":"cancelled"},{"year":2021,"starters":315,"finishers":208,"finish_rate":66.0,"sub_24":57},{"year":2022,"starters":383,"finishers":305,"finish_rate":79.6,"sub_24":101},{"year":2023,"starters":379,"finishers":328,"finish_rate":86.5,"sub_24":110},{"year":2024,"starters":375,"finishers":286,"finish_rate":76.3,"sub_24":109},{"year":2025,"starters":369,"finishers":285,"finish_rate":77.2,"sub_24":92}
+    ],
+    "hardrock": [
+      {"year":2016,"winner":"Kilian Jornet","time":"22:58:28"},{"year":2017,"winner":"Kilian Jornet","time":"24:32:19"},{"year":2018,"winner":"Jeff Browning","time":"26:20:21"},{"year":2019,"status":"cancelled"},{"year":2020,"status":"cancelled"},{"year":2021,"winner":"François D'Haene","time":"21:45:50"},{"year":2022,"winner":"Kilian Jornet","time":"21:36:24"},{"year":2023,"winner":"Aurélien Dunand-Pallaz","time":"23:00:30"},{"year":2024,"winner":"Ludovic Pommeret","time":"21:33:06"},{"year":2025,"winner":"Ludovic Pommeret","time":"22:21:53"}
+    ],
+    "cocodona": [
+      {"year":2021,"starters":174,"finishers":108,"finish_rate":62.1,"men_winner":"Michael Versteeg","men_time":"72:50:25","women_winner":"Maggie Guterl","women_time":"85:30:38"},{"year":2022,"men_winner":"Joe McConaughy","men_time":"59:28:54","women_winner":"Annie Hughes","women_time":"71:10:22"},{"year":2023,"starters":193,"finishers":139,"finish_rate":72.0,"men_winner":"Michael McKnight","men_time":"69:41:31","women_winner":"Sarah Ostaszewski","women_time":"72:50:27"},{"year":2024,"starters":220,"finishers":151,"finish_rate":68.6,"men_winner":"Harry Subertas","men_time":"59:50:55","women_winner":"Rachel Entrekin","women_time":"73:31:25"},{"year":2025,"men_winner":"Dan Green","men_time":"58:47:18","women_winner":"Rachel Entrekin","women_time":"63:50:55"}
+    ]
+  }
+}
