@@ -40,6 +40,21 @@ export default function Home() {
       </header>
 
       <div id="top" className="mx-auto max-w-[1600px] px-4 py-5 sm:px-6">
+        <section className="relative mb-20 min-h-[700px] overflow-hidden rounded-[2rem] border border-white/10 bg-cover bg-[position:62%_center] shadow-[0_40px_140px_rgba(0,0,0,.48)]" style={{ backgroundImage: "url('/river-crossing-hero.png')" }} aria-label="Ultra runners crossing a mountain river at dawn">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,10,8,.96)_0%,rgba(6,10,8,.78)_35%,rgba(6,10,8,.20)_70%,rgba(6,10,8,.08)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07100a]/75 via-transparent to-black/10" />
+          <div className="relative z-10 flex min-h-[700px] max-w-3xl flex-col justify-between p-6 sm:p-10 lg:p-14">
+            <div className="flex items-center gap-2"><Badge className="rounded-full bg-primary text-primary-foreground"><Radio className="mr-1 size-3" /> Live endurance intelligence</Badge><span className="text-[10px] font-semibold uppercase tracking-[.15em] text-white/45">Built for race day</span></div>
+            <div className="py-16">
+              <p className="mb-5 text-[10px] font-bold uppercase tracking-[.24em] text-primary">UltraMedia Studio</p>
+              <h1 className="max-w-3xl text-[clamp(3.5rem,7.2vw,7.8rem)] font-black uppercase leading-[.82] tracking-[-.075em]">The AI newsroom for every mile.</h1>
+              <p className="mt-7 max-w-2xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">UltraMedia helps race organizers, broadcasters, sponsors, and media teams turn live timing, GPS, weather, course, and historical data into verified stories, commentary, social highlights, and personalized finisher recaps.</p>
+              <div className="mt-8 flex flex-wrap gap-3"><Button size="lg" className="rounded-full px-6 font-bold" asChild><a href="#newsroom">Explore the product <ArrowUpRight className="size-4" /></a></Button><Button size="lg" variant="outline" className="rounded-full border-white/20 bg-black/20 px-6 backdrop-blur hover:bg-white/10" asChild><a href="#model-lab">See how the AI works</a></Button></div>
+            </div>
+            <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-5 text-[10px] font-bold uppercase tracking-[.15em] text-white/45"><span>Race organizers</span><span>Broadcast teams</span><span>Sponsors</span><span>Athletes & fans</span></div>
+          </div>
+        </section>
+
         <div className="mb-5 flex items-end justify-between gap-6">
           <div><p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Race intelligence / Live studio</p><h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Every mile becomes a story.</h1></div>
           <p className="hidden max-w-md text-right text-xs leading-relaxed text-white/45 md:block">AI-assisted race coverage grounded in timing, course, weather, and historical data. Human-approved before publish.</p>
