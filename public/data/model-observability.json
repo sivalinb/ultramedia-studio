@@ -35,6 +35,29 @@
     ],
     "tests": {"passed": 6, "failed": 0}
   },
+  "measured_trace": {
+    "trace_id": "bc42946f-0351-4bd5-b122-ce709a0dcb0a",
+    "provider": "local-deterministic",
+    "total_duration_ms": 7,
+    "spans": [
+      {"stage": "moment_detector", "duration_ms": 1, "status": "passed"},
+      {"stage": "evidence_retriever", "duration_ms": 2, "status": "passed"},
+      {"stage": "story_writer", "duration_ms": 1, "status": "passed"},
+      {"stage": "fact_verifier", "duration_ms": 1, "status": "passed"},
+      {"stage": "safety_editor", "duration_ms": 1, "status": "passed"},
+      {"stage": "human_review_queue", "duration_ms": 1, "status": "passed"}
+    ]
+  },
+  "evidence": {
+    "register": "https://github.com/sivalinb/ultramedia-studio/blob/main/docs/OBSERVABILITY_EVIDENCE.md",
+    "training_data_gate": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/scripts/prepare_training_data.py#L14-L69",
+    "qlora_configuration": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/scripts/train_qlora.py#L5-L71",
+    "adapter_merge": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/scripts/merge_adapter.py#L5-L19",
+    "evaluation_implementation": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/src/ultramedia/evals.py#L10-L75",
+    "test_implementation": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/tests/test_api.py#L1-L85",
+    "workflow_implementation": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/src/ultramedia/workflow.py#L26-L152",
+    "trace_privacy": "https://github.com/sivalinb/ultramedia-studio/blob/main/backend/src/ultramedia/observability.py#L15-L65"
+  },
   "limitations": [
     "No QLoRA adapter was trained because the approval-only data gate was not met.",
     "The six-case deterministic suite is a smoke test, not a production benchmark.",
