@@ -2,11 +2,16 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Activity, ArrowLeft, ArrowUpRight, Ban, Boxes, Check, CheckCircle2, CircleDot, Clock3, Code2, Database, Download, FlaskConical, GitBranch, Layers3, Radio, Server, ShieldCheck, SlidersHorizontal, TerminalSquare, Workflow, X } from 'lucide-react';
+import { Activity, ArrowLeft, ArrowUpRight, Ban, Boxes, Building2, Check, CheckCircle2, CircleDot, Clock3, Code2, Cpu, Database, Download, FlaskConical, GitBranch, Layers3, MapPin, Radio, Server, ShieldCheck, SlidersHorizontal, TerminalSquare, Thermometer, Workflow, X, Zap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-type View = 'flow' | 'overview' | 'finetuning' | 'evals' | 'traces';
+type View = 'infrastructure' | 'flow' | 'overview' | 'finetuning' | 'evals' | 'traces';
+type InfrastructureScope = 'center' | 'hall' | 'row';
+type InfrastructureRow = { id: string; name: string; racks: number; utilization: number; temperature: number; power: number; pue: number; latency: number; workloads: number; status: 'healthy' | 'watch' };
+type InfrastructureHall = { id: string; name: string; rows: InfrastructureRow[] };
+type InfrastructureCenter = { id: string; name: string; region: string; halls: InfrastructureHall[] };
 
 const repo = 'https://github.com/sivalinb/ultramedia-studio';
 const evidence = {
@@ -25,7 +30,35 @@ const evidence = {
   modelCard: `${repo}/blob/main/docs/MODEL_CARD.md`,
   deployment: `${repo}/blob/main/docs/DEPLOYMENT.md`,
   qwenLicense: 'https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507',
+  infrastructure: `${repo}/blob/main/public/data/datacenter-telemetry.json`,
 };
+
+const infrastructureSites: InfrastructureCenter[] = [
+  { id: 'den-01', name: 'Denver Edge 01', region: 'US Mountain', halls: [
+    { id: 'hall-a', name: 'Hall A · Live inference', rows: [
+      { id: 'a1', name: 'A1 · GPU inference', racks: 12, utilization: 68, temperature: 22.4, power: 142, pue: 1.21, latency: 18, workloads: 42, status: 'healthy' },
+      { id: 'a2', name: 'A2 · Retrieval', racks: 10, utilization: 54, temperature: 21.9, power: 108, pue: 1.19, latency: 12, workloads: 31, status: 'healthy' },
+      { id: 'a3', name: 'A3 · Model serving', racks: 14, utilization: 76, temperature: 23.8, power: 178, pue: 1.24, latency: 24, workloads: 55, status: 'watch' },
+    ] },
+    { id: 'hall-b', name: 'Hall B · Training lab', rows: [
+      { id: 'b1', name: 'B1 · QLoRA sandbox', racks: 8, utilization: 38, temperature: 21.6, power: 84, pue: 1.18, latency: 16, workloads: 12, status: 'healthy' },
+      { id: 'b2', name: 'B2 · Evaluation', racks: 10, utilization: 63, temperature: 24.8, power: 126, pue: 1.27, latency: 21, workloads: 27, status: 'watch' },
+      { id: 'b3', name: 'B3 · Cold standby', racks: 8, utilization: 12, temperature: 20.7, power: 36, pue: 1.16, latency: 14, workloads: 4, status: 'healthy' },
+    ] },
+  ] },
+  { id: 'pdx-02', name: 'Portland Core 02', region: 'US West', halls: [
+    { id: 'hall-c', name: 'Hall C · Production', rows: [
+      { id: 'c1', name: 'C1 · Primary models', racks: 16, utilization: 72, temperature: 22.9, power: 196, pue: 1.22, latency: 20, workloads: 61, status: 'healthy' },
+      { id: 'c2', name: 'C2 · Vector search', racks: 12, utilization: 66, temperature: 23.1, power: 151, pue: 1.23, latency: 15, workloads: 48, status: 'healthy' },
+      { id: 'c3', name: 'C3 · Media pipeline', racks: 14, utilization: 81, temperature: 25.1, power: 204, pue: 1.29, latency: 29, workloads: 68, status: 'watch' },
+    ] },
+    { id: 'hall-d', name: 'Hall D · Resilience', rows: [
+      { id: 'd1', name: 'D1 · Failover', racks: 10, utilization: 22, temperature: 20.9, power: 57, pue: 1.17, latency: 19, workloads: 8, status: 'healthy' },
+      { id: 'd2', name: 'D2 · Archive', racks: 12, utilization: 44, temperature: 21.3, power: 91, pue: 1.18, latency: 31, workloads: 19, status: 'healthy' },
+      { id: 'd3', name: 'D3 · Recovery', racks: 10, utilization: 31, temperature: 21.8, power: 69, pue: 1.18, latency: 23, workloads: 11, status: 'healthy' },
+    ] },
+  ] },
+];
 
 const evals = [
   { name: 'Retrieval recall @3', score: 100, target: '≥ 75%', note: '4/4 expected evidence records retrieved', href: `${repo}/blob/main/backend/src/ultramedia/evals.py#L10-L23` },
@@ -68,7 +101,7 @@ const trainingFlow = [
 ];
 
 export default function ObservabilityPage() {
-  const [view, setView] = useState<View>('flow');
+  const [view, setView] = useState<View>('infrastructure');
   return (
     <main className="min-h-screen bg-[#080b09] text-foreground">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080b09]/95 backdrop-blur-xl">
@@ -89,6 +122,7 @@ export default function ObservabilityPage() {
         </section>
 
         <nav className="mt-4 flex gap-1 overflow-x-auto rounded-xl border border-white/10 bg-[#0d120f] p-1" aria-label="Observability views">
+          <NavTab active={view === 'infrastructure'} onClick={() => setView('infrastructure')} icon={<Building2 />} label="Data center twin" />
           <NavTab active={view === 'flow'} onClick={() => setView('flow')} icon={<Workflow />} label="Live system flow" />
           <NavTab active={view === 'overview'} onClick={() => setView('overview')} icon={<CircleDot />} label="Overview" />
           <NavTab active={view === 'finetuning'} onClick={() => setView('finetuning')} icon={<SlidersHorizontal />} label="Fine-tuning method" />
@@ -97,6 +131,7 @@ export default function ObservabilityPage() {
           <a href={evidence.index + '#verification-snapshot'} target="_blank" rel="noreferrer" className="ml-auto hidden items-center gap-2 px-3 font-mono text-[9px] text-white/25 transition hover:text-primary md:flex"><Clock3 className="size-3" /> Snapshot · Sep 6, 2026 <ArrowUpRight className="size-2.5" /></a>
         </nav>
 
+        {view === 'infrastructure' && <DataCenterTwin />}
         {view === 'flow' && <SystemFlow />}
         {view === 'overview' && <Overview />}
         {view === 'finetuning' && <FineTuning />}
@@ -107,6 +142,88 @@ export default function ObservabilityPage() {
       </div>
     </main>
   );
+}
+
+function DataCenterTwin() {
+  const [scope, setScope] = useState<InfrastructureScope>('center');
+  const [centerId, setCenterId] = useState(infrastructureSites[0].id);
+  const center = infrastructureSites.find((item) => item.id === centerId) ?? infrastructureSites[0];
+  const [hallId, setHallId] = useState(center.halls[0].id);
+  const hall = center.halls.find((item) => item.id === hallId) ?? center.halls[0];
+  const [rowId, setRowId] = useState(hall.rows[0].id);
+  const row = hall.rows.find((item) => item.id === rowId) ?? hall.rows[0];
+  const visibleRows = scope === 'center' ? center.halls.flatMap((item) => item.rows) : scope === 'hall' ? hall.rows : [row];
+  const racks = visibleRows.reduce((sum, item) => sum + item.racks, 0);
+  const power = visibleRows.reduce((sum, item) => sum + item.power, 0);
+  const workloads = visibleRows.reduce((sum, item) => sum + item.workloads, 0);
+  const utilization = Math.round(visibleRows.reduce((sum, item) => sum + item.utilization, 0) / visibleRows.length);
+  const temperature = (visibleRows.reduce((sum, item) => sum + item.temperature, 0) / visibleRows.length).toFixed(1);
+  const pue = (visibleRows.reduce((sum, item) => sum + item.pue, 0) / visibleRows.length).toFixed(2);
+  const watchRows = visibleRows.filter((item) => item.status === 'watch');
+
+  function changeCenter(value: string | null) {
+    if (!value) return;
+    const nextCenter = infrastructureSites.find((item) => item.id === value) ?? infrastructureSites[0];
+    setCenterId(nextCenter.id);
+    setHallId(nextCenter.halls[0].id);
+    setRowId(nextCenter.halls[0].rows[0].id);
+  }
+
+  function changeHall(value: string | null) {
+    if (!value) return;
+    const nextHall = center.halls.find((item) => item.id === value) ?? center.halls[0];
+    setHallId(nextHall.id);
+    setRowId(nextHall.rows[0].id);
+  }
+
+  return <div className="mt-4 space-y-4">
+    <section className="rounded-2xl border border-cyan-300/15 bg-[#0b1111] p-4 sm:p-6">
+      <div className="flex flex-col justify-between gap-5 xl:flex-row xl:items-end">
+        <div><div className="flex items-center gap-2 text-sm font-bold uppercase tracking-[.16em] text-cyan-300"><span className="size-2 animate-pulse rounded-full bg-cyan-300" /> Infrastructure digital twin</div><h2 className="mt-2 text-2xl font-black uppercase tracking-[-.03em] sm:text-4xl">Zoom from campus to rack row</h2><p className="mt-3 max-w-3xl text-base leading-7 text-white/50">Explore where UltraMedia workloads would run, then isolate capacity, thermal, power, and health signals at each physical level.</p></div>
+        <div className="flex flex-wrap items-center gap-2"><Badge variant="outline" className="h-8 border-cyan-300/20 bg-cyan-300/[.05] px-3 text-xs text-cyan-200">PORTFOLIO DEMO TELEMETRY</Badge><EvidenceLink href={evidence.infrastructure} label="Open demo dataset" /></div>
+      </div>
+
+      <div className="mt-6 grid gap-3 lg:grid-cols-3">
+        <div className="space-y-2"><label htmlFor="infrastructure-center" className="flex items-center gap-2 text-sm font-semibold text-white/55"><MapPin className="size-4 text-cyan-300" /> Data center</label><Select value={center.id} onValueChange={changeCenter}><SelectTrigger id="infrastructure-center" className="h-11 w-full border-white/10 bg-black/20 px-3"><SelectValue /></SelectTrigger><SelectContent>{infrastructureSites.map((item) => <SelectItem key={item.id} value={item.id}>{item.name} · {item.region}</SelectItem>)}</SelectContent></Select></div>
+        <div className="space-y-2"><label htmlFor="infrastructure-hall" className="flex items-center gap-2 text-sm font-semibold text-white/55"><Building2 className="size-4 text-cyan-300" /> Data hall</label><Select value={hall.id} onValueChange={changeHall}><SelectTrigger id="infrastructure-hall" className="h-11 w-full border-white/10 bg-black/20 px-3"><SelectValue /></SelectTrigger><SelectContent>{center.halls.map((item) => <SelectItem key={item.id} value={item.id}>{item.name}</SelectItem>)}</SelectContent></Select></div>
+        <div className="space-y-2"><label htmlFor="infrastructure-row" className="flex items-center gap-2 text-sm font-semibold text-white/55"><Server className="size-4 text-cyan-300" /> Rack row</label><Select value={row.id} onValueChange={(value) => value && setRowId(value)}><SelectTrigger id="infrastructure-row" className="h-11 w-full border-white/10 bg-black/20 px-3"><SelectValue /></SelectTrigger><SelectContent>{hall.rows.map((item) => <SelectItem key={item.id} value={item.id}>{item.name}</SelectItem>)}</SelectContent></Select></div>
+      </div>
+    </section>
+
+    <section className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="overflow-hidden rounded-2xl border border-cyan-300/15 bg-[#080d0e]">
+        <div className="flex flex-col gap-4 border-b border-white/8 p-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div><p className="text-sm font-semibold text-white">{scope === 'center' ? center.name : scope === 'hall' ? hall.name : row.name}</p><p className="mt-1 text-xs text-white/35">{center.region} · {scope === 'center' ? `${center.halls.length} halls` : scope === 'hall' ? `${hall.rows.length} rows` : `${row.racks} racks`}</p></div>
+          <fieldset className="flex w-fit rounded-xl border border-white/10 bg-black/30 p-1"><legend className="sr-only">Digital twin camera level</legend><ScopeButton active={scope === 'center'} onClick={() => setScope('center')} label="Center" /><ScopeButton active={scope === 'hall'} onClick={() => setScope('hall')} label="Hall" /><ScopeButton active={scope === 'row'} onClick={() => setScope('row')} label="Row" /></fieldset>
+        </div>
+        <DataCenterScene scope={scope} center={center} hall={hall} row={row} />
+        <div className="grid grid-cols-2 gap-px border-t border-white/8 bg-white/8 sm:grid-cols-3 xl:grid-cols-6"><InfrastructureMetric icon={<Cpu />} value={`${utilization}%`} label="Compute" /><InfrastructureMetric icon={<Thermometer />} value={`${temperature}°C`} label="Intake" warn={Number(temperature) >= 24.5} /><InfrastructureMetric icon={<Zap />} value={`${power} kW`} label="IT load" /><InfrastructureMetric icon={<Activity />} value={pue} label="PUE" /><InfrastructureMetric icon={<Server />} value={`${racks}`} label="Racks" /><InfrastructureMetric icon={<Workflow />} value={`${workloads}`} label="Workloads" /></div>
+      </div>
+
+      <aside className="space-y-4">
+        <section className="rounded-2xl border border-white/10 bg-[#0d120f] p-5"><div className="flex items-center justify-between"><div><p className="text-xs font-bold uppercase tracking-[.14em] text-cyan-300">Scope health</p><h3 className="mt-2 text-xl font-semibold">{watchRows.length ? `${watchRows.length} item${watchRows.length > 1 ? 's' : ''} to watch` : 'All systems nominal'}</h3></div><span className={`grid size-10 place-items-center rounded-full ${watchRows.length ? 'bg-amber-200/10 text-amber-200' : 'bg-emerald-300/10 text-emerald-300'}`}>{watchRows.length ? <Thermometer className="size-5" /> : <CheckCircle2 className="size-5" />}</span></div><div className="mt-5 space-y-2">{visibleRows.map((item) => <button key={item.id} type="button" aria-label={`Inspect ${item.name} in row view`} onClick={() => { const parentHall = center.halls.find((candidate) => candidate.rows.some((candidateRow) => candidateRow.id === item.id)); if (parentHall) setHallId(parentHall.id); setRowId(item.id); setScope('row'); }} className="flex w-full items-center justify-between rounded-xl border border-white/8 bg-white/[.02] p-3 text-left transition hover:border-cyan-300/30 hover:bg-cyan-300/[.04]"><span><span className="block text-sm font-semibold">{item.name}</span><span className="mt-1 block text-xs text-white/35">{item.utilization}% compute · {item.temperature}°C</span></span><span aria-hidden="true" className={`size-2.5 rounded-full ${item.status === 'watch' ? 'bg-amber-200 shadow-[0_0_12px_#fde68a]' : 'bg-emerald-300 shadow-[0_0_12px_#6ee7b7]'}`} /></button>)}</div></section>
+        <section className="rounded-2xl border border-cyan-300/15 bg-cyan-300/[.03] p-5"><p className="text-xs font-bold uppercase tracking-[.14em] text-cyan-300">Workload placement</p><div className="mt-5 space-y-4"><CapacityBar label="Inference agents" value={Math.min(88, utilization + 8)} /><CapacityBar label="Vector retrieval" value={Math.max(24, utilization - 14)} /><CapacityBar label="Evaluation jobs" value={Math.max(12, Math.round(utilization / 2))} /></div><p className="mt-5 text-xs leading-5 text-white/35">Synthetic operational values demonstrate the filtering and digital-twin experience; they are not readings from deployed hardware.</p></section>
+      </aside>
+    </section>
+  </div>;
+}
+
+function ScopeButton({ active, onClick, label }: { active: boolean; onClick: () => void; label: string }) { return <button type="button" onClick={onClick} aria-pressed={active} className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${active ? 'bg-cyan-300 text-[#061012]' : 'text-white/45 hover:text-white'}`}>{label}</button>; }
+
+function InfrastructureMetric({ icon, value, label, warn = false }: { icon: React.ReactNode; value: string; label: string; warn?: boolean }) { return <div className="bg-[#0b1111] p-4"><span className={`[&>svg]:size-4 ${warn ? 'text-amber-200' : 'text-cyan-300'}`}>{icon}</span><p className={`mt-3 font-mono text-lg ${warn ? 'text-amber-200' : 'text-white'}`}>{value}</p><p className="mt-1 text-xs text-white/35">{label}</p></div>; }
+
+function CapacityBar({ label, value }: { label: string; value: number }) { return <div><div className="flex items-center justify-between text-sm"><span className="text-white/55">{label}</span><span className="font-mono text-cyan-200">{value}%</span></div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/8"><div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-primary" style={{ width: `${value}%` }} /></div></div>; }
+
+function DataCenterScene({ scope, center, hall, row }: { scope: InfrastructureScope; center: InfrastructureCenter; hall: InfrastructureHall; row: InfrastructureRow }) {
+  return <div className={`dc-scene dc-scene-${scope}`} aria-label={`Animated 3D ${scope} view for ${scope === 'center' ? center.name : scope === 'hall' ? hall.name : row.name}`}>
+    <div className="dc-horizon" aria-hidden="true" />
+    <div className="dc-camera" aria-hidden="true">
+      {scope === 'center' && <div className="dc-campus"><div className="dc-campus-road" />{center.halls.map((item, index) => <div key={item.id} className={`dc-building dc-building-${index + 1}`}><span className="dc-cube-top" /><span className="dc-cube-side" /><span className="dc-cube-front"><Building2 /><b>{item.id.toUpperCase()}</b><small>{item.rows.length} rows</small></span></div>)}<div className="dc-power-ring"><span /><span /><span /></div></div>}
+      {scope === 'hall' && <div className="dc-hall"><div className="dc-cooling-rail dc-cooling-left" /><div className="dc-cooling-rail dc-cooling-right" /><div className="dc-aisle-floor" />{hall.rows.map((item, index) => <div key={item.id} className={`dc-row-bank dc-row-bank-${index + 1}`}><div className="dc-rack-face">{Array.from({ length: 7 }).map((_, light) => <i key={light} style={{ animationDelay: `${(index * 7 + light) * .09}s` }} />)}</div><span>{item.id.toUpperCase()}</span></div>)}</div>}
+      {scope === 'row' && <div className="dc-row"><div className="dc-row-floor" />{Array.from({ length: Math.min(row.racks, 12) }).map((_, index) => <div key={index} className={`dc-rack dc-rack-${index + 1} ${row.status === 'watch' && index === 7 ? 'dc-rack-watch' : ''}`}><span className="dc-rack-top" /><span className="dc-rack-side" /><span className="dc-rack-front">{Array.from({ length: 9 }).map((__, light) => <i key={light} style={{ animationDelay: `${(index + light) * .08}s` }} />)}</span><b>R{String(index + 1).padStart(2, '0')}</b></div>)}<div className="dc-packet-stream">{Array.from({ length: 5 }).map((_, index) => <i key={index} style={{ animationDelay: `${index * .45}s` }} />)}</div></div>}
+    </div>
+    <div className="dc-scene-hud"><span>LIVE DIGITAL TWIN</span><span>{scope.toUpperCase()} CAMERA · AUTO ORBIT</span></div>
+  </div>;
 }
 
 function SystemFlow() {
