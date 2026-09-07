@@ -64,3 +64,7 @@ The dashboard’s cinematic system map intentionally separates two operating mod
 3. The only bridge from online inference to offline learning is an editor-approved, evidence-linked draft. A trained adapter may return to the live lane only after it beats the prompt + RAG baseline on the model card’s release criteria.
 
 The same structure is available in machine-readable form in [`public/data/model-observability.json`](../public/data/model-observability.json).
+
+## Infrastructure digital twin boundary
+
+The data center, data hall, and rack-row views are an interactive portfolio demonstration of infrastructure observability. Their capacity, thermal, power, PUE, latency, workload, and health values are synthetic—not readings from deployed UltraMedia hardware. The complete hierarchy and displayed values are published in [`public/data/datacenter-telemetry.json`](../public/data/datacenter-telemetry.json) with the classification `synthetic_portfolio_demo` so the dashboard does not blur example telemetry with measured model evidence.
