@@ -63,6 +63,7 @@ export default function WeekFivePage() {
   const completed = model.status === 'completed' && model.results && model.training;
   const comparisons = (evidence as typeof evidence & { comparisons?: RecordedComparison[] }).comparisons ?? [];
   const trainingCompleted = (evidence as typeof evidence & { training_completed?: boolean }).training_completed;
+  const strongerControlPending = completed && !comparisons.some(item => item.id === 'stronger-prompt-control');
   const local = (evidence as typeof evidence & { local_serving?: LocalServing }).local_serving;
   const adapterDemo = (evidence as typeof evidence & { adapter_serving?: { browser_checks_passed: number; failed_model_cases: number } }).adapter_serving;
   return (
@@ -132,10 +133,10 @@ export default function WeekFivePage() {
               {comparisons.map(item => <li key={item.id}><a className="text-primary" href={'#' + item.id}>{item.title}: 120 cases per model</a></li>)}
             </ul>
             <div className="mt-5 border-t border-white/10 pt-5 text-sm leading-6">
-              <strong>{completed ? 'GPU comparison complete. Human review pending.' : 'Completed GPU comparison: pending.'}</strong>
+              <strong>{strongerControlPending ? 'Original GPU comparison complete. Stronger prompt control pending.' : completed ? 'GPU comparisons complete. Human review pending.' : 'Completed GPU comparison: pending.'}</strong>
               <p className="mt-2 text-muted-foreground">
                 {completed
-                  ? 'The scores below measure automatic structured checks. Editorial quality and real-race generalization still require human review.'
+                  ? 'The scores below measure automatic structured checks. Interpret the original result alongside the stronger shared-schema prompt control. Editorial quality and real-race generalization still require human review.'
                   : 'The verified local comparison is reported separately below. GPU prompt controls and human editorial review remain pending.'}
               </p>
             </div>

@@ -1,0 +1,26 @@
+2026-09-09 05:43:31.848935: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:14<00:29, 14.89s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:33<00:17, 17.24s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:34<00:00,  9.59s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:34<00:00, 11.42s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:13<00:27, 13.67s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:30<00:15, 15.78s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:31<00:00,  8.79s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:31<00:00, 10.46s/it]
+{
+  "automatic_success_delta": 0.6333333333333333,
+  "paired_group_bootstrap_95_interval": [
+    0.575,
+    0.7
+  ],
+  "human_review_complete": false,
+  "release_decision": "blocked_pending_human_review",
+  "note": "Synthetic experiment cannot authorize production. Inspect all regressions and blind editor review."
+}

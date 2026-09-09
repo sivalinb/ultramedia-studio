@@ -6,9 +6,9 @@
 
 ## Submission status
 
-The application, dataset, experiment runner, and notebook are implemented. A real local Qwen 4B model has completed a browser-to-API demonstration: **13 software checks passed**, and **33 backend tests passed**. The separate local-model workflow check retains **two failed generation cases**; this model is not ready for production.
+Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
 
-The frozen Colab T4 QLoRA run is in progress. GPU comparison scores remain unreported until the complete artifacts are verified. A stronger explicit-schema prompt control was predeclared before held-out GPU evaluation; both models must receive that same control. No trained-model quality improvement, human-approved example, or editor preference is claimed yet. See [end-to-end evidence](END_TO_END.md), [prompt control](SCHEMA_CONTROL.md), and [compute options](COMPUTE_OPTIONS.md).
+[Original GPU evidence](reports/ORIGINAL_GPU_RESULTS.md), [matched local results](reports/LOCAL_COMPARISON_RESULTS.md), and [actual adapter application checks](evidence/adapter-serving/README.md).
 
 This is a research submission with measured software, data, and local-serving evidence. An honest negative result is acceptable: retain the base model if the adapter adds no value. Synthetic results and automated review fixtures cannot authorize production.
 
@@ -20,11 +20,11 @@ Detailed reports: [fine-tuning, dataset accounting and flow diagrams](reports/RE
 |---|---|---|
 | Behavior versus knowledge | Writing behavior in the adapter; current facts in supplied timing/evidence | Shared input/output contract and saved evidence snapshots |
 | SFT | Chat prompt plus assistant-only completion target | 600 versioned synthetic examples; shared prompt formatter |
-| LoRA / QLoRA | Rank 16, alpha 32, attention and MLP projections; NF4 double quantization | GPU runner and pinned notebook; actual run in progress |
+| LoRA / QLoRA | Rank 16, alpha 32, attention and MLP projections; NF4 double quantization | Completed T4 run; manifests, adapter hashes and measured VRAM |
 | Dataset governance | Provenance, original evidence, opt-in corrected revisions, independent race groups | Data card, manifest, audit, editor API tests |
-| Evaluation | Frozen base/adapted comparison, failed outputs retained, paired group bootstrap | Deterministic evidence now; model predictions after notebook |
-| Overfitting and leakage | Separate train/validation/test groups and validation checkpoint selection | Split hashes, overlap checks, training curves after notebook |
-| Serving | Adapter checksums, lineage-aware merge, GGUF comparison protocol and rollback | Verified local base-model serving; lineage-aware merge and adapted artifact pending |
+| Evaluation | Frozen base/adapted comparison, failed outputs retained, paired group bootstrap | Full original GPU and matched local predictions; stronger control running |
+| Overfitting and leakage | Separate train/validation/test groups and validation checkpoint selection | Split hashes, overlap checks, verified training curves and selected checkpoint 100 |
+| Serving | Adapter checksums, lineage-aware merge, GGUF comparison protocol and rollback | Verified base and adapted local serving, conversion hashes and raw E2E evidence |
 | Model card / release decision | Unmeasured fields stay null; no automatic production promotion | Evidence snapshot, model card, comparison gate |
 
 The teaching lab's intent-classification pattern becomes a structured drafting/abstention task. This is QLoRA SFT, not pretraining, RLHF, DPO, or an unperformed LoRA-vs-QLoRA ablation.
@@ -37,7 +37,7 @@ The teaching lab's intent-classification pattern becomes a structured drafting/a
 - `week5/DATA_CARD.md`, `EVALUATION.md`, `SERVING.md`: provenance, limitations, protocol and reproducibility.
 - `backend/src/ultramedia/`: shared contract, dataset audit, real-model experiment runner and application implementation.
 - `backend/tests/`: behavior tests including editorial revisions, tampering, unsupported claims, and abstention.
-- `week5/runs/<run>/`: **add after running the notebook** — adapter, training manifest, curves, base/adapted predictions, measured memory/tokens, comparison and completed editorial reviews.
+- `week5/runs/<run>/`: Full downloaded run with adapter, manifests, curves, predictions, memory/tokens and comparison. Large weights are excluded from Git; human review forms remain unfilled.
 
 ## Run the notebook
 
@@ -48,7 +48,7 @@ The teaching lab's intent-classification pattern becomes a structured drafting/a
 5. Complete blind editorial review using the supplied response pairs and source inputs. Keep the answer key separate until the review is complete.
 6. Update the submission with observed results and a reasoned keep-base/promote decision. A synthetic-only run cannot authorize production.
 
-The direct dependencies are pinned; `training-run.json` records every relevant resolved version and CUDA/GPU details. The Qwen model revision is immutable. A target-model GPU run is not claimed to have been validated locally. Hosted runtime availability and memory sufficiency must be checked in the notebook.
+The direct dependencies are pinned; `training-run.json` records every relevant resolved version and CUDA/GPU details. The Qwen model revision is immutable. The completed target-model GPU artifacts have been downloaded and independently verified locally. Hosted runtime availability and memory sufficiency must be checked in the notebook.
 
 ## Reproduce local checks
 

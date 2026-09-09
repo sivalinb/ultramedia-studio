@@ -12,7 +12,7 @@ All athlete names and live timing values in the public portfolio are synthetic. 
 
 ## Week 5 submission
 
-Start at [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run the [Colab/Kaggle notebook](week5/notebooks/UltraMedia_Week5_QLoRA.ipynb). The package includes 600 synthetic examples (400/80/120), group/checksum audits, a shared training/runtime contract, versioned editorial corrections, and complete deterministic predictions. **GPU training is in progress; final model comparisons remain pending verification.** Synthetic examples are not human-approved. No adapted-model gain is claimed.
+Start at [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run the [Colab/Kaggle notebook](week5/notebooks/UltraMedia_Week5_QLoRA.ipynb). The package includes 600 synthetic examples (400/80/120), group/checksum audits, a shared training/runtime contract, versioned editorial corrections, and complete deterministic predictions. **Training, original GPU comparison and matched local comparison are verified; the stronger shared-prompt GPU control is running.** See the detailed reports for measured gains, remaining failures and limitations. Synthetic examples are not human-approved.
 
 Detailed methodology, all-example data inventory, interim loss curve and flow diagrams are in the [fine-tuning reports](week5/reports/README.md).
 
@@ -40,7 +40,7 @@ Detailed methodology, all-example data inventory, interim loss curve and flow di
 | Database | SQLite | PostgreSQL 16 + pgvector |
 | Retrieval | Local hybrid hashing + lexical search | Fireworks embeddings/rerank or pgvector/Pinecone |
 | Generation | Deterministic local provider | Qwen3-4B through Ollama or Fireworks |
-| Fine-tuning | Colab T4 experiment in progress | QLoRA on an on-demand GPU, then local inference |
+| Fine-tuning | Completed Colab T4 training; stronger prompt control running | QLoRA on an on-demand GPU, then local inference |
 | Observability | SQLite traces + OpenTelemetry | Phoenix self-hosted; LangSmith optional |
 | Web | React 19, TypeScript, Vinext, Tailwind | OpenAI Sites / Cloudflare Workers |
 | Testing | pytest, Ruff, deterministic evals | Same suite plus provider-backed shadow evals |
@@ -79,7 +79,7 @@ cd backend
 
 The release gate currently measures retrieval recall, citation validity, mandatory human review, and unsupported sensitive inference. The checked-in fixture is deliberately small and synthetic; provider-backed and large-corpus results must be labeled separately from local deterministic results.
 
-The QLoRA training pipeline is implemented but has not produced an adapter. It has a separate 600-example synthetic research corpus and a consenting editor-reviewed production data gate; see [`docs/FINETUNING_OBSERVABILITY.md`](docs/FINETUNING_OBSERVABILITY.md) for the measured-versus-planned boundary.
+The QLoRA pipeline has produced a checksum-verified adapter, completed original GPU and matched local evaluations, and served the actual adapted model through the application. It has a separate 600-example synthetic research corpus and a consenting editor-reviewed production data gate; see [`docs/FINETUNING_OBSERVABILITY.md`](docs/FINETUNING_OBSERVABILITY.md) for the measured-versus-planned boundary.
 
 ## Local model and fine-tuning
 

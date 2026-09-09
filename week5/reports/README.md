@@ -1,6 +1,6 @@
 # Fine-tuning reports and evidence
 
-Report snapshot: **2026-09-09T06:05:50.759179+00:00**. Training has now completed all 100 steps; the verified completion update is in the fine-tuning report. The checkpoint **90/100** snapshot is retained as historical evidence. The matched local comparison is complete: 76/120 base versus 109/120 adapter (27.5 percentage points; paired 95% interval 20.0–35.0). GPU comparisons remain pending. Update the interpretation after all declared comparisons have been independently verified; preserve this progress snapshot as historical evidence.
+Report snapshot: **2026-09-09T07:31:52.453945+00:00**. Training has now completed all 100 steps; the verified completion update is in the fine-tuning report. The checkpoint **90/100** snapshot is retained as historical evidence. The matched local comparison is complete: 76/120 base versus 109/120 adapter (27.5 percentage points; paired 95% interval 20.0–35.0). The stronger GPU prompt control remains pending. Update the interpretation after all declared comparisons have been independently verified; preserve this progress snapshot as historical evidence.
 
 | Report | Contents |
 |---|---|
@@ -13,3 +13,7 @@ Report snapshot: **2026-09-09T06:05:50.759179+00:00**. Training has now complete
 Machine-readable evidence: [600-row inventory](data/dataset-inventory.csv), [distribution table](data/dataset-distribution.csv), [dataset summary](data/dataset-summary.json), [training history CSV](data/training-history.csv), [verified interim checkpoint receipt](data/training-progress.json), and [five training examples](data/annotated-training-examples.json). Original inputs and targets remain in [the versioned dataset](../data/synthetic/).
 
 These reports distinguish synthetic reference targets, deterministic checks, teacher-forced losses, real model generation, automated browser tests, and human editorial review. They are not interchangeable measures of success.
+
+## Original GPU comparison completed
+
+The original-prompt NF4 comparison is now fully verified: **44/120 base versus 120/120 adapter**, a **63.3 percentage-point difference** (paired 95% group-bootstrap interval 57.5–70.0). The [complete report](ORIGINAL_GPU_RESULTS.md) retains all raw outputs, subgroup rates, timing, memory and failure interpretation. The stronger shared-schema GPU control is running; interpret the original result with its formatting ambiguity and do not treat 100% synthetic automatic success as human approval.

@@ -2,7 +2,7 @@
 
 ## Question and controls
 
-Compare base Qwen3-4B-Instruct-2507 against its QLoRA adapter on the same frozen evidence packs. Pin revision `cdbee75f17c01a7cc42f958dc650907174af0554`, optimized prompt version, NF4 double quantization, hardware, greedy decoding and maximum new tokens. Base and adapted models are loaded sequentially; their generation time excludes model loading. The rule baseline is a separate software check, never a substitute for base-model results. A prompting-only ablation or LoRA-vs-QLoRA comparison would be a separate explicitly controlled experiment, not an existing claim.
+Compare base Qwen3-4B-Instruct-2507 against its QLoRA adapter on the same frozen evidence packs. Pin revision `cdbee75f17c01a7cc42f958dc650907174af0554`, original prompt version, NF4 double quantization, hardware, greedy decoding and maximum new tokens. Base and adapted models are loaded sequentially; their generation time excludes model loading. The rule baseline is a separate software check, never a substitute for base-model results. A prompting-only ablation or LoRA-vs-QLoRA comparison would be a separate explicitly controlled experiment, not an existing claim.
 
 ## Metrics
 
@@ -22,7 +22,7 @@ Report per-signal and per-condition results, output lengths, truncation/terminat
 
 ## Predeclared interpretation
 
-Use the optimized base as the main control. Do not tune from the final test results and reuse them as untouched evidence. Training selects its best checkpoint by validation loss. Report all chosen hyperparameters and any reruns.
+Use the stronger shared-schema base as the main control. Do not tune from the final test results and reuse them as untouched evidence. Training selects its best checkpoint by validation loss. Report all chosen hyperparameters and any reruns.
 
 For a proposed promotion, require no regression on citation/structured-fact/sensitive-language checks, no automated publication, and a meaningful editorial benefit established by blind comparison. Suggested practical target: editor preference for the adapter above 60% of decided pairs with uncertainty reported, plus reduced correction effort. This is a proposed product criterion, not a course rubric or a promised result. Tie/neither choices and factual failures must remain visible. If the base already performs well or adaptation harms factuality, keep the base.
 
@@ -34,4 +34,10 @@ The notebook emits `blind-review.json`, `review-inputs.jsonl`, and a separate `r
 
 ## Evidence provenance
 
-The checked-in deterministic report contains actual local rule execution and all 120 predictions. It is expected to score highly on the engineered contract and says nothing about an unrun model. The tokenizer audit downloads only the pinned tokenizer. The notebook has no prefilled execution outputs. Actual model evidence must include `training-run.json`, adapter checksums, base/adapted predictions, token receipts, memory receipts, comparison, and completed human reviews.
+The checked-in deterministic report contains actual local rule execution and all 120 predictions. It is expected to score highly on the engineered contract and says nothing about an unrun model. The tokenizer audit downloads only the pinned tokenizer. The notebook has no prefilled execution outputs. Actual model evidence must include `training-run.json`, adapter checksums, base/adapted predictions, token receipts, memory receipts, comparison, and separately completed human reviews before production promotion.
+
+## Execution status
+
+Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
+
+See [original GPU results](reports/ORIGINAL_GPU_RESULTS.md) and [matched local results](reports/LOCAL_COMPARISON_RESULTS.md). The stronger schema prompt was separately declared before GPU outputs were available; its result is not inferred from either completed comparison.

@@ -1,10 +1,11 @@
 {
   "DATA_REPORT.md": "c8d34b9286c1ebcdff3a4d427f668aa5a0ebc475c8a713df67faf4e155d6a9be",
-  "FINE_TUNING_REPORT.md": "1b705261ce135f769c27adc4c3e4acba66f95eb09fa94d1e0b208166e6c47d2f",
+  "FINE_TUNING_REPORT.md": "899f7ff173cfd72e18b1a916db5ccfc6f15d1a8ec33b0da192f76dc72e82dca0",
   "FLOW_AND_REPRODUCIBILITY.md": "cb886c46cb249bceb79e34df0672d757a2cc103ed33f2fee6279d541c091ae71",
   "LOCAL_BASE_RESULTS.md": "bbba2e62296967daa068c4697bfdd151edc982b0ba22d875eee5ee2d326fb6c9",
   "LOCAL_COMPARISON_RESULTS.md": "82d7c23a2eb45ad076793dc5c00ad79b44cdded8ecc751353bff40fadfa377d9",
-  "README.md": "6d3baacce4065ca188245f09a7c03f6ce3c9338f1fbdf81a2307301e860f6999",
+  "ORIGINAL_GPU_RESULTS.md": "d5faf860a732bbb7bf4a67b4412d5ec94eec9f1843870ca3e41cb4c63dc3dde8",
+  "README.md": "3306104e2536841444ba766b523573dd7da5c81c0ca7dbeb0e829c9450868741",
   "data/annotated-training-examples.json": "4b0c915b423db12a2d6541dfb8f7e9e8d8077e97d9da31b753b8298a759792ec",
   "data/dataset-distribution.csv": "cacf7af66fb9a3e41e55823ef5a2809176ab572c09df1440948dabecf8be4db8",
   "data/dataset-inventory.csv": "f7f1c83270b052421300907fa0deb368cfdfe92afbe180412229537c1d511ce0",
@@ -22,6 +23,7 @@
   "data/local-base/token-receipts.jsonl": "eb03f91a3b1ac2bcf2b07edfbda6692f93728bfa29eb110bc5e42c328ed6ece9",
   "data/local-base/verification.json": "8a7a070ee9f52316b12dc32404f57b91add9c7688f75bb9dfab49921fcf9ad21",
   "data/local-comparison-cases.csv": "0ebd527a02d57d2a102868a6bb27e1357ab44c67199132617fd4b891be14cb1e",
+  "data/original-gpu-cases.csv": "726f0433f904ff184e4caf9ecf8a38cfb04b403261151c9430fc21dd90176355",
   "data/training-history.csv": "2b255090e23e7c6abb502bd1ff2684c6d79afaecddc6212d5a45bc80c73d0ace",
   "data/training-progress.json": "a52a0c2ddc06d0a44c9dbf113318cc83e34fba1cb9cdebddbd45276d1bd9716a",
   "data/training-progress.png": "2035b2f6ac9637c742000b96d455abc4a8e988c9c03f12791ec7ce70e9416e4b"
