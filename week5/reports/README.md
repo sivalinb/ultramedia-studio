@@ -1,5 +1,10 @@
 # Fine-tuning reports and evidence
 
+## Current handout-alignment update
+
+Training, the original GPU comparison and matched local comparison are complete. The explicit-schema GPU adapter arm is interrupted awaiting capacity. [Classification results](DISPOSITION_RESULTS.md), [five new task probes](HANDOUT_SMOKE_RESULTS.md), and the [handout project guide](../project/README.md) now supplement the evidence. The new probes score rules5/5, base3/5, adapter3/5; human editorial benefit remains unmeasured. Older dated progress descriptions below are historical snapshots.
+
+
 Report snapshot: **2026-09-09T07:31:52.453945+00:00**. Training has now completed all 100 steps; the verified completion update is in the fine-tuning report. The checkpoint **90/100** snapshot is retained as historical evidence. The matched local comparison is complete: 76/120 base versus 109/120 adapter (27.5 percentage points; paired 95% interval 20.0–35.0). The stronger GPU prompt control remains pending. Update the interpretation after all declared comparisons have been independently verified; preserve this progress snapshot as historical evidence.
 
 | Report | Contents |

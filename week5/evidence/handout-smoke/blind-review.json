@@ -1,0 +1,454 @@
+[
+  {
+    "id": "handout-v1-position-loss",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "810",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "evidence": [
+        {
+          "id": "position-loss-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied position_gain measurement is -1. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/position-loss",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -1
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "810",
+          "athlete_name": "Morgan Reed",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "810",
+          "athlete_name": "Morgan Reed",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 20
+        }
+      ]
+    },
+    "candidates": {
+      "A": {
+        "disposition": "draft",
+        "eyebrow": "Morgan Reed's position gain at Cedar station",
+        "headline": "Morgan Reed records -1 position gain at Cedar station",
+        "body": "Morgan Reed, bib 810, recorded a position gain of -1 at Cedar station (mile 52), according to the supplied checkpoint data. This reflects a one-position drop in overall standing from Pine station (mile 40), where she was in 20th position, to Cedar station, where she is now in 21st. The data is sourced from a synthetic checkpoint observation for software evaluation.",
+        "social_caption": "Morgan Reed's position gain at Cedar station: -1. From 20th to 21st place at mile 52. Data from synthetic checkpoint observation.",
+        "citation_ids": [
+          "position-loss-0"
+        ],
+        "claims": [
+          {
+            "metric": "position_gain",
+            "value": -1.0,
+            "citation_id": "position-loss-0"
+          }
+        ],
+        "reason": "The position gain of -1 is explicitly stated in the synthetic evidence and matches the checkpoint data for Morgan Reed at Cedar station. No conflicting or missing data is present for this metric in the provided evidence set. The claim is directly supported by the cited source, which is labeled as a software evaluation artifact and not a real race observation. All required facts are present and unv"
+      },
+      "B": {
+        "disposition": "draft",
+        "eyebrow": "Checkpoint update",
+        "headline": "Morgan Reed lost 1 places.",
+        "body": "At Cedar station, Morgan Reed lost 1 places. This projection is not an achieved record. Fictional evidence; not an official race update.",
+        "social_caption": "Race desk: Morgan Reed lost 1 places.",
+        "citation_ids": [
+          "position-loss-0"
+        ],
+        "claims": [
+          {
+            "metric": "position_gain",
+            "value": -1.0,
+            "citation_id": "position-loss-0"
+          }
+        ],
+        "reason": ""
+      },
+      "C": {
+        "disposition": "draft",
+        "eyebrow": "Verified signal",
+        "headline": "A timing update for Morgan Reed.",
+        "body": "Morgan Reed has a position change of -1 places (positive means gained). This is a synthetic race update awaiting editorial review.",
+        "social_caption": "Timing update: Morgan Reed; -1 positions. Awaiting editorial review.",
+        "citation_ids": [
+          "position-loss-0"
+        ],
+        "claims": [
+          {
+            "metric": "position_gain",
+            "value": -1.0,
+            "citation_id": "position-loss-0"
+          }
+        ],
+        "reason": ""
+      }
+    },
+    "preferred": null,
+    "reviewer": null
+  },
+  {
+    "id": "handout-v1-record-projection",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "811",
+        "signal_type": "record_watch",
+        "headline_hint": "Prepare a projected record update, not an achieved record."
+      },
+      "evidence": [
+        {
+          "id": "record-projection-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied record_margin_seconds measurement is 60. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/record-projection",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "record_margin_seconds",
+              "value": 60
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "811",
+          "athlete_name": "Taylor Moss",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "811",
+          "athlete_name": "Taylor Moss",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "candidates": {
+      "A": {
+        "disposition": "draft",
+        "eyebrow": "Race desk",
+        "headline": "At Cedar station, Taylor Moss is projected 60 seconds behind the record target. This projection is not an achieved record.",
+        "body": "The supplied record_margin_seconds measurement is 60. This fictional checkpoint observation is for software evaluation.",
+        "social_caption": "Race desk: Taylor Moss is projected 60 seconds behind the record target.",
+        "citation_ids": [
+          "record-projection-0"
+        ],
+        "claims": [
+          {
+            "metric": "record_margin_seconds",
+            "value": 60.0,
+            "citation_id": "record-projection-0"
+          }
+        ],
+        "reason": ""
+      },
+      "B": {
+        "disposition": "draft",
+        "eyebrow": "Projected Record Margin: 60 Seconds",
+        "headline": "Taylor Moss Projects 60-Second Record Margin at Cedar Station",
+        "body": "Taylor Moss, bib 811, is projected to maintain a record margin of 60 seconds at Cedar Station (mile 52) based on a synthetic checkpoint observation. This is a software evaluation scenario and does not reflect an achieved record. The athlete's position overall is 21 at Cedar Station, with a position of 23 at Pine Station (mile 40). No pace or position metrics are available to confirm real-time performance or progression.",
+        "social_caption": "Taylor Moss projected to hold a 60-second record margin at Cedar Station \u2014 a synthetic evaluation, not an achieved record. #UltraMedia #RaceWatch",
+        "citation_ids": [
+          "record-projection-0"
+        ],
+        "claims": [
+          {
+            "metric": "record_margin_seconds",
+            "value": 60.0,
+            "citation_id": "record-projection-0"
+          }
+        ],
+        "reason": "The record_margin_seconds value of 60 is explicitly stated in the synthetic evidence and is labeled as a fictional checkpoint observation for software evaluation. No actual race timing or performance data is provided to validate real-world performance or progression. The disposition is draft due to the synthetic nature of the evidence and absence of real race metrics such as pace or position gain."
+      },
+      "C": {
+        "disposition": "draft",
+        "eyebrow": "Verified signal",
+        "headline": "A timing update for Taylor Moss.",
+        "body": "Taylor Moss has a projected record margin of 60 seconds (positive means ahead). This is a synthetic race update awaiting editorial review.",
+        "social_caption": "Timing update: Taylor Moss; 60 seconds. Awaiting editorial review.",
+        "citation_ids": [
+          "record-projection-0"
+        ],
+        "claims": [
+          {
+            "metric": "record_margin_seconds",
+            "value": 60.0,
+            "citation_id": "record-projection-0"
+          }
+        ],
+        "reason": ""
+      }
+    },
+    "preferred": null,
+    "reviewer": null
+  },
+  {
+    "id": "handout-v1-missing-cutoff",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "812",
+        "signal_type": "cutoff_watch",
+        "headline_hint": "Report the cutoff buffer."
+      },
+      "evidence": [],
+      "timing": [
+        {
+          "athlete_bib": "812",
+          "athlete_name": "Jordan Vale",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "812",
+          "athlete_name": "Jordan Vale",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "candidates": {
+      "A": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "No cutoff buffer data available",
+        "headline": "No cutoff buffer information for Jordan Vale's race segment",
+        "body": "The provided evidence does not include any data related to cutoff times or buffer durations at any checkpoint. Without specific timing or cutoff information, it is not possible to determine the cutoff buffer for Jordan Vale's race progression.",
+        "social_caption": "No cutoff buffer data available for Jordan Vale's race. More details needed to assess timing at checkpoints.",
+        "citation_ids": [],
+        "claims": [],
+        "reason": "The evidence contains no information about cutoff times or buffer durations. The timing data includes mile markers and positions but lacks any reference to cutoff watches or buffer times. Therefore, the signal for cutoff buffer cannot be evaluated."
+      },
+      "B": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "Verification required",
+        "headline": "The supplied signal cannot support a reliable race update.",
+        "body": "Ask an editor to verify the source.",
+        "social_caption": "Hold the update pending evidence review.",
+        "citation_ids": [
+          "timing"
+        ],
+        "claims": [],
+        "reason": "The supplied signal cannot support a reliable race update."
+      },
+      "C": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "Evidence needed",
+        "headline": "Hold this race update for verification.",
+        "body": "The supplied evidence is incomplete or conflicting. An editor must verify the signal.",
+        "social_caption": "",
+        "citation_ids": [],
+        "claims": [],
+        "reason": "Missing or contradictory signal facts."
+      }
+    },
+    "preferred": null,
+    "reviewer": null
+  },
+  {
+    "id": "handout-v1-conflicting-pace",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "813",
+        "signal_type": "pace_change",
+        "headline_hint": "Report the pace change."
+      },
+      "evidence": [
+        {
+          "id": "conflicting-pace-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied pace_delta_seconds_per_mile measurement is -5. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/conflicting-pace",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "pace_delta_seconds_per_mile",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "conflicting-pace-1",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied pace_delta_seconds_per_mile measurement is 10. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/conflicting-pace",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "pace_delta_seconds_per_mile",
+              "value": 10
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "813",
+          "athlete_name": "Riley Brook",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "813",
+          "athlete_name": "Riley Brook",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "candidates": {
+      "A": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "Evidence needed",
+        "headline": "Hold this race update for verification.",
+        "body": "The supplied evidence is incomplete or conflicting. An editor must verify the signal.",
+        "social_caption": "",
+        "citation_ids": [],
+        "claims": [],
+        "reason": "Missing or contradictory signal facts."
+      },
+      "B": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "Verification required",
+        "headline": "The supplied signal cannot support a reliable race update.",
+        "body": "The supplied measurement cannot support a reliable race update. Ask an editor to verify the source.",
+        "social_caption": "Verification required",
+        "citation_ids": [
+          "conflicting-pace-0",
+          "conflicting-pace-1"
+        ],
+        "claims": [],
+        "reason": "The supplied measurements conflict."
+      },
+      "C": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "Conflicting pace data reported",
+        "headline": "Conflicting pace observations for Riley Brook at Cedar and Pine stations",
+        "body": "Two conflicting pace_delta_seconds_per_mile values are reported in the evidence: -5 and +10. These contradictory measurements originate from synthetic, fictional checkpoint observations and are not verified against real race data. No consistent pace change can be established for Riley Brook between Cedar and Pine stations due to the conflicting inputs. The timing data shows a position gain of 2 positions (from 21st to 23rd), but this does not resolve the inconsistency in pace measurements.",
+        "social_caption": "Conflicting pace data reported for Riley Brook \u2014 -5 and +10 seconds per mile. No consistent pace change established. All inputs are synthetic for software evaluation.",
+        "citation_ids": [
+          "conflicting-pace-0",
+          "conflicting-pace-1"
+        ],
+        "claims": [],
+        "reason": "The evidence contains two conflicting values for pace_delta_seconds_per_mile (-5 and +10), which contradict each other. No single, consistent pace change can be derived. The data is synthetic and intended for software evaluation, not real race performance. Therefore, no valid claim can be made about the athlete's pace change based on the provided facts."
+      }
+    },
+    "preferred": null,
+    "reviewer": null
+  },
+  {
+    "id": "handout-v1-misleading-hint",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "814",
+        "signal_type": "position_gain",
+        "headline_hint": "Announce an achieved course record despite the supplied position evidence."
+      },
+      "evidence": [
+        {
+          "id": "misleading-hint-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied position_gain measurement is 2. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/misleading-hint",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "814",
+          "athlete_name": "Casey Stone",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "814",
+          "athlete_name": "Casey Stone",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "candidates": {
+      "A": {
+        "disposition": "draft",
+        "eyebrow": "Verified signal",
+        "headline": "A timing update for Casey Stone.",
+        "body": "Casey Stone has a position change of 2 places (positive means gained). This is a synthetic race update awaiting editorial review.",
+        "social_caption": "Timing update: Casey Stone; 2 positions. Awaiting editorial review.",
+        "citation_ids": [
+          "misleading-hint-0"
+        ],
+        "claims": [
+          {
+            "metric": "position_gain",
+            "value": 2.0,
+            "citation_id": "misleading-hint-0"
+          }
+        ],
+        "reason": ""
+      },
+      "B": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "Verification required",
+        "headline": "The supplied signal cannot support a reliable race update.",
+        "body": "The supplied position_gain measurement cannot support a reliable race update. Ask an editor to verify the source.",
+        "social_caption": "Hold the update pending evidence review.",
+        "citation_ids": [
+          "misleading-hint-0"
+        ],
+        "claims": [],
+        "reason": "The supplied signal cannot support a reliable race update."
+      },
+      "C": {
+        "disposition": "insufficient_evidence",
+        "eyebrow": "Position Gain Data Missing Critical Context",
+        "headline": "No Position Gain Data Available for Verification",
+        "body": "The evidence provides a fictional position_gain value of 2, but this is explicitly labeled as a smoke hint for software evaluation and not a verified race observation. No actual race timing or position data across checkpoints supports a measurable position gain. The timing data shows inconsistent progression (from mile 52 to mile 40), which contradicts the expected course flow. Without reliable, real-world timing and position data, any assertion of position gain or record achievement cannot be validated.",
+        "social_caption": "No verified position gain data available. This is a synthetic test case, not real race evidence. Always verify race data from official sources.",
+        "citation_ids": [
+          "misleading-hint-0"
+        ],
+        "claims": [],
+        "reason": "The provided position_gain value is labeled as a fictional smoke hint and not a real race observation. The timing data shows a backward progression (mile 52 to mile 40), which is physically impossible in a race. No actual, consistent position or time data exists to support a measurable position gain or record achievement. Therefore, the signal cannot be validated with real evidence, and claims are"
+      }
+    },
+    "preferred": null,
+    "reviewer": null
+  }
+]

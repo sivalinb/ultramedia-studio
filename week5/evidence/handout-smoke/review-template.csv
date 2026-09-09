@@ -1,0 +1,16 @@
+case_id,candidate,reviewer,meaning_supported,readability_1_to_5,usable,correction_minutes,preferred_A_B_C_tie_neither,rationale,training_consent
+handout-v1-position-loss,A,,,,,,,,false
+handout-v1-position-loss,B,,,,,,,,false
+handout-v1-position-loss,C,,,,,,,,false
+handout-v1-record-projection,A,,,,,,,,false
+handout-v1-record-projection,B,,,,,,,,false
+handout-v1-record-projection,C,,,,,,,,false
+handout-v1-missing-cutoff,A,,,,,,,,false
+handout-v1-missing-cutoff,B,,,,,,,,false
+handout-v1-missing-cutoff,C,,,,,,,,false
+handout-v1-conflicting-pace,A,,,,,,,,false
+handout-v1-conflicting-pace,B,,,,,,,,false
+handout-v1-conflicting-pace,C,,,,,,,,false
+handout-v1-misleading-hint,A,,,,,,,,false
+handout-v1-misleading-hint,B,,,,,,,,false
+handout-v1-misleading-hint,C,,,,,,,,false

@@ -1,0 +1,84 @@
+{
+  "analysis": "Post-hoc disposition classification, separate from frozen nine-check evaluation",
+  "created_at": "2026-09-09T14:25:59.304534+00:00",
+  "source_commit": "9e544998e91a097ef0ac5ce016eb4f0f5fbd15c1",
+  "scope": "120 synthetic test cases, 30 race groups; no new inference, training or human review",
+  "matrix_rows": [
+    "draft",
+    "insufficient_evidence"
+  ],
+  "matrix_columns": [
+    "draft",
+    "insufficient_evidence",
+    "invalid"
+  ],
+  "hashes": {
+    "week5/data/synthetic/test.jsonl": "69995179a6268fe60b1f7b62945f921311ba6c38faa4da3c70fd8a5325d65ffc",
+    "week5/evidence/local-comparison/test-base/predictions.jsonl": "e66c5609ef3d7e032bcf6359565f18028bc3d93ef80f349981f8ccedc9aa063c",
+    "week5/evidence/local-comparison/test-adapter/predictions.jsonl": "562a61ee608ca4506f607a005dd041186a458cb97071d69a09ad007aa70416de"
+  },
+  "variants": {
+    "base": {
+      "cases": 120,
+      "classes": {
+        "draft": {
+          "precision": 0.9642857142857143,
+          "recall": 0.75,
+          "f1": 0.8437499999999999,
+          "support": 72
+        },
+        "insufficient_evidence": {
+          "precision": 0.71875,
+          "recall": 0.9583333333333334,
+          "f1": 0.8214285714285714,
+          "support": 48
+        }
+      },
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.8325892857142856,
+      "confusion_matrix": [
+        [
+          54,
+          18,
+          0
+        ],
+        [
+          2,
+          46,
+          0
+        ]
+      ]
+    },
+    "adapter": {
+      "cases": 120,
+      "classes": {
+        "draft": {
+          "precision": 1.0,
+          "recall": 0.8472222222222222,
+          "f1": 0.9172932330827067,
+          "support": 72
+        },
+        "insufficient_evidence": {
+          "precision": 0.8135593220338984,
+          "recall": 1.0,
+          "f1": 0.897196261682243,
+          "support": 48
+        }
+      },
+      "accuracy": 0.9083333333333333,
+      "macro_f1": 0.9072447473824748,
+      "confusion_matrix": [
+        [
+          61,
+          11,
+          0
+        ],
+        [
+          0,
+          48,
+          0
+        ]
+      ]
+    }
+  }
+}
