@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import evidence from '@/public/data/week5-evidence.json';
+import evidence from '@/week5/evidence/site-snapshot.json';
 
 export default function WeekFivePage() {
   const [selected, setSelected] = useState(0);

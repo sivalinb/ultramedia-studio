@@ -19,6 +19,7 @@ assert recorded['identity']['kind'] == 'deterministic_rules'
 assert recorded['cases'] == report['counts']['test']
 snapshot = json.loads((ROOT / 'public/data/week5-evidence.json').read_text())
 assert snapshot['manifest'] == manifest
+assert snapshot == json.loads((ROOT / 'week5/evidence/site-snapshot.json').read_text())
 assert snapshot['model_comparison']['base_model_score'] is None
 assert snapshot['model_comparison']['adapter_score'] is None
 for name in ['tokenizer-audit.json', 'training-api-validation.json']:

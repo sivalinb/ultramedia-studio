@@ -17,7 +17,9 @@ if report and report['dataset_sha256'] != manifest['dataset_sha256']:
 snapshot = {'manifest': manifest, 'examples': examples, 'deterministic': report,
             'model_comparison': {'status': 'not_run', 'base_model_score': None, 'adapter_score': None,
                                  'human_review': 'pending', 'production_promoted': False}}
-(ROOT / 'public/data/week5-evidence.json').write_text(json.dumps(snapshot, indent=2) + '\n')
+serialized = json.dumps(snapshot, indent=2) + '\n'
+(ROOT / 'public/data/week5-evidence.json').write_text(serialized)
+(ROOT / 'week5/evidence/site-snapshot.json').write_text(serialized)
 public = ROOT / 'public/week5'
 public.mkdir(parents=True, exist_ok=True)
 shutil.copyfile(ROOT / 'week5/notebooks/UltraMedia_Week5_QLoRA.ipynb', public / 'UltraMedia_Week5_QLoRA.ipynb')
