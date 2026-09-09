@@ -268,6 +268,12 @@ def evaluate_models(args):
     from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
     from .benchmark import compare_runs, evaluate
+    from .prompt_controls import SCHEMA_PROMPT_VERSION, schema_messages_for
+
+    schema_control = getattr(args, "schema_control", False)
+    evaluation_dir = args.run / "schema-control" if schema_control else args.run
+    prompt_version = SCHEMA_PROMPT_VERSION if schema_control else PROMPT_VERSION
+    format_messages = schema_messages_for if schema_control else messages_for
 
     rows, manifest = load_dataset_records(args.dataset)
     run_record = json.loads((args.run / "training-run.json").read_text())
@@ -280,14 +286,14 @@ def evaluate_models(args):
     dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
     tokenizer = AutoTokenizer.from_pretrained(args.run / "adapter")
     for variant in ("base", "adapter"):
-        directory = args.run / f"test-{variant}"
+        directory = evaluation_dir / f"test-{variant}"
         if directory.exists() and getattr(args, "resume_evaluation", False):
             expected = {
                 "base_model": MODEL_ID,
                 "revision": MODEL_REVISION,
                 "quantization": "NF4 double-quant",
                 "compute_dtype": str(dtype),
-                "prompt_version": PROMPT_VERSION,
+                "prompt_version": prompt_version,
                 "max_new_tokens": args.max_new_tokens,
                 "variant": variant,
                 "kind": "model_inference",
@@ -312,7 +318,7 @@ def evaluate_models(args):
 
         def generate(inputs, active_model=model, active_receipts=receipts):
             active_receipts.append({"input_tokens": None, "output_tokens": None, "finish_reason": "error"})
-            text = tokenizer.apply_chat_template(messages_for(inputs), tokenize=False, add_generation_prompt=True)
+            text = tokenizer.apply_chat_template(format_messages(inputs), tokenize=False, add_generation_prompt=True)
             batch = tokenizer(text, return_tensors="pt", add_special_tokens=False).to("cuda")
             with torch.inference_mode():
                 generated = active_model.generate(
@@ -336,7 +342,7 @@ def evaluate_models(args):
             "revision": MODEL_REVISION,
             "quantization": "NF4 double-quant",
             "compute_dtype": str(dtype),
-            "prompt_version": PROMPT_VERSION,
+            "prompt_version": prompt_version,
             "max_new_tokens": args.max_new_tokens,
             "adapter_files_sha256": run_record["adapter_files_sha256"] if variant == "adapter" else None,
             "environment": environment(torch),
@@ -361,15 +367,17 @@ def evaluate_models(args):
         del generate, model
         gc.collect()
         torch.cuda.empty_cache()
-    comparison_path = args.run / "comparison" / "comparison.json"
+    comparison_path = evaluation_dir / "comparison" / "comparison.json"
     if comparison_path.exists() and getattr(args, "resume_evaluation", False):
         result = json.loads(comparison_path.read_text())
         for variant in ["base", "adapter"]:
-            if result[variant] != json.loads((args.run / f"test-{variant}" / "report.json").read_text()):
+            if result[variant] != json.loads((evaluation_dir / f"test-{variant}" / "report.json").read_text()):
                 raise ValueError("Saved comparison differs from its evaluation reports")
     else:
-        result = compare_runs(args.run / "test-base", args.run / "test-adapter", args.run / "comparison")
-    (args.run / "comparison" / "review-inputs.jsonl").write_text(
+        result = compare_runs(
+            evaluation_dir / "test-base", evaluation_dir / "test-adapter", evaluation_dir / "comparison"
+        )
+    (evaluation_dir / "comparison" / "review-inputs.jsonl").write_text(
         "".join(canonical({"id": r["id"], "inputs": r["inputs"]}) + "\n" for r in selected)
     )
     return result
@@ -391,6 +399,11 @@ def main():
     evaluate.add_argument("--run", type=Path, required=True)
     evaluate.add_argument("--max-new-tokens", type=int, default=1024)
     evaluate.add_argument("--resume-evaluation", action="store_true")
+    evaluate.add_argument(
+        "--schema-control",
+        action="store_true",
+        help="Additional controlled comparison with explicit output schema; preserves original results",
+    )
     args = parser.parse_args()
     result = run(args) if args.command == "train" else evaluate_models(args)
     print(json.dumps({k: v for k, v in result.items() if k not in {"history", "config", "base", "adapter"}}, indent=2))

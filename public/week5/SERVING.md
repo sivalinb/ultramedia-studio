@@ -35,4 +35,8 @@ Then configure `PROVIDER_MODE=ollama` and `OLLAMA_MODEL=<the new model name>`, a
 
 The API rejects unsupported corrections and invalid generated contracts; provider failures must not be relabeled as successful drafts. Keep the original base model and its configuration. Roll back by restoring its recorded model name and revision, retaining candidate evidence for diagnosis. Publication remains a separate human action regardless of adapter quality.
 
-Status in this package: conversion, quantized deployment comparison, cloud rollout, and GPU training have not been executed. The source includes the procedure and lineage checks, not fabricated artifacts.
+## Executed local demonstration
+
+The separate unadapted Qwen 4B Q4_K_M model was served on an Apple M1 Max through `PROVIDER_MODE=llamacpp`. The browser-to-API demonstration passed 13 software checks and produced a real draft in 7.623 seconds. This single-request measurement is not a latency guarantee. Both generation cases in the independent workflow quality check failed and remain in the evidence. See [END_TO_END.md](END_TO_END.md) for exact model hashes, commands, recording, and limitations.
+
+GPU training is in progress. Adapter conversion, a matched quantized deployment comparison, and cloud production rollout remain pending. The local GGUF demonstration does not establish equivalence to the pinned NF4 training base or prove that the adapter has been served.

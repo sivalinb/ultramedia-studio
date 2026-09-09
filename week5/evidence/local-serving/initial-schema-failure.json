@@ -1,0 +1,7 @@
+{
+  "status": 422,
+  "elapsed_seconds": 6.8055759579874575,
+  "response": {
+    "detail": "4 validation errors for GeneratedStory\nclaims.0.numeric_value\n  Extra inputs are not permitted [type=extra_forbidden, input_value=9, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nclaims.0.value\n  Field required [type=missing, input_value={'metric': 'position_gain...4225-918d-6ec0c20fdd93'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nclaims.1.numeric_value\n  Extra inputs are not permitted [type=extra_forbidden, input_value=11, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nclaims.1.value\n  Field required [type=missing, input_value={'metric': 'latest_positi...4225-918d-6ec0c20fdd93'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+  }
+}

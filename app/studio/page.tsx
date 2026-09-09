@@ -251,11 +251,13 @@ export default function StudioPage() {
             </div>
             {(['eyebrow', 'headline', 'body', 'social_caption'] as const).map(
               (field) => (
-                <label key={field} className="block text-sm font-medium">
-                  <span className="mb-2 block capitalize">
+                <label key={field} htmlFor={`draft-${field}`} className="block text-sm font-medium">
+                  <span id={`draft-${field}-label`} className="mb-2 block capitalize">
                     {field.replaceAll('_', ' ')}
                   </span>
                   <Textarea
+                    id={`draft-${field}`}
+                    aria-labelledby={`draft-${field}-label`}
                     value={draft[field]}
                     disabled={!story || busy}
                     maxLength={

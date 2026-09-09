@@ -137,7 +137,7 @@ class StoryWorkflow:
                     GenerationRecord(
                         story_id=story_id,
                         contract_version=CONTRACT_VERSION,
-                        prompt_version=PROMPT_VERSION,
+                        prompt_version=getattr(self.provider, "prompt_version", PROMPT_VERSION),
                         provider=self.provider.name,
                         inputs=generation_input(state["moment"], state["evidence"], state["timing"]),
                         output=generated.model_dump(),

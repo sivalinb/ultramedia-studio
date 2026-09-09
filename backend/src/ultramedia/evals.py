@@ -16,10 +16,12 @@ def run_eval_suite(database: Database, dimensions: int = 256, provider=None) -> 
         ("synthetic athlete timing demonstration", "simulation-policy"),
     ]
     retrieval_hits = 0
+    case_results = []
     with database.session() as db:
         for query, target in retrieval_cases:
             ids = {item["id"] for item in retriever.search(db, "wser-demo", query, top_k=3)}
             retrieval_hits += int(target in ids)
+            case_results.append({"kind": "retrieval", "id": target, "passed": target in ids})
 
     provider = provider or LocalStoryProvider()
     workflow = StoryWorkflow(database, provider, retriever)
@@ -35,17 +37,43 @@ def run_eval_suite(database: Database, dimensions: int = 256, provider=None) -> 
             headline_hint="leader pace at Foresthill with historical context",
         ),
     ]
-    stories = [workflow.run(StoryGenerateRequest(race_id="wser-demo", moment=moment)) for moment in generation_cases]
+    stories = []
+    for moment in generation_cases:
+        try:
+            story = workflow.run(StoryGenerateRequest(race_id="wser-demo", moment=moment))
+            stories.append(story)
+            case_results.append(
+                {
+                    "kind": "generation",
+                    "id": moment.signal_type,
+                    "passed": True,
+                    "story_id": story.id,
+                    "trace_id": story.trace_id,
+                }
+            )
+        except Exception as error:
+            # An invalid model output is a failed eval case, never an omitted denominator or HTTP500.
+            # Exception bodies can contain provider URLs/credentials; retain only the error class.
+            case_results.append(
+                {"kind": "generation", "id": moment.signal_type, "passed": False, "error_type": type(error).__name__}
+            )
+    attempted = len(generation_cases)
     with database.session() as db:
-        citations_valid = sum(
-            db.get(GenerationRecord, story.id).checks["citation_ids_valid"] for story in stories
-        ) / len(stories)
-    human_gate = sum(story.status == "pending_review" for story in stories) / len(stories)
-    sensitive_inference_rate = sum(
-        any(term in story.body.lower() for term in ("dehydrated", "injured", "collapsed")) for story in stories
-    ) / len(stories)
+        citations_valid = (
+            sum(db.get(GenerationRecord, story.id).checks["citation_ids_valid"] for story in stories) / attempted
+        )
+        sensitive_pass_rate = (
+            sum(db.get(GenerationRecord, story.id).checks["sensitive_language_absent"] for story in stories) / attempted
+        )
+    human_gate = sum(story.status == "pending_review" for story in stories) / attempted
 
     metrics = [
+        EvalMetric(
+            name="generation_contract_pass_rate",
+            score=len(stories) / attempted,
+            target=1.0,
+            passed=len(stories) == attempted,
+        ),
         EvalMetric(
             name="retrieval_recall_at_3",
             score=retrieval_hits / len(retrieval_cases),
@@ -65,10 +93,10 @@ def run_eval_suite(database: Database, dimensions: int = 256, provider=None) -> 
             passed=human_gate >= 1.0,
         ),
         EvalMetric(
-            name="unsupported_sensitive_inference",
-            score=sensitive_inference_rate,
-            target=0.0,
-            passed=sensitive_inference_rate == 0.0,
+            name="sensitive_language_check_pass_rate",
+            score=sensitive_pass_rate,
+            target=1.0,
+            passed=sensitive_pass_rate == 1.0,
         ),
     ]
     return EvalReport(
@@ -76,6 +104,7 @@ def run_eval_suite(database: Database, dimensions: int = 256, provider=None) -> 
         cases=len(retrieval_cases) + len(generation_cases),
         release_decision="PASS" if all(metric.passed for metric in metrics) else "FAIL",
         metrics=metrics,
+        case_results=case_results,
     )
 
 

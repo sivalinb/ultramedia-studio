@@ -1,0 +1,71 @@
+{
+  "suite": "ultramedia-workflow-v2:llamacpp:qwen3:4b-instruct",
+  "cases": 6,
+  "release_decision": "FAIL",
+  "metrics": [
+    {
+      "name": "generation_contract_pass_rate",
+      "score": 0,
+      "target": 1,
+      "passed": false
+    },
+    {
+      "name": "retrieval_recall_at_3",
+      "score": 1,
+      "target": 0.75,
+      "passed": true
+    },
+    {
+      "name": "citation_validity",
+      "score": 0,
+      "target": 1,
+      "passed": false
+    },
+    {
+      "name": "human_review_gate",
+      "score": 0,
+      "target": 1,
+      "passed": false
+    },
+    {
+      "name": "sensitive_language_check_pass_rate",
+      "score": 0,
+      "target": 1,
+      "passed": false
+    }
+  ],
+  "case_results": [
+    {
+      "kind": "retrieval",
+      "id": "wser-course-profile",
+      "passed": true
+    },
+    {
+      "kind": "retrieval",
+      "id": "wser-finish-window",
+      "passed": true
+    },
+    {
+      "kind": "retrieval",
+      "id": "wser-canyons",
+      "passed": true
+    },
+    {
+      "kind": "retrieval",
+      "id": "simulation-policy",
+      "passed": true
+    },
+    {
+      "kind": "generation",
+      "id": "position_gain",
+      "passed": false,
+      "error_type": "ValueError"
+    },
+    {
+      "kind": "generation",
+      "id": "record_watch",
+      "passed": false,
+      "error_type": "ValueError"
+    }
+  ]
+}

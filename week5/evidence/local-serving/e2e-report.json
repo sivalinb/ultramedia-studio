@@ -1,0 +1,65 @@
+{
+  "started_at": "2026-09-09T04:38:11.238Z",
+  "scope": "Synthetic engineering QA with an actual local Qwen model; simulated review actions are not human editorial approval",
+  "steps": [
+    {
+      "name": "UI connected to API; review disabled before generation",
+      "passed": true
+    },
+    {
+      "name": "Browser → API → retrieval → local model → fact checks → persisted pending draft",
+      "passed": true,
+      "duration_ms": 7623,
+      "story_id": "2a46e739-3ea0-46ac-b961-6db6d59d81cf"
+    },
+    {
+      "name": "All six workflow stages recorded and shown",
+      "passed": true
+    },
+    {
+      "name": "Missing reviewer credential rejected",
+      "passed": true
+    },
+    {
+      "name": "Unsupported numeric edit rejected",
+      "passed": true
+    },
+    {
+      "name": "Training consent requires an explicit rights basis",
+      "passed": true
+    },
+    {
+      "name": "Simulated review persists original and edited text without training consent",
+      "passed": true
+    },
+    {
+      "name": "Stale concurrent review rejected",
+      "passed": true
+    },
+    {
+      "name": "Unknown athlete fails closed",
+      "passed": true
+    },
+    {
+      "name": "Check workflow reports every case and preserves model failures",
+      "passed": true,
+      "model_workflow_decision": "FAIL",
+      "failed_model_cases": 2
+    },
+    {
+      "name": "Mobile Race Desk fits the viewport",
+      "passed": true
+    },
+    {
+      "name": "Week 5 page loads and fits mobile viewport",
+      "passed": true
+    },
+    {
+      "name": "Notebook, dataset, and submission downloads are available",
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "passed": true,
+  "finished_at": "2026-09-09T04:38:37.885Z"
+}
