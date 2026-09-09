@@ -1,6 +1,6 @@
 # Week 5: UltraMedia Race Desk
 
-**New to UltraMedia? Open the [visual product and evidence brochure](brochure/UltraMedia-Brochure.pdf).** It introduces the product, intended users and workflow, then links directly to measured results and source data. [Brochure contents and reproducible source](brochure/README.md).
+**New to UltraMedia? Open the [visual product and evidence brochure](brochure/UltraMedia-Brochure.pdf).** Eleven illustrated pages introduce the product, users, problem, workflow, data sources, measured results and roadmap. [Detailed data-source appendix](brochure/DATA_SOURCES.md). [Brochure contents and reproducible source](brochure/README.md).
 
 **Read the [complete Week 5 project report](PROJECT_REPORT.md)** for the requirement checklist, training flow, measured comparisons, classification analysis, open-model serving choices and remaining submission actions.
 

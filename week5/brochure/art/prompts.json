@@ -1,0 +1,68 @@
+{
+  "tool": "built-in image_gen",
+  "style_reference": "UltraMedia-Product-Pitch-Siva.png",
+  "identity_reference": "User-supplied Siva.png (not distributed)",
+  "common_prompt": "Create an illustration for the UltraMedia Race Desk brochure. Reference 1 is STYLE ONLY: match its warm, polished hand-drawn whiteboard infographic style, expressive illustrated faces, ink outlines, softly colored objects and playful visual storytelling on pure white. Reference 2 is the USER'S FACE: every human figure must be the same adult man from that portrait, recognizable medium-brown skin, short side-swept black hair, strong eyebrows, brown eyes, similar face shape and slight stubble. Show him in different roles/outfits/poses. No other people's faces, no generic audience silhouettes, no women, no long beards. Do not paste a photograph. Use a wide landscape composition approximately 2.3:1, high resolution, sharp linework. Illustrations should fill the picture, visually communicate relationships, and have generous white space around edges. Use ONLY the short labels explicitly provided; no paragraphs, no invented metrics, no tiny body copy, no QR codes, no web addresses, no page number. Exact data and source links will be typeset separately in the PDF. Do not include a page title or brand banner. Avoid green success checkmarks implying a future experiment has completed. ",
+  "jobs": [
+    {
+      "page": 2,
+      "name": "problem",
+      "color": "coral red with warm peach accents",
+      "scene": "A vivid before-to-after editorial story across four connected hand-drawn panels. 1: the user overwhelmed at a desk with scattered timing sheets, course maps, phone updates and a clock; label \"Scattered facts\". 2: the user inspecting conflicting news drafts and a caution triangle, label \"Unsupported claims\". 3: the user gathers cited documents into one organized race desk folder, label \"One evidence view\". 4: the user thoughtfully reviews a laptop draft and a version-history stack with a magnifying glass, label \"Editor in control\". Clear arrows, visual transformation from chaos to organized review. All four figures resemble the user."
+    },
+    {
+      "page": 3,
+      "name": "people",
+      "color": "teal, mint and turquoise",
+      "scene": "Four generous illustrated role vignettes side by side, like a charming comic cast lineup. The SAME user plays all roles: race organizer wearing a cap holding a clipboard by a race arch, sports editor working at a laptop with cited paper drafts, event media creator holding a video camera and microphone, and running community member in a blue running jersey gesturing towards a trail. Labels exactly \"Race organizers\", \"Sports editors\", \"Event media teams\", \"Running communities\". One character per scene, all clearly recognizable as the user. No unrelated background people."
+    },
+    {
+      "page": 4,
+      "name": "workflow",
+      "color": "royal blue and sky blue",
+      "scene": "Five connected comic panels illustrating an editorial workflow. 1 user points at a race moment on a timing board; 2 user gathers source papers and course map into an evidence folder; 3 user at laptop prepares a newspaper draft with small citation markers; 4 user with magnifying glass compares draft and original source, beside an amber missing-evidence sign; 5 user approves a version in a history folder, with a closed external-publishing gate. Labels only \"Choose\", \"Retrieve\", \"Draft\", \"Validate\", \"Review\". Include arrows and documents, no actual numerical race results. All human figures are the supplied man."
+    },
+    {
+      "page": 5,
+      "name": "provenance",
+      "color": "amber gold, honey yellow and warm brown",
+      "scene": "Three clearly SEPARATE data-source lanes/panels, not a merged training funnel. Left: the user as programmer at a laptop creates fictional race records from code, sheets marked with simple imaginary runner icons, label \"Synthetic training\". Center: the same user at a race demo desk, simulated timing board next to official course-map book and history book, label \"Demo + course context\". Right: same user as researcher looking at GPU and local laptop execution receipts, logs and magnifying glass, label \"Measured run evidence\". Visually separate the three purposes with hand-drawn borders. Do not suggest official race website content feeds the training corpus."
+    },
+    {
+      "page": 6,
+      "name": "factors",
+      "color": "indigo, periwinkle and lavender",
+      "scene": "A lively evidence inspection dashboard in a hand-drawn whiteboard style. The user stands centrally holding a magnifying glass over a source card. Surround him with four large clear pictorial gauges: podium/up-down arrows labelled \"Position\"; a projected finish flag inside a dotted thought outline labelled \"Record projection\"; clock with deadline labelled \"Cutoff\"; stopwatch with speed arrows labelled \"Pace\". Along the bottom a small evidence strip with five icons and exact labels \"Complete\", \"Missing\", \"Conflicting\", \"Misleading hint\", \"Boundary\". No numerical values on any gauges. Only one human character, matching the user."
+    },
+    {
+      "page": 7,
+      "name": "learning",
+      "color": "emerald green and soft sage",
+      "scene": "A five-stage illustrated learning pipeline, connected left to right. A programmer matching the user creates fictional sample cards; next the same user at a small GPU machine fits a small add-on adapter puzzle piece to a large frozen model block; next hands merge adapter and base into one model box; next same user runs the model on his personal laptop; final same user compares two stacks of test receipts. Exact short labels \"Synthetic data\", \"QLoRA training\", \"Merge\", \"Local model\", \"Compare\". No feedback arrow from test results to training; no reinforcement training claim. All human faces must resemble the reference man."
+    },
+    {
+      "page": 8,
+      "name": "results",
+      "color": "burgundy, rose and dark plum",
+      "scene": "A scientific review scene arranged deliberately with the LEFT 62 percent completely clean PURE WHITE and empty (a precise chart will be typeset there later). On the RIGHT 38 percent show the user as a thoughtful researcher with clipboard, magnifying glass, a stack of test outputs and an amber caution folder. He looks left toward the empty chart area. The right-side objects may have the exact labels \"Inspect failures\" and \"Human review pending\". No chart, no bars, no numbers, no grid drawn in the blank left area. Hands and face are expressive and recognizable. White background and burgundy hand-drawn accents."
+    },
+    {
+      "page": 9,
+      "name": "roadmap",
+      "color": "orange, apricot and warm copper",
+      "scene": "A roadmap drawn as a winding route across four islands, left to right, each with the SAME user in a new activity. \"Now\": user shows an existing research laptop and source files. \"Next\": user repairs a citation link and inspects caution-marked drafts. \"Pilot\": user and another depiction of the SAME user compare edited briefs and a stopwatch at a desk. \"Later\": user considers two dotted-outline options, a local laptop and cloud deployment, with a question mark. Future stages visually use dashed arrows and no completion checkmarks. Large road sign labels ONLY \"Now\", \"Next\", \"Pilot\", \"Later\". No dates, budgets, or promises."
+    },
+    {
+      "page": 10,
+      "name": "explore",
+      "color": "cyan, ocean blue and aqua",
+      "scene": "A friendly visual invitation into the product evidence: the user as presenter on the LEFT half, pointing along a path to three large colorful illustrated portals/books on the RIGHT half labelled \"Demo\", \"Reports\", \"Raw data\". Include a laptop showing a simple race story mockup, an open report with a miniature unlabeled chart, and a folder of structured records. No QR codes or actual URLs; those will be typeset separately. User is welcoming and recognizable, no extra audience people."
+    },
+    {
+      "page": 11,
+      "name": "sources",
+      "color": "forest green, olive and pale moss",
+      "scene": "Portrait-format illustration approximately 2:3 (override the common wide ratio for this one asset). The user as a friendly source librarian stands beside a tall stack of colorful evidence books and folders, holding a magnifying glass and pointing to a source trail. The only book-spine labels are \"Code\", \"Dataset\", \"Official context\", \"Model\", \"Run logs\". He is visibly the supplied man, illustrated naturally. Small source-link chain icons and paper tabs convey provenance. White background, no page title, no additional people, no paragraphs. Make the user and books fill the portrait frame."
+    }
+  ]
+}

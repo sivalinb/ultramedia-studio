@@ -1,19 +1,24 @@
 # UltraMedia visual brochure
 
-[Open the eight-page brochure](UltraMedia-Brochure.pdf).
+[Open the eleven-page brochure](UltraMedia-Brochure.pdf).
 
-This landscape US Letter digital brochure introduces the product before inviting readers into its research evidence. It combines the approved personalized sales illustration with selectable text, vector workflow diagrams, a measured-results chart, internal navigation, external evidence links and two QR codes. It can also be printed as eight pages; it is not imposed as a folded leaflet.
+This landscape US Letter digital brochure introduces the product before inviting readers into its research evidence. It uses eleven custom illustrations with the creator's likeness and distinct section colors, plus selectable captions, an exact measured-results chart, internal navigation, external evidence links and two QR codes. It can also be printed as eleven pages; it is not imposed as a folded leaflet.
 
 ## Reader journey
 
-1. **Story:** race evidence in, reviewed stories out; illustrated product overview.
-2. **Problem and solution:** scattered facts, unsupported claims, repeated drafting and untraceable review mapped to product capabilities and intended outcomes.
-3. **People:** intended users and the editorial tasks the workspace supports.
-4. **Workflow:** choose, retrieve, draft, validate and review; a clearly labeled fictional example.
-5. **Learning:** prompting, retrieval and fine-tuning; the synthetic dataset and completed local lifecycle.
-6. **Results:** matched base/adapted comparison with uncertainty, failed cases and pending review.
-7. **Roadmap:** current prototype, reliability improvements, editor pilot and conditional expansion, with decision gates rather than promised dates.
-8. **Explore:** demo, public evidence hub, walkthrough, full report, data provenance, training receipts, paired comparison, CSV, agenda mapping and technical visual.
+1. **Story:** illustrated product overview with the creator's likeness throughout.
+2. **Problem and solution:** scattered facts and uncertain claims become a reviewable draft.
+3. **People:** four intended editorial roles, illustrated in teal.
+4. **Workflow:** choose, retrieve, draft, validate and review, in blue.
+5. **Data provenance:** authored research, static demo context and actual execution receipts.
+6. **Factors considered:** fields, units, programmed ranges and evidence conditions.
+7. **Learning:** QLoRA, merge, local serving and controlled comparison, in green.
+8. **Results:** a chart generated from saved counts with preserved negative evidence.
+9. **Roadmap:** current work, reliability, editor pilot and conditional expansion.
+10. **Explore:** clickable resources and two vector QR codes.
+11. **Sources:** twelve linked source entries, dataset identity and usage boundaries.
+
+The [detailed source appendix](DATA_SOURCES.md) records creator, origin, purpose, licensing, exact fields, ranges, generator seed, split integrity, demo-source attribution, retrieval behavior and current coverage limits. It separates official race context from simulated athlete timing and synthetic training records.
 
 ## Evidence boundaries
 
@@ -30,9 +35,9 @@ The roadmap is a proposed product sequence derived from documented gaps, not a c
 Install Python packages `reportlab`, `matplotlib` and `pillow`; provide Arial regular/bold on macOS or DejaVu Sans regular/bold on Linux. Then run from the repository root:
 
 ```sh
-python week5/brochure/build_brochure.py --output week5/brochure/UltraMedia-Brochure.pdf
+python week5/brochure/build_illustrated_brochure.py --output week5/brochure/UltraMedia-Brochure.pdf
 ```
 
-The builder reads the approved [personalized illustration](../diagrams/ultramedia-product-pitch-siva.png). The [image-edit prompt](../diagrams/ultramedia-product-pitch-siva-prompt.txt) records how the likeness was requested. No new AI image generation is needed to rebuild the brochure.
+The builder uses the final PNGs in [art/](art/) without raster editing. [Final generation/edit prompts](art/final-prompts.json) and the [initial illustration briefs](art/prompts.json) record the built-in image tool workflow. The source portrait and original personal photos are not included. The earlier typeset builder supplies shared PDF helpers; the illustrated builder above is the current deliverable entry point.
 
-Validation includes eight-page rendering and visual review, PDF metadata/text extraction, internal/external link inspection, source-path existence at the pinned commit and numerical checks against saved reports. See [validation.json](validation.json).
+Scientific plot values come from saved comparison JSON, not AI-drawn bars. PDF streams use lossless compression; original artwork is preserved. All eleven pages were rendered and visually inspected. Validation checks 88 internal navigation links, 35 external links, nonoverlapping clickable regions, source paths at the pinned commit, dataset hashes and the actual fixture counts. See [validation.json](validation.json).
