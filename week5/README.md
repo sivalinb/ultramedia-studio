@@ -1,5 +1,7 @@
 # Week 5: UltraMedia Race Desk
 
+**New to UltraMedia? Open the [visual product and evidence brochure](brochure/UltraMedia-Brochure.pdf).** It introduces the product, intended users and workflow, then links directly to measured results and source data. [Brochure contents and reproducible source](brochure/README.md).
+
 **Read the [complete Week 5 project report](PROJECT_REPORT.md)** for the requirement checklist, training flow, measured comparisons, classification analysis, open-model serving choices and remaining submission actions.
 
 The [agenda audit](project/AGENDA_COVERAGE.md) checks all 16 topics and demos, distinguishing executed work from conceptual coverage. See the new [illustrated end-to-end flow](diagrams/week5-end-to-end-illustrated.png).

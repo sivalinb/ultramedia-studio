@@ -1,0 +1,34 @@
+{
+  "artifact": "UltraMedia-Brochure.pdf",
+  "sha256": "310b7c6faa0f9ae5358a673eda8953506530fc2120af19a27dc14cc56240dccc",
+  "pages": 6,
+  "page_size": "US Letter landscape",
+  "visual_review": "All six rendered pages inspected; no clipping or overlap observed. Chart labels 76/120 and 109/120 reviewed visually.",
+  "internal_navigation_links": 36,
+  "external_links": 18,
+  "unique_external_links": 11,
+  "pinned_source_commit": "cc8f42cbc73f6efe92c49d21437f4e4b16fd1089",
+  "verified_git_paths": [
+    "week5/PROJECT_REPORT.md",
+    "week5/diagrams/week5-end-to-end-illustrated.png",
+    "week5/evidence/handout-page/project-walkthrough.webm",
+    "week5/project/AGENDA_COVERAGE.md",
+    "week5/project/PRODUCT_PITCH.md",
+    "week5/reports/DATA_REPORT.md",
+    "week5/reports/LOCAL_COMPARISON_RESULTS.md",
+    "week5/reports/data/local-comparison-cases.csv",
+    "week5/reports/data/final-training"
+  ],
+  "numerical_checks": "Dataset splits and primary chart/interval verified against saved JSON reports.",
+  "public_links": "Destinations retained from the project; web retrieval tool could not independently fetch these hosted URLs in this turn.",
+  "qr_codes": "Two vector QR codes constructed from the same demo/hub URLs as the adjacent PDF links.",
+  "brochure_scope": "No model execution, website deployment or scientific results changed.",
+  "render_hashes": {
+    "page-1.png": "e8d56bdccb924ea16ab1d1de10a20699b20ddca3c0be8c25e1784973b806003d",
+    "page-2.png": "0100d419eb5c31c1c8b84f27d4721e8604fed971ec7bf2ae2e1c0f54aff798b1",
+    "page-3.png": "443ed337ae8a2c6376d2a949f5c053cf722845945c76ea611d2a6e0d0fbf886c",
+    "page-4.png": "ad802acc0b07368f1b3cd1b91d60064b610b6d0decffc823e7a51cbd5227361d",
+    "page-5.png": "599d7b60247046a51a03ff962b52f7993cb6baece63cbdc97ba12215b7b79460",
+    "page-6.png": "5b395ae61f12e06848ba2fa5b69f6c85f2cf093f41e70819034ddfd333cbbee8"
+  }
+}
