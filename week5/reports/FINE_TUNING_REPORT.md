@@ -1,7 +1,7 @@
 # UltraMedia fine-tuning experiment report
 
-**Snapshot:** 2026-09-09T06:05:50.759534+00:00
-**Status:** training and matched local comparison completed; GPU comparisons pending. The checkpoint-90 snapshot below is preserved as history, followed by the verified training-completion update. Human editorial review and production promotion remain pending.
+**Snapshot:** 2026-09-09T07:31:52.454694+00:00
+**Status:** training and matched local comparison completed; stronger GPU prompt control pending. The checkpoint-90 snapshot below is preserved as history, followed by the verified training-completion update. Human editorial review and production promotion remain pending.
 
 ## 1. Research question and project scope
 
@@ -57,8 +57,8 @@ Low loss and high teacher-forced token accuracy are plausible on repetitive synt
 
 | Comparison | Same across base and adapter | What changes from other comparisons | Status at report snapshot |
 |---|---|---|---|
-| Original GPU | Exact base revision, frozen 120 cases, original prompt, NF4, greedy decoding, max 1024 new tokens | Original training prompt | Pending |
-| Stronger GPU prompt control | Same adapter, cases, model revision, NF4 and decoding | Exact output JSON schema appended to both models' system prompt; decoding itself unconstrained | Queued after original evaluation |
+| Original GPU | Exact base revision, frozen 120 cases, original prompt, NF4, greedy decoding, max 1024 new tokens | Original training prompt | Completed: 44/120 base, 120/120 adapter |
+| Stronger GPU prompt control | Same adapter, cases, model revision, NF4 and decoding | Exact output JSON schema appended to both models' system prompt; decoding itself unconstrained | Running |
 | Matched local deployment | Exact base lineage, same F16-to-Q4_K_M conversion, Mac/runtime, 120 cases, local-serving prompt, JSON-schema constrained decoding, temperature 0, seed 42, max 1024 tokens | Different quantization/runtime and stronger decoding safeguard | Completed: 76/120 base; 109/120 adapter |
 
 The [stronger prompt control](../SCHEMA_CONTROL.md) was declared before GPU test outputs were available, after a separate local probe revealed that the original prompt did not spell out the nested `value` key. Its declaration is commit `d6e55b559151b060a682988a541e41a709733d3f`. It prevents an unfair claim of fine-tuning value based only on an avoidable formatting ambiguity.
@@ -110,7 +110,7 @@ Training completed all 100 optimizer steps. The verified manifest records **33,0
 
 Validation loss was **0.0036062703** at epoch 1 and **0.0018770788** at epoch 2; checkpoint **100** is the selected best checkpoint. The real GPU collator recorded **424 masked prompt tokens and 116 supervised completion tokens** for its inspected first example. Adapter bytes were checked against every saved SHA-256 before merging for local inference. The [final training manifest](data/final-training/training-run.json) and [verification receipt](data/final-training/verification.json) retain the configuration, history, environment and source hashes. The checkpoint-90 plot above remains an explicitly interim historical snapshot.
 
-The original GPU generation comparison is running; neither low loss nor this completed training stage establishes a fine-tuning gain. The matched local comparison is now independently verified; both GPU comparisons remain pending. Actual adapted-model application checks are recorded separately.
+The original GPU generation comparison is completed; neither low loss nor this completed training stage establishes a fine-tuning gain. The matched local comparison is now independently verified; both The stronger GPU prompt control remains pending. Actual adapted-model application checks are recorded separately.
 
 ![Completed training loss and both validation measurements](data/final-training/training-loss.png)
 
@@ -119,3 +119,7 @@ The original GPU generation comparison is running; neither low loss nor this com
 ## Adapted-model application update
 
 The verified, merged Q4_K_M adapter completed all 13 browser software checks. The separate workflow quality suite failed one of two generation cases (record watch); all four retrieval cases passed. [Full evidence and failure analysis](../evidence/adapter-serving/README.md). Automated review actions remain synthetic QA with training consent false.
+
+## Original GPU comparison completed
+
+The original-prompt NF4 comparison is now fully verified: **44/120 base versus 120/120 adapter**, a **63.3 percentage-point difference** (paired 95% group-bootstrap interval 57.5–70.0). The [complete report](ORIGINAL_GPU_RESULTS.md) retains all raw outputs, subgroup rates, timing, memory and failure interpretation. The stronger shared-schema GPU control is running; interpret the original result with its formatting ambiguity and do not treat 100% synthetic automatic success as human approval.

@@ -1,0 +1,364 @@
+{
+  "base": {
+    "schema_version": "week5-evaluation-v1",
+    "created_at": "2026-09-09T06:32:38.483320+00:00",
+    "identity": {
+      "kind": "model_inference",
+      "variant": "base",
+      "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "quantization": "NF4 double-quant",
+      "compute_dtype": "torch.bfloat16",
+      "prompt_version": "evidence-editor-v2",
+      "max_new_tokens": 1024,
+      "adapter_files_sha256": null,
+      "environment": {
+        "python": "3.13.15",
+        "packages": {
+          "torch": "2.8.0",
+          "transformers": "4.56.2",
+          "trl": "0.23.1",
+          "peft": "0.17.1",
+          "datasets": "4.1.1",
+          "accelerate": "1.10.1",
+          "bitsandbytes": "0.47.0"
+        },
+        "gpu": "Tesla T4",
+        "cuda": "12.8",
+        "vram_bytes": 15637086208
+      },
+      "split": "test",
+      "retrieval": "frozen evidence packs"
+    },
+    "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+    "cases": 120,
+    "case_set_sha256": "30bb6940254cb5edcde92a2c4e9b13ee895f271fa97d8daab97eca7799361768",
+    "metrics": {
+      "schema_valid": 0.6083333333333333,
+      "citation_ids_valid": 0.6083333333333333,
+      "structured_claims_supported": 0.6083333333333333,
+      "required_metric_covered": 0.6083333333333333,
+      "disposition_correct": 0.39166666666666666,
+      "numeric_tokens_supported": 0.6083333333333333,
+      "sensitive_language_absent": 0.4083333333333333,
+      "projection_not_achievement": 0.5916666666666667,
+      "automatic_success": 0.36666666666666664
+    },
+    "by_signal": {
+      "cutoff_watch": {
+        "cases": 30,
+        "schema_valid": 0.7,
+        "citation_ids_valid": 0.7,
+        "structured_claims_supported": 0.7,
+        "required_metric_covered": 0.7,
+        "disposition_correct": 0.4,
+        "numeric_tokens_supported": 0.7,
+        "sensitive_language_absent": 0.5,
+        "projection_not_achievement": 0.7,
+        "automatic_success": 0.4
+      },
+      "pace_change": {
+        "cases": 30,
+        "schema_valid": 0.6,
+        "citation_ids_valid": 0.6,
+        "structured_claims_supported": 0.6,
+        "required_metric_covered": 0.6,
+        "disposition_correct": 0.4,
+        "numeric_tokens_supported": 0.6,
+        "sensitive_language_absent": 0.4,
+        "projection_not_achievement": 0.6,
+        "automatic_success": 0.4
+      },
+      "position_gain": {
+        "cases": 30,
+        "schema_valid": 0.6,
+        "citation_ids_valid": 0.6,
+        "structured_claims_supported": 0.6,
+        "required_metric_covered": 0.6,
+        "disposition_correct": 0.4,
+        "numeric_tokens_supported": 0.6,
+        "sensitive_language_absent": 0.3,
+        "projection_not_achievement": 0.6,
+        "automatic_success": 0.3
+      },
+      "record_watch": {
+        "cases": 30,
+        "schema_valid": 0.5333333333333333,
+        "citation_ids_valid": 0.5333333333333333,
+        "structured_claims_supported": 0.5333333333333333,
+        "required_metric_covered": 0.5333333333333333,
+        "disposition_correct": 0.36666666666666664,
+        "numeric_tokens_supported": 0.5333333333333333,
+        "sensitive_language_absent": 0.43333333333333335,
+        "projection_not_achievement": 0.4666666666666667,
+        "automatic_success": 0.36666666666666664
+      }
+    },
+    "by_condition": {
+      "boundary": {
+        "cases": 24,
+        "schema_valid": 0.16666666666666666,
+        "citation_ids_valid": 0.16666666666666666,
+        "structured_claims_supported": 0.16666666666666666,
+        "required_metric_covered": 0.16666666666666666,
+        "disposition_correct": 0.0,
+        "numeric_tokens_supported": 0.16666666666666666,
+        "sensitive_language_absent": 0.16666666666666666,
+        "projection_not_achievement": 0.16666666666666666,
+        "automatic_success": 0.0
+      },
+      "complete": {
+        "cases": 24,
+        "schema_valid": 0.0,
+        "citation_ids_valid": 0.0,
+        "structured_claims_supported": 0.0,
+        "required_metric_covered": 0.0,
+        "disposition_correct": 0.0,
+        "numeric_tokens_supported": 0.0,
+        "sensitive_language_absent": 0.0,
+        "projection_not_achievement": 0.0,
+        "automatic_success": 0.0
+      },
+      "contradictory": {
+        "cases": 24,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 0.875,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 0.875
+      },
+      "misleading_hint": {
+        "cases": 24,
+        "schema_valid": 0.9166666666666666,
+        "citation_ids_valid": 0.9166666666666666,
+        "structured_claims_supported": 0.9166666666666666,
+        "required_metric_covered": 0.9166666666666666,
+        "disposition_correct": 0.0,
+        "numeric_tokens_supported": 0.9166666666666666,
+        "sensitive_language_absent": 0.041666666666666664,
+        "projection_not_achievement": 0.8333333333333334,
+        "automatic_success": 0.0
+      },
+      "missing": {
+        "cases": 24,
+        "schema_valid": 0.9583333333333334,
+        "citation_ids_valid": 0.9583333333333334,
+        "structured_claims_supported": 0.9583333333333334,
+        "required_metric_covered": 0.9583333333333334,
+        "disposition_correct": 0.9583333333333334,
+        "numeric_tokens_supported": 0.9583333333333334,
+        "sensitive_language_absent": 0.9583333333333334,
+        "projection_not_achievement": 0.9583333333333334,
+        "automatic_success": 0.9583333333333334
+      }
+    },
+    "latency_ms": {
+      "p50": 24589.746,
+      "p95": 28897.346
+    },
+    "wall_seconds": 2900.3007047109995,
+    "environment": {
+      "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+      "python": "3.13.15"
+    },
+    "semantic_faithfulness": null,
+    "editor_preference": null,
+    "quality_scope": "Structured evidence checks; not human semantic accuracy or real-race generalization",
+    "release_decision": "not_a_promotion_test"
+  },
+  "adapter": {
+    "schema_version": "week5-evaluation-v1",
+    "created_at": "2026-09-09T07:15:53.576773+00:00",
+    "identity": {
+      "kind": "model_inference",
+      "variant": "adapter",
+      "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "quantization": "NF4 double-quant",
+      "compute_dtype": "torch.bfloat16",
+      "prompt_version": "evidence-editor-v2",
+      "max_new_tokens": 1024,
+      "adapter_files_sha256": {
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "README.md": "40fd262d4e7c3f2c071e45d7aaba0b2955f510edeaa8ea431e544b21124f4052",
+        "adapter_config.json": "d712c3719db4229aca28a90c2b8cb6ad4f626fd625c9d1ca347cf0ef81ade2c1",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "special_tokens_map.json": "a36726f7fe394c1324021cac4a9ee3ad6c4f6285c0d98721f9b0b95888ec9905",
+        "adapter_model.safetensors": "0818dda9c8a2653df1de3199fd321a71b9cc178895eac8e42fa3a68ac37c28e4",
+        "added_tokens.json": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+        "training_args.bin": "980193a1abc00cc4e5f8c231d97b82c74a89addc8b2cfb760afeb97cea0a8234",
+        "chat_template.jinja": "64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326",
+        "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "tokenizer_config.json": "6ea222687bb0c5b8b2f8df309357efc93c6f5bb5eb960270a9ac5d846a2780e5"
+      },
+      "environment": {
+        "python": "3.13.15",
+        "packages": {
+          "torch": "2.8.0",
+          "transformers": "4.56.2",
+          "trl": "0.23.1",
+          "peft": "0.17.1",
+          "datasets": "4.1.1",
+          "accelerate": "1.10.1",
+          "bitsandbytes": "0.47.0"
+        },
+        "gpu": "Tesla T4",
+        "cuda": "12.8",
+        "vram_bytes": 15637086208
+      },
+      "split": "test",
+      "retrieval": "frozen evidence packs"
+    },
+    "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+    "cases": 120,
+    "case_set_sha256": "30bb6940254cb5edcde92a2c4e9b13ee895f271fa97d8daab97eca7799361768",
+    "metrics": {
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "by_signal": {
+      "cutoff_watch": {
+        "cases": 30,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      },
+      "pace_change": {
+        "cases": 30,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      },
+      "position_gain": {
+        "cases": 30,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      },
+      "record_watch": {
+        "cases": 30,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      }
+    },
+    "by_condition": {
+      "boundary": {
+        "cases": 24,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      },
+      "complete": {
+        "cases": 24,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      },
+      "contradictory": {
+        "cases": 24,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      },
+      "misleading_hint": {
+        "cases": 24,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      },
+      "missing": {
+        "cases": 24,
+        "schema_valid": 1.0,
+        "citation_ids_valid": 1.0,
+        "structured_claims_supported": 1.0,
+        "required_metric_covered": 1.0,
+        "disposition_correct": 1.0,
+        "numeric_tokens_supported": 1.0,
+        "sensitive_language_absent": 1.0,
+        "projection_not_achievement": 1.0,
+        "automatic_success": 1.0
+      }
+    },
+    "latency_ms": {
+      "p50": 21515.4885,
+      "p95": 26965.24
+    },
+    "wall_seconds": 2561.967805120001,
+    "environment": {
+      "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+      "python": "3.13.15"
+    },
+    "semantic_faithfulness": null,
+    "editor_preference": null,
+    "quality_scope": "Structured evidence checks; not human semantic accuracy or real-race generalization",
+    "release_decision": "not_a_promotion_test"
+  },
+  "automatic_success_delta": 0.6333333333333333,
+  "paired_group_bootstrap_95_interval": [
+    0.575,
+    0.7
+  ],
+  "human_review_complete": false,
+  "release_decision": "blocked_pending_human_review",
+  "note": "Synthetic experiment cannot authorize production. Inspect all regressions and blind editor review."
+}

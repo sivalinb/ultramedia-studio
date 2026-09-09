@@ -21,7 +21,7 @@ Qwen/Qwen3-4B-Instruct-2507, Apache-2.0. The local demo can use the Ollama `qwen
 
 ## Week 5 research status
 
-The runnable experiment and current evidence live in [`../week5/SUBMISSION.md`](../week5/SUBMISSION.md). The 600 synthetic examples are a separately flagged research corpus, not human-approved production data. No GPU training, adapted quality result or human preference is claimed until the notebook is executed and reviewed. The corrected output contract includes explicit abstention and structured numeric claims.
+The runnable experiment and current evidence live in [`../week5/SUBMISSION.md`](../week5/SUBMISSION.md). The 600 synthetic examples are a separately flagged research corpus, not human-approved production data. Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending. The corrected output contract includes explicit abstention and structured numeric claims.
 
 ## Training-data gate
 
@@ -40,3 +40,7 @@ Only rights-cleared, human-approved drafts may enter training. The preparation s
 
 QLoRA should ship only when it beats prompt-plus-RAG on predeclared thresholds. Otherwise the simpler system remains the production candidate.
 
+
+## Measured evidence and limitations
+
+See the [detailed fine-tuning reports](../week5/reports/README.md), [original GPU results](../week5/reports/ORIGINAL_GPU_RESULTS.md), and [matched local results](../week5/reports/LOCAL_COMPARISON_RESULTS.md). Original-prompt formatting failures inflate the apparent training gap; prioritize the stronger shared-prompt control once complete. Synthetic template repetition, a single training seed, bounded lexical checks and unmeasured editorial preference limit generalization. Final model-byte checksums, conversion lineage and actual serving failures are preserved.

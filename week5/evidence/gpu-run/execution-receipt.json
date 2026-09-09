@@ -1,0 +1,31 @@
+{
+  "execution": "Google Colab GPU via official Colab CLI",
+  "original_source_git_head": "8be44c25fa0d546bffe568cc5a47755a76c6f756",
+  "source_git_head": "99c4405c9dd4d053005a5ed49a8d00a82668bfe5",
+  "source_archive_sha256": "c15f4bbe3eb4d35c01317984277fe860cc21fa03c882e2a704a5a1fdfcc19331",
+  "checkpoint_archive_sha256": "9b319fe0a46501637e450c693f61c3da1f1a9a694e63f76e32ef4d4703004b4b",
+  "resumed_from_step": 20,
+  "resumed_training_completed": true,
+  "notebook_cells_completed_in_this_invocation": [
+    "week5-03",
+    "week5-05",
+    "week5-09",
+    "week5-11"
+  ],
+  "training_cell_adaptation": "Same predeclared settings, with --resume-from-checkpoint added; run directory restored after notebook audit cell.",
+  "interrupted_attempts": [
+    {
+      "run": "20260909T020944Z",
+      "last_logged_step": 15,
+      "checkpoint_retained": false
+    },
+    {
+      "run": "20260909T025932Z",
+      "last_logged_step": 23,
+      "checkpoint_retained_step": 20
+    }
+  ],
+  "interruption_cause": "Colab runtime ended; underlying cause not established",
+  "training_time_scope": "Training manifest measures only resumed invocation; interrupted attempts excluded.",
+  "human_review_complete": false
+}

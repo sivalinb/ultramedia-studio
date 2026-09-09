@@ -1,0 +1,8 @@
+{
+  "verified": true,
+  "test_cases_per_model": 120,
+  "adapter_bytes_verified": true,
+  "all_metrics_recomputed": true,
+  "paired_comparison_reproduced": true,
+  "human_review_complete": false
+}
