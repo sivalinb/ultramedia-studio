@@ -12,7 +12,9 @@ All athlete names and live timing values in the public portfolio are synthetic. 
 
 ## Week 5 submission
 
-Start at [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run the [Colab/Kaggle notebook](week5/notebooks/UltraMedia_Week5_QLoRA.ipynb). The package includes 600 synthetic examples (400/80/120), group/checksum audits, a shared training/runtime contract, versioned editorial corrections, and complete deterministic predictions. **GPU training and the model comparison remain unrun until the notebook is executed.** Synthetic examples are not human-approved. No adapted-model gain is claimed.
+Start at [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run the [Colab/Kaggle notebook](week5/notebooks/UltraMedia_Week5_QLoRA.ipynb). The package includes 600 synthetic examples (400/80/120), group/checksum audits, a shared training/runtime contract, versioned editorial corrections, and complete deterministic predictions. **GPU training is in progress; final model comparisons remain pending verification.** Synthetic examples are not human-approved. No adapted-model gain is claimed.
+
+Detailed methodology, all-example data inventory, interim loss curve and flow diagrams are in the [fine-tuning reports](week5/reports/README.md).
 
 ## What is implemented
 
@@ -38,7 +40,7 @@ Start at [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run 
 | Database | SQLite | PostgreSQL 16 + pgvector |
 | Retrieval | Local hybrid hashing + lexical search | Fireworks embeddings/rerank or pgvector/Pinecone |
 | Generation | Deterministic local provider | Qwen3-4B through Ollama or Fireworks |
-| Fine-tuning | Reproducible scripts only | QLoRA on an on-demand GPU, then local inference |
+| Fine-tuning | Colab T4 experiment in progress | QLoRA on an on-demand GPU, then local inference |
 | Observability | SQLite traces + OpenTelemetry | Phoenix self-hosted; LangSmith optional |
 | Web | React 19, TypeScript, Vinext, Tailwind | OpenAI Sites / Cloudflare Workers |
 | Testing | pytest, Ruff, deterministic evals | Same suite plus provider-backed shadow evals |
