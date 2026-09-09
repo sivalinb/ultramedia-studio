@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-09-09T05:06:27.700Z",
+  "viewports": [
+    {
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "passed": true
+    }
+  ],
+  "downloads": [
+    {
+      "name": "local-demo.webm",
+      "bytes": 2279093,
+      "sha256": "026ff7136482fc126b923e1f3fe9f5df3de520ba23308dc63127aa9af76a464f"
+    },
+    {
+      "name": "local-demo-poster.png",
+      "bytes": 369754,
+      "sha256": "777d5d0e94e4c2a0a44919f0bb6a067dbcee5d80d382679a5e3ed0f2d03520f9"
+    },
+    {
+      "name": "local-serving-evidence.zip",
+      "bytes": 740964,
+      "sha256": "27305f9e067e997247bfc5a1f53610757d7f8067c6b49ba0ab47c0a6bd3d99ad"
+    },
+    {
+      "name": "END_TO_END.md",
+      "bytes": 5424,
+      "sha256": "cc09d47edecf51549969152b7a2a703f5d363f11b59f77846fbeffe108af1f3b"
+    },
+    {
+      "name": "SCHEMA_CONTROL.md",
+      "bytes": 2519,
+      "sha256": "bf70f55292693d67645780ee2fc00828b922adc8f646913f9dfff1f69d13f187"
+    },
+    {
+      "name": "COMPUTE_OPTIONS.md",
+      "bytes": 2590,
+      "sha256": "96719432d4c17586c7d86a7b9cf3d3cd1a4c2f27716e798541e41b868c2bdec0"
+    }
+  ],
+  "passed": true,
+  "video": {
+    "duration": 26.92,
+    "width": 1280,
+    "height": 900
+  }
+}
