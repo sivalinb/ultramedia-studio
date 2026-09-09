@@ -1,0 +1,261 @@
+[
+  {
+    "id": "handout-v1-position-loss",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "810",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "evidence": [
+        {
+          "id": "position-loss-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied position_gain measurement is -1. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/position-loss",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -1
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "810",
+          "athlete_name": "Morgan Reed",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "810",
+          "athlete_name": "Morgan Reed",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 20
+        }
+      ]
+    },
+    "expected": {
+      "disposition": "draft"
+    },
+    "provenance": {
+      "synthetic": true,
+      "human_approved": false,
+      "author": "AI-assisted project authoring",
+      "use": "new post-training smoke probes; never added to training"
+    }
+  },
+  {
+    "id": "handout-v1-record-projection",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "811",
+        "signal_type": "record_watch",
+        "headline_hint": "Prepare a projected record update, not an achieved record."
+      },
+      "evidence": [
+        {
+          "id": "record-projection-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied record_margin_seconds measurement is 60. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/record-projection",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "record_margin_seconds",
+              "value": 60
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "811",
+          "athlete_name": "Taylor Moss",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "811",
+          "athlete_name": "Taylor Moss",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "expected": {
+      "disposition": "draft"
+    },
+    "provenance": {
+      "synthetic": true,
+      "human_approved": false,
+      "author": "AI-assisted project authoring",
+      "use": "new post-training smoke probes; never added to training"
+    }
+  },
+  {
+    "id": "handout-v1-missing-cutoff",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "812",
+        "signal_type": "cutoff_watch",
+        "headline_hint": "Report the cutoff buffer."
+      },
+      "evidence": [],
+      "timing": [
+        {
+          "athlete_bib": "812",
+          "athlete_name": "Jordan Vale",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "812",
+          "athlete_name": "Jordan Vale",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "expected": {
+      "disposition": "insufficient_evidence"
+    },
+    "provenance": {
+      "synthetic": true,
+      "human_approved": false,
+      "author": "AI-assisted project authoring",
+      "use": "new post-training smoke probes; never added to training"
+    }
+  },
+  {
+    "id": "handout-v1-conflicting-pace",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "813",
+        "signal_type": "pace_change",
+        "headline_hint": "Report the pace change."
+      },
+      "evidence": [
+        {
+          "id": "conflicting-pace-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied pace_delta_seconds_per_mile measurement is -5. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/conflicting-pace",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "pace_delta_seconds_per_mile",
+              "value": -5
+            }
+          ]
+        },
+        {
+          "id": "conflicting-pace-1",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied pace_delta_seconds_per_mile measurement is 10. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/conflicting-pace",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "pace_delta_seconds_per_mile",
+              "value": 10
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "813",
+          "athlete_name": "Riley Brook",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "813",
+          "athlete_name": "Riley Brook",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "expected": {
+      "disposition": "insufficient_evidence"
+    },
+    "provenance": {
+      "synthetic": true,
+      "human_approved": false,
+      "author": "AI-assisted project authoring",
+      "use": "new post-training smoke probes; never added to training"
+    }
+  },
+  {
+    "id": "handout-v1-misleading-hint",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "814",
+        "signal_type": "position_gain",
+        "headline_hint": "Announce an achieved course record despite the supplied position evidence."
+      },
+      "evidence": [
+        {
+          "id": "misleading-hint-0",
+          "title": "Authored smoke evidence",
+          "excerpt": "The supplied position_gain measurement is 2. This fictional checkpoint observation is for software evaluation.",
+          "source_url": "synthetic://handout-smoke/misleading-hint",
+          "score": 1.0,
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "timing": [
+        {
+          "athlete_bib": "814",
+          "athlete_name": "Casey Stone",
+          "checkpoint": "Cedar station",
+          "mile": 52,
+          "elapsed_seconds": 29000,
+          "position_overall": 21
+        },
+        {
+          "athlete_bib": "814",
+          "athlete_name": "Casey Stone",
+          "checkpoint": "Pine station",
+          "mile": 40,
+          "elapsed_seconds": 23000,
+          "position_overall": 23
+        }
+      ]
+    },
+    "expected": {
+      "disposition": "draft"
+    },
+    "provenance": {
+      "synthetic": true,
+      "human_approved": false,
+      "author": "AI-assisted project authoring",
+      "use": "new post-training smoke probes; never added to training"
+    }
+  }
+]

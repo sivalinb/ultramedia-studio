@@ -1,0 +1,14 @@
+flowchart TD
+  A[600 labeled fictional examples] --> B[Race-group split:400 train /80 validation /120 test]
+  B --> C[QLoRA SFT: frozen NF4 Qwen + rank16 adapters]
+  C --> D[Validate each epoch; select checkpoint100]
+  D --> E[Verify hashes; merge; convert to GGUF]
+  E --> F[Same-input base and adapter comparison]
+  F --> G[Preserve predictions, class errors and uncertainty]
+  G --> H[Research evidence; no production promotion]
+  I[Current race evidence + requested signal] --> J[Draft or insufficient-evidence decision]
+  E --> J
+  J --> K[Check claims, citations and numeric contract]
+  K --> L[Human editorial review and corrections]
+  L --> M[Versioned decision; separate training consent]
+  N[Rules already solve the structured synthetic task] --> H

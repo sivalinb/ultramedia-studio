@@ -6,7 +6,7 @@
 
 ## Submission status
 
-Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
+Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The explicit-schema GPU control was interrupted during its adapter arm and awaits compatible Colab capacity; its completed base outputs are retained. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
 
 [Original GPU evidence](reports/ORIGINAL_GPU_RESULTS.md), [matched local results](reports/LOCAL_COMPARISON_RESULTS.md), and [actual adapter application checks](evidence/adapter-serving/README.md).
 

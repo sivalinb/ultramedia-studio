@@ -1,0 +1,14 @@
+{
+  "site": "http://localhost:3000",
+  "checked_at": "2026-09-09T14:41:05.078Z",
+  "passed": true,
+  "checks": [
+    "Base/adapted classification switch, matrices and distinct metrics verified",
+    "Rules5/5 and both models3/5, with negative results visible",
+    "Explicit hypothetical cost calculation, zero denominator handling and editable assumptions",
+    "Existing 20-scenario paired-output explorer remains usable",
+    "Six new/updated downloads match local verified bytes",
+    "Recorded project walkthrough metadata loads",
+    "Mobile text flow, desktop diagram and no horizontal overflow"
+  ]
+}

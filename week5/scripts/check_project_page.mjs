@@ -1,0 +1,83 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import assert from 'node:assert/strict';
+import { chromium } from 'playwright';
+
+const root = fileURLToPath(new URL('../../', import.meta.url));
+const site = process.env.E2E_SITE_URL || 'http://localhost:3000';
+const output = process.env.E2E_OUTPUT_DIR || path.join(root, 'week5/runs/project-page');
+await fs.mkdir(output, { recursive: true });
+const browser = await chromium.launch({ headless: true });
+const context = await browser.newContext({ viewport: { width: 1440, height: 1000 },
+  ...(process.env.E2E_RECORD === '1' ? { recordVideo: { dir: output, size: { width: 1440, height: 1000 } } } : {}) });
+const page = await context.newPage();
+const errors = [];
+const checks = [];
+const show = async () => { if (process.env.E2E_RECORD === '1') await page.waitForTimeout(3500); };
+page.on('pageerror', error => errors.push(error.message));
+try {
+  assert.equal((await page.goto(site + '/week5', { waitUntil: 'networkidle' })).status(), 200);
+  const project = page.locator('#handout-project');
+  await project.getByRole('heading', { name: 'From race evidence to an editor’s decision' }).waitFor();
+  await project.scrollIntoViewIfNeeded();
+  await show();
+  const diagram = project.getByAltText('Week 5 flow: data preparation, QLoRA, validation, merge, comparison, and human editorial review');
+  await diagram.scrollIntoViewIfNeeded();
+  assert.equal(await diagram.evaluate(image => image.complete && image.naturalWidth > 0), true);
+  await diagram.screenshot({ path: path.join(output, 'flow-diagram.png') });
+  await show();
+  await project.getByRole('button', { name: 'Base model', exact: true }).click();
+  await project.getByText('83.3% decision accuracy', { exact: true }).waitFor();
+  assert.equal(await project.getByRole('cell', { name: '54', exact: true }).count(), 1);
+  await show();
+  await project.getByRole('button', { name: 'Fine-tuned model', exact: true }).click();
+  await project.getByText('90.8% decision accuracy', { exact: true }).waitFor();
+  assert.equal(await project.getByRole('cell', { name: '61', exact: true }).count(), 1);
+  await show();
+  checks.push('Base/adapted classification switch, matrices and distinct metrics verified');
+  await project.getByRole('heading', { name: 'Five new task-level probes' }).scrollIntoViewIfNeeded();
+  assert.equal(await project.getByText('3/5', { exact: true }).count(), 2);
+  await show();
+  checks.push('Rules5/5 and both models3/5, with negative results visible');
+  await project.getByText('Explore a cost scenario', { exact: true }).click();
+  await project.getByText('1.10 per accepted brief — hypothetical', { exact: true }).waitFor();
+  await project.getByLabel('Accepted briefs', { exact: true }).fill('0');
+  await project.getByText('Enter nonnegative costs and a whole number of accepted briefs, at least one.', { exact: true }).waitFor();
+  await project.getByLabel('Accepted briefs', { exact: true }).fill('0.5');
+  await project.getByText('Enter nonnegative costs and a whole number of accepted briefs, at least one.', { exact: true }).waitFor();
+  await project.getByLabel('Accepted briefs', { exact: true }).fill('200');
+  await project.getByText('0.55 per accepted brief — hypothetical', { exact: true }).waitFor();
+  await show();
+  checks.push('Explicit hypothetical cost calculation, zero denominator handling and editable assumptions');
+  const comparison = page.locator('#local-deployment-comparison');
+  assert.equal(await comparison.locator('option').count(), 20);
+  await comparison.getByLabel('Choose an evidence scenario', { exact: true }).selectOption('3');
+  checks.push('Existing 20-scenario paired-output explorer remains usable');
+  for (const name of ['handout-project.zip', 'fine-tuning-reports.zip', 'week5-flow.svg', 'DISPOSITION_RESULTS.md', 'HANDOUT_SMOKE_RESULTS.md', 'DEMO_AND_SUBMISSION.md']) {
+    const response = await page.request.get(site + '/week5/' + name);
+    assert.equal(response.status(), 200, name);
+    assert.deepEqual(await response.body(), await fs.readFile(path.join(root, 'public/week5', name)), name);
+  }
+  checks.push('Six new/updated downloads match local verified bytes');
+  const recorded = project.locator('video');
+  await recorded.evaluate(v => v.load());
+  await page.waitForFunction(() => { const v = document.querySelector('#handout-project video'); return v && v.readyState >= 1 && v.duration > 0; });
+  checks.push('Recorded project walkthrough metadata loads');
+  await page.setViewportSize({ width: 390, height: 844 });
+  await project.scrollIntoViewIfNeeded();
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await project.getByText('1. Prepare the data', { exact: true }).waitFor();
+  await page.screenshot({ path: path.join(output, 'mobile.png'), fullPage: true });
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await project.screenshot({ path: path.join(output, 'project-desktop.png') });
+  checks.push('Mobile text flow, desktop diagram and no horizontal overflow');
+  assert.deepEqual(errors, []);
+  await fs.writeFile(path.join(output, 'page-check.json'), JSON.stringify({ site, checked_at: new Date().toISOString(), passed: true, checks }, null, 2) + '\n');
+  console.log(JSON.stringify({ passed: true, checks }));
+} finally {
+  const video = page.video();
+  await context.close();
+  if (video) await video.saveAs(path.join(output, 'project-walkthrough.webm'));
+  await browser.close();
+}

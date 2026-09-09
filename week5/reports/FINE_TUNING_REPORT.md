@@ -1,5 +1,10 @@
 # UltraMedia fine-tuning experiment report
 
+## Current handout-alignment update
+
+Training, the original GPU comparison and matched local comparison are complete. The explicit-schema GPU adapter arm is interrupted awaiting capacity. [Classification results](DISPOSITION_RESULTS.md), [five new task probes](HANDOUT_SMOKE_RESULTS.md), and the [handout project guide](../project/README.md) now supplement the evidence. The new probes score rules5/5, base3/5, adapter3/5; human editorial benefit remains unmeasured. Older dated progress descriptions below are historical snapshots.
+
+
 **Snapshot:** 2026-09-09T07:31:52.454694+00:00
 **Status:** training and matched local comparison completed; stronger GPU prompt control pending. The checkpoint-90 snapshot below is preserved as history, followed by the verified training-completion update. Human editorial review and production promotion remain pending.
 
