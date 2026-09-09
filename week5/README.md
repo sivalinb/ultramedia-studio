@@ -1,5 +1,7 @@
 # Week 5: UltraMedia Race Desk
 
+**Read the [complete Week 5 project report](PROJECT_REPORT.md)** for the requirement checklist, training flow, measured comparisons, classification analysis, open-model serving choices and remaining submission actions.
+
 **Start with the [handout-aligned project guide](project/README.md).** It maps each lab phase to measured evidence, includes a visual flow, classification metrics, five task-level model probes, a business decision and a Loom submission script.
 
 ![Week 5 flow](diagrams/week5-flow.svg)
