@@ -1,18 +1,19 @@
 {
   "artifact": "UltraMedia-Brochure.pdf",
-  "sha256": "310b7c6faa0f9ae5358a673eda8953506530fc2120af19a27dc14cc56240dccc",
-  "pages": 6,
+  "sha256": "848fc88bcb25816fbafebce237ac4760a2903c5a04bb2ffa4b56e93a77fb4328",
+  "pages": 8,
   "page_size": "US Letter landscape",
-  "visual_review": "All six rendered pages inspected; no clipping or overlap observed. Chart labels 76/120 and 109/120 reviewed visually.",
-  "internal_navigation_links": 36,
-  "external_links": 18,
-  "unique_external_links": 11,
+  "visual_review": "All eight revised pages rendered and inspected; no clipping or overlap observed. New problem/solution matrix and proposed roadmap reviewed.",
+  "internal_navigation_links": 64,
+  "external_links": 20,
+  "unique_external_links": 12,
   "pinned_source_commit": "cc8f42cbc73f6efe92c49d21437f4e4b16fd1089",
   "verified_git_paths": [
     "week5/PROJECT_REPORT.md",
     "week5/diagrams/week5-end-to-end-illustrated.png",
     "week5/evidence/handout-page/project-walkthrough.webm",
     "week5/project/AGENDA_COVERAGE.md",
+    "week5/project/BUSINESS_CASE.md",
     "week5/project/PRODUCT_PITCH.md",
     "week5/reports/DATA_REPORT.md",
     "week5/reports/LOCAL_COMPARISON_RESULTS.md",
@@ -24,11 +25,14 @@
   "qr_codes": "Two vector QR codes constructed from the same demo/hub URLs as the adjacent PDF links.",
   "brochure_scope": "No model execution, website deployment or scientific results changed.",
   "render_hashes": {
-    "page-1.png": "e8d56bdccb924ea16ab1d1de10a20699b20ddca3c0be8c25e1784973b806003d",
-    "page-2.png": "0100d419eb5c31c1c8b84f27d4721e8604fed971ec7bf2ae2e1c0f54aff798b1",
-    "page-3.png": "443ed337ae8a2c6376d2a949f5c053cf722845945c76ea611d2a6e0d0fbf886c",
-    "page-4.png": "ad802acc0b07368f1b3cd1b91d60064b610b6d0decffc823e7a51cbd5227361d",
-    "page-5.png": "599d7b60247046a51a03ff962b52f7993cb6baece63cbdc97ba12215b7b79460",
-    "page-6.png": "5b395ae61f12e06848ba2fa5b69f6c85f2cf093f41e70819034ddfd333cbbee8"
-  }
+    "page-1.png": "bb69bdffc4d98dc4b4ca7a9a23e1c609ea3d5541e523f6ae6a09da756be27379",
+    "page-2.png": "072e901903b791545d692fb30092a63b4e9f91f288adfc07646faf075d452dc4",
+    "page-3.png": "5930edd305fc54e1135a4bb7b6db685087d4192ec70a9f8b690aafbea7650a96",
+    "page-4.png": "08900169704fab5de2f7ad7960c00401044ae0f2754b2f166e0bc85c26659281",
+    "page-5.png": "fcf2543fba9eb11276001850fbd8e67ccf11fdbe1c880ed81e510487e3799b3d",
+    "page-6.png": "35ad5b50812ca9fa8a64f4f374af9b06149d4addff3514a53d4b426cc4869cd8",
+    "page-7.png": "66ee4b334caf3f1d8a7ec51139b374c0f653ad0ac92e4a8311f57d7fc658c9c9",
+    "page-8.png": "e5d9c962601f14ee02583179e9d97f579f554287f86e01dc979a13b228d6b9e7"
+  },
+  "revision_scope": "Adds current workflow problem, product response, intended outcome and proposed roadmap. Scientific evidence unchanged."
 }

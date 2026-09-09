@@ -1,4 +1,4 @@
-"""Build the six-page, clickable UltraMedia product/evidence brochure.
+"""Build the eight-page, clickable UltraMedia product/evidence brochure.
 
 Run: python week5/brochure/build_brochure.py --output UltraMedia-Brochure.pdf
 Dependencies: reportlab, matplotlib, pillow. Source evidence is pinned.
@@ -102,11 +102,11 @@ class Brochure:
     def start(self,n,kicker,title,subtitle):
         self.c.bookmarkPage(f'p{n}');self.c.addOutlineEntry(title,f'p{n}',level=0,closed=False)
         self.text('ULTRAMEDIA / RACE DESK',M,22,220,9,PURPLE,True)
-        labels=['Story','People','Workflow','Learning','Results','Explore']
+        labels=['Story','Problem','People','Workflow','Learning','Results','Roadmap','Explore']
         for i,label in enumerate(labels):
-            x=350+i*68
-            self.text(label,x,22,64,9,PURPLE if n==i+1 else MUTED,n==i+1)
-            self.c.linkRect('',f'p{i+1}',(x,PAGE_H-37,x+62,PAGE_H-18),relative=0,thickness=0)
+            x=286+i*58
+            self.text(label,x,22,56,8.5,PURPLE if n==i+1 else MUTED,n==i+1)
+            self.c.linkRect('',f'p{i+1}',(x,PAGE_H-37,x+56,PAGE_H-18),relative=0,thickness=0)
         self.line(M,46,PAGE_W-M,46)
         self.text(kicker.upper(),M,62,WIDTH,9,GREEN,True)
         self.text(title,M,82,WIDTH,28,INK,True,limit=70)
@@ -118,7 +118,7 @@ class Brochure:
         if source:
             self.text('Source evidence',568,577,113,8,PURPLE,True)
             self.c.linkURL(source,(568,22,681,37),relative=0); self.links.append(source)
-        self.text(f'{n:02d} / 06',698,577,52,8,MUTED,True)
+        self.text(f'{n:02d} / 08',698,577,52,8,MUTED,True)
         self.c.showPage()
 
     def build(self):
@@ -131,8 +131,39 @@ class Brochure:
         self.text('Meet the workflow first. Inspect every claim next.',477,530,271,10,MUTED,limit=28)
         self.end(1,GIT+'project/PRODUCT_PITCH.md')
 
-        # 2. Audience and concrete product value, without invented commercial claims.
-        self.start(2,'Who can use it','For the people behind every race update.',
+        # 2. Explain the current workflow problem and its product counterpart.
+        self.start(2,'The current problem and the solution','Race updates move fast. Verification takes work.',
+                   'The editorial challenge: connect scattered facts, handle uncertainty and keep decisions traceable.')
+        for x,w,label,fill,color in [(M,210,'CURRENT PROBLEM',CREAM,AMBER),(268,280,'HOW ULTRAMEDIA ADDRESSES IT',LILAC,PURPLE),(564,186,'WHAT THE EDITOR GETS',PALE,GREEN)]:
+            self.rect(x,169,w,30,fill,r=6)
+            self.text(label,x+12,179,w-24,9,color,True)
+        rows=[
+            ('Scattered race facts','Timing updates and course context need to be reconciled.',
+             'Bring evidence into one view','Retrieve facts relevant to the selected race moment.',
+             'Traceable context','Inspect the sources behind the story.'),
+            ('Unsupported claims','Missing or conflicting facts can become confident prose.',
+             'Draft with citations or hold','Check citation IDs and numeric claims; flag insufficient evidence.',
+             'Visible uncertainty','See what supports a claim and what is missing.'),
+            ('Repeated draft assembly','Headlines, body copy and captions need a consistent starting point.',
+             'Prepare a structured candidate','Generate a headline, body, social caption and structured claims.',
+             'A reviewable draft','Edit a candidate in the same workspace.'),
+            ('Review without a trail','Edits and approval decisions need to remain traceable.',
+             'Keep review history','Preserve original drafts, revisions and protected approval actions.',
+             'Editorial control','Approve a version; publishing remains a separate action.'),
+        ]
+        for i,row in enumerate(rows):
+            y=211+i*81
+            for x,w,title,body,fill,color in [(M,210,row[0],row[1],CREAM,AMBER),(268,280,row[2],row[3],LILAC,PURPLE),(564,186,row[4],row[5],PALE,GREEN)]:
+                self.rect(x,y,w,72,fill,r=8)
+                self.text(title,x+12,y+10,w-24,12,color,True,limit=18)
+                self.text(body,x+12,y+33,w-24,10,INK,limit=32)
+            self.arrow(254,y+36,264)
+            self.arrow(552,y+36,560)
+        self.text('These are the workflow problems the prototype targets. Time saved and real-world error reduction still need editor testing.',M,540,WIDTH,9,MUTED)
+        self.end(2,GIT+'project/BUSINESS_CASE.md')
+
+        # 3. Audience and concrete product value, without invented commercial claims.
+        self.start(3,'Who can use it','For the people behind every race update.',
                    'Designed for teams that need to explain what changed, show the source and keep an editor in control.')
         cards=[('01','Race organizers','Prepare event updates from timing facts and course context.','Clearer event communications'),
                ('02','Sports editors','Inspect citations and revise the story before approving a version.','A reviewable editorial draft'),
@@ -150,10 +181,10 @@ class Brochure:
         self.text('One place to move from a race signal to a sourced draft, a documented check and an editorial decision.',
                   M+204,456,484,15,INK,True,limit=44)
         self.text('Intended audiences and benefits; no customer adoption, time savings or revenue claim is implied.',M+18,512,670,9,MUTED)
-        self.end(2,GIT+'project/PRODUCT_PITCH.md')
+        self.end(3,GIT+'project/PRODUCT_PITCH.md')
 
-        # 3. Product walkthrough. The numerical example is explicitly illustrative.
-        self.start(3,'How it works','A visible path from signal to editorial decision.',
+        # 4. Product walkthrough. The numerical example is explicitly illustrative.
+        self.start(4,'How it works','A visible path from signal to editorial decision.',
                    'The model prepares a candidate. Validation and human review determine what happens next.')
         steps=[('Choose','Select a race moment.'),('Retrieve','Gather relevant evidence.'),('Draft','Generate cited, structured text.'),('Validate','Check format, IDs and claims.'),('Review','Inspect, edit and approve a version.')]
         for i,(title,body) in enumerate(steps):
@@ -179,10 +210,10 @@ class Brochure:
         self.text('Illustrative example, not a saved model output or real race result.',M,493,WIDTH,9,MUTED)
         self.rect(M,516,WIDTH,34,LILAC,r=7)
         self.text('Editor control: source inspection, protected revisions and history. Approval does not publish externally.',M+12,526,WIDTH-24,10,INK,limit=18)
-        self.end(3,GIT+'PROJECT_REPORT.md')
+        self.end(4,GIT+'PROJECT_REPORT.md')
 
-        # 4. Explain the learning lifecycle with legible vector graphics.
-        self.start(4,'The Week 5 learning story','Teach the response behavior. Supply the race facts.',
+        # 5. Explain the learning lifecycle with legible vector graphics.
+        self.start(5,'The Week 5 learning story','Teach the response behavior. Supply the race facts.',
                    'Prompting defines the task; retrieval supplies current evidence; fine-tuning adapts the response behavior.')
         pipeline=[('Data','600 fictional examples'),('SFT / QLoRA','Train small adapters'),('Merge','Combine with pinned base'),('Serve locally','GGUF / llama.cpp'),('Compare','Same 120 test cases')]
         for i,(title,body) in enumerate(pipeline):
@@ -206,12 +237,12 @@ class Brochure:
         self.text('Qwen3-4B-Instruct-2507; rank-16 LoRA.<br/>NF4 training: 2 epochs, 100 steps.<br/>33,030,144 trainable parameters.<br/>Adapter merged and evaluated locally.',M+16,447,313,11,limit=67)
         self.rect(405,406,345,124,CREAM)
         self.text('Future experiments / pending proof',421,420,313,13,AMBER,True)
-        self.text('Fireworks RFT and teacher distillation: not run.<br/>Native Ollama API demo: not demonstrated.<br/>Human editorial benefit: not measured.<br/>Full agenda mapping is linked on page 6.',421,447,313,11,limit=67)
+        self.text('Fireworks RFT and teacher distillation: not run.<br/>Native Ollama API demo: not demonstrated.<br/>Human editorial benefit: not measured.<br/>Full agenda mapping is linked on page 8.',421,447,313,11,limit=67)
         self.text('All training examples are programmatic synthetic references; none are human-approved.',M,542,WIDTH,9,MUTED)
-        self.end(4,GIT+'project/AGENDA_COVERAGE.md')
+        self.end(5,GIT+'project/AGENDA_COVERAGE.md')
 
-        # 5. Standard plotting tools for a publishable quantitative figure.
-        self.start(5,'What the data actually shows','A measured gain, with the limits beside it.',
+        # 6. Standard plotting tools for a publishable quantitative figure.
+        self.start(6,'What the data actually shows','A measured gain, with the limits beside it.',
                    'Matched local comparison: same base lineage, prompt, Q4_K_M runtime and schema constraints.')
         fig,ax=plt.subplots(figsize=(4.35,2.9),dpi=200)
         fig.patch.set_facecolor('#FFFFFF');ax.set_facecolor('#FFFFFF')
@@ -238,10 +269,37 @@ class Brochure:
         self.text('11 fine-tuned failures: unnecessary holds.<br/>Five new probes: base 3/5; adapted 3/5.<br/>Rules: 120/120 on the engineered test.',M+16,477,319,10.5,limit=48)
         self.text('13 app software checks passed; separate quality suite failed one case. Human review and the paired explicit-schema GPU control remain pending.',421,477,313,10.5,limit=48)
         self.text('Synthetic benchmark only; not editor preference. Rules share the task design. Bootstrap: 30 groups, 1,000 resamples.',M,545,WIDTH,8.5,MUTED)
-        self.end(5,GIT+'reports/LOCAL_COMPARISON_RESULTS.md')
+        self.end(6,GIT+'reports/LOCAL_COMPARISON_RESULTS.md')
 
-        # 6. Progressive disclosure: visual introduction, demonstration, then raw data.
-        self.start(6,'Go deeper at your own pace','Start with the demo. Follow the evidence.',
+        # 7. Proposed sequence tied to current evidence gaps, not delivery promises.
+        self.start(7,'Product roadmap','Prove reliability. Earn trust. Then expand.',
+                   'An evidence-led sequence: current capability, proposed next priorities and conditional future options.')
+        stages=[
+            ('01 / NOW','Research prototype',PALE,GREEN,
+             'Cited draft/hold workflow, protected revisions and a local fine-tuned open model. Public evidence and recorded examples are available.',
+             'Status: demonstrated in synthetic research; human editorial benefit remains unmeasured.'),
+            ('02 / NEXT','Close the reliability gaps',LILAC,PURPLE,
+             'Address invented citations, misleading hints and record-projection wording. Clarify input conventions; version changes and test fresh cases.',
+             'Gate: fresh challenge results and complete the paired GPU control when capacity is available.'),
+            ('03 / PILOT','Measure value with editors',LILAC,PURPLE,
+             'Use consented race material in a bounded pilot. Compare rules, base and adapted drafts for acceptance, correction effort and factual quality.',
+             'Gate: measured editor benefit, acceptable errors and cost per accepted brief before broader use.'),
+            ('04 / LATER','Expand access and coverage',CREAM,AMBER,
+             'Prioritize source integrations and team access from pilot feedback. Evaluate native Ollama or budget-approved Fireworks hosting.',
+             'Gate: hosting, privacy and cost checks. RFT or distillation only after data/reward validation.'),
+        ]
+        for i,(stage,title,fill,color,body,gate) in enumerate(stages):
+            x=M+(i%2)*363;y=171+(i//2)*176
+            self.rect(x,y,345,158,fill,r=12)
+            self.text(stage,x+16,y+13,313,9,color,True)
+            self.text(title,x+16,y+34,313,17,INK,True,limit=25)
+            self.text(body,x+16,y+64,313,11,INK,limit=59)
+            self.text(gate,x+16,y+122,313,9,color,True,limit=29)
+        self.text('Proposed roadmap, not committed dates. New model versions require new evidence; existing results stay frozen.',M,526,WIDTH,10,MUTED,limit=28)
+        self.end(7,GIT+'PROJECT_REPORT.md')
+
+        # 8. Progressive disclosure: visual introduction, demonstration, then raw data.
+        self.start(8,'Go deeper at your own pace','Start with the demo. Follow the evidence.',
                    'Every underlined resource and colored button is clickable. QR codes also work from a printed copy.')
         for x,title,desc,url in [(M,'Explore UltraMedia','Product and editorial workflow',DEMO),(405,'Open the evidence hub','Week 5 results and recorded examples',HUB)]:
             self.rect(x,170,345,122,LILAC)
@@ -270,9 +328,9 @@ class Brochure:
             self.c.linkURL(url,(x,PAGE_H-y-33,x+345,PAGE_H-y),relative=0);self.links.append(url)
         self.rect(M,510,WIDTH,40,CREAM,r=7)
         self.text('Public demo includes recorded examples. This brochure does not claim live cloud model hosting or production approval.',M+12,520,WIDTH-24,10,INK,limit=28)
-        self.end(6,GIT+'PROJECT_REPORT.md')
+        self.end(8,GIT+'PROJECT_REPORT.md')
         self.c.save()
-        return {'pages':6,'source_snapshot':SNAPSHOT,'external_links':self.links,'text_blocks':len(self.boxes)}
+        return {'pages':8,'source_snapshot':SNAPSHOT,'external_links':self.links,'text_blocks':len(self.boxes)}
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=HERE/'UltraMedia-Brochure.pdf')
