@@ -207,10 +207,11 @@ def test_concurrent_workflows_keep_trace_context_separate(client):
         assert all(span["status"] == "passed" for span in spans)
 
 
-@pytest.mark.parametrize("provider_kind", ["ollama", "fireworks"])
+@pytest.mark.parametrize("provider_kind", ["ollama", "fireworks", "llamacpp"])
 def test_providers_use_exact_shared_messages(rows, provider_kind, monkeypatch):
     from ultramedia.config import Settings
-    from ultramedia.providers import FireworksStoryProvider, OllamaStoryProvider
+    from ultramedia.prompt_controls import serving_messages_for
+    from ultramedia.providers import FireworksStoryProvider, LlamaCppStoryProvider, OllamaStoryProvider
 
     row = rows[0]
     captured = {}
@@ -230,7 +231,12 @@ def test_providers_use_exact_shared_messages(rows, provider_kind, monkeypatch):
         return Response()
 
     monkeypatch.setattr("ultramedia.providers.httpx.post", post)
-    provider = (OllamaStoryProvider if provider_kind == "ollama" else FireworksStoryProvider)(Settings())
+    provider = {"ollama": OllamaStoryProvider, "fireworks": FireworksStoryProvider, "llamacpp": LlamaCppStoryProvider}[
+        provider_kind
+    ](Settings())
     result = provider.generate(**row["inputs"])
-    assert captured["messages"] == messages_for(row["inputs"])
+    formatter = serving_messages_for if provider_kind == "llamacpp" else messages_for
+    assert captured["messages"] == formatter(row["inputs"])
+    if provider_kind == "llamacpp":
+        assert captured["response_format"]["json_schema"]["schema"] == GeneratedStory.model_json_schema()
     assert result.model_dump() == row["output"]

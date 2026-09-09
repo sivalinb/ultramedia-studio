@@ -1,0 +1,20 @@
+{
+  "model": "Qwen3-4B-Instruct (Ollama qwen3:4b-instruct), Q4_K_M",
+  "model_sha256": "85e4a5b7b8ef0e48af0e8658f5aaab9c2324c76c1641493f4d1e25fce54b18b9",
+  "runtime": "llama.cpp 0.3.0-dev, commit 0f3a71be1; bundled with Ollama 0.33.3",
+  "hardware": "Apple M1 Max \u00b7 64 GiB memory",
+  "prompt_version": "evidence-editor-v2-local-serving-v1",
+  "decoding": "greedy, max_tokens 1024, schema-constrained JSON",
+  "implementation_files_sha256": {
+    "app/studio/page.tsx": "fc39b8fb42d55a6af7c8b832e6dafea4b4675ac8b6ecad9e34655ad2386b51ef",
+    "backend/src/ultramedia/providers.py": "cf3af0285627f6ba36189d813cb145e2891d079d4ec7c8a67f407423fa639a1f",
+    "backend/src/ultramedia/prompt_controls.py": "26b6683a381d8e2edbbaf8dfed6594e06353e7533b6fab286ce1099d92b5b610",
+    "backend/src/ultramedia/workflow.py": "7267d79109d4b3d0ba26b0ef3f8fd14e534aba34e1fdcb6ebd72907622841027",
+    "backend/src/ultramedia/evals.py": "71c2e131c9ba946d55b251c58dc76cfb94bcf30bcb94433203355724e25230cb",
+    "backend/src/ultramedia/schemas.py": "beb22ff592488559dedd924707b908c3703ade64298c7959379f161ece26c348",
+    "week5/scripts/e2e_browser.mjs": "0328ba75ac1561ce83156b196f1069b43c1d133408eadb107bc3bfa029624025"
+  },
+  "human_review_complete": false,
+  "production_promoted": false,
+  "scope": "Local base-model serving demonstration; not the frozen NF4 fine-tuning comparison"
+}

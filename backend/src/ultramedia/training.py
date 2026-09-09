@@ -5,6 +5,7 @@ import importlib.metadata
 import json
 import platform
 import time
+import zipfile
 from pathlib import Path
 
 from .contracts import MODEL_ID, MODEL_REVISION, PROMPT_VERSION, canonical, messages_for
@@ -42,9 +43,63 @@ def environment(torch):
     }
 
 
+def recovery_callback(run_dir, every_steps):
+    """Preserve resumable checkpoints without changing epoch validation selection."""
+    from transformers import TrainerCallback
+
+    class Recovery(TrainerCallback):
+        def on_step_end(self, args, state, control, **kwargs):
+            if every_steps and state.global_step % every_steps == 0:
+                control.should_save = True
+            return control
+
+        def on_log(self, args, state, control, logs=None, **kwargs):
+            progress = {
+                "global_step": state.global_step,
+                "max_steps": state.max_steps,
+                "epoch": state.epoch,
+                "history": state.log_history,
+            }
+            temporary = run_dir / "progress.json.tmp"
+            temporary.write_text(json.dumps(progress, indent=2, default=str) + "\n")
+            temporary.replace(run_dir / "progress.json")
+            print(json.dumps({"training_progress": state.global_step, "metrics": logs}), flush=True)
+
+        def on_save(self, args, state, control, **kwargs):
+            checkpoint = Path(args.output_dir) / f"checkpoint-{state.global_step}"
+            checkpoints = {checkpoint}
+            if state.best_model_checkpoint:
+                checkpoints.add(Path(state.best_model_checkpoint))
+            destination = run_dir.parent / (run_dir.name + "-recovery.zip")
+            temporary = destination.with_suffix(".zip.tmp")
+            with zipfile.ZipFile(temporary, "w", zipfile.ZIP_DEFLATED) as bundle:
+                for directory in sorted(checkpoints):
+                    for path in sorted(directory.rglob("*")):
+                        if path.is_file():
+                            bundle.write(path, path.relative_to(run_dir))
+                for name in ["experiment.json", "progress.json"]:
+                    if (run_dir / name).exists():
+                        bundle.write(run_dir / name, name)
+            temporary.replace(destination)
+            print(
+                json.dumps(
+                    {
+                        "recovery_checkpoint": state.global_step,
+                        "archive": str(destination),
+                        "bytes": destination.stat().st_size,
+                    }
+                ),
+                flush=True,
+            )
+
+    return Recovery()
+
+
 def run(args):
     if args.epochs < 1 or args.max_length < 256:
         raise ValueError("Use at least one epoch and a sequence limit of at least 256 tokens")
+    if getattr(args, "checkpoint_steps", 5) < 0:
+        raise ValueError("Checkpoint interval must be non-negative")
     rows, manifest = load_dataset_records(args.dataset)
     check_training_gate(rows, manifest, args.research_synthetic)
     import torch
@@ -55,9 +110,27 @@ def run(args):
 
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA GPU required. Run the supplied notebook on Colab/Kaggle with GPU enabled.")
-    if args.output.exists():
+    identity = {
+        "base_model": MODEL_ID,
+        "revision": MODEL_REVISION,
+        "dataset_sha256": manifest["dataset_sha256"],
+        "epochs": args.epochs,
+        "max_length": args.max_length,
+        "seed": 42,
+        "prompt_version": PROMPT_VERSION,
+    }
+    resume = getattr(args, "resume_from_checkpoint", None)
+    if resume:
+        resume = resume.resolve()
+        if resume.parent != (args.output / "checkpoints").resolve() or not (resume / "trainer_state.json").is_file():
+            raise ValueError("Resume from a complete checkpoint inside this run's checkpoints directory")
+        if json.loads((args.output / "experiment.json").read_text()) != identity:
+            raise ValueError("Resume configuration or dataset differs from the original experiment")
+    elif args.output.exists():
         raise ValueError("Run directory exists. Choose a new output name to preserve previous evidence.")
-    args.output.mkdir(parents=True)
+    else:
+        args.output.mkdir(parents=True)
+        (args.output / "experiment.json").write_text(json.dumps(identity, indent=2) + "\n")
     set_seed(42)
     bf16 = torch.cuda.is_bf16_supported()
     dtype = torch.bfloat16 if bf16 else torch.float16
@@ -113,6 +186,7 @@ def run(args):
             task_type="CAUSAL_LM",
             target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
         ),
+        callbacks=[recovery_callback(args.output, getattr(args, "checkpoint_steps", 5))],
     )
     # Check the actual trainer collator, not just a configuration flag.
     batch = trainer.data_collator([trainer.train_dataset[0]])
@@ -124,7 +198,7 @@ def run(args):
     trainable = sum(p.numel() for p in trainer.model.parameters() if p.requires_grad)
     torch.cuda.reset_peak_memory_stats()
     start = time.perf_counter()
-    trainer.train()
+    trainer.train(resume_from_checkpoint=str(resume) if resume else None)
     torch.cuda.synchronize()
     training_seconds = time.perf_counter() - start
     adapter = args.output / "adapter"
@@ -142,6 +216,8 @@ def run(args):
         "compute_dtype": str(dtype),
         "trainable_parameters": trainable,
         "training_seconds": training_seconds,
+        "training_seconds_scope": "this invocation; excludes any earlier interrupted attempts",
+        "resume_from_checkpoint": str(resume) if resume else None,
         "peak_allocated_vram_bytes": torch.cuda.max_memory_allocated(),
         "peak_reserved_vram_bytes": torch.cuda.max_memory_reserved(),
         "sequence_audit": lengths,
@@ -166,6 +242,24 @@ def sha_bytes(path):
     return digest.hexdigest()
 
 
+def validate_saved_evaluation(directory, selected, dataset_sha256, expected):
+    required = ["report.json", "predictions.jsonl", "token-receipts.jsonl", "gpu-memory.json"]
+    if not all((directory / name).is_file() for name in required):
+        raise ValueError(f"Incomplete saved evaluation; preserve it before retrying: {directory}")
+    prior = json.loads((directory / "report.json").read_text())
+    if any(prior["identity"].get(key) != value for key, value in expected.items()):
+        raise ValueError("Saved evaluation has different model or decoding settings")
+    if prior["dataset_sha256"] != dataset_sha256 or prior["cases"] != len(selected):
+        raise ValueError("Saved evaluation has different test data")
+    predictions = [json.loads(line) for line in (directory / "predictions.jsonl").read_text().splitlines()]
+    if [(p["id"], p["content_sha256"]) for p in predictions] != [(r["id"], r["content_sha256"]) for r in selected]:
+        raise ValueError("Saved evaluation predictions do not cover the exact test split")
+    receipts = [json.loads(line) for line in (directory / "token-receipts.jsonl").read_text().splitlines()]
+    if [r["id"] for r in receipts] != [r["id"] for r in selected]:
+        raise ValueError("Saved token receipts are incomplete")
+    json.loads((directory / "gpu-memory.json").read_text())
+
+
 def evaluate_models(args):
     import gc
 
@@ -174,6 +268,12 @@ def evaluate_models(args):
     from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
     from .benchmark import compare_runs, evaluate
+    from .prompt_controls import SCHEMA_PROMPT_VERSION, schema_messages_for
+
+    schema_control = getattr(args, "schema_control", False)
+    evaluation_dir = args.run / "schema-control" if schema_control else args.run
+    prompt_version = SCHEMA_PROMPT_VERSION if schema_control else PROMPT_VERSION
+    format_messages = schema_messages_for if schema_control else messages_for
 
     rows, manifest = load_dataset_records(args.dataset)
     run_record = json.loads((args.run / "training-run.json").read_text())
@@ -186,6 +286,23 @@ def evaluate_models(args):
     dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
     tokenizer = AutoTokenizer.from_pretrained(args.run / "adapter")
     for variant in ("base", "adapter"):
+        directory = evaluation_dir / f"test-{variant}"
+        if directory.exists() and getattr(args, "resume_evaluation", False):
+            expected = {
+                "base_model": MODEL_ID,
+                "revision": MODEL_REVISION,
+                "quantization": "NF4 double-quant",
+                "compute_dtype": str(dtype),
+                "prompt_version": prompt_version,
+                "max_new_tokens": args.max_new_tokens,
+                "variant": variant,
+                "kind": "model_inference",
+                "split": "test",
+                "adapter_files_sha256": run_record["adapter_files_sha256"] if variant == "adapter" else None,
+            }
+            validate_saved_evaluation(directory, selected, manifest["dataset_sha256"], expected)
+            print(json.dumps({"reused_completed_evaluation": variant, "cases": len(selected)}), flush=True)
+            continue
         quant = BitsAndBytesConfig(
             load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=dtype
         )
@@ -201,7 +318,7 @@ def evaluate_models(args):
 
         def generate(inputs, active_model=model, active_receipts=receipts):
             active_receipts.append({"input_tokens": None, "output_tokens": None, "finish_reason": "error"})
-            text = tokenizer.apply_chat_template(messages_for(inputs), tokenize=False, add_generation_prompt=True)
+            text = tokenizer.apply_chat_template(format_messages(inputs), tokenize=False, add_generation_prompt=True)
             batch = tokenizer(text, return_tensors="pt", add_special_tokens=False).to("cuda")
             with torch.inference_mode():
                 generated = active_model.generate(
@@ -225,14 +342,13 @@ def evaluate_models(args):
             "revision": MODEL_REVISION,
             "quantization": "NF4 double-quant",
             "compute_dtype": str(dtype),
-            "prompt_version": PROMPT_VERSION,
+            "prompt_version": prompt_version,
             "max_new_tokens": args.max_new_tokens,
             "adapter_files_sha256": run_record["adapter_files_sha256"] if variant == "adapter" else None,
             "environment": environment(torch),
             "split": "test",
             "retrieval": "frozen evidence packs",
         }
-        directory = args.run / f"test-{variant}"
         evaluate(selected, generate, identity, manifest, directory)
         (directory / "token-receipts.jsonl").write_text(
             "".join(
@@ -251,8 +367,17 @@ def evaluate_models(args):
         del generate, model
         gc.collect()
         torch.cuda.empty_cache()
-    result = compare_runs(args.run / "test-base", args.run / "test-adapter", args.run / "comparison")
-    (args.run / "comparison" / "review-inputs.jsonl").write_text(
+    comparison_path = evaluation_dir / "comparison" / "comparison.json"
+    if comparison_path.exists() and getattr(args, "resume_evaluation", False):
+        result = json.loads(comparison_path.read_text())
+        for variant in ["base", "adapter"]:
+            if result[variant] != json.loads((evaluation_dir / f"test-{variant}" / "report.json").read_text()):
+                raise ValueError("Saved comparison differs from its evaluation reports")
+    else:
+        result = compare_runs(
+            evaluation_dir / "test-base", evaluation_dir / "test-adapter", evaluation_dir / "comparison"
+        )
+    (evaluation_dir / "comparison" / "review-inputs.jsonl").write_text(
         "".join(canonical({"id": r["id"], "inputs": r["inputs"]}) + "\n" for r in selected)
     )
     return result
@@ -267,10 +392,18 @@ def main():
     train.add_argument("--research-synthetic", action="store_true")
     train.add_argument("--epochs", type=int, default=2)
     train.add_argument("--max-length", type=int, default=2048)
+    train.add_argument("--checkpoint-steps", type=int, default=5)
+    train.add_argument("--resume-from-checkpoint", type=Path)
     evaluate = commands.add_parser("evaluate")
     evaluate.add_argument("--dataset", type=Path, default=Path("week5/data/synthetic"))
     evaluate.add_argument("--run", type=Path, required=True)
     evaluate.add_argument("--max-new-tokens", type=int, default=1024)
+    evaluate.add_argument("--resume-evaluation", action="store_true")
+    evaluate.add_argument(
+        "--schema-control",
+        action="store_true",
+        help="Additional controlled comparison with explicit output schema; preserves original results",
+    )
     args = parser.parse_args()
     result = run(args) if args.command == "train" else evaluate_models(args)
     print(json.dumps({k: v for k, v in result.items() if k not in {"history", "config", "base", "adapter"}}, indent=2))

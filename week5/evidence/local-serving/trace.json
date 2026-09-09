@@ -1,0 +1,42 @@
+{
+  "trace_id": "66eaf12e-190f-4697-b095-967c290fa5f5",
+  "spans": [
+    {
+      "stage": "moment_detector",
+      "status": "passed",
+      "duration_ms": 1,
+      "detail": "Validated race signal and athlete reference"
+    },
+    {
+      "stage": "evidence_retriever",
+      "status": "passed",
+      "duration_ms": 2,
+      "detail": "Hybrid retrieval over timing and course context"
+    },
+    {
+      "stage": "story_writer",
+      "status": "passed",
+      "duration_ms": 7528,
+      "detail": "Generated structured draft with llamacpp:qwen3:4b-instruct"
+    },
+    {
+      "stage": "fact_verifier",
+      "status": "passed",
+      "duration_ms": 1,
+      "detail": "Checked citations and claim support"
+    },
+    {
+      "stage": "safety_editor",
+      "status": "passed",
+      "duration_ms": 1,
+      "detail": "Checked every output field; semantic review remains human"
+    },
+    {
+      "stage": "human_review_queue",
+      "status": "passed",
+      "duration_ms": 2,
+      "detail": "Stored draft as pending; no automatic publication"
+    }
+  ],
+  "total_duration_ms": 7535
+}

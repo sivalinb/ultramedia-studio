@@ -83,3 +83,19 @@ def test_release_eval_suite_passes(client):
     report = response.json()
     assert report["release_decision"] == "PASS"
     assert report["cases"] == 6
+
+
+def test_workflow_eval_retains_provider_failures(client, monkeypatch):
+    def invalid_output(*args, **kwargs):
+        raise ValueError("Invalid generated contract")
+
+    monkeypatch.setattr(client.app.state.provider, "generate", invalid_output)
+    response = client.post("/api/v1/evals/run")
+    assert response.status_code == 200
+    report = response.json()
+    assert report["cases"] == len(report["case_results"]) == 6
+    assert report["release_decision"] == "FAIL"
+    failures = [case for case in report["case_results"] if case["kind"] == "generation"]
+    assert len(failures) == 2
+    assert all(not case["passed"] and case["error_type"] == "ValueError" for case in failures)
+    assert next(m for m in report["metrics"] if m["name"] == "generation_contract_pass_rate")["score"] == 0

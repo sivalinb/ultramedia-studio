@@ -1,0 +1,66 @@
+[
+  {
+    "revision": 1,
+    "reviewer": "Automated E2E fixture — not human review",
+    "decision": "approved",
+    "rationale": "Synthetic QA action only. Do not count this as human editorial review or training approval.",
+    "before": {
+      "disposition": "draft",
+      "eyebrow": "Mara Velez's position improved from 20 to 11",
+      "headline": "Mara Velez gains 9 positions in Western States race segment",
+      "body": "Mara Velez, bib 214, moved from position 20 at Michigan Bluff to position 11 at Foresthill, a position gain of 9. This update is based on synthetic timing data from the race segment between Michigan Bluff and Foresthill. All timing events in this portfolio are simulated and labeled as such. The official course spans 100.2 miles with over 18,000 feet of climbing and nearly 23,000 feet of descending. Race management communications define operational cutoffs, and participants must finish by the official Sunday-morning deadline to be eligible for awards.",
+      "social_caption": "Mara Velez gains 9 positions from Michigan Bluff to Foresthill in Western States — a verified checkpoint update. All data is synthetic and simulation-based. A human editor must review before publication.",
+      "citation_ids": [
+        "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93",
+        "wser-course-profile",
+        "wser-canyons",
+        "wser-finish-window",
+        "wser-history",
+        "simulation-policy"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": 9,
+          "citation_id": "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93"
+        },
+        {
+          "metric": "latest_position",
+          "value": 11,
+          "citation_id": "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93"
+        }
+      ],
+      "reason": "The position gain and latest position are directly derived from the synthetic timing data provided. All data points are labeled as simulation and require human editorial review before publication. No other metrics or facts are requested or implied in the signal. The claims are fully supported by the cited evidence and match only explicitly stated facts in the timing record. No record margin or pac"
+    },
+    "after": {
+      "disposition": "draft",
+      "eyebrow": "Mara Velez's position improved from 20 to 11",
+      "headline": "A verified checkpoint update for Mara Velez.",
+      "body": "Mara Velez, bib 214, moved from position 20 at Michigan Bluff to position 11 at Foresthill, a position gain of 9. This update is based on synthetic timing data from the race segment between Michigan Bluff and Foresthill. All timing events in this portfolio are simulated and labeled as such. The official course spans 100.2 miles with over 18,000 feet of climbing and nearly 23,000 feet of descending. Race management communications define operational cutoffs, and participants must finish by the official Sunday-morning deadline to be eligible for awards.",
+      "social_caption": "Mara Velez gains 9 positions from Michigan Bluff to Foresthill in Western States — a verified checkpoint update. All data is synthetic and simulation-based. A human editor must review before publication.",
+      "citation_ids": [
+        "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93",
+        "wser-course-profile",
+        "wser-canyons",
+        "wser-finish-window",
+        "wser-history",
+        "simulation-policy"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": 9,
+          "citation_id": "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93"
+        },
+        {
+          "metric": "latest_position",
+          "value": 11,
+          "citation_id": "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93"
+        }
+      ],
+      "reason": "The position gain and latest position are directly derived from the synthetic timing data provided. All data points are labeled as simulation and require human editorial review before publication. No other metrics or facts are requested or implied in the signal. The claims are fully supported by the cited evidence and match only explicitly stated facts in the timing record. No record margin or pac"
+    },
+    "training_consent": false,
+    "rights_basis": ""
+  }
+]

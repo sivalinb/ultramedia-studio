@@ -1978,5 +1978,20 @@
     "adapter_score": null,
     "human_review": "pending",
     "production_promoted": false
+  },
+  "local_serving": {
+    "model": "Qwen3-4B-Instruct (Ollama qwen3:4b-instruct), Q4_K_M",
+    "runtime": "llama.cpp 0.3.0-dev, commit 0f3a71be1; bundled with Ollama 0.33.3",
+    "hardware": "Apple M1 Max \u00b7 64 GiB memory",
+    "prompt_version": "evidence-editor-v2-local-serving-v1",
+    "human_review_complete": false,
+    "production_promoted": false,
+    "scope": "Local base-model serving demonstration; not the frozen NF4 fine-tuning comparison",
+    "status": "verified",
+    "browser_checks_passed": 13,
+    "generation_seconds": 7.623,
+    "model_workflow_decision": "FAIL",
+    "failed_model_cases": 2,
+    "verified_at": "2026-09-09T04:43:24.380468+00:00"
   }
 }

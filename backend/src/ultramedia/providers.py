@@ -17,6 +17,7 @@ from .contracts import (
     required_metric,
     validate_story,
 )
+from .prompt_controls import SERVING_PROMPT_VERSION, serving_messages_for
 
 
 class StoryProvider(Protocol):
@@ -129,9 +130,46 @@ class OllamaStoryProvider:
         return story
 
 
+class LlamaCppStoryProvider:
+    """Local GGUF inference through llama.cpp's OpenAI-compatible HTTP API."""
+
+    prompt_version = SERVING_PROMPT_VERSION
+
+    def __init__(self, settings: Settings):
+        self.settings = settings
+        self.name = f"llamacpp:{settings.llamacpp_model}"
+
+    def generate(self, moment: dict, evidence: list[dict], timing: list[dict]) -> GeneratedStory:
+        inputs = generation_input(moment, evidence, timing)
+        response = httpx.post(
+            f"{self.settings.llamacpp_base_url.rstrip('/')}/v1/chat/completions",
+            json={
+                "model": self.settings.llamacpp_model,
+                "temperature": 0,
+                "max_tokens": self.settings.generation_max_tokens,
+                "response_format": {
+                    "type": "json_schema",
+                    "json_schema": {
+                        "name": "editorial_story",
+                        "strict": True,
+                        "schema": GeneratedStory.model_json_schema(),
+                    },
+                },
+                "messages": serving_messages_for(inputs),
+            },
+            timeout=120,
+        )
+        response.raise_for_status()
+        story = GeneratedStory.model_validate_json(response.json()["choices"][0]["message"]["content"])
+        validate_story(story, inputs)
+        return story
+
+
 def select_provider(settings: Settings) -> StoryProvider:
     if settings.provider_mode == "fireworks" or (settings.provider_mode == "auto" and settings.fireworks_api_key):
         return FireworksStoryProvider(settings)
     if settings.provider_mode == "ollama":
         return OllamaStoryProvider(settings)
+    if settings.provider_mode == "llamacpp":
+        return LlamaCppStoryProvider(settings)
     return LocalStoryProvider()

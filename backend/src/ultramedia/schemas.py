@@ -96,3 +96,4 @@ class EvalReport(BaseModel):
     cases: int
     release_decision: Literal["PASS", "FAIL"]
     metrics: list[EvalMetric]
+    case_results: list[dict] = Field(default_factory=list)
