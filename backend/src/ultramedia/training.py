@@ -242,6 +242,24 @@ def sha_bytes(path):
     return digest.hexdigest()
 
 
+def validate_saved_evaluation(directory, selected, dataset_sha256, expected):
+    required = ["report.json", "predictions.jsonl", "token-receipts.jsonl", "gpu-memory.json"]
+    if not all((directory / name).is_file() for name in required):
+        raise ValueError(f"Incomplete saved evaluation; preserve it before retrying: {directory}")
+    prior = json.loads((directory / "report.json").read_text())
+    if any(prior["identity"].get(key) != value for key, value in expected.items()):
+        raise ValueError("Saved evaluation has different model or decoding settings")
+    if prior["dataset_sha256"] != dataset_sha256 or prior["cases"] != len(selected):
+        raise ValueError("Saved evaluation has different test data")
+    predictions = [json.loads(line) for line in (directory / "predictions.jsonl").read_text().splitlines()]
+    if [(p["id"], p["content_sha256"]) for p in predictions] != [(r["id"], r["content_sha256"]) for r in selected]:
+        raise ValueError("Saved evaluation predictions do not cover the exact test split")
+    receipts = [json.loads(line) for line in (directory / "token-receipts.jsonl").read_text().splitlines()]
+    if [r["id"] for r in receipts] != [r["id"] for r in selected]:
+        raise ValueError("Saved token receipts are incomplete")
+    json.loads((directory / "gpu-memory.json").read_text())
+
+
 def evaluate_models(args):
     import gc
 
@@ -262,6 +280,23 @@ def evaluate_models(args):
     dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
     tokenizer = AutoTokenizer.from_pretrained(args.run / "adapter")
     for variant in ("base", "adapter"):
+        directory = args.run / f"test-{variant}"
+        if directory.exists() and getattr(args, "resume_evaluation", False):
+            expected = {
+                "base_model": MODEL_ID,
+                "revision": MODEL_REVISION,
+                "quantization": "NF4 double-quant",
+                "compute_dtype": str(dtype),
+                "prompt_version": PROMPT_VERSION,
+                "max_new_tokens": args.max_new_tokens,
+                "variant": variant,
+                "kind": "model_inference",
+                "split": "test",
+                "adapter_files_sha256": run_record["adapter_files_sha256"] if variant == "adapter" else None,
+            }
+            validate_saved_evaluation(directory, selected, manifest["dataset_sha256"], expected)
+            print(json.dumps({"reused_completed_evaluation": variant, "cases": len(selected)}), flush=True)
+            continue
         quant = BitsAndBytesConfig(
             load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=dtype
         )
@@ -308,7 +343,6 @@ def evaluate_models(args):
             "split": "test",
             "retrieval": "frozen evidence packs",
         }
-        directory = args.run / f"test-{variant}"
         evaluate(selected, generate, identity, manifest, directory)
         (directory / "token-receipts.jsonl").write_text(
             "".join(
@@ -327,7 +361,14 @@ def evaluate_models(args):
         del generate, model
         gc.collect()
         torch.cuda.empty_cache()
-    result = compare_runs(args.run / "test-base", args.run / "test-adapter", args.run / "comparison")
+    comparison_path = args.run / "comparison" / "comparison.json"
+    if comparison_path.exists() and getattr(args, "resume_evaluation", False):
+        result = json.loads(comparison_path.read_text())
+        for variant in ["base", "adapter"]:
+            if result[variant] != json.loads((args.run / f"test-{variant}" / "report.json").read_text()):
+                raise ValueError("Saved comparison differs from its evaluation reports")
+    else:
+        result = compare_runs(args.run / "test-base", args.run / "test-adapter", args.run / "comparison")
     (args.run / "comparison" / "review-inputs.jsonl").write_text(
         "".join(canonical({"id": r["id"], "inputs": r["inputs"]}) + "\n" for r in selected)
     )
@@ -349,6 +390,7 @@ def main():
     evaluate.add_argument("--dataset", type=Path, default=Path("week5/data/synthetic"))
     evaluate.add_argument("--run", type=Path, required=True)
     evaluate.add_argument("--max-new-tokens", type=int, default=1024)
+    evaluate.add_argument("--resume-evaluation", action="store_true")
     args = parser.parse_args()
     result = run(args) if args.command == "train" else evaluate_models(args)
     print(json.dumps({k: v for k, v in result.items() if k not in {"history", "config", "base", "adapter"}}, indent=2))
