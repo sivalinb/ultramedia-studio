@@ -45,3 +45,10 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# Local training outputs are distributed explicitly, never committed automatically.
+/week5/runs/
+/backend/artifacts/
+/.venv/
+/.ruff_cache/
+*.tsbuildinfo
