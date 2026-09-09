@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-09-09T05:15:00.222513+00:00",
+  "node_version": "25.1.0",
+  "npm_clean_install_version": "10.9.8",
+  "clean_install": true,
+  "typescript": true,
+  "production_build": true,
+  "browser_checks_passed": 13,
+  "registry_audit_known_vulnerabilities": 0,
+  "package_json_sha256": "bdd38604e6aeb815faa8cde06d5cedeea20eb0c5955916d1e532fb58c5b151de",
+  "package_lock_sha256": "8f70bd05bf4515677b6d4f420ae161bdd64f73e336bf2a2ebbc1ce7c951d42f4",
+  "scope": "Registry audit plus functional tests; not a guarantee of absence of vulnerabilities",
+  "source_changes": "Patch React RSC and runtime dependencies; pin sharp0.35.4 because the compatible development runtime still pins vulnerable sharp0.35.2."
+}
