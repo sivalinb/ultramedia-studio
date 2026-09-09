@@ -37,6 +37,40 @@ else:
         assert comparison[variant]['cases'] == report['counts']['test']
         assert comparison[variant]['dataset_sha256'] == manifest['dataset_sha256']
 assert model['human_review'] == 'pending' and not model['production_promoted']
+for comparison in snapshot.get('comparisons', []):
+    if comparison['id'] == 'local-deployment-comparison':
+        directory = ROOT / 'week5/evidence/local-comparison'
+        subprocess.run([sys.executable, str(ROOT / 'week5/scripts/verify_local_comparison.py'),
+                        str(directory), '--metadata-only'], check=True)
+    elif comparison['id'] == 'stronger-prompt-control':
+        directory = ROOT / 'week5/evidence/gpu-run/schema-control'
+        subprocess.run([sys.executable, str(ROOT / 'week5/scripts/verify_gpu_run.py'),
+                        str(directory.parent), '--schema-control', '--metadata-only'], check=True)
+    else:
+        assert comparison['id'] == 'original-gpu-comparison'
+        directory = ROOT / 'week5/evidence/gpu-run'
+    assert comparison['results'] == json.loads((directory / 'comparison/comparison.json').read_text())
+    for variant in ['base', 'adapter']:
+        predictions = {p['id']: p for p in map(json.loads, (directory / f'test-{variant}/predictions.jsonl').read_text().splitlines())}
+        for example in comparison['examples']:
+            assert example[variant] == predictions[example['id']]
+    assert len(comparison['examples']) == 20
+reports = ROOT / 'week5/reports'
+for name, expected in json.loads((reports / 'artifact-sha256.json').read_text()).items():
+    path = (reports / name).resolve()
+    assert path.is_relative_to(reports.resolve())
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, name
+adapter_demo = snapshot.get('adapter_serving')
+if adapter_demo:
+    directory = ROOT / 'week5/evidence/adapter-serving'
+    assert adapter_demo == json.loads((directory / 'summary.json').read_text())
+    for name, expected in json.loads((directory / 'artifact-sha256.json').read_text()).items():
+        path = (directory / name).resolve()
+        assert path.is_relative_to(directory.resolve())
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, name
+    quality = json.loads((directory / 'workflow-check.json').read_text())
+    assert quality['release_decision'] == adapter_demo['model_workflow_decision']
+    assert sum(not case['passed'] for case in quality['case_results'] if case['kind'] == 'generation') == adapter_demo['failed_model_cases']
 local = snapshot.get('local_serving')
 if local:
     folder = ROOT / 'week5/evidence/local-serving'

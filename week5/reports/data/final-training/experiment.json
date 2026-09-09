@@ -1,0 +1,9 @@
+{
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+  "epochs": 2,
+  "max_length": 2048,
+  "seed": 42,
+  "prompt_version": "evidence-editor-v2"
+}

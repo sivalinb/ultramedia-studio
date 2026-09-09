@@ -1,7 +1,7 @@
 # UltraMedia fine-tuning experiment report
 
-**Snapshot:** 2026-09-09T05:30:20.711121+00:00
-**Status:** interim; verified checkpoint 90/100. GPU and matched local model comparisons are not complete in this report. Human editorial review and production promotion remain pending.
+**Snapshot:** 2026-09-09T06:05:50.759534+00:00
+**Status:** training and matched local comparison completed; GPU comparisons pending. The checkpoint-90 snapshot below is preserved as history, followed by the verified training-completion update. Human editorial review and production promotion remain pending.
 
 ## 1. Research question and project scope
 
@@ -13,7 +13,7 @@ The model learns a behavior: produce concise cited drafts when the requested fac
 
 The versioned research dataset has **600 synthetic examples**: 400 train, 80 validation and 120 test, grouped into 150 fictional race episodes. A group never crosses splits. Each example contains system/user/assistant messages, structured inputs, target JSON, provenance, a group ID and a content hash. Five evidence conditions and four signal types are balanced; details and a full inventory are in the [data report](DATA_REPORT.md).
 
-The objective is completion-only causal language-model loss. Prompt tokens receive label `-100`; assistant completion tokens provide the supervised target. The actual TRL collator is inspected to ensure both masked and supervised tokens exist. The existing CPU API test measured 424 masked and 116 supervised tokens for its test example, using a tiny random architecture; that is an API/masking test, not target-model training evidence. The completed GPU manifest will separately report the real training collator's mask counts.
+The objective is completion-only causal language-model loss. Prompt tokens receive label `-100`; assistant completion tokens provide the supervised target. The actual TRL collator is inspected to ensure both masked and supervised tokens exist. The existing CPU API test measured 424 masked and 116 supervised tokens for its test example, using a tiny random architecture; that is an API/masking test, not target-model training evidence. The completed GPU manifest independently records the same 424 masked and 116 supervised token counts.
 
 ## 3. Frozen training configuration
 
@@ -25,7 +25,7 @@ The objective is completion-only causal language-model loss. Prompt tokens recei
 | Dataset SHA-256 | `5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf` |
 | Method | SFT with LoRA adapters over a frozen 4-bit base |
 | Quantization | NF4 with double quantization |
-| Compute precision | Code chooses BF16 if supported, otherwise FP16; T4 run uses the FP16 path |
+| Compute precision | Recorded `torch.bfloat16`; the runtime support check selected BF16. Do not infer precision from the GPU name. |
 | LoRA rank / alpha / dropout | 16 / 32 / 0.05 |
 | Target modules | `q_proj`, `k_proj`, `v_proj`, `o_proj`, `gate_proj`, `up_proj`, `down_proj` |
 | Bias / task | None / causal LM |
@@ -59,7 +59,7 @@ Low loss and high teacher-forced token accuracy are plausible on repetitive synt
 |---|---|---|---|
 | Original GPU | Exact base revision, frozen 120 cases, original prompt, NF4, greedy decoding, max 1024 new tokens | Original training prompt | Pending |
 | Stronger GPU prompt control | Same adapter, cases, model revision, NF4 and decoding | Exact output JSON schema appended to both models' system prompt; decoding itself unconstrained | Queued after original evaluation |
-| Matched local deployment | Exact base lineage, same F16-to-Q4_K_M conversion, Mac/runtime, 120 cases, local-serving prompt, JSON-schema constrained decoding, temperature 0, seed 42, max 1024 tokens | Different quantization/runtime and stronger decoding safeguard | Base completed; adapter pending |
+| Matched local deployment | Exact base lineage, same F16-to-Q4_K_M conversion, Mac/runtime, 120 cases, local-serving prompt, JSON-schema constrained decoding, temperature 0, seed 42, max 1024 tokens | Different quantization/runtime and stronger decoding safeguard | Completed: 76/120 base; 109/120 adapter |
 
 The [stronger prompt control](../SCHEMA_CONTROL.md) was declared before GPU test outputs were available, after a separate local probe revealed that the original prompt did not spell out the nested `value` key. Its declaration is commit `d6e55b559151b060a682988a541e41a709733d3f`. It prevents an unfair claim of fine-tuning value based only on an avoidable formatting ambiguity.
 
@@ -75,7 +75,7 @@ The independent verifier recomputes checks from the original inputs and saved ra
 
 **Decision rule:** prioritize the stronger shared-prompt result. If prompting closes the gap, report that prompting is sufficient for these automatic checks. If the adapter retains an advantage, describe its measured synthetic-task scope. Inspect regressions and unsuccessful cases either way. Human editorial preference and real-race quality remain unmeasured until a blind review is actually completed.
 
-The separately verified local base arm passed all automatic checks on 76/120 cases (63.3%). This is not a fine-tuning gain. Its [detailed results and failure analysis](LOCAL_BASE_RESULTS.md) include lexical-metric limitations, complete raw outputs and the still-pending adapter comparison.
+The separately verified local base arm passed all automatic checks on 76/120 cases (63.3%). This is not a fine-tuning gain. The completed [matched comparison](LOCAL_COMPARISON_RESULTS.md) measures 109/120 adapter success, a 27.5 percentage-point gain with a paired 95% interval of 20.0–35.0 points. It includes all raw outputs, subgroup results and lexical-metric limitations.
 
 ## 7. Executed application evidence
 
@@ -103,3 +103,19 @@ No A100 or L4 allocation was available under the current Colab quota; the T4 pat
 The final report must add the actual selected checkpoint and adapter hashes, both epoch validation losses, actual trainable parameter count and VRAM, honestly scoped training duration, all three comparisons, representative successes and failures selected without outcome cherry-picking, conversion lineage, and actual adapted-model application checks. Every claim needs a saved artifact path and verified source identity. Publish bounded reports in Git and retain large weights/full archives separately. Preserve this interim history so the final report remains auditable.
 
 All reference episodes are fictional; all 600 targets are unapproved synthetic references. Automatic checks do not prove semantic entailment, fairness, medical safety or editorial usefulness. Human review and production promotion stay separate from completion of the research software and evidence PR.
+
+## Training completion update
+
+Training completed all 100 optimizer steps. The verified manifest records **33,030,144 trainable parameters**, **5,846.886 seconds (97.448 minutes)** for the resumed invocation, **4,384,457,216 bytes** peak allocated GPU memory and **5,903,482,880 bytes** peak reserved memory. The actual runtime dtype is **torch.bfloat16**, correcting the earlier hardware-based FP16 assumption. This is a manifest observation, not a claim of native hardware acceleration. The training settings have not been changed.
+
+Validation loss was **0.0036062703** at epoch 1 and **0.0018770788** at epoch 2; checkpoint **100** is the selected best checkpoint. The real GPU collator recorded **424 masked prompt tokens and 116 supervised completion tokens** for its inspected first example. Adapter bytes were checked against every saved SHA-256 before merging for local inference. The [final training manifest](data/final-training/training-run.json) and [verification receipt](data/final-training/verification.json) retain the configuration, history, environment and source hashes. The checkpoint-90 plot above remains an explicitly interim historical snapshot.
+
+The original GPU generation comparison is running; neither low loss nor this completed training stage establishes a fine-tuning gain. The matched local comparison is now independently verified; both GPU comparisons remain pending. Actual adapted-model application checks are recorded separately.
+
+![Completed training loss and both validation measurements](data/final-training/training-loss.png)
+
+[Complete training history CSV](data/final-training/training-history.csv). The plotted losses measure teacher-forced completion prediction, not free-generation success.
+
+## Adapted-model application update
+
+The verified, merged Q4_K_M adapter completed all 13 browser software checks. The separate workflow quality suite failed one of two generation cases (record watch); all four retrieval cases passed. [Full evidence and failure analysis](../evidence/adapter-serving/README.md). Automated review actions remain synthetic QA with training consent false.

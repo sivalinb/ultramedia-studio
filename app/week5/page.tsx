@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ComparisonEvidence, { type RecordedComparison } from './ComparisonEvidence';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -32,18 +33,6 @@ type ModelComparison = {
   };
 };
 
-const metricLabels: Record<string, string> = {
-  schema_valid: 'Valid output format',
-  citation_ids_valid: 'Valid citation IDs',
-  structured_claims_supported: 'Supported structured claims',
-  required_metric_covered: 'Required metric covered',
-  disposition_correct: 'Correct draft or abstention decision',
-  numeric_tokens_supported: 'Supported numeric tokens',
-  sensitive_language_absent: 'Selected sensitive-language checks passed',
-  projection_not_achievement: 'Projection kept distinct from achievement',
-  automatic_success: 'All automatic checks passed',
-};
-
 type LocalServing = {
   status: string;
   model: string;
@@ -72,7 +61,10 @@ export default function WeekFivePage() {
   const audit = evidence.manifest.audit;
   const model = evidence.model_comparison as ModelComparison;
   const completed = model.status === 'completed' && model.results && model.training;
+  const comparisons = (evidence as typeof evidence & { comparisons?: RecordedComparison[] }).comparisons ?? [];
+  const trainingCompleted = (evidence as typeof evidence & { training_completed?: boolean }).training_completed;
   const local = (evidence as typeof evidence & { local_serving?: LocalServing }).local_serving;
+  const adapterDemo = (evidence as typeof evidence & { adapter_serving?: { browser_checks_passed: number; failed_model_cases: number } }).adapter_serving;
   return (
     <main className="min-h-screen bg-background text-foreground">
       <header className="border-b border-white/10">
@@ -136,14 +128,15 @@ export default function WeekFivePage() {
               <li>Deterministic held-out contract evaluation</li>
               <li>Tokenizer length audit and software tests</li>
               {local?.status === 'verified' && <li>Local open-source model and browser-to-API workflow</li>}
-              {completed && <li>QLoRA training and 120 held-out cases per model</li>}
+              {trainingCompleted && <li>QLoRA training: 100 steps, both validation epochs recorded</li>}
+              {comparisons.map(item => <li key={item.id}><a className="text-primary" href={'#' + item.id}>{item.title}: 120 cases per model</a></li>)}
             </ul>
             <div className="mt-5 border-t border-white/10 pt-5 text-sm leading-6">
               <strong>{completed ? 'GPU comparison complete. Human review pending.' : 'Completed GPU comparison: pending.'}</strong>
               <p className="mt-2 text-muted-foreground">
                 {completed
                   ? 'The scores below measure automatic structured checks. Editorial quality and real-race generalization still require human review.'
-                  : 'No adapter score or human approval is claimed. A completed run and verified outputs are required before publishing model results.'}
+                  : 'The verified local comparison is reported separately below. GPU prompt controls and human editorial review remain pending.'}
               </p>
             </div>
           </aside>
@@ -284,38 +277,22 @@ export default function WeekFivePage() {
             </div>
           </section>
         )}
+        <section className="mt-10 rounded-2xl border border-white/10 p-6">
+          <h2 className="text-2xl font-semibold">Detailed fine-tuning reports</h2>
+          <p className="mt-3 text-base leading-7 text-muted-foreground">Read the data inventory, training configuration and loss curves, experiment flow diagrams, full predictions, failure analysis and reproducibility receipts. Completed measurements and pending work are labeled in each report.</p>
+          <div className="mt-4 flex flex-wrap gap-6 text-sm text-primary">
+            <a href="https://github.com/sivalinb/ultramedia-studio/tree/codex/week5-submission/week5/reports">Read reports on GitHub →</a>
+            <a href="/week5/fine-tuning-reports.zip" download>Download reports and data →</a>
+          </div>
+        </section>
+        {comparisons.filter(item => item.id === 'stronger-prompt-control').map(item => <ComparisonEvidence key={item.id} comparison={item} />)}
         {completed && model.results && model.training && (
           <section className="mt-10 rounded-2xl border border-primary/25 bg-card p-6">
-            <h2 className="text-2xl font-semibold">Measured GPU comparison</h2>
+            <h2 className="text-2xl font-semibold">Completed training and original comparison</h2>
             <p className="mt-3 text-base leading-7 text-muted-foreground">
               {model.training.base_model} · {model.training.environment.gpu} ·{' '}
               {model.results.base.cases} held-out cases per model. Both variants use
               the same model revision, evidence, prompt, quantization, and decoding limits.
-            </p>
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full min-w-[450px] text-left text-sm">
-                <thead><tr className="border-b border-white/15">
-                  <th className="py-3 pr-4">Automatic check</th>
-                  <th className="px-4 py-3">Base model</th>
-                  <th className="px-4 py-3">With adapter</th>
-                </tr></thead>
-                <tbody>{Object.entries(metricLabels).map(([key, label]) => (
-                  <tr key={key} className="border-b border-white/10">
-                    <th className="py-3 pr-4 font-normal">{label}</th>
-                    <td className="px-4 py-3">{(model.results!.base.metrics[key] * 100).toFixed(1)}%</td>
-                    <td className="px-4 py-3">{(model.results!.adapter.metrics[key] * 100).toFixed(1)}%</td>
-                  </tr>
-                ))}</tbody>
-              </table>
-            </div>
-            <p className="mt-5 text-base leading-7">
-              Change in all-check success: {(model.results.automatic_success_delta * 100).toFixed(1)} percentage points.
-              {' '}Paired group-bootstrap 95% interval: {model.results.paired_group_bootstrap_95_interval.map(n => (n * 100).toFixed(1)).join(' to ')} points.
-            </p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Invalid outputs and generation errors remain in the denominator.
-              These synthetic cases share templates; the scores do not establish
-              human writing preference, semantic faithfulness, or real-race performance.
             </p>
             <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-3">
               <div><dt className="text-muted-foreground">Trainable adapter parameters</dt>
@@ -336,6 +313,17 @@ export default function WeekFivePage() {
             </p>
           </section>
         )}
+        {comparisons.filter(item => item.id !== 'stronger-prompt-control').map(item => <ComparisonEvidence key={item.id} comparison={item} />)}
+        {adapterDemo && <section className="mt-10 rounded-2xl border border-primary/25 bg-card p-6" id="adapter-application-evidence">
+          <h2 className="text-2xl font-semibold">The fine-tuned model in the Race Desk</h2>
+          <p className="mt-3 text-base leading-7 text-muted-foreground">The actual trained adapter was merged, converted and served locally. All {adapterDemo.browser_checks_passed} browser software checks passed, including generation, citations, protected review, saved revisions and mobile behavior.</p>
+          <p className="mt-3 text-base leading-7 text-amber-200">The separate model-quality suite still reports FAIL: {adapterDemo.failed_model_cases} generation case failed. Its record-watch response omitted the requested metric and made the wrong draft decision. The application rejected the output.</p>
+          <video className="mt-5 w-full rounded-xl border border-white/10" controls preload="metadata" poster="/week5/adapter-demo-poster.png" aria-label="Actual fine-tuned model browser workflow recording">
+            <source src="/week5/adapter-demo.webm" type="video/webm" />
+          </video>
+          <a href="/week5/adapter-serving-evidence.zip" download className="mt-5 inline-block text-sm text-primary">Download adapted-model test reports, traces and raw outputs →</a>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">Review actions in this recording are automated synthetic QA with training consent disabled. Human editorial review and production model promotion remain pending.</p>
+        </section>}
         <section className="mt-10 rounded-2xl border border-white/10 bg-card p-6">
           <h2 className="text-2xl font-semibold">Inspect a training example</h2>
           <p className="mt-2 text-sm text-muted-foreground">

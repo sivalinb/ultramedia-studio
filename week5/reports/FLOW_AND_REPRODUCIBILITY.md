@@ -146,11 +146,20 @@ For conversion and deployment, use the [serving guide](../SERVING.md) and [prede
 | Dataset JSONL and manifest | Exact prompts, reference targets and data identity | Committed now |
 | Dataset inventory and distribution CSV | Reviewer-friendly full data accounting | Committed with these reports |
 | Interim training receipt, history and curve | Actual progress trace without a fabricated final result | Committed with these reports |
-| Final training manifest and loss curves | Selected checkpoint, package versions, resources and loss mask | Append after verification |
+| Final training manifest and loss curves | Selected checkpoint, package versions, resources and loss mask | Verified and committed in `data/final-training` |
 | Original and schema-control raw predictions/reports | Recompute all GPU conclusions | Append after both arms complete |
-| Local conversion lineage and matched predictions | Distinguish model adaptation from deployment changes | Append after both arms complete |
-| Browser/API receipts and failures | Verify product behavior and failure handling | Local-base evidence committed; adapted demonstration pending |
+| Local conversion lineage and matched predictions | Distinguish model adaptation from deployment changes | Verified local comparison committed |
+| Browser/API receipts and failures | Verify product behavior and failure handling | Both demonstrations committed; adapted quality suite still FAIL |
 | Human review forms | Editorial preference with reviewer identity and rationale | Remain unfilled until actual human review |
 | Adapter/checkpoint/merged weights | Recovery and local reproduction | Retain full downloads separately; hashes and metadata in Git |
 
 The background completion task must update the fine-tuning report, data/flow reports where affected, machine-readable results and evidence ledger before the final PR merge. Any negative result remains part of the submission.
+
+## Completed local comparison verification
+
+```bash
+PYTHONPATH=backend/src python week5/scripts/verify_local_comparison.py \
+  week5/evidence/local-comparison --metadata-only
+```
+
+To verify downloaded model bytes, omit `--metadata-only` and provide `--base-model PATH_TO_BASE_GGUF --adapter-model PATH_TO_ADAPTER_GGUF`. The archived exact evaluator records original execution; the model lineage JSON contains converter, quantizer and artifact hashes. See the [full paired report](LOCAL_COMPARISON_RESULTS.md).

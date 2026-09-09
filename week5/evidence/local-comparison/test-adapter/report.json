@@ -1,0 +1,160 @@
+{
+  "schema_version": "week5-evaluation-v1",
+  "created_at": "2026-09-09T05:54:00.713014+00:00",
+  "identity": {
+    "kind": "model_inference",
+    "variant": "adapter",
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "quantization": "GGUF Q4_K_M",
+    "prompt_version": "evidence-editor-v2-local-serving-v1",
+    "max_new_tokens": 1024,
+    "temperature": 0,
+    "seed": 42,
+    "decoding": "JSON-schema constrained",
+    "hardware": "Apple M1 Max, 64 GiB",
+    "runtime": "llama.cpp 0.3.0-dev build1 commit0f3a71be1",
+    "converter_commit": "30b6a755e29692e8bc8e072885325716a2fee70f",
+    "model_sha256": "ac3d4d36947c9412e5dbd884a705b2223315bef9cb19028209b2c263743a6b24",
+    "declaration_commit": "31c7c0df2b585a5df1ecf38e7e280f6081174099"
+  },
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+  "cases": 120,
+  "case_set_sha256": "30bb6940254cb5edcde92a2c4e9b13ee895f271fa97d8daab97eca7799361768",
+  "metrics": {
+    "schema_valid": 1.0,
+    "citation_ids_valid": 1.0,
+    "structured_claims_supported": 1.0,
+    "required_metric_covered": 1.0,
+    "disposition_correct": 0.9083333333333333,
+    "numeric_tokens_supported": 1.0,
+    "sensitive_language_absent": 1.0,
+    "projection_not_achievement": 1.0,
+    "automatic_success": 0.9083333333333333
+  },
+  "by_signal": {
+    "cutoff_watch": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 0.8,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 0.8
+    },
+    "pace_change": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 0.9,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 0.9
+    },
+    "position_gain": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "record_watch": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 0.9333333333333333,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 0.9333333333333333
+    }
+  },
+  "by_condition": {
+    "boundary": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "complete": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "contradictory": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "misleading_hint": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 0.5416666666666666,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 0.5416666666666666
+    },
+    "missing": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    }
+  },
+  "latency_ms": {
+    "p50": 1800.5815,
+    "p95": 2266.158
+  },
+  "wall_seconds": 213.86333412502427,
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.14"
+  },
+  "semantic_faithfulness": null,
+  "editor_preference": null,
+  "quality_scope": "Structured evidence checks; not human semantic accuracy or real-race generalization",
+  "release_decision": "not_a_promotion_test"
+}

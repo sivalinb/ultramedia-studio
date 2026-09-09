@@ -1,0 +1,15 @@
+{
+  "01-generated-desktop.png": "194cd734097b8d1ce1c0092b4c6fab131062835c6a356f4fdd0dedbd153e841b",
+  "02-reviewed-mobile.png": "284819fb458923b98de9f3520ae105246c9eddd4a2603ff94116fbbed957bac0",
+  "README.md": "35f1518b9e89cedefd1c2998538270158eb918968379f8d2723cdaee42eed1c9",
+  "adapter-demo.webm": "513312af81d9f618a06cfc99392dbd075b9bd08d981b762c30b1879956044b15",
+  "e2e-report.json": "019fe8c7bfd00759b716ea84cea3f10769036dcbdd5fa7ffcc53fe5f73fd0132",
+  "generated-story.json": "9f294a956a65cb208cad679e51d2a4d728361ef98a969ea53802adeedbbe091f",
+  "model-calls/2026-09-09T06-00-48.289394+00-00.json": "16b44ab5feb2c6fc33ded847687a64e32ee39330d28c50268d33977c5482e1fc",
+  "model-calls/2026-09-09T06-00-54.553512+00-00.json": "29deb143a4515030b6f48b2fc2eb7e35fe744ad0ff1e341f5fa27b626de10c8f",
+  "model-calls/2026-09-09T06-00-57.715664+00-00.json": "0e67f94b71dc9160a5d50d527eba64e7052b751c499668253d66073920317d2d",
+  "simulated-review-revisions.json": "d10c0869af4af1f06acd34c6587c2ba28c541d5cbaf3cce0bc23dc2276c76a1d",
+  "summary.json": "e27e604e1f71f803baf1a4fb5b7ae11a58615df2edcfeda1d41ab2dca259d7f7",
+  "trace.json": "59f7727d41964a1a17a84e0a5db341cb70d553a5c6d4ce6d020b908b4a52937e",
+  "workflow-check.json": "c841c2395f5f539824cc4522de7815e55f7e644987e2eb3d2f5e229239fcfc1e"
+}

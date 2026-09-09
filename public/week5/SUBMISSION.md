@@ -12,6 +12,8 @@ The frozen Colab T4 QLoRA run is in progress. GPU comparison scores remain unrep
 
 This is a research submission with measured software, data, and local-serving evidence. An honest negative result is acceptable: retain the base model if the adapter adds no value. Synthetic results and automated review fixtures cannot authorize production.
 
+Detailed reports: [fine-tuning, dataset accounting and flow diagrams](reports/README.md).
+
 ## What the project demonstrates
 
 | Week 5 concept | Concrete implementation | Evidence |
