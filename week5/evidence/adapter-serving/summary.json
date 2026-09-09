@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "scope": "Actual fine-tuned adapter served through isolated synthetic Race Desk QA. Automated review actions are not human editorial review.",
+  "model": "Qwen3-4B-Instruct-2507 + UltraMedia QLoRA adapter, merged Q4_K_M",
+  "model_sha256": "ac3d4d36947c9412e5dbd884a705b2223315bef9cb19028209b2c263743a6b24",
+  "training_run": "20260909T025932Z",
+  "browser_checks_passed": 13,
+  "generation_seconds": 4.585,
+  "model_workflow_decision": "FAIL",
+  "failed_model_cases": 1,
+  "human_review_complete": false,
+  "production_promoted": false,
+  "verified_at": "2026-09-09T06:04:35.003335+00:00"
+}

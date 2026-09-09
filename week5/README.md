@@ -13,3 +13,5 @@ The 600 supplied examples are synthetic and unapproved by humans. Local data, so
 - [End-to-end recording and verification](END_TO_END.md)
 - [Predeclared stronger prompt control](SCHEMA_CONTROL.md)
 - [Compute options and recovery](COMPUTE_OPTIONS.md)
+
+- [Detailed fine-tuning, data and flow reports](reports/README.md)

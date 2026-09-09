@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-09-09T05:30:20.711121+00:00",
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+  "rows": 600,
+  "split_counts": {
+    "train": 400,
+    "validation": 80,
+    "test": 120
+  },
+  "disposition_counts": {
+    "draft": 360,
+    "insufficient_evidence": 240
+  },
+  "tokens": {
+    "min": 476,
+    "max": 622,
+    "mean": 554.02,
+    "total": 332412
+  },
+  "source_files_sha256": {
+    "train.jsonl": "0ae633ce602b8fba856b2b9ed7f255b6047c0960ac83c85594d7d416320ea754",
+    "validation.jsonl": "5313d54852954cdcce8f40dde1c2fe54071e80c83c90102db45e62414304c6e0",
+    "test.jsonl": "69995179a6268fe60b1f7b62945f921311ba6c38faa4da3c70fd8a5325d65ffc"
+  },
+  "example_selection": "First training case per condition for position_gain; no test outputs selected"
+}

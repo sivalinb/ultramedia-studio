@@ -1,0 +1,11 @@
+{
+  "site": "http://localhost:3000",
+  "checked_at": "2026-09-09T06:06:31.322Z",
+  "passed": true,
+  "checks": [
+    "Verified paired scores, 20 independently selected scenarios and responsive output selection",
+    "Desktop and mobile comparison page fits viewport",
+    "Actual adapter recording metadata loads",
+    "All three new evidence downloads match verified local bytes; no page errors"
+  ]
+}
