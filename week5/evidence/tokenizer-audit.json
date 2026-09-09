@@ -1,0 +1,12 @@
+{
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+  "audit": {
+    "examples": 600,
+    "min_tokens": 476,
+    "max_tokens": 622,
+    "mean_tokens": 554.02
+  },
+  "scope": "Tokenizer only; no Qwen weights loaded and no GPU training run"
+}

@@ -3,6 +3,8 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+from .contracts import GeneratedStory
+
 
 class RaceOut(BaseModel):
     id: str
@@ -46,7 +48,13 @@ class StoryOut(BaseModel):
     headline: str
     body: str
     social_caption: str
-    confidence: float
+    confidence: float | None
+    disposition: str = "draft"
+    claims: list[dict] = Field(default_factory=list)
+    reason: str = ""
+    review_revision: int = 0
+    quality_checks: dict = Field(default_factory=dict)
+    provider: str = "legacy-unrecorded"
     status: str
     citations: list[Citation]
     trace_id: str
@@ -57,6 +65,10 @@ class ReviewRequest(BaseModel):
     decision: Literal["approved", "revision_requested", "rejected"]
     reviewer: str = Field(min_length=2, max_length=80)
     rationale: str = Field(default="", max_length=500)
+    edited_story: GeneratedStory | None = None
+    expected_revision: int | None = Field(default=None, ge=0)
+    training_consent: bool = False
+    rights_basis: str = Field(default="", max_length=500)
 
 
 class TraceSpanOut(BaseModel):

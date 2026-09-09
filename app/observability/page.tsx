@@ -77,10 +77,10 @@ const trace = [
 ];
 
 const methods = [
-  { icon: <Database />, number: '01', title: 'Approval-only dataset', body: 'Only editor-approved story drafts can enter training. Each example retains the evidence IDs used to support its claims.', facts: ['Minimum 20 examples', '90 / 10 train-validation split', 'Deterministic seed · 42'], href: evidence.trainingData },
-  { icon: <Boxes />, number: '02', title: '4-bit QLoRA', body: 'The 4B base model is loaded in NF4 with double quantization. Low-rank weights are trained while the quantized base remains frozen.', facts: ['NF4 · double quantization', 'bfloat16 compute', 'Lower GPU memory'], href: evidence.qlora },
+  { icon: <Database />, number: '01', title: 'Approval-only dataset', body: 'Synthetic research and editor-reviewed production data have separate gates. Every example retains its complete evidence and output contract.', facts: ['600 synthetic research examples', '400 / 80 / 120 grouped splits', 'Production data requires editor review'], href: evidence.trainingData },
+  { icon: <Boxes />, number: '02', title: '4-bit QLoRA', body: 'The 4B base model is loaded in NF4 with double quantization. Low-rank weights are trained while the quantized base remains frozen.', facts: ['NF4 · double quantization', 'BF16 or FP16 by GPU support', 'Lower GPU memory'], href: evidence.qlora },
   { icon: <SlidersHorizontal />, number: '03', title: 'LoRA adapters', body: 'Rank-16 adapters target attention and MLP projections so the model learns newsroom structure without relearning race facts.', facts: ['r 16 · alpha 32', 'Dropout 0.05', 'q/k/v/o + gate/up/down'], href: evidence.qlora },
-  { icon: <Code2 />, number: '04', title: 'Supervised tuning', body: 'TRL’s SFT trainer teaches headline discipline, citation placement, abstention, and channel-ready JSON formatting.', facts: ['2 epochs', 'LR 2e-4 · warmup 5%', 'Effective batch size 16'], href: evidence.qlora },
+  { icon: <Code2 />, number: '04', title: 'Supervised tuning', body: 'TRL’s SFT trainer teaches headline discipline, citation placement, abstention, and channel-ready JSON formatting.', facts: ['2 epochs', 'LR 2e-4 · warmup 5%', 'Effective batch size 8'], href: evidence.qlora },
   { icon: <GitBranch />, number: '05', title: 'Merge and package', body: 'PEFT merges a passing adapter into Qwen3. The merged model can then be converted to GGUF and served locally through Ollama.', facts: ['Safe tensors', 'GGUF conversion path', 'Local-first inference'], href: evidence.merge },
 ];
 
@@ -104,6 +104,7 @@ export default function ObservabilityPage() {
   const [view, setView] = useState<View>('infrastructure');
   return (
     <main className="min-h-screen bg-[#080b09] text-foreground">
+      <div className="border-b border-amber-300/20 bg-amber-300/5 px-6 py-4 text-sm text-amber-100">Historical deterministic dashboard snapshot. <Link href="/week5" className="underline">Open the current Week 5 data, notebook, and evidence</Link>. Model training and human quality review remain pending.</div>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080b09]/95 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-3"><Link href="/" className={buttonVariants({ variant: 'ghost', size: 'icon-sm', className: 'rounded-full' })} aria-label="Back to UltraMedia home"><ArrowLeft className="size-4" /></Link><span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground"><Activity className="size-4" /></span><div><p className="text-xs font-black">ULTRAMEDIA <span className="text-white/40">MODEL OPS</span></p><p className="text-[9px] uppercase tracking-[.15em] text-white/30">Evidence console</p></div></div>

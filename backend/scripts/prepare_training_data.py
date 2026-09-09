@@ -1,73 +1,58 @@
+"""Export corrected, consenting editorial examples with original evidence."""
+
 import argparse
-import json
-import random
-import sqlite3
 from pathlib import Path
 
-SYSTEM_PROMPT = (
-    "You are the UltraMedia race journalist. Write concise, factual endurance-sports stories. "
-    "Use only supplied evidence, retain citation IDs, never infer medical condition or emotion, "
-    "and always require editorial approval."
-)
+from sqlalchemy import select
+
+from ultramedia.database import Database, EditorialRevision, GenerationRecord, StoryDraft
+from ultramedia.dataset import example_record, sha, write_dataset
 
 
-def build_examples(database_path: Path) -> list[dict]:
-    connection = sqlite3.connect(database_path)
-    connection.row_factory = sqlite3.Row
-    rows = connection.execute(
-        "SELECT athlete_bib, signal_type, headline, body, social_caption, citations "
-        "FROM story_drafts WHERE status = 'approved' ORDER BY created_at"
-    ).fetchall()
-    connection.close()
-    examples = []
+def build_examples(database_url):
+    database = Database(database_url)
+    database.create_all()
+    rows = []
+    with database.session() as db:
+        for record in db.scalars(select(GenerationRecord)):
+            story = db.get(StoryDraft, record.story_id)
+            review = db.scalar(
+                select(EditorialRevision).where(
+                    EditorialRevision.story_id == story.id, EditorialRevision.revision == record.revision
+                )
+            )
+            if not review or story.status != "approved" or not review.training_consent or not review.rights_basis:
+                continue
+            provenance = {
+                **record.provenance,
+                "human_approved": True,
+                "reviewer": review.reviewer,
+                "review_revision": review.revision,
+                "rights_basis": review.rights_basis,
+                "training_consent": True,
+            }
+            rows.append(
+                example_record(story.id, record.provenance["group_id"], record.inputs, record.output, provenance)
+            )
+    groups = sorted({r["group_id"] for r in rows}, key=sha)
+    if len(rows) < 20 or len(groups) < 3:
+        raise ValueError("Export requires 20 consenting, approved examples from at least three independent race groups")
+    train_end = max(1, int(len(groups) * 0.7))
+    validation_end = min(len(groups) - 1, max(train_end + 1, int(len(groups) * 0.85)))
+    group_split = {
+        g: "train" if i < train_end else "validation" if i < validation_end else "test" for i, g in enumerate(groups)
+    }
     for row in rows:
-        citations = json.loads(row["citations"])
-        user = json.dumps(
-            {
-                "athlete_bib": row["athlete_bib"],
-                "signal_type": row["signal_type"],
-                "evidence": citations,
-            }
-        )
-        assistant = json.dumps(
-            {
-                "headline": row["headline"],
-                "body": row["body"],
-                "social_caption": row["social_caption"],
-                "citation_ids": [item["id"] for item in citations],
-            }
-        )
-        examples.append(
-            {
-                "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": user},
-                    {"role": "assistant", "content": assistant},
-                ]
-            }
-        )
-    return examples
+        row["split"] = group_split[row["group_id"]]
+    return rows
 
 
-def write_jsonl(path: Path, rows: list[dict]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text("".join(json.dumps(row) + "\n" for row in rows))
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Build QLoRA train/validation data from approved stories")
-    parser.add_argument("--database", type=Path, default=Path("ultramedia.db"))
-    parser.add_argument("--output", type=Path, default=Path("training_data"))
-    parser.add_argument("--seed", type=int, default=42)
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--database-url", default="sqlite:///ultramedia.db")
+    parser.add_argument("--output", type=Path, default=Path("training_data/reviewed"))
     args = parser.parse_args()
-    examples = build_examples(args.database)
-    if len(examples) < 20:
-        raise SystemExit("At least 20 human-approved drafts are required before fine-tuning")
-    random.Random(args.seed).shuffle(examples)
-    split = max(1, int(len(examples) * 0.9))
-    write_jsonl(args.output / "train.jsonl", examples[:split])
-    write_jsonl(args.output / "validation.jsonl", examples[split:])
-    print(f"Prepared {split} train and {len(examples) - split} validation examples")
+    print(write_dataset(build_examples(args.database_url), args.output, "editor_reviewed"))
 
 
 if __name__ == "__main__":

@@ -96,6 +96,37 @@ class TraceSpan(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
 
+class GenerationRecord(Base):
+    """Additive table: legacy databases retain their stories without ALTER/DROP."""
+
+    __tablename__ = "generation_records"
+    story_id: Mapped[str] = mapped_column(ForeignKey("story_drafts.id"), primary_key=True)
+    contract_version: Mapped[str] = mapped_column(String(80))
+    prompt_version: Mapped[str] = mapped_column(String(80))
+    provider: Mapped[str] = mapped_column(String(240))
+    inputs: Mapped[dict] = mapped_column(JSON)
+    output: Mapped[dict] = mapped_column(JSON)
+    checks: Mapped[dict] = mapped_column(JSON)
+    revision: Mapped[int] = mapped_column(Integer, default=0)
+    provenance: Mapped[dict] = mapped_column(JSON, default=dict)
+    __mapper_args__ = {"version_id_col": revision, "version_id_generator": False}
+
+
+class EditorialRevision(Base):
+    __tablename__ = "editorial_revisions"
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid4()))
+    story_id: Mapped[str] = mapped_column(ForeignKey("story_drafts.id"), index=True)
+    revision: Mapped[int] = mapped_column(Integer)
+    reviewer: Mapped[str] = mapped_column(String(80))
+    decision: Mapped[str] = mapped_column(String(32))
+    rationale: Mapped[str] = mapped_column(Text)
+    before: Mapped[dict] = mapped_column(JSON)
+    after: Mapped[dict] = mapped_column(JSON)
+    training_consent: Mapped[bool] = mapped_column(default=False)
+    rights_basis: Mapped[str] = mapped_column(Text, default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
 class Database:
     def __init__(self, url: str):
         options: dict = {"future": True}

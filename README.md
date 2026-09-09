@@ -10,13 +10,17 @@ UltraMedia Studio is an AI newsroom for ultramarathons. It converts race timing,
 
 All athlete names and live timing values in the public portfolio are synthetic. Official course pages are used only as attributed context. Production use requires data rights, athlete privacy, editorial, accessibility, and security review with each race organizer.
 
+## Week 5 submission
+
+Start at [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run the [Colab/Kaggle notebook](week5/notebooks/UltraMedia_Week5_QLoRA.ipynb). The package includes 600 synthetic examples (400/80/120), group/checksum audits, a shared training/runtime contract, versioned editorial corrections, and complete deterministic predictions. **GPU training and the model comparison remain unrun until the notebook is executed.** Synthetic examples are not human-approved. No adapted-model gain is claimed.
+
 ## What is implemented
 
 - Governed race/timing ingestion from local fixtures and rights-cleared CSV exports
-- Hybrid dense-plus-lexical retrieval over timing and course evidence
+- Hybrid hashed-vector-plus-lexical retrieval over timing and course evidence
 - Six-stage LangGraph workflow: moment detection, evidence retrieval, story writing, fact verification, safety editing, and human review queue
 - Qwen-compatible provider routing: zero-cost deterministic mode, local Ollama, or Fireworks
-- Claim/citation validation and a guard against unsupported health or intent inferences
+- Structured numeric-claim and citation checks, with explicit human semantic review
 - Persistent race, story, approval, and trace records
 - Human approve/revise/reject endpoint—generation never publishes directly
 - Release evaluation endpoint and pytest suite covering the safe-stop paths
@@ -73,7 +77,7 @@ cd backend
 
 The release gate currently measures retrieval recall, citation validity, mandatory human review, and unsupported sensitive inference. The checked-in fixture is deliberately small and synthetic; provider-backed and large-corpus results must be labeled separately from local deterministic results.
 
-The QLoRA training pipeline is implemented but has not produced an adapter. Its approval-only data gate currently has zero eligible examples and requires at least 20; see [`docs/FINETUNING_OBSERVABILITY.md`](docs/FINETUNING_OBSERVABILITY.md) for the measured-versus-planned boundary.
+The QLoRA training pipeline is implemented but has not produced an adapter. It has a separate 600-example synthetic research corpus and a consenting editor-reviewed production data gate; see [`docs/FINETUNING_OBSERVABILITY.md`](docs/FINETUNING_OBSERVABILITY.md) for the measured-versus-planned boundary.
 
 ## Local model and fine-tuning
 
@@ -87,10 +91,12 @@ PROVIDER_MODE=ollama .venv/bin/uvicorn ultramedia.main:app --reload
 Prepare training examples only from human-approved drafts:
 
 ```bash
-.venv/bin/python scripts/prepare_training_data.py --database ultramedia.db
-.venv/bin/pip install -e '.[finetune]'
-.venv/bin/python scripts/train_qlora.py
-.venv/bin/python scripts/merge_adapter.py
+.venv/bin/python scripts/prepare_training_data.py --database-url sqlite:///ultramedia.db --output ../week5/data/reviewed
+# For the complete synthetic research experiment, use the portable notebook:
+# ../week5/notebooks/UltraMedia_Week5_QLoRA.ipynb
+# GPU CLI from the repository root (after installing week5/requirements-gpu.txt):
+# PYTHONPATH=backend/src python -m ultramedia.training train --dataset week5/data/synthetic --output week5/runs/my-run --research-synthetic
+# PYTHONPATH=backend/src python -m ultramedia.training evaluate --run week5/runs/my-run
 ```
 
 Convert the merged model to GGUF with llama.cpp, place it at `backend/artifacts/qwen3-ultramedia.gguf`, then run `ollama create ultramedia-qwen3 -f Modelfile`.

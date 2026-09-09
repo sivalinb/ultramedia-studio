@@ -4,17 +4,19 @@ import re
 from typing import Protocol
 
 import httpx
-from pydantic import BaseModel, Field
 
 from .config import Settings
-
-
-class GeneratedStory(BaseModel):
-    eyebrow: str
-    headline: str
-    body: str
-    social_caption: str
-    citation_ids: list[str] = Field(min_length=1)
+from .contracts import (
+    METRICS,
+    Claim,
+    GeneratedStory,
+    evidence_facts,
+    evidence_sufficient,
+    generation_input,
+    messages_for,
+    required_metric,
+    validate_story,
+)
 
 
 class StoryProvider(Protocol):
@@ -35,49 +37,42 @@ def hash_embedding(text: str, dimensions: int = 256) -> list[float]:
 
 
 class LocalStoryProvider:
-    """Deterministic local provider used for tests and zero-cost development."""
+    """Rule baseline; a passing run does not measure LLM quality."""
 
-    name = "local-deterministic"
+    name = "local-deterministic-v2"
 
     def generate(self, moment: dict, evidence: list[dict], timing: list[dict]) -> GeneratedStory:
-        athlete = timing[0]["athlete_name"] if timing else f"Bib {moment['athlete_bib']}"
-        latest = timing[0] if timing else None
-        previous = timing[1] if len(timing) > 1 else None
-        position_gain = 0
-        if latest and previous:
-            position_gain = max(0, previous["position_overall"] - latest["position_overall"])
-        citations = [item["id"] for item in evidence[:3]]
-        signal = moment["signal_type"]
-        if signal == "position_gain":
-            eyebrow = "Turning point detected"
-            headline = f"{athlete} just changed the shape of the race."
-            detail = (
-                f"gained {position_gain} positions from {previous['checkpoint']} to {latest['checkpoint']}"
-                if latest and previous
-                else "produced a sustained position gain"
+        inputs = generation_input(moment, evidence, timing)
+        if not evidence_sufficient(inputs):
+            return GeneratedStory(
+                disposition="insufficient_evidence",
+                eyebrow="Evidence needed",
+                headline="Hold this race update for verification.",
+                body="The supplied evidence is incomplete or conflicting. An editor must verify the signal.",
+                social_caption="",
+                citation_ids=[],
+                claims=[],
+                reason="Missing or contradictory signal facts.",
             )
-        elif signal == "record_watch":
-            eyebrow = "Course record watch"
-            headline = f"{athlete} is carrying historic pace into the next sector."
-            detail = "remains on the modeled record trajectory"
-        elif signal == "cutoff_watch":
-            eyebrow = "Cutoff watch"
-            headline = "The final finish window is tightening."
-            detail = "is approaching the next checkpoint inside the modeled cutoff window"
-        else:
-            eyebrow = "Pace change"
-            headline = f"A measured shift from {athlete} is worth watching."
-            detail = "changed pace while maintaining forward position"
-        body = (
-            f"{athlete} {detail}. UltraMedia matched the timing signal "
-            "with course context and historical race notes; an editor must approve this draft before publication."
-        )
+        metric = required_metric(moment["signal_type"])
+        value, cid = evidence_facts(inputs)[metric][0]
+        athlete = timing[0]["athlete_name"] if timing else "The athlete"
+        number = f"{value:g}"
+        details = {
+            "position_gain": f"a position change of {number} places (positive means gained)",
+            "record_margin_seconds": f"a projected record margin of {number} seconds (positive means ahead)",
+            "cutoff_buffer_minutes": f"a cutoff buffer of {number} minutes (negative means late)",
+            "pace_delta_seconds_per_mile": f"a pace change of {number} seconds per mile (negative means faster)",
+        }
         return GeneratedStory(
-            eyebrow=eyebrow,
-            headline=headline,
-            body=body,
-            social_caption=f"{eyebrow}: {headline} Verified race context attached. #UltraMedia",
-            citation_ids=citations or ["timing-simulation"],
+            disposition="draft",
+            eyebrow="Verified signal",
+            headline=f"A timing update for {athlete}.",
+            body=f"{athlete} has {details[metric]}. This is a synthetic race update awaiting editorial review.",
+            social_caption=f"Timing update: {athlete}; {number} {METRICS[metric]}. Awaiting editorial review.",
+            citation_ids=[cid],
+            claims=[Claim(metric=metric, value=value, citation_id=cid)],
+            reason="",
         )
 
 
@@ -86,32 +81,18 @@ class FireworksStoryProvider:
 
     def __init__(self, settings: Settings):
         self.settings = settings
+        self.name = f"fireworks:{settings.fireworks_chat_model}"
 
     def generate(self, moment: dict, evidence: list[dict], timing: list[dict]) -> GeneratedStory:
-        allowed_ids = [item["id"] for item in evidence]
         response = httpx.post(
             "https://api.fireworks.ai/inference/v1/chat/completions",
             headers={"Authorization": f"Bearer {self.settings.fireworks_api_key}"},
             json={
                 "model": self.settings.fireworks_chat_model,
-                "temperature": 0.1,
-                "max_tokens": 500,
+                "temperature": 0,
+                "max_tokens": self.settings.generation_max_tokens,
                 "response_format": {"type": "json_object"},
-                "messages": [
-                    {
-                        "role": "system",
-                        "content": (
-                            "You are an ultramarathon newsroom editor. Return JSON with eyebrow, headline, body, "
-                            "social_caption, and citation_ids. Use only supplied evidence. Never infer health, injury, "
-                            "intent, or emotion. Keep the draft factual and vivid. citation_ids must be selected from: "
-                            + ", ".join(allowed_ids)
-                        ),
-                    },
-                    {
-                        "role": "user",
-                        "content": json.dumps({"moment": moment, "timing": timing, "evidence": evidence}),
-                    },
-                ],
+                "messages": messages_for(generation_input(moment, evidence, timing)),
             },
             timeout=25,
         )
@@ -119,9 +100,7 @@ class FireworksStoryProvider:
         payload = response.json()
         parsed = json.loads(payload["choices"][0]["message"]["content"])
         story = GeneratedStory.model_validate(parsed)
-        story.citation_ids = [citation for citation in story.citation_ids if citation in allowed_ids]
-        if not story.citation_ids:
-            raise ValueError("Provider returned no valid citations")
+        validate_story(story, generation_input(moment, evidence, timing))
         return story
 
 
@@ -130,30 +109,23 @@ class OllamaStoryProvider:
 
     def __init__(self, settings: Settings):
         self.settings = settings
+        self.name = f"ollama:{settings.ollama_model}"
 
     def generate(self, moment: dict, evidence: list[dict], timing: list[dict]) -> GeneratedStory:
-        allowed_ids = [item["id"] for item in evidence]
-        prompt = (
-            "Return compact JSON with eyebrow, headline, body, social_caption, citation_ids. "
-            "Use only the evidence; do not infer medical condition or emotion.\n"
-            + json.dumps({"moment": moment, "timing": timing, "evidence": evidence})
-        )
         response = httpx.post(
             f"{self.settings.ollama_base_url.rstrip('/')}/api/chat",
             json={
                 "model": self.settings.ollama_model,
                 "stream": False,
                 "format": "json",
-                "messages": [{"role": "user", "content": prompt}],
-                "options": {"temperature": 0.1},
+                "messages": messages_for(generation_input(moment, evidence, timing)),
+                "options": {"temperature": 0, "num_predict": self.settings.generation_max_tokens},
             },
             timeout=60,
         )
         response.raise_for_status()
         story = GeneratedStory.model_validate_json(response.json()["message"]["content"])
-        story.citation_ids = [citation for citation in story.citation_ids if citation in allowed_ids]
-        if not story.citation_ids:
-            raise ValueError("Local model returned no valid citations")
+        validate_story(story, generation_input(moment, evidence, timing))
         return story
 
 

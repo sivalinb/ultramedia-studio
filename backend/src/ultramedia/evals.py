@@ -1,13 +1,13 @@
 import json
 
-from .database import Database
+from .database import Database, GenerationRecord
 from .providers import LocalStoryProvider
 from .retrieval import HybridRetriever
 from .schemas import EvalMetric, EvalReport, MomentInput, StoryGenerateRequest
 from .workflow import StoryWorkflow
 
 
-def run_eval_suite(database: Database, dimensions: int = 256) -> EvalReport:
+def run_eval_suite(database: Database, dimensions: int = 256, provider=None) -> EvalReport:
     retriever = HybridRetriever(dimensions)
     retrieval_cases = [
         ("course climbing and descending profile", "wser-course-profile"),
@@ -21,7 +21,8 @@ def run_eval_suite(database: Database, dimensions: int = 256) -> EvalReport:
             ids = {item["id"] for item in retriever.search(db, "wser-demo", query, top_k=3)}
             retrieval_hits += int(target in ids)
 
-    workflow = StoryWorkflow(database, LocalStoryProvider(), retriever)
+    provider = provider or LocalStoryProvider()
+    workflow = StoryWorkflow(database, provider, retriever)
     generation_cases = [
         MomentInput(
             athlete_bib="214",
@@ -35,7 +36,10 @@ def run_eval_suite(database: Database, dimensions: int = 256) -> EvalReport:
         ),
     ]
     stories = [workflow.run(StoryGenerateRequest(race_id="wser-demo", moment=moment)) for moment in generation_cases]
-    citations_valid = sum(bool(story.citations) for story in stories) / len(stories)
+    with database.session() as db:
+        citations_valid = sum(
+            db.get(GenerationRecord, story.id).checks["citation_ids_valid"] for story in stories
+        ) / len(stories)
     human_gate = sum(story.status == "pending_review" for story in stories) / len(stories)
     sensitive_inference_rate = sum(
         any(term in story.body.lower() for term in ("dehydrated", "injured", "collapsed")) for story in stories
@@ -68,7 +72,7 @@ def run_eval_suite(database: Database, dimensions: int = 256) -> EvalReport:
         ),
     ]
     return EvalReport(
-        suite="ultramedia-release-v1",
+        suite=f"ultramedia-workflow-v2:{provider.name}",
         cases=len(retrieval_cases) + len(generation_cases),
         release_decision="PASS" if all(metric.passed for metric in metrics) else "FAIL",
         metrics=metrics,

@@ -1,0 +1,148 @@
+{
+  "schema_version": "week5-evaluation-v1",
+  "created_at": "2026-09-09T01:00:47.944038+00:00",
+  "identity": {
+    "provider": "local-deterministic-v2",
+    "kind": "deterministic_rules",
+    "split": "test"
+  },
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+  "cases": 120,
+  "case_set_sha256": "30bb6940254cb5edcde92a2c4e9b13ee895f271fa97d8daab97eca7799361768",
+  "metrics": {
+    "schema_valid": 1.0,
+    "citation_ids_valid": 1.0,
+    "structured_claims_supported": 1.0,
+    "required_metric_covered": 1.0,
+    "disposition_correct": 1.0,
+    "numeric_tokens_supported": 1.0,
+    "sensitive_language_absent": 1.0,
+    "projection_not_achievement": 1.0,
+    "automatic_success": 1.0
+  },
+  "by_signal": {
+    "cutoff_watch": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "pace_change": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "position_gain": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "record_watch": {
+      "cases": 30,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    }
+  },
+  "by_condition": {
+    "boundary": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "complete": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "contradictory": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "misleading_hint": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    },
+    "missing": {
+      "cases": 24,
+      "schema_valid": 1.0,
+      "citation_ids_valid": 1.0,
+      "structured_claims_supported": 1.0,
+      "required_metric_covered": 1.0,
+      "disposition_correct": 1.0,
+      "numeric_tokens_supported": 1.0,
+      "sensitive_language_absent": 1.0,
+      "projection_not_achievement": 1.0,
+      "automatic_success": 1.0
+    }
+  },
+  "latency_ms": {
+    "p50": 0.062,
+    "p95": 0.155
+  },
+  "wall_seconds": 0.00850466697011143,
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.14"
+  },
+  "semantic_faithfulness": null,
+  "editor_preference": null,
+  "quality_scope": "Structured evidence checks; not human semantic accuracy or real-race generalization",
+  "release_decision": "not_a_promotion_test"
+}

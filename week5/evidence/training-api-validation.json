@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+  "device": "cpu",
+  "model": "random tiny Qwen3 architecture; not pretrained target weights",
+  "training_executed": false,
+  "masked_tokens": 424,
+  "supervised_tokens": 116,
+  "prompt_positions_all_masked": true,
+  "validation_schedule": "epoch",
+  "scope": "Pinned API, PEFT target modules, dataset formatting, and actual TRL collator only"
+}
