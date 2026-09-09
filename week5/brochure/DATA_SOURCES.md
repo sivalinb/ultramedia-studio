@@ -1,6 +1,6 @@
 # UltraMedia data sources and provenance
 
-Companion to the eleven-page illustrated brochure. Reviewed 9 September 2026. This note distinguishes the research corpus, demonstration fixture, external context and actual execution receipts. All repository links below pin the reviewed source snapshot `cc8f42cbc73f6efe92c49d21437f4e4b16fd1089`. The brochure artwork illustrates concepts; it is not a screenshot, race result, customer testimonial or measurement.
+Companion to the fifteen-page illustrated brochure. Reviewed 9 September 2026. This note distinguishes the research corpus, demonstration fixture, external context and actual execution receipts. All repository links below pin the reviewed source snapshot `cc8f42cbc73f6efe92c49d21437f4e4b16fd1089`. The brochure artwork illustrates concepts; it is not a screenshot, race result, customer testimonial or measurement.
 
 ## 1. What the training data actually is
 
@@ -97,4 +97,14 @@ For future editorial data, the export path requires approved revisions, explicit
 
 ## 6. Visual provenance
 
-All eleven illustrations were generated or edited using the built-in image tool, with the user-provided portrait as a likeness reference and the approved sales illustration as a style reference. The original personal photographs are not distributed. The characters show the same creator in different illustrative roles. Exact chart values, report captions, links and QR codes are composed programmatically; decorative books, maps and paper stacks do not establish additional data sources. The final prompts and workspace artwork are retained in the brochure's `art/` folder.
+The thirteen final illustration assets were generated or edited using the built-in image tool, with the user-provided portrait as a likeness reference and the approved sales illustration as a style reference. The original personal photographs are not distributed. The characters show the same creator in different illustrative roles. Exact chart values, report captions, links and QR codes are composed programmatically; decorative books, maps and paper stacks do not establish additional data sources. The final prompts and workspace artwork are retained in the brochure's `art/` folder.
+
+## 7. Review-driven additions and their sources
+
+The revised brochure focuses on race organizers with small media teams as a customer hypothesis; no interview or customer demand is claimed. Pages 12 and 15 describe proposed readiness requirements and an exploratory pilot, not implemented features or collected results. The [participation brief](PILOT_REPLAY_BRIEF.md) defines proposed sampling, source permissions, independent review, measurements and decision gates.
+
+- **S13:** Western States [webcast procedures](https://www.wser.org/webcast/), reviewed 9 September 2026, motivate delayed-data testing through their descriptions of manual timing, uneven connectivity and radio fallback. These operational procedures are separate from the demonstration fixture and training corpus; they were not ingested into training.
+- **S14-S15:** The first frozen local case, `fictional-race-120-position_gain`, is presented on page 13. Its exact input fields, unchanged full base/adapted records, selection rule and source-file SHA-256 values are retained in [saved-case.json](saved-case.json). The printed headline/body excerpts are verbatim. The input hash is `3f170fcc9a7c7cf9999defb9b3e1078ba9c1bde1c21f41505b7a18b43f439ebc`. Both original validators pass, while document review identifies reversed direction in the base prose and a grammar defect in the adapted prose. This assessment is not independent human race-editor review.
+- **S16:** Page 14 embeds the existing [local adapted-model application screenshot](https://github.com/sivalinb/ultramedia-studio/blob/cc8f42cbc73f6efe92c49d21437f4e4b16fd1089/week5/evidence/adapter-serving/01-generated-desktop.png) unchanged. It shows a fictional example in pending review during automated QA, not a live event or a human-reviewed outcome. The source image and archived evidence remain unchanged.
+
+The results page now highlights the lexical evaluator limitation: a denial of an unsupported injury claim can fail the sensitive-language check. The reported 27.5-point aggregate improvement remains exactly the original frozen result; it is not reinterpreted as a 27.5-point reduction in false stories. The interval estimates uncertainty within the synthetic experiment, not generalization across races.

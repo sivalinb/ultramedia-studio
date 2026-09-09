@@ -103,7 +103,7 @@ class Brochure:
     def start(self,n,kicker,title,subtitle):
         self.c.bookmarkPage(f'p{n}');self.c.addOutlineEntry(title,f'p{n}',level=0,closed=False)
         self.text('ULTRAMEDIA / RACE DESK',M,22,220,9,PURPLE,True)
-        sections=[('Story',1,{1,3}),('Problem',2,{2}),('Workflow',4,{4}),('Data',5,{5,6}),('Learning',7,{7}),('Results',8,{8}),('Roadmap',9,{9}),('Sources',11,{10,11})]
+        sections=getattr(self,'sections',[('Story',1,{1,3}),('Problem',2,{2}),('Workflow',4,{4}),('Data',5,{5,6}),('Learning',7,{7}),('Results',8,{8}),('Roadmap',9,{9}),('Sources',11,{10,11})])
         for i,(label,target,active_pages) in enumerate(sections):
             x=286+i*58;active=n in active_pages
             self.text(label,x,22,56,8.5,PURPLE if active else MUTED,active)
@@ -119,7 +119,7 @@ class Brochure:
         if source:
             self.text('Source evidence',568,577,113,8,PURPLE,True)
             self.c.linkURL(source,(568,22,681,37),relative=0); self.links.append(source)
-        self.text(f'{n:02d} / 11',698,577,52,8,MUTED,True)
+        self.text(f'{n:02d} / {getattr(self,"page_count",11)}',698,577,52,8,MUTED,True)
         self.c.showPage()
 
     def build(self):
