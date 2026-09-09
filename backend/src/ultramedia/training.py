@@ -5,6 +5,7 @@ import importlib.metadata
 import json
 import platform
 import time
+import zipfile
 from pathlib import Path
 
 from .contracts import MODEL_ID, MODEL_REVISION, PROMPT_VERSION, canonical, messages_for
@@ -42,9 +43,63 @@ def environment(torch):
     }
 
 
+def recovery_callback(run_dir, every_steps):
+    """Preserve resumable checkpoints without changing epoch validation selection."""
+    from transformers import TrainerCallback
+
+    class Recovery(TrainerCallback):
+        def on_step_end(self, args, state, control, **kwargs):
+            if every_steps and state.global_step % every_steps == 0:
+                control.should_save = True
+            return control
+
+        def on_log(self, args, state, control, logs=None, **kwargs):
+            progress = {
+                "global_step": state.global_step,
+                "max_steps": state.max_steps,
+                "epoch": state.epoch,
+                "history": state.log_history,
+            }
+            temporary = run_dir / "progress.json.tmp"
+            temporary.write_text(json.dumps(progress, indent=2, default=str) + "\n")
+            temporary.replace(run_dir / "progress.json")
+            print(json.dumps({"training_progress": state.global_step, "metrics": logs}), flush=True)
+
+        def on_save(self, args, state, control, **kwargs):
+            checkpoint = Path(args.output_dir) / f"checkpoint-{state.global_step}"
+            checkpoints = {checkpoint}
+            if state.best_model_checkpoint:
+                checkpoints.add(Path(state.best_model_checkpoint))
+            destination = run_dir.parent / (run_dir.name + "-recovery.zip")
+            temporary = destination.with_suffix(".zip.tmp")
+            with zipfile.ZipFile(temporary, "w", zipfile.ZIP_DEFLATED) as bundle:
+                for directory in sorted(checkpoints):
+                    for path in sorted(directory.rglob("*")):
+                        if path.is_file():
+                            bundle.write(path, path.relative_to(run_dir))
+                for name in ["experiment.json", "progress.json"]:
+                    if (run_dir / name).exists():
+                        bundle.write(run_dir / name, name)
+            temporary.replace(destination)
+            print(
+                json.dumps(
+                    {
+                        "recovery_checkpoint": state.global_step,
+                        "archive": str(destination),
+                        "bytes": destination.stat().st_size,
+                    }
+                ),
+                flush=True,
+            )
+
+    return Recovery()
+
+
 def run(args):
     if args.epochs < 1 or args.max_length < 256:
         raise ValueError("Use at least one epoch and a sequence limit of at least 256 tokens")
+    if getattr(args, "checkpoint_steps", 5) < 0:
+        raise ValueError("Checkpoint interval must be non-negative")
     rows, manifest = load_dataset_records(args.dataset)
     check_training_gate(rows, manifest, args.research_synthetic)
     import torch
@@ -55,9 +110,27 @@ def run(args):
 
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA GPU required. Run the supplied notebook on Colab/Kaggle with GPU enabled.")
-    if args.output.exists():
+    identity = {
+        "base_model": MODEL_ID,
+        "revision": MODEL_REVISION,
+        "dataset_sha256": manifest["dataset_sha256"],
+        "epochs": args.epochs,
+        "max_length": args.max_length,
+        "seed": 42,
+        "prompt_version": PROMPT_VERSION,
+    }
+    resume = getattr(args, "resume_from_checkpoint", None)
+    if resume:
+        resume = resume.resolve()
+        if resume.parent != (args.output / "checkpoints").resolve() or not (resume / "trainer_state.json").is_file():
+            raise ValueError("Resume from a complete checkpoint inside this run's checkpoints directory")
+        if json.loads((args.output / "experiment.json").read_text()) != identity:
+            raise ValueError("Resume configuration or dataset differs from the original experiment")
+    elif args.output.exists():
         raise ValueError("Run directory exists. Choose a new output name to preserve previous evidence.")
-    args.output.mkdir(parents=True)
+    else:
+        args.output.mkdir(parents=True)
+        (args.output / "experiment.json").write_text(json.dumps(identity, indent=2) + "\n")
     set_seed(42)
     bf16 = torch.cuda.is_bf16_supported()
     dtype = torch.bfloat16 if bf16 else torch.float16
@@ -113,6 +186,7 @@ def run(args):
             task_type="CAUSAL_LM",
             target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
         ),
+        callbacks=[recovery_callback(args.output, getattr(args, "checkpoint_steps", 5))],
     )
     # Check the actual trainer collator, not just a configuration flag.
     batch = trainer.data_collator([trainer.train_dataset[0]])
@@ -124,7 +198,7 @@ def run(args):
     trainable = sum(p.numel() for p in trainer.model.parameters() if p.requires_grad)
     torch.cuda.reset_peak_memory_stats()
     start = time.perf_counter()
-    trainer.train()
+    trainer.train(resume_from_checkpoint=str(resume) if resume else None)
     torch.cuda.synchronize()
     training_seconds = time.perf_counter() - start
     adapter = args.output / "adapter"
@@ -142,6 +216,8 @@ def run(args):
         "compute_dtype": str(dtype),
         "trainable_parameters": trainable,
         "training_seconds": training_seconds,
+        "training_seconds_scope": "this invocation; excludes any earlier interrupted attempts",
+        "resume_from_checkpoint": str(resume) if resume else None,
         "peak_allocated_vram_bytes": torch.cuda.max_memory_allocated(),
         "peak_reserved_vram_bytes": torch.cuda.max_memory_reserved(),
         "sequence_audit": lengths,
@@ -267,6 +343,8 @@ def main():
     train.add_argument("--research-synthetic", action="store_true")
     train.add_argument("--epochs", type=int, default=2)
     train.add_argument("--max-length", type=int, default=2048)
+    train.add_argument("--checkpoint-steps", type=int, default=5)
+    train.add_argument("--resume-from-checkpoint", type=Path)
     evaluate = commands.add_parser("evaluate")
     evaluate.add_argument("--dataset", type=Path, default=Path("week5/data/synthetic"))
     evaluate.add_argument("--run", type=Path, required=True)
