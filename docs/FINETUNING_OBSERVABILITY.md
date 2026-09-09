@@ -1,5 +1,6 @@
 # Fine-tuning and observability status
 
+> Historical September 6 snapshot. The current implementation, separate synthetic research track, data gates and notebook are documented in [the Week 5 submission](../week5/SUBMISSION.md).
 ## Honest status
 
 The repository implements the complete QLoRA path, but it does not contain a trained adapter. The training-data preparation step accepts only human-approved story drafts and exits unless at least 20 examples exist. The current local fixture has zero approved examples, so training is correctly blocked.

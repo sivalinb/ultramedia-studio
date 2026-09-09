@@ -2,138 +2,430 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Activity, ArrowLeft, CheckCircle2, Database, FlaskConical, Radio, RefreshCw, ShieldCheck, Sparkles, Workflow, XCircle, Zap } from 'lucide-react';
+import {
+  ArrowLeft,
+  CheckCircle2,
+  FlaskConical,
+  RefreshCw,
+  ShieldCheck,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
-import { Button, buttonVariants } from '@/components/ui/button';
 
 const API_BASE = process.env.NEXT_PUBLIC_ULTRAMEDIA_API_URL || '';
-
-type Story = {
-  id?: string;
+type Draft = {
+  disposition: 'draft' | 'insufficient_evidence';
   eyebrow: string;
   headline: string;
   body: string;
   social_caption: string;
-  confidence: number;
+  citation_ids: string[];
+  claims: { metric: string; value: number; citation_id: string }[];
+  reason: string;
+};
+type Story = Draft & {
+  id: string;
   status: string;
-  trace_id?: string;
-  citations: Array<{ id: string; title: string; excerpt: string; score: number }>;
+  trace_id: string;
+  review_revision: number;
+  provider: string;
+  citations: { id: string; title: string; excerpt: string }[];
+  quality_checks: Record<string, unknown>;
+};
+type Span = {
+  stage: string;
+  duration_ms: number;
+  status: string;
+  detail: string;
+};
+const preview: Draft = {
+  disposition: 'draft',
+  eyebrow: 'Checkpoint update',
+  headline: 'Mara Velez gains places through the canyon sector.',
+  body: 'Mara Velez moved from position 31 to position 11 between two checkpoints. This fictional timing update requires editorial review.',
+  social_caption:
+    'Mara Velez gained 20 places in the fictional checkpoint replay.',
+  citation_ids: ['timing-demo'],
+  claims: [{ metric: 'position_gain', value: 20, citation_id: 'timing-demo' }],
+  reason: '',
 };
 
-const initialStory: Story = {
-  eyebrow: 'Turning point detected',
-  headline: 'Mara Velez just changed the shape of the race.',
-  body: 'Mara Velez gained 20 positions between Devil’s Thumb and Foresthill. UltraMedia matched the synthetic timing signal with official course context; an editor must approve this draft before publication.',
-  social_caption: 'Turning point: a 20-place surge through the canyon sector. Verified race context attached. #UltraMedia',
-  confidence: 0.94,
-  status: 'pending_review',
-  citations: [
-    { id: 'timing-demo', title: 'Timing comparison · Foresthill', excerpt: 'Synthetic timing: position 31 at Devil’s Thumb to position 11 at Foresthill.', score: 1 },
-    { id: 'wser-canyons', title: 'Official canyon sector context', excerpt: 'Official course context covering the California gold-country canyons.', score: 0.91 },
-  ],
-};
-
-const trace = [
-  ['moment_detector', 'Validated position-gain signal', '12 ms'],
-  ['evidence_retriever', 'Retrieved timing + course evidence', '184 ms'],
-  ['story_writer', 'Generated structured newsroom draft', '1.6 s'],
-  ['fact_verifier', 'Validated claims and citation IDs', '310 ms'],
-  ['safety_editor', 'Blocked unsupported health inferences', '82 ms'],
-  ['human_review_queue', 'Paused publication for an editor', '26 ms'],
-];
+async function readResponse<T>(response: Response): Promise<T> {
+  const payload = await response.json();
+  if (!response.ok) {
+    const detail =
+      typeof payload === 'object' && payload !== null && 'detail' in payload
+        ? payload.detail
+        : null;
+    throw new Error(
+      typeof detail === 'string'
+        ? detail
+        : `Request failed (${response.status})`,
+    );
+  }
+  return payload as T;
+}
 
 export default function StudioPage() {
-  const [story, setStory] = useState(initialStory);
-  const [loading, setLoading] = useState(false);
-  const [evalStatus, setEvalStatus] = useState<'idle' | 'running' | 'PASS' | 'FAIL'>('idle');
-  const [message, setMessage] = useState('Select a signal and generate a grounded story.');
+  const [story, setStory] = useState<Story | null>(null);
+  const [draft, setDraft] = useState<Draft>(preview);
+  const [trace, setTrace] = useState<Span[]>([]);
+  const [busy, setBusy] = useState(false);
+  const [reviewer, setReviewer] = useState('');
+  const [reviewerKey, setReviewerKey] = useState('');
+  const [rationale, setRationale] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [rightsBasis, setRightsBasis] = useState('');
+  const [message, setMessage] = useState(
+    API_BASE
+      ? 'Generate a draft to begin an editorial review.'
+      : 'Preview only. Connect the Python API to generate and save reviews.',
+  );
 
-  async function generateStory() {
-    setLoading(true);
-    setMessage('Running six agents against timing and course evidence…');
+  function acceptStory(value: Story) {
+    setStory(value);
+    setDraft({
+      disposition: value.disposition,
+      eyebrow: value.eyebrow,
+      headline: value.headline,
+      body: value.body,
+      social_caption: value.social_caption,
+      citation_ids: value.citations.map((c) => c.id),
+      claims: value.claims,
+      reason: value.reason,
+    });
+  }
+
+  async function generate() {
+    setBusy(true);
+    setTrace([]);
     try {
-      if (API_BASE) {
-        const response = await fetch(`${API_BASE}/api/v1/stories/generate`, {
+      const result = await readResponse<Story>(
+        await fetch(`${API_BASE}/api/v1/stories/generate`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ race_id: 'wser-demo', moment: { athlete_bib: '214', signal_type: 'position_gain', headline_hint: 'large position gain through the canyon sector' } }),
-        });
-        if (!response.ok) throw new Error('The Python API rejected this signal.');
-        setStory(await response.json());
-        setMessage('Python workflow complete. Draft is waiting for human review.');
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 850));
-        setStory({ ...initialStory, headline: 'The canyon surge is now the race’s defining move.', confidence: 0.96, status: 'pending_review' });
-        setMessage('Portfolio simulation complete. Connect the Python API for live provider calls.');
+          body: JSON.stringify({
+            race_id: 'wser-demo',
+            moment: {
+              athlete_bib: '214',
+              signal_type: 'position_gain',
+              headline_hint: 'A verified checkpoint position update',
+            },
+          }),
+        }),
+      );
+      acceptStory(result);
+      setMessage(
+        'Draft saved. Review its wording, evidence, and numeric claims.',
+      );
+      try {
+        const run = await readResponse<{ spans: Span[] }>(
+          await fetch(`${API_BASE}/api/v1/traces/${result.trace_id}`),
+        );
+        setTrace(run.spans);
+      } catch {
+        setMessage('Draft saved; its trace is temporarily unavailable.');
       }
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : 'Generation failed safely.');
+      setMessage(error instanceof Error ? error.message : 'Generation failed.');
     } finally {
-      setLoading(false);
+      setBusy(false);
     }
   }
 
-  async function review(decision: 'approved' | 'revision_requested') {
-    if (API_BASE && story.id) {
-      const response = await fetch(`${API_BASE}/api/v1/stories/${story.id}/review`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ decision, reviewer: 'Portfolio Editor', rationale: decision === 'approved' ? 'Evidence checked' : 'Tighten the opening sentence' }),
-      });
-      if (response.ok) setStory(await response.json());
-    } else {
-      setStory((current) => ({ ...current, status: decision }));
+  async function review(
+    decision: 'approved' | 'revision_requested' | 'rejected',
+  ) {
+    if (!story) return;
+    setBusy(true);
+    try {
+      const result = await readResponse<Story>(
+        await fetch(`${API_BASE}/api/v1/stories/${story.id}/review`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Reviewer-Key': reviewerKey,
+          },
+          body: JSON.stringify({
+            decision,
+            reviewer,
+            rationale,
+            edited_story: draft,
+            expected_revision: story.review_revision,
+            training_consent: decision === 'approved' && consent,
+            rights_basis: rightsBasis,
+          }),
+        }),
+      );
+      acceptStory(result);
+      setMessage(
+        `Revision ${result.review_revision} saved as ${result.status.replaceAll('_', ' ')}. Publication remains a separate editorial action.`,
+      );
+    } catch (error) {
+      setMessage(
+        error instanceof Error ? error.message : 'Review was not saved.',
+      );
+    } finally {
+      setBusy(false);
     }
-    setMessage(decision === 'approved' ? 'Approved by a human editor. Ready for channel publishing.' : 'Returned to the story agent with an editor note.');
   }
 
-  async function runEvals() {
-    setEvalStatus('running');
-    if (API_BASE) {
-      try {
-        const response = await fetch(`${API_BASE}/api/v1/evals/run`, { method: 'POST' });
-        const result = await response.json();
-        setEvalStatus(result.release_decision);
-        return;
-      } catch {
-        setEvalStatus('FAIL');
-        return;
-      }
+  async function evaluate() {
+    setBusy(true);
+    try {
+      const result = await readResponse<{
+        suite: string;
+        release_decision: string;
+        cases: number;
+      }>(await fetch(`${API_BASE}/api/v1/evals/run`, { method: 'POST' }));
+      setMessage(
+        `${result.suite}: ${result.release_decision} across ${result.cases} workflow cases. This does not establish fine-tuning quality.`,
+      );
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : 'Evaluation failed.');
+    } finally {
+      setBusy(false);
     }
-    await new Promise((resolve) => setTimeout(resolve, 700));
-    setEvalStatus('PASS');
   }
 
+  const canReview = Boolean(
+    API_BASE && story && reviewer.trim().length >= 2 && !busy,
+  );
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-white/10 bg-[#090d0b]/95">
-        <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-4 sm:px-6">
-          <div className="flex items-center gap-3"><Link href="/" className={buttonVariants({ variant: 'ghost', size: 'icon-sm', className: 'rounded-full' })} aria-label="Back to UltraMedia home"><ArrowLeft className="size-4" /></Link><span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground"><Activity className="size-4" /></span><div><p className="text-xs font-black">ULTRAMEDIA STUDIO</p><p className="text-[9px] uppercase tracking-[.14em] text-white/35">Race control</p></div><Link href="/races" className="ml-2 hidden text-[10px] font-bold uppercase tracking-[.12em] text-white/40 hover:text-primary sm:block">Race atlas</Link><Link href="/observability" className="hidden text-[10px] font-bold uppercase tracking-[.12em] text-white/40 hover:text-primary md:block">Model ops</Link></div>
-          <Badge variant="outline" className={API_BASE ? 'border-emerald-300/20 bg-emerald-300/5 text-emerald-300' : 'border-amber-300/20 bg-amber-300/5 text-amber-200'}>{API_BASE ? 'Python API connected' : 'Portfolio simulation'}</Badge>
-        </div>
+      <header className="border-b border-white/10">
+        <nav className="mx-auto flex max-w-7xl flex-wrap items-center gap-6 px-6 py-5 text-sm">
+          <Link href="/" className="flex items-center gap-2">
+            <ArrowLeft size={18} /> UltraMedia
+          </Link>
+          <Link href="/week5" className="text-primary">
+            Week 5 evidence
+          </Link>
+          <Link href="/observability">Observability</Link>
+          <Badge variant="outline" className="ml-auto">
+            {API_BASE ? 'API configured' : 'Fictional preview'}
+          </Badge>
+        </nav>
       </header>
-
-      <div className="mx-auto max-w-[1500px] px-4 py-6 sm:px-6">
-        <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-[10px] font-bold uppercase tracking-[.2em] text-primary">Western States simulation / Mile 62</p><h1 className="mt-2 text-3xl font-semibold tracking-tight">Live story control room</h1></div><div className="flex gap-2"><Button variant="outline" className="rounded-full border-white/15" onClick={runEvals} disabled={evalStatus === 'running'}><FlaskConical className={`size-4 ${evalStatus === 'running' ? 'animate-spin' : ''}`} /> {evalStatus === 'idle' ? 'Run release evals' : evalStatus}</Button><Button className="rounded-full font-bold" onClick={generateStory} disabled={loading}>{loading ? <RefreshCw className="size-4 animate-spin" /> : <Sparkles className="size-4" />} Generate story</Button></div></div>
-
-        <div className="grid gap-4 xl:grid-cols-[290px_minmax(0,1fr)_360px]">
-          <aside className="space-y-4">
-            <Panel title="Live signal" icon={<Zap />}><div className="rounded-xl border border-primary/25 bg-primary/[.06] p-4"><div className="flex items-center justify-between"><Badge className="bg-primary text-primary-foreground">Selected</Badge><span className="font-mono text-[10px] text-primary">+20 places</span></div><p className="mt-4 text-sm font-semibold">Canyon position gain</p><p className="mt-2 text-xs leading-6 text-white/40">Bib 214 moved from 31st at Devil’s Thumb to 11th at Foresthill.</p></div><div className="mt-3 grid grid-cols-2 gap-2"><MiniMetric label="Signal confidence" value="98%" /><MiniMetric label="Source delay" value="12s" /></div></Panel>
-            <Panel title="Grounded sources" icon={<Database />}><div className="space-y-2">{story.citations.map((citation) => <div key={citation.id} className="rounded-xl border border-white/8 bg-white/[.02] p-3"><div className="flex justify-between gap-3"><p className="text-xs font-semibold">{citation.title}</p><span className="font-mono text-[9px] text-primary">{Math.round(citation.score * 100)}%</span></div><p className="mt-2 text-[10px] leading-5 text-white/35">{citation.excerpt}</p></div>)}</div></Panel>
-          </aside>
-
-          <section className="overflow-hidden rounded-2xl border border-white/10 bg-card">
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4"><div className="flex items-center gap-2"><Radio className="size-4 text-primary" /><span className="text-xs font-bold">Story editor</span></div><Badge variant="outline" className={story.status === 'approved' ? 'border-emerald-300/20 text-emerald-300' : 'border-amber-300/20 text-amber-200'}>{story.status.replace('_', ' ')}</Badge></div>
-            <div className="p-5 sm:p-8"><p className="text-[10px] font-bold uppercase tracking-[.18em] text-primary">{story.eyebrow}</p><h2 className="mt-4 text-4xl font-black uppercase leading-[.93] tracking-[-.055em] sm:text-6xl">{story.headline}</h2><p className="mt-7 max-w-3xl text-sm leading-7 text-white/55">{story.body}</p><div className="mt-8 rounded-2xl border border-white/8 bg-black/15 p-5"><p className="text-[9px] font-bold uppercase tracking-[.16em] text-white/30">Social caption</p><p className="mt-3 text-sm leading-6">{story.social_caption}</p></div><div className="mt-7 flex flex-wrap items-center gap-3"><Button className="rounded-full bg-emerald-300 text-emerald-950 hover:bg-emerald-200" onClick={() => review('approved')}><CheckCircle2 className="size-4" /> Approve story</Button><Button variant="outline" className="rounded-full border-white/15" onClick={() => review('revision_requested')}><XCircle className="size-4" /> Request revision</Button><span className="ml-auto font-mono text-[10px] text-white/35">Grounding {Math.round(story.confidence * 100)}%</span></div></div>
-            <div aria-live="polite" className="border-t border-white/10 bg-primary/[.04] px-5 py-3 text-[10px] text-primary">{message}</div>
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-semibold">Race desk</h1>
+            <p className="mt-2 text-base text-muted-foreground">
+              Correct a draft, check its evidence, and record your editorial
+              decision.
+            </p>
+          </div>
+          <div className="flex gap-3">
+            <Button
+              variant="outline"
+              disabled={!API_BASE || busy}
+              onClick={evaluate}
+            >
+              <FlaskConical /> Check workflow
+            </Button>
+            <Button disabled={!API_BASE || busy} onClick={generate}>
+              {busy ? <RefreshCw className="animate-spin" /> : null} Generate
+              draft
+            </Button>
+          </div>
+        </div>
+        <p
+          role="status"
+          className="mb-6 rounded-xl border border-primary/25 bg-primary/5 p-4 text-sm"
+        >
+          {message}
+        </p>
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
+          <section className="space-y-5 rounded-2xl border border-white/10 bg-card p-6">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h2 className="text-xl font-semibold">Editorial draft</h2>
+              <Badge variant="outline">
+                {story
+                  ? `${story.status} · revision ${story.review_revision}`
+                  : 'Unsaved preview'}
+              </Badge>
+            </div>
+            {(['eyebrow', 'headline', 'body', 'social_caption'] as const).map(
+              (field) => (
+                <label key={field} className="block text-sm font-medium">
+                  <span className="mb-2 block capitalize">
+                    {field.replaceAll('_', ' ')}
+                  </span>
+                  <Textarea
+                    value={draft[field]}
+                    disabled={!story || busy}
+                    maxLength={
+                      field === 'social_caption'
+                        ? 280
+                        : field === 'body'
+                          ? 1600
+                          : field === 'headline'
+                            ? 300
+                            : 120
+                    }
+                    className={
+                      field === 'body' ? 'min-h-36 text-base' : 'text-base'
+                    }
+                    onChange={(event) =>
+                      setDraft({ ...draft, [field]: event.target.value })
+                    }
+                  />
+                </label>
+              ),
+            )}
+            <p className="text-sm text-muted-foreground">
+              Numeric claims stay tied to the original evidence. Unsupported
+              edits are rejected; ask for new evidence when the facts change.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="text-sm">
+                Reviewer name
+                <Input
+                  className="mt-2"
+                  value={reviewer}
+                  onChange={(event) => setReviewer(event.target.value)}
+                  autoComplete="name"
+                />
+              </label>
+              <label className="text-sm">
+                Reviewer key, if required
+                <Input
+                  className="mt-2"
+                  type="password"
+                  value={reviewerKey}
+                  onChange={(event) => setReviewerKey(event.target.value)}
+                  autoComplete="off"
+                />
+              </label>
+            </div>
+            <label className="block text-sm">
+              Review notes
+              <Textarea
+                className="mt-2"
+                value={rationale}
+                onChange={(event) => setRationale(event.target.value)}
+                maxLength={500}
+              />
+            </label>
+            <label className="flex items-center gap-3 text-sm">
+              <Checkbox
+                checked={consent}
+                onCheckedChange={(checked) => setConsent(Boolean(checked))}
+              />
+              Allow this approved revision to be exported for training
+            </label>
+            {consent && (
+              <label className="block text-sm">
+                Rights and permission basis
+                <Input
+                  className="mt-2"
+                  value={rightsBasis}
+                  onChange={(event) => setRightsBasis(event.target.value)}
+                  placeholder="For example: organizer permission or authored synthetic material"
+                />
+              </label>
+            )}
+            <div className="flex flex-wrap gap-3">
+              <Button
+                disabled={!canReview || (consent && !rightsBasis.trim())}
+                onClick={() => review('approved')}
+              >
+                <CheckCircle2 /> Save and approve
+              </Button>
+              <Button
+                variant="outline"
+                disabled={!canReview}
+                onClick={() => review('revision_requested')}
+              >
+                Request revision
+              </Button>
+              <Button
+                variant="outline"
+                disabled={!canReview}
+                onClick={() => review('rejected')}
+              >
+                Reject
+              </Button>
+            </div>
           </section>
-
-          <aside><Panel title="Agent trace" icon={<Workflow />}><p className="mb-4 text-[10px] leading-5 text-white/35">Privacy-minimized execution. Raw prompts are not stored in trace metadata.</p><div>{trace.map(([stage, detail, duration], index) => <div key={stage} className="grid grid-cols-[18px_1fr_auto] gap-3 border-b border-white/6 py-3 last:border-0"><span className="mt-1.5 grid size-3 place-items-center rounded-full border border-primary/50"><span className="size-1 rounded-full bg-primary" /></span><div><p className="font-mono text-[10px] text-primary">{stage}</p><p className="mt-1 text-[10px] leading-5 text-white/40">{detail}</p></div><span className="font-mono text-[9px] text-white/25">{duration}</span></div>)}</div><div className="mt-5 rounded-xl border border-emerald-300/15 bg-emerald-300/[.04] p-4"><div className="flex items-center gap-2 text-emerald-300"><ShieldCheck className="size-4" /><span className="text-xs font-semibold">Human gate enforced</span></div><p className="mt-2 text-[10px] leading-5 text-white/35">The workflow can draft and verify. Only an authenticated editor can release.</p></div></Panel></aside>
+          <aside className="space-y-6">
+            <section className="rounded-2xl border border-white/10 bg-card p-5">
+              <h2 className="mb-4 text-lg font-semibold">Source evidence</h2>
+              {story?.citations.map((c) => (
+                <article
+                  key={c.id}
+                  className="mb-4 border-b border-white/10 pb-4"
+                >
+                  <p className="text-sm font-medium">{c.title}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {c.excerpt}
+                  </p>
+                  <code className="mt-2 block break-all text-xs">{c.id}</code>
+                </article>
+              ))}
+              {!story && (
+                <p className="text-sm text-muted-foreground">
+                  The preview uses fictional positions 31 and 11. Generate a
+                  draft for persisted source evidence.
+                </p>
+              )}
+              {draft.claims.map((c, index) => (
+                <p className="mt-2 text-sm" key={index}>
+                  {c.metric.replaceAll('_', ' ')}: <strong>{c.value}</strong>
+                </p>
+              ))}
+            </section>
+            <section className="rounded-2xl border border-white/10 bg-card p-5">
+              <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold">
+                <ShieldCheck size={18} /> Evidence checks
+              </h2>
+              {story ? (
+                Object.entries(story.quality_checks)
+                  .filter(([, value]) => typeof value === 'boolean')
+                  .map(([name, value]) => (
+                    <p key={name} className="mb-2 text-sm">
+                      {value ? '✓' : '×'} {name.replaceAll('_', ' ')}
+                    </p>
+                  ))
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  No measured checks for this unsaved preview.
+                </p>
+              )}
+              <p className="mt-4 text-sm text-muted-foreground">
+                These checks cover structured facts and known language patterns.
+                An editor must still verify meaning and claim support.
+              </p>
+            </section>
+            <section className="rounded-2xl border border-white/10 bg-card p-5">
+              <h2 className="mb-4 text-lg font-semibold">Recorded execution</h2>
+              <p className="mb-3 break-all text-sm text-muted-foreground">
+                {story?.provider || 'No provider run'}
+              </p>
+              {trace.map((span) => (
+                <div key={span.stage} className="mb-3">
+                  <p className="flex justify-between gap-2 text-sm">
+                    <span>{span.stage.replaceAll('_', ' ')}</span>
+                    <span>{span.duration_ms} ms</span>
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {span.detail}
+                  </p>
+                </div>
+              ))}
+              {!trace.length && (
+                <p className="text-sm text-muted-foreground">
+                  A recorded trace appears after generation.
+                </p>
+              )}
+            </section>
+          </aside>
         </div>
       </div>
     </main>
   );
 }
-
-function Panel({ title, icon, children }: { title: string; icon: React.ReactNode; children: React.ReactNode }) { return <section className="rounded-2xl border border-white/10 bg-card p-4"><div className="mb-4 flex items-center gap-2 text-primary [&>svg]:size-4">{icon}<h2 className="text-xs font-bold text-white">{title}</h2></div>{children}</section>; }
-function MiniMetric({ label, value }: { label: string; value: string }) { return <div className="rounded-xl border border-white/8 bg-white/[.02] p-3"><p className="font-mono text-sm text-primary">{value}</p><p className="mt-1 text-[9px] text-white/30">{label}</p></div>; }

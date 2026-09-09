@@ -1,10 +1,12 @@
+from contextvars import ContextVar
 from typing import TypedDict
 from uuid import uuid4
 
 from langgraph.graph import END, START, StateGraph
 from sqlalchemy import select
 
-from .database import Database, StoryDraft
+from .contracts import CONTRACT_VERSION, PROMPT_VERSION, generation_input, validate_story
+from .database import Database, GenerationRecord, StoryDraft
 from .observability import TraceRecorder
 from .providers import GeneratedStory, StoryProvider
 from .retrieval import HybridRetriever
@@ -17,7 +19,8 @@ class StoryState(TypedDict, total=False):
     timing: list[dict]
     evidence: list[dict]
     generated: dict
-    confidence: float
+    confidence: float | None
+    checks: dict
     safety_passed: bool
     story_id: str
     trace_id: str
@@ -28,7 +31,7 @@ class StoryWorkflow:
         self.database = database
         self.provider = provider
         self.retriever = retriever
-        self._active_trace: TraceRecorder | None = None
+        self._active_trace = ContextVar("ultramedia_trace", default=None)
         builder = StateGraph(StoryState)
         builder.add_node("moment_detector", self._moment_detector)
         builder.add_node("evidence_retriever", self._evidence_retriever)
@@ -47,9 +50,9 @@ class StoryWorkflow:
 
     @property
     def trace(self) -> TraceRecorder:
-        if self._active_trace is None:
+        if self._active_trace.get() is None:
             raise RuntimeError("Workflow trace is unavailable")
-        return self._active_trace
+        return self._active_trace.get()
 
     def _moment_detector(self, state: StoryState) -> dict:
         with self.trace.stage("moment_detector", "Validated race signal and athlete reference"):
@@ -78,6 +81,14 @@ class StoryWorkflow:
                     f"{latest['position_overall']} at {latest['checkpoint']}."
                 ),
                 "score": 1.0,
+                "facts": (
+                    [
+                        {"metric": "position_gain", "value": previous["position_overall"] - latest["position_overall"]},
+                        {"metric": "latest_position", "value": latest["position_overall"]},
+                    ]
+                    if len(timing) >= 2
+                    else []
+                ),
             }
             return {"timing": timing, "evidence": [timing_citation, *evidence]}
 
@@ -89,22 +100,15 @@ class StoryWorkflow:
     def _fact_verifier(self, state: StoryState) -> dict:
         with self.trace.stage("fact_verifier", "Checked citations and claim support"):
             generated = GeneratedStory.model_validate(state["generated"])
-            allowed = {item["id"] for item in state["evidence"]}
-            valid = [citation for citation in generated.citation_ids if citation in allowed]
-            if not valid:
-                raise ValueError("Draft has no valid evidence citations")
-            generated.citation_ids = valid
-            confidence = min(0.99, 0.78 + 0.04 * len(valid))
-            return {"generated": generated.model_dump(), "confidence": confidence}
+            checks = validate_story(generated, generation_input(state["moment"], state["evidence"], state["timing"]))
+            return {"generated": generated.model_dump(), "confidence": None, "checks": checks}
 
     def _safety_editor(self, state: StoryState) -> dict:
-        with self.trace.stage("safety_editor", "Blocked unsupported health and intent inferences"):
-            text = f"{state['generated']['headline']} {state['generated']['body']}".lower()
-            evidence_text = " ".join(item["excerpt"] for item in state["evidence"]).lower()
-            sensitive_terms = ("injury", "injured", "dehydrated", "collapsed", "medical condition")
-            unsupported = [term for term in sensitive_terms if term in text and term not in evidence_text]
-            if unsupported:
-                raise ValueError(f"Unsupported sensitive inference: {unsupported[0]}")
+        with self.trace.stage("safety_editor", "Checked every output field; semantic review remains human"):
+            validate_story(
+                GeneratedStory.model_validate(state["generated"]),
+                generation_input(state["moment"], state["evidence"], state["timing"]),
+            )
             return {"safety_passed": True}
 
     def _persist_for_review(self, state: StoryState) -> dict:
@@ -120,7 +124,7 @@ class StoryWorkflow:
                 headline=generated.headline,
                 body=generated.body,
                 social_caption=generated.social_caption,
-                confidence=state["confidence"],
+                confidence=0.0,  # Legacy storage field; never exposed as a probability
                 status="pending_review",
                 citations=citations,
                 trace_id=state["trace_id"],
@@ -129,11 +133,29 @@ class StoryWorkflow:
                 db.add(story)
                 db.flush()
                 story_id = story.id
+                db.add(
+                    GenerationRecord(
+                        story_id=story_id,
+                        contract_version=CONTRACT_VERSION,
+                        prompt_version=PROMPT_VERSION,
+                        provider=self.provider.name,
+                        inputs=generation_input(state["moment"], state["evidence"], state["timing"]),
+                        output=generated.model_dump(),
+                        checks=state["checks"],
+                        revision=0,
+                        provenance={
+                            "source": "runtime-evidence-snapshot",
+                            "synthetic": state["race_id"] == "wser-demo",
+                            "group_id": state["race_id"],
+                            "human_approved": False,
+                        },
+                    )
+                )
             return {"story_id": story_id}
 
     def run(self, request: StoryGenerateRequest) -> StoryDraft:
         trace = TraceRecorder(self.database, str(uuid4()))
-        self._active_trace = trace
+        token = self._active_trace.set(trace)
         try:
             result = self.graph.invoke(
                 {
@@ -143,7 +165,7 @@ class StoryWorkflow:
                 }
             )
         finally:
-            self._active_trace = None
+            self._active_trace.reset(token)
         with self.database.session() as db:
             story = db.scalar(select(StoryDraft).where(StoryDraft.id == result["story_id"]))
             if story is None:

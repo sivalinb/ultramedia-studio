@@ -2,6 +2,10 @@
 
 This register connects every claim shown in the UltraMedia Model Ops dashboard to inspectable implementation or run evidence. It distinguishes configured behavior from measured results and from work that has not run.
 
+## Current Week 5 implementation
+
+The snapshot below is historical (2026-09-06). Current data, contracts, local checks and unrun GPU work are documented in [the Week 5 submission](../week5/SUBMISSION.md). Old line references and training settings below describe that earlier snapshot. Do not use its six-case pass as a model-quality result.
+
 ## Verification snapshot
 
 - Captured: 2026-09-06

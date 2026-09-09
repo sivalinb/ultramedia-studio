@@ -31,3 +31,7 @@ Timing changes must not be converted into claims about injury, dehydration, dist
 
 These links support course and historical context only. All demo timing and athlete identities are synthetic.
 
+
+## Week 5 research corpus
+
+The separately authored CC0 synthetic corpus uses an explicit research-only training flag; it is never labeled human-approved and cannot authorize production. See [the data card](../week5/DATA_CARD.md). Runtime editor exports retain complete evidence, revised targets, consent and rights basis.

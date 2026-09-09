@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf",
+  "python_tests": 29,
+  "failures": 0,
+  "errors": 0,
+  "ruff": "passed",
+  "typescript": "passed",
+  "web_build": "passed",
+  "notebook_structure": "passed",
+  "tokenizer_audit": "passed",
+  "training_api_cpu_probe": "passed",
+  "gpu_training": "not_run",
+  "human_review": "pending",
+  "real_model_quality": null,
+  "environment": "macOS-26.6.2-arm64-arm-64bit"
+}

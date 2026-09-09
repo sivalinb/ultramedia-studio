@@ -19,9 +19,13 @@ Qwen/Qwen3-4B-Instruct-2507, Apache-2.0. The local demo can use the Ollama `qwen
 - Automated publication
 - Personalized training or nutrition advice
 
+## Week 5 research status
+
+The runnable experiment and current evidence live in [`../week5/SUBMISSION.md`](../week5/SUBMISSION.md). The 600 synthetic examples are a separately flagged research corpus, not human-approved production data. No GPU training, adapted quality result or human preference is claimed until the notebook is executed and reviewed. The corrected output contract includes explicit abstention and structured numeric claims.
+
 ## Training-data gate
 
-Only rights-cleared, human-approved drafts may enter training. The preparation script refuses fewer than 20 approved examples. A credible release should use hundreds to thousands of diverse examples, with race, geography, gender, performance tier, channel, and failure-mode coverage documented.
+Only rights-cleared, human-approved drafts may enter training. The preparation script requires 20 consenting approved examples from three independent race groups. Production-mode training requires 200 approved train/validation examples and an approved test split. A credible release should use hundreds to thousands of diverse examples, with race, geography, gender, performance tier, channel, and failure-mode coverage documented.
 
 ## Evaluation before release
 

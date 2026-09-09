@@ -1,0 +1,55 @@
+{
+  "dataset_version": "ultramedia-synthetic-research-v1",
+  "kind": "synthetic_research",
+  "contract_version": "ultramedia-story-v2",
+  "prompt_version": "evidence-editor-v2",
+  "files_sha256": {
+    "train.jsonl": "0ae633ce602b8fba856b2b9ed7f255b6047c0960ac83c85594d7d416320ea754",
+    "validation.jsonl": "5313d54852954cdcce8f40dde1c2fe54071e80c83c90102db45e62414304c6e0",
+    "test.jsonl": "69995179a6268fe60b1f7b62945f921311ba6c38faa4da3c70fd8a5325d65ffc"
+  },
+  "audit": {
+    "rows": 600,
+    "unique_message_payloads": 600,
+    "counts": {
+      "train": 400,
+      "validation": 80,
+      "test": 120
+    },
+    "group_counts": {
+      "train": 100,
+      "validation": 20,
+      "test": 30
+    },
+    "group_overlap": {
+      "train:validation": 0,
+      "train:test": 0,
+      "validation:test": 0
+    },
+    "exact_payload_overlap": {
+      "train:validation": 0,
+      "train:test": 0,
+      "validation:test": 0
+    },
+    "human_approved": 0,
+    "automatically_validated": 600,
+    "semantic_review": "not_performed",
+    "condition_counts": {
+      "complete": 120,
+      "missing": 120,
+      "contradictory": 120,
+      "misleading_hint": 120,
+      "boundary": 120
+    },
+    "signal_counts": {
+      "position_gain": 150,
+      "record_watch": 150,
+      "cutoff_watch": 150,
+      "pace_change": 150
+    },
+    "limitation": "Templates and task structure are shared across splits; group separation is not real-world generalization."
+  },
+  "production_eligible": false,
+  "promotion": "requires independent human quality comparison; never implied by training completion",
+  "dataset_sha256": "5c148b3d1e57a989e38c55e73f1d46ae0b5b17227be154457953bac2dcaef8cf"
+}
