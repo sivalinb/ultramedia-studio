@@ -44,6 +44,19 @@ subprocess.run([sys.executable, '-m', 'pip', 'install', '-r', 'week5/requirement
 sys.path.insert(0, str(ROOT / 'backend/src'))
 os.environ['PYTHONPATH'] = str(ROOT / 'backend/src')
 print('Source ready:', ROOT)
+
+def run_logged(command, log_path):
+    # Stream subprocess errors into the notebook and preserve them for evidence.
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    with log_path.open('w') as log:
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        for line in process.stdout:
+            log.write(line)
+            log.flush()
+            print(line, end='', flush=True)
+        status = process.wait()
+    if status:
+        raise subprocess.CalledProcessError(status, command)
 ''')
 md('''## Verify the GPU, data, and frozen experiment settings
 
@@ -80,9 +93,11 @@ md('''## Train QLoRA
 
 This cell performs real training. It checks completion-only loss masking, evaluates each epoch, selects the best validation-loss checkpoint, and saves weights, tokenizer, exact configuration, package versions, curves, dataset hash, training duration, and peak VRAM. Checkpoints may consume several GB. Keep the results even when quality does not improve.
 ''')
-code('''subprocess.run([sys.executable, '-m', 'ultramedia.training', 'train', '--dataset', str(DATASET),
+code('''train_log = RUN.parent / (RUN.name + '-training.log')
+run_logged([sys.executable, '-m', 'ultramedia.training', 'train', '--dataset', str(DATASET),
                 '--output', str(RUN), '--research-synthetic', '--epochs', str(CONFIG['epochs']),
-                '--max-length', str(CONFIG['max_length'])], check=True)
+                '--max-length', str(CONFIG['max_length'])], train_log)
+(RUN / 'training-console.log').write_text(train_log.read_text())
 training = json.loads((RUN / 'training-run.json').read_text())
 print({k: training[k] for k in ['status', 'trainable_parameters', 'training_seconds', 'peak_allocated_vram_bytes', 'first_example_loss_mask']})
 ''')
@@ -90,8 +105,8 @@ md('''## Run the frozen held-out comparison
 
 This loads the base and adapted models sequentially to avoid holding both in GPU memory. All 120 test cases are run for each. Invalid JSON, unsupported claims, bad citations and generation errors stay in the denominator. Full predictions, token counts, termination reason, latency and GPU memory are saved. Do not use the resulting test errors to tune and re-report the same test as untouched.
 ''')
-code('''subprocess.run([sys.executable, '-m', 'ultramedia.training', 'evaluate', '--dataset', str(DATASET),
-                '--run', str(RUN), '--max-new-tokens', str(CONFIG['max_new_tokens'])], check=True)
+code('''run_logged([sys.executable, '-m', 'ultramedia.training', 'evaluate', '--dataset', str(DATASET),
+                '--run', str(RUN), '--max-new-tokens', str(CONFIG['max_new_tokens'])], RUN / 'evaluation-console.log')
 comparison = json.loads((RUN / 'comparison/comparison.json').read_text())
 for variant in ['base', 'adapter']:
     print(variant, json.dumps(comparison[variant]['metrics'], indent=2))
