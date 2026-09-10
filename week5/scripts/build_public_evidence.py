@@ -5,9 +5,11 @@ import shutil
 import subprocess
 import sys
 import zipfile
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+subprocess.run([sys.executable, str(ROOT / 'week5/scripts/verify_handout_evidence.py')], check=True)
 manifest = json.loads((ROOT / 'week5/data/synthetic/manifest.json').read_text())
 rows = [json.loads(line) for line in (ROOT / 'week5/data/synthetic/train.jsonl').read_text().splitlines()]
 examples = [next(row for row in rows if row['inputs']['moment']['signal_type'] == signal and row['provenance']['condition'] == condition)
@@ -97,11 +99,11 @@ if gpu.exists():
         'results': comparison,
     })
     add_comparison(gpu, 'original-gpu-comparison', 'Original GPU comparison',
-        'Same base revision, NF4 quantization, original training prompt and greedy decoding for both models. Interpret this alongside the stronger shared-prompt control: the original prompt did not spell out every nested JSON key.', '/week5/gpu-evidence.zip')
+        'Same base revision, NF4 quantization, original training prompt and greedy decoding for both models. Interpret this alongside the explicit-schema control: the original prompt did not spell out every nested JSON key.', '/week5/gpu-evidence.zip')
     if (gpu / 'schema-control/comparison/comparison.json').exists():
         subprocess.run([sys.executable, str(ROOT / 'week5/scripts/verify_gpu_run.py'),
                         str(gpu), '--metadata-only', '--schema-control'], check=True)
-        add_comparison(gpu / 'schema-control', 'stronger-prompt-control', 'Stronger shared prompt: the main GPU control',
+        add_comparison(gpu / 'schema-control', 'stronger-prompt-control', 'Explicit-schema GPU prompt control',
             'The same exact JSON schema is supplied to both the base and fine-tuned model. The adapter, 120 held-out cases, NF4 quantization and greedy decoding are unchanged. Decoding is unconstrained. This control tests whether a clearer prompt closes the fine-tuning gap.', '/week5/gpu-evidence.zip')
 serialized = json.dumps(snapshot, indent=2) + '\n'
 (ROOT / 'public/data/week5-evidence.json').write_text(serialized)
@@ -153,3 +155,34 @@ for name in ['SUBMISSION.md', 'DATA_CARD.md', 'EVALUATION.md', 'SERVING.md', 'SC
 with zipfile.ZipFile(public / 'synthetic-dataset.zip', 'w', zipfile.ZIP_DEFLATED) as bundle:
     for path in sorted((ROOT / 'week5/data/synthetic').iterdir()):
         bundle.write(path, path.name)
+
+# Handout-specific assets: explicit allowlist, no model weights or blind assignment key.
+for source in [ROOT / 'week5/diagrams/week5-flow.svg', ROOT / 'week5/project/BUSINESS_CASE.md',
+               ROOT / 'week5/project/DEMO_AND_SUBMISSION.md', ROOT / 'week5/project/HANDOUT_MAPPING.md',
+               ROOT / 'week5/reports/DISPOSITION_RESULTS.md', ROOT / 'week5/reports/HANDOUT_SMOKE_RESULTS.md']:
+    if source.suffix == '.md':
+        def public_link(match):
+            target = match.group(1)
+            if '://' in target or target.startswith('#'):
+                return match.group(0)
+            path_part, _, anchor = target.partition('#')
+            resolved = (source.parent / path_part).resolve()
+            assert resolved.is_relative_to(ROOT) and resolved.exists(), (source, target)
+            url = 'https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/' + str(resolved.relative_to(ROOT))
+            return '](' + url + ('#' + anchor if anchor else '') + ')'
+        (public / source.name).write_text(re.sub(r'\]\(([^)]+)\)', public_link, source.read_text()))
+    else:
+        shutil.copyfile(source, public / source.name)
+for name, public_name in [('project-walkthrough.webm', 'project-walkthrough.webm'), ('flow-diagram.png', 'project-walkthrough-poster.png')]:
+    shutil.copyfile(ROOT / 'week5/evidence/handout-page' / name, public / public_name)
+with zipfile.ZipFile(public / 'handout-project.zip' , 'w', zipfile.ZIP_DEFLATED) as bundle:
+    for directory in ['week5/project', 'week5/diagrams', 'week5/evidence/handout-smoke', 'week5/reports/data/handout']:
+        for path in sorted((ROOT / directory).rglob('*')):
+            if path.is_file() and path.name != 'review-key.json' and path.suffix in {'.md', '.json', '.jsonl', '.csv', '.svg', '.mmd'}:
+                bundle.write(path, path.relative_to(ROOT))
+    for name in ['run_handout_smoke.py', 'derive_disposition_metrics.py', 'verify_handout_evidence.py']:
+        source = ROOT / 'week5/scripts' / name
+        bundle.write(source, source.relative_to(ROOT))
+    for name in ['DISPOSITION_RESULTS.md', 'HANDOUT_SMOKE_RESULTS.md']:
+        source = ROOT / 'week5/reports' / name
+        bundle.write(source, source.relative_to(ROOT))

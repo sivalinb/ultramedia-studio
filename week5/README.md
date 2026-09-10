@@ -1,8 +1,20 @@
+# Week 5: UltraMedia Race Desk
+
+**New to UltraMedia? Open the [visual product and evidence brochure](brochure/UltraMedia-Brochure.pdf).** Fifteen illustrated pages introduce the product, target customer, workflow, sources, measured results, saved model case, actual application and proposed replay pilot. [Detailed data-source appendix](brochure/DATA_SOURCES.md). [Brochure contents and reproducible source](brochure/README.md).
+
+**Read the [complete Week 5 project report](PROJECT_REPORT.md)** for the requirement checklist, training flow, measured comparisons, classification analysis, open-model serving choices and remaining submission actions.
+
+The [agenda audit](project/AGENDA_COVERAGE.md) checks all 16 topics and demos, distinguishing executed work from conceptual coverage. See the new [illustrated end-to-end flow](diagrams/week5-end-to-end-illustrated.png).
+
+**Start with the [handout-aligned project guide](project/README.md).** It maps each lab phase to measured evidence, includes a visual flow, classification metrics, five task-level model probes, a business decision and a Loom submission script.
+
+![Week 5 flow](diagrams/week5-flow.svg)
+
 # Week 5 submission package
 
 Start with [SUBMISSION.md](SUBMISSION.md). Run [the Colab/Kaggle notebook](notebooks/UltraMedia_Week5_QLoRA.ipynb) with the supplied source ZIP to produce an actual adapter and measured comparison.
 
-The 600 supplied examples are synthetic and unapproved by humans. Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
+The 600 supplied examples are synthetic and unapproved by humans. Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The explicit-schema GPU control was interrupted during its adapter arm and awaits compatible Colab capacity; its completed base outputs are retained. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
 
 - [Data card](DATA_CARD.md)
 - [Evaluation protocol](EVALUATION.md)

@@ -1,0 +1,38 @@
+Create a high-resolution landscape hand-drawn educational infographic for an AI bootcamp project, similar to a clean illustrated whiteboard lecture slide: white paper background, deep purple rounded marker panel outlines and arrows, black legible handwritten headings, pastel lilac label chips, green success accents and amber caution accents. Make the lettering crisp and every number correct. Landscape approximately 2:1, spacious, professional, no photographic elements.
+
+Exact title: "UltraMedia Race Desk: From Race Evidence to Reviewed Draft"
+Subtitle: "Week 5 • Supervised fine-tuning with QLoRA • Actual local model evidence"
+
+Across the top, a narrow TRAINING strip flows left-to-right:
+"600 synthetic examples" → "400 train / 80 validation / 120 test" → "Qwen3 4B • QLoRA rank 16" → "100 steps • Merge to GGUF"
+Tiny caption: "Separate race groups • Frozen test set • No human-approved training examples"
+
+Below the strip, five tall numbered panels arranged left-to-right with purple arrows between them:
+1 "Input task"
+An editor icon with a speech bubble "Draft only what the evidence supports."
+A race timing evidence card with stopwatch icon: "Timing facts + citation IDs". A second card "Requested race moment". A small caution note "Hints are untrusted".
+2 "Compare models"
+Two small network diagrams side-by-side labeled "Pinned base" and "Fine-tuned model". A shared prompt box feeding both.
+Bottom labels "Same inputs + prompt" and "Same Q4_K_M + JSON constraints". Small local laptop icon labeled "Local inference".
+3 "Structured output"
+An illustrated JSON output card with these exact short labels, no actual fabricated model quotation:
+"draft or insufficient_evidence"
+"headline + body"
+"citations + numeric claims"
+"reason for a hold"
+Small caption "Output contract, not a sample prediction". No reasoning chain or thinking tags.
+4 "Validate and score"
+Checklist with "Schema", "Citations", "Supported numbers", "Draft / hold decision", "Projection wording".
+Caption "8 checks + aggregate success". An amber callout "Valid JSON can still contain wrong meaning".
+5 "Measured results"
+Green-bordered result card "120 synthetic test cases" then "Base 76/120 → Adapted 109/120" then "+27.5 percentage points" and small label "Automatic contract success".
+Second card "Decision accuracy: 83.3% → 90.8%"
+Amber card "New smoke tests: 3/5 each" with caption "Failures retained".
+
+Wide bottom panel with a human editor reviewing a draft, fed from validation/results: "Human editor: inspect sources, correct wording, approve a version"
+Below: "Human quality review pending • No automatic publishing"
+Bottom margin plain clear note: "Current method: SFT, not RFT. Teacher distillation and Fireworks deployment have not been executed."
+Keep the diagram accurate: training is SFT using QLoRA; evaluation scores are NOT fed back through an RFT loop. Show no arrows from held-out scores back to training. Do not include reward values 1.0/0.5/0.0, SQL, invented ROI, award claims, cloud deployment success, or model accuracy claims beyond the specified metrics. Use small hand-drawn icons and tidy layout inspired by educational whiteboard process diagrams.
+
+Final edit requested by user
+Change both editor illustrations to adult male editors with short dark hair. Preserve all text, numbers, layout, colors, arrows, icons and measured outcomes. Applied using the built-in image generation edit tool on 9 September 2026.

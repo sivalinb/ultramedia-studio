@@ -1,0 +1,43 @@
+Create a polished, high-resolution landscape sales-pitch infographic for UltraMedia Race Desk. Match the visual language of a friendly hand-drawn whiteboard explainer: white background, deep-purple rounded outlines and arrows, crisp black handwritten-style lettering, pale lilac panels, restrained green and amber accents, simple expressive illustrations. Approximately 2:1 landscape, generous whitespace, strong legibility. Use male figures for any illustrated human editors or operators. This is a product explainer for prospective users, not a training report. No code, benchmarks, model names, training terminology, invented testimonials, savings percentages, pricing or award badges.
+
+Exact large headline:
+"UltraMedia Race Desk"
+Exact prominent subheadline:
+"Turn race updates into evidence-backed stories."
+
+Top-left illustrated problem vignette: a male sports editor facing scattered stopwatch updates, course notes and timing tables. Heading "The challenge" and two short lines:
+"Race updates arrive fast."
+"Every story needs facts."
+
+A broad center five-step horizontal workflow, with purple arrows and numbered cards:
+1 "Choose a race moment"
+Illustrate a race course and timing board. Text: "Position changes • Pace shifts • Cutoff updates • Record projections"
+2 "Bring the evidence together"
+Illustrate timing records and course notes gathered into one source folder. Text: "Find the facts behind the moment."
+3 "Prepare a cited draft"
+Illustrate a headline, short article and social post. Text: "Draft text with source references."
+4 "Check before sharing"
+Illustrate a checklist and amber evidence flag. Text: "Check numbers and citations." Second line: "Flag missing or conflicting evidence."
+5 "Keep the editor in control"
+Illustrate a male editor reviewing on a laptop, with a pencil and approval check. Text: "Inspect sources. Edit. Approve a version."
+
+A bottom horizontal audience band headed "Who is it for?" with four evenly spaced mini illustrations and these labels:
+"Race organizers"
+"Sports editors"
+"Event media teams"
+"Running communities"
+Avoid representing any actual brand or customer.
+
+A separate lilac benefit banner:
+"One place for race evidence, draft stories and editorial review."
+A clear invitation at the bottom right:
+"Explore the demo"
+Below it render this exact readable short URL:
+"ultramedia-studio.siva-babu.chatgpt.site"
+
+Small, visible footer:
+"Research prototype • Human review required • Public demo includes recorded model examples"
+
+The visual should feel persuasive and approachable, explaining a concrete product story, not making unproven effectiveness claims. Depict intended audiences, not existing customers. Do not claim automatic publication, fully verified factual correctness, live cloud model availability, integration with every timing system, privacy certification, proven editor time savings or guaranteed quality. The automated checks assist review and do not replace judgment. Make all wording above accurate and clearly readable. The illustration should stand alone as a shareable product pitch slide.
+
+Final precision edit: In panel 4, replace the three green checkmark labels with 'Output format checked', 'Citation IDs checked', and 'Numeric claims checked'. Preserve all other content. Built-in image generation and edit tools used.

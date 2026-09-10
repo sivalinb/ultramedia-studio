@@ -1,0 +1,17 @@
+[
+  {
+    "key": "workflow",
+    "mode": "built-in image_gen",
+    "prompt": "Edit target: the supplied five-panel UltraMedia workflow illustration. Preserve all five panels, all characters' facial likenesses, blue palette, artwork and labels except one exact edit: replace the sign PUBLISH on the locked gate in the fifth panel with APPROVE VERSION, clearly legible on two lines if needed. Do not add any implication of external publication. All other content unchanged."
+  },
+  {
+    "key": "freshness",
+    "mode": "built-in image_gen",
+    "prompt": "Use the supplied UltraMedia illustration as a style and character likeness reference. Create a NEW wide 2.3:1 watercolor/ink whiteboard illustration for a product brochure, muted brick red and warm slate palette on pure white. All people must be the same recognizable man in the reference (short black side-swept hair, medium brown skin, light stubble). Three scenes flowing left to right: male race timer at mountain checkpoint recording an event on clipboard, clock and handheld radio nearby; same man at media desk comparing two incoming timing cards, one with circular clock icon and one with correction-pencil icon; same man as editor holding a magnifying glass over a source record, with a yellow pause symbol on the draft. Short exact labels above scenes: 'Event time', 'Received time', 'Check the source'. Main purpose show delayed/corrected data and human verification. No actual dates, timings, performance values, customer testimonials, or success metrics. No final publish action. Source cards contain only decorative lines. Generous whitespace, charming polished educational illustration consistent with reference, characters look like creator throughout."
+  },
+  {
+    "key": "pilot",
+    "mode": "built-in image_gen",
+    "prompt": "Use supplied UltraMedia illustration as a style and character likeness reference. Create NEW wide 2.3:1 hand-inked watercolor whiteboard illustration for a product brochure in teal and golden yellow on white. All people have the same recognizable male creator likeness from reference (medium brown skin, short side-swept black hair, light stubble). Four connected scenes, clearly a proposed study, not completed results: 1 same man receives a folder labeled 'Permission'; 2 same man freezes a set of race timing documents in a blue lockbox labeled 'New cases'; 3 same man as reviewer compares three anonymized papers labeled 'A', 'B', 'C' beside a stopwatch, with no winners marked; 4 same man points to an empty checklist and a sign 'Decision pending'. Banner labels above first three scenes 'Consent', 'Replay', 'Blind review'. Bottom small single label 'Proposed pilot'. Subtle trail landscape and dashed arrows, plenty of white space. No scores, invented data, charts with measured values, testimonials, green approval stamps or launch celebrations. Preserve rich approachable UltraMedia illustration style and recognizable face."
+  }
+]

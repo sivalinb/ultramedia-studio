@@ -55,6 +55,7 @@ for comparison in snapshot.get('comparisons', []):
         for example in comparison['examples']:
             assert example[variant] == predictions[example['id']]
     assert len(comparison['examples']) == 20
+subprocess.run([sys.executable, str(ROOT / 'week5/scripts/verify_handout_evidence.py')], check=True)
 reports = ROOT / 'week5/reports'
 for name, expected in json.loads((reports / 'artifact-sha256.json').read_text()).items():
     path = (reports / name).resolve()

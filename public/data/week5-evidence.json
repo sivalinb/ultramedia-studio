@@ -5279,7 +5279,7 @@
     {
       "id": "original-gpu-comparison",
       "title": "Original GPU comparison",
-      "description": "Same base revision, NF4 quantization, original training prompt and greedy decoding for both models. Interpret this alongside the stronger shared-prompt control: the original prompt did not spell out every nested JSON key.",
+      "description": "Same base revision, NF4 quantization, original training prompt and greedy decoding for both models. Interpret this alongside the explicit-schema control: the original prompt did not spell out every nested JSON key.",
       "download": "/week5/gpu-evidence.zip",
       "results": {
         "base": {

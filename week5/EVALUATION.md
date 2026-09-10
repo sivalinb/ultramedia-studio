@@ -38,6 +38,6 @@ The checked-in deterministic report contains actual local rule execution and all
 
 ## Execution status
 
-Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
+Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The explicit-schema GPU control was interrupted during its adapter arm and awaits compatible Colab capacity; its completed base outputs are retained. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
 
 See [original GPU results](reports/ORIGINAL_GPU_RESULTS.md) and [matched local results](reports/LOCAL_COMPARISON_RESULTS.md). The stronger schema prompt was separately declared before GPU outputs were available; its result is not inferred from either completed comparison.

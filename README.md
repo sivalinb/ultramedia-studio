@@ -12,7 +12,7 @@ All athlete names and live timing values in the public portfolio are synthetic. 
 
 ## Week 5 submission
 
-Start at [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run the [Colab/Kaggle notebook](week5/notebooks/UltraMedia_Week5_QLoRA.ipynb). The package includes 600 synthetic examples (400/80/120), group/checksum audits, a shared training/runtime contract, versioned editorial corrections, and complete deterministic predictions. **Training, original GPU comparison and matched local comparison are verified; the stronger shared-prompt GPU control is running.** See the detailed reports for measured gains, remaining failures and limitations. Synthetic examples are not human-approved.
+Start at the [Week 5 project guide and visual flow](week5/project/README.md), then [`week5/SUBMISSION.md`](week5/SUBMISSION.md), explore `/week5`, or run the [Colab/Kaggle notebook](week5/notebooks/UltraMedia_Week5_QLoRA.ipynb). The package includes 600 synthetic examples (400/80/120), group/checksum audits, a shared training/runtime contract, versioned editorial corrections, and complete deterministic predictions. **Training, original GPU comparison and matched local comparison are verified; the explicit-schema GPU control awaits recovery after interruption.** See the detailed reports for measured gains, remaining failures and limitations. Synthetic examples are not human-approved.
 
 Detailed methodology, all-example data inventory, interim loss curve and flow diagrams are in the [fine-tuning reports](week5/reports/README.md).
 

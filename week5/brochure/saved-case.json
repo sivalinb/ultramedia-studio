@@ -1,0 +1,136 @@
+{
+  "id": "fictional-race-120-position_gain",
+  "selection": "First row of frozen test file, not selected by outcome",
+  "content_sha256": "3f170fcc9a7c7cf9999defb9b3e1078ba9c1bde1c21f41505b7a18b43f439ebc",
+  "inputs": {
+    "evidence": [
+      {
+        "excerpt": "Synthetic measurement: position_gain = -1. Positive record margin is ahead of projected record; negative pace delta is faster.",
+        "facts": [
+          {
+            "metric": "position_gain",
+            "value": -1
+          }
+        ],
+        "id": "fictional-race-120-position_gain-timing",
+        "score": 1.0,
+        "source_url": "synthetic://fictional-race-120/position_gain",
+        "title": "Fictional race evidence"
+      }
+    ],
+    "moment": {
+      "athlete_bib": "220",
+      "headline_hint": "Prepare a short factual update.",
+      "signal_type": "position_gain"
+    },
+    "timing": [
+      {
+        "athlete_bib": "220",
+        "athlete_name": "Avery Hill",
+        "checkpoint": "Ridge station",
+        "elapsed_seconds": 35627,
+        "mile": 62,
+        "position_overall": 35
+      },
+      {
+        "athlete_bib": "220",
+        "athlete_name": "Avery Hill",
+        "checkpoint": "Valley station",
+        "elapsed_seconds": 30827,
+        "mile": 48,
+        "position_overall": 34
+      }
+    ]
+  },
+  "base": {
+    "condition": "complete",
+    "content_sha256": "3f170fcc9a7c7cf9999defb9b3e1078ba9c1bde1c21f41505b7a18b43f439ebc",
+    "duration_ms": 5251.951,
+    "group_id": "fictional-race-120",
+    "id": "fictional-race-120-position_gain",
+    "metrics": {
+      "automatic_success": true,
+      "citation_ids_valid": true,
+      "disposition_correct": true,
+      "numeric_tokens_supported": true,
+      "projection_not_achievement": true,
+      "required_metric_covered": true,
+      "schema_valid": true,
+      "sensitive_language_absent": true,
+      "structured_claims_supported": true
+    },
+    "output": {
+      "body": "Avery Hill, bib 220, gained one position at Ridge station, moving from 34th to 35th overall. This is consistent with a synthetic measurement showing a position gain of -1, indicating a one-position improvement in overall standing.",
+      "citation_ids": [
+        "fictional-race-120-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-120-position_gain-timing",
+          "metric": "position_gain",
+          "value": -1.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Avery Hill's position gain at Ridge station",
+      "headline": "Avery Hill gains one position at Ridge station",
+      "reason": "The evidence provides a synthetic measurement of position gain as -1, which is directly cited and matches the observed position change from 34th to 35th at Ridge station. No conflicting or missing data is present for this metric in the provided evidence or timing data, so the claim is valid and supported by the source material.",
+      "social_caption": "Avery Hill (bib 220) gains one position at Ridge station, moving from 34th to 35th overall. #RaceUpdate"
+    },
+    "raw_output": "{\n  \"disposition\": \"draft\",\n  \"eyebrow\": \"Avery Hill's position gain at Ridge station\",\n  \"headline\": \"Avery Hill gains one position at Ridge station\",\n  \"body\": \"Avery Hill, bib 220, gained one position at Ridge station, moving from 34th to 35th overall. This is consistent with a synthetic measurement showing a position gain of -1, indicating a one-position improvement in overall standing.\",\n  \"social_caption\": \"Avery Hill (bib 220) gains one position at Ridge station, moving from 34th to 35th overall. #RaceUpdate\",\n  \"citation_ids\": [\n    \"fictional-race-120-position_gain-timing\"\n  ],\n  \"claims\": [\n    {\n      \"metric\": \"position_gain\",\n      \"value\": -1,\n      \"citation_id\": \"fictional-race-120-position_gain-timing\"\n    }\n  ],\n  \"reason\": \"The evidence provides a synthetic measurement of position gain as -1, which is directly cited and matches the observed position change from 34th to 35th at Ridge station. No conflicting or missing data is present for this metric in the provided evidence or timing data, so the claim is valid and supported by the source material.\"\n}",
+    "signal": "position_gain"
+  },
+  "adapter": {
+    "condition": "complete",
+    "content_sha256": "3f170fcc9a7c7cf9999defb9b3e1078ba9c1bde1c21f41505b7a18b43f439ebc",
+    "duration_ms": 2371.649,
+    "group_id": "fictional-race-120",
+    "id": "fictional-race-120-position_gain",
+    "metrics": {
+      "automatic_success": true,
+      "citation_ids_valid": true,
+      "disposition_correct": true,
+      "numeric_tokens_supported": true,
+      "projection_not_achievement": true,
+      "required_metric_covered": true,
+      "schema_valid": true,
+      "sensitive_language_absent": true,
+      "structured_claims_supported": true
+    },
+    "output": {
+      "body": "At Ridge station, Avery Hill lost 1 places. Fictional race evidence.",
+      "citation_ids": [
+        "fictional-race-120-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-120-position_gain-timing",
+          "metric": "position_gain",
+          "value": -1.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Avery Hill lost 1 places. Fictional race evidence",
+      "reason": "",
+      "social_caption": "Race desk: Avery Hill lost 1 places."
+    },
+    "raw_output": "{\"disposition\":\"draft\",\"eyebrow\":\"Checkpoint update\",\"headline\":\"Avery Hill lost 1 places. Fictional race evidence\",\"body\":\"At Ridge station, Avery Hill lost 1 places. Fictional race evidence.\",\"social_caption\":\"Race desk: Avery Hill lost 1 places.\",\"citation_ids\":[\"fictional-race-120-position_gain-timing\"],\"claims\":[{\"metric\":\"position_gain\",\"value\":-1.0,\"citation_id\":\"fictional-race-120-position_gain-timing\"}],\"reason\":\"\"}",
+    "signal": "position_gain"
+  },
+  "independent_editor_review": "pending",
+  "source_files": {
+    "input": {
+      "path": "data/synthetic/test.jsonl",
+      "sha256": "69995179a6268fe60b1f7b62945f921311ba6c38faa4da3c70fd8a5325d65ffc"
+    },
+    "base": {
+      "path": "evidence/local-comparison/test-base/predictions.jsonl",
+      "sha256": "e66c5609ef3d7e032bcf6359565f18028bc3d93ef80f349981f8ccedc9aa063c"
+    },
+    "adapter": {
+      "path": "evidence/local-comparison/test-adapter/predictions.jsonl",
+      "sha256": "562a61ee608ca4506f607a005dd041186a458cb97071d69a09ad007aa70416de"
+    }
+  }
+}

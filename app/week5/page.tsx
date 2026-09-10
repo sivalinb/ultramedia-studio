@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ProjectEvidence from './ProjectEvidence';
 import ComparisonEvidence, { type RecordedComparison } from './ComparisonEvidence';
 import Link from 'next/link';
 import {
@@ -49,7 +50,7 @@ const learningMap = [
   ['SFT and tokenization', 'Train only assistant completions and verify sequence lengths.', 'Notebook, tokenizer audit and loss-mask receipt'],
   ['LoRA / QLoRA', 'Train rank-16 adapters over a frozen NF4 base model.', 'Training configuration, adapter hashes and GPU memory'],
   ['Data quality and overfitting', 'Separate race groups and select checkpoints by validation loss.', '400 / 80 / 120 split, overlap checks and loss curves'],
-  ['Prompting before training', 'Test an explicit-schema prompt on both base and adapted models.', 'Predeclared stronger prompt control'],
+  ['Prompting before training', 'Test an explicit-schema prompt on both base and adapted models.', 'Predeclared explicit-schema control'],
   ['Evaluation', 'Keep failed generations in the denominator and inspect regressions.', 'Raw predictions, nine checks and paired uncertainty interval'],
   ['Local models and serving', 'Run an open-source GGUF model through the actual Race Desk.', 'Browser test report, source citations, traces and demo recording'],
   ['Model cards and release decisions', 'Record lineage and limits; keep human review separate.', 'Data card, serving guide and pending human review'],
@@ -87,9 +88,9 @@ export default function WeekFivePage() {
               Evidence-grounded editorial specialization
             </p>
             <h1 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
-              Teach the writing.
+              Teach when to draft.
               <br />
-              Keep the facts in evidence.
+              Keep the editor in control.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-7 text-muted-foreground">
               A reproducible QLoRA experiment for race reporting: consistent
@@ -133,15 +134,16 @@ export default function WeekFivePage() {
               {comparisons.map(item => <li key={item.id}><a className="text-primary" href={'#' + item.id}>{item.title}: 120 cases per model</a></li>)}
             </ul>
             <div className="mt-5 border-t border-white/10 pt-5 text-sm leading-6">
-              <strong>{strongerControlPending ? 'Original GPU comparison complete. Stronger prompt control pending.' : completed ? 'GPU comparisons complete. Human review pending.' : 'Completed GPU comparison: pending.'}</strong>
+              <strong>{strongerControlPending ? 'Original GPU comparison complete. Explicit-schema control awaiting recovery.' : completed ? 'GPU comparisons complete. Human review pending.' : 'Completed GPU comparison: pending.'}</strong>
               <p className="mt-2 text-muted-foreground">
                 {completed
-                  ? 'The scores below measure automatic structured checks. Interpret the original result alongside the stronger shared-schema prompt control. Editorial quality and real-race generalization still require human review.'
+                  ? 'The scores below measure automatic structured checks. Interpret the original result alongside the explicit-schema prompt control. Editorial quality and real-race generalization still require human review.'
                   : 'The verified local comparison is reported separately below. GPU prompt controls and human editorial review remain pending.'}
               </p>
             </div>
           </aside>
         </div>
+        <ProjectEvidence />
         <section className="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ['Synthetic examples', audit.rows],
