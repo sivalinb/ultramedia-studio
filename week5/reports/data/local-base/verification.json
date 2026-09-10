@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "cases": 120,
+  "all_metrics_recomputed": true,
+  "subgroups_recomputed": true,
+  "latency_recomputed": true,
+  "model_bytes_verified": true,
+  "paired_adapter_comparison_complete": false,
+  "automatic_success_count": 76,
+  "source_files_sha256": {
+    "report.json": "41969daa5587a6163b97103f6133808b5e7f55d95cc07cc3f0b4478a2cff9f5c",
+    "predictions.jsonl": "e66c5609ef3d7e032bcf6359565f18028bc3d93ef80f349981f8ccedc9aa063c",
+    "token-receipts.jsonl": "eb03f91a3b1ac2bcf2b07edfbda6692f93728bfa29eb110bc5e42c328ed6ece9",
+    "conversion-lineage.json": "5adeb822f4af06ef1023ae6542adba8c3630dcd938f1838d2d6f20563422a06b",
+    "executed-evaluator.py": "68e374679bc029d3b057458734e017c517b1fb3ddfa88c579775f40df2f335f8"
+  }
+}

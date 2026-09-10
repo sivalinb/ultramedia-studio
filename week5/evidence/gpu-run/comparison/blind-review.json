@@ -1,0 +1,3639 @@
+[
+  {
+    "id": "fictional-race-120-position_gain",
+    "A": {
+      "body": "At Ridge station, Avery Hill lost 1 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-120-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-120-position_gain-timing",
+          "metric": "position_gain",
+          "value": -1.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Avery Hill lost 1 places.",
+      "reason": "",
+      "social_caption": "Race desk: Avery Hill lost 1 places."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-120-record_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-120-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-120-cutoff_watch",
+    "A": {
+      "body": "Two sources provide conflicting values for cutoff_buffer_minutes: 9 and 16. Without resolution of the discrepancy, a definitive position or pace assessment cannot be made.",
+      "citation_ids": [
+        "fictional-race-120-cutoff_watch-timing",
+        "fictional-race-120-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting cutoff buffer measurements",
+      "headline": "Conflicting data on cutoff buffer timing observed",
+      "reason": "Conflicting measurements for cutoff_buffer_minutes (9 vs. 16) are present in the evidence. No consistent value exists, and no other metrics are provided to resolve the contradiction. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting timing data found: cutoff_buffer_minutes reported as 9 and 16. Discrepancy prevents definitive assessment. #RaceUpdate"
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-120-cutoff_watch-timing",
+        "fictional-race-120-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-120-pace_change",
+    "A": {
+      "body": "At Ridge station, Avery Hill is 6 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-120-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-120-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 6.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Avery Hill is 6 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Avery Hill is 6 seconds per mile slower over the comparison segment."
+    },
+    "B": {
+      "body": "The evidence provides only a pace delta of +6 seconds per mile, indicating a slower pace than projected, but offers no information about injury or course record achievement. No claims can be made regarding injury or record status.",
+      "citation_ids": [
+        "fictional-race-120-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No evidence of injury or record-breaking performance",
+      "headline": "No evidence supports injury or record-breaking claim",
+      "reason": "The evidence does not contain any information about injury, course record status, or athlete condition. The pace delta is provided but does not imply injury or record achievement. No claims can be made without direct evidence.",
+      "social_caption": "No evidence of injury or record-breaking \u2014 only pace data available. Stay factual."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-121-position_gain",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-121-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The evidence provided contains no measurable position gain or timing data for Morgan Hill at Ridge station. The signal measurement is explicitly marked as unavailable, and no factual data exists to support a position gain calculation.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No position gain data available for Morgan Hill at Ridge station",
+      "headline": "No timing data to assess position gain for Morgan Hill at Ridge station",
+      "reason": "The evidence excerpt explicitly states the signal measurement is unavailable and contains no facts related to position gain or timing. No citation IDs are provided, and no measurable data exists to form a claim.",
+      "social_caption": "No position gain data available for Morgan Hill at Ridge station \u2014 verification required before drafting."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-121-record_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-121-record_watch-timing",
+        "fictional-race-121-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting record margin values: 55 seconds and 62 seconds. No single, consistent record margin is established due to contradictory evidence. The timing data does not include pace delta, position gain, or cutoff buffer metrics required for a definitive assessment.",
+      "citation_ids": [
+        "fictional-race-121-record_watch-timing",
+        "fictional-race-121-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting record margin measurements observed",
+      "headline": "Conflicting record margin data from timing sources",
+      "reason": "Conflicting record_margin_seconds values (55 vs 62) are present in the evidence. No consensus value exists, and no other required metrics (e.g., pace delta, position gain) are provided or consistent. Without agreement on record margin, no claims can be made.",
+      "social_caption": "Conflicting record margin data (55s vs 62s) prevents a definitive record assessment. More consistent timing sources needed."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-121-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Morgan Hill has 41 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-121-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-121-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 41.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Morgan Hill has 41 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Morgan Hill has 41 minutes before the checkpoint cutoff."
+    },
+    "B": {
+      "body": "The evidence provides only cutoff_buffer_minutes = 41, indicating the athlete is ahead of projected record timing. However, no information about injury, course record status, or athlete condition is present. Claims about injury or record breaking are unsupported.",
+      "citation_ids": [
+        "fictional-race-121-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated in evidence",
+      "headline": "No evidence supports injury or record-breaking claim",
+      "reason": "The evidence does not contain any information about injury, medical condition, or the athlete's performance beyond timing and position. The signal type is cutoff_watch, which only provides timing data. No claim about injury or record breaking can be made without explicit evidence.",
+      "social_caption": "No evidence of injury or record broken. Only timing data shows Morgan Hill at 142nd overall at Ridge station. Cutoff buffer is 41 minutes \u2014 ahead of projection, but no injury or record claim is verified."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-121-pace_change",
+    "A": {
+      "body": "At Ridge station, Morgan Hill has an unchanged pace over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-121-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-121-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Morgan Hill has an unchanged pace over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Morgan Hill has an unchanged pace over the comparison segment."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-122-position_gain",
+    "A": {
+      "body": "Two sources provide conflicting position gain measurements: one reports a gain of 12, another reports 19. Without a verified source or resolution of the discrepancy, the position gain cannot be determined with confidence.",
+      "citation_ids": [
+        "fictional-race-122-position_gain-timing",
+        "fictional-race-122-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting position gain measurements",
+      "headline": "Conflicting data on Jordan Hill's position gain during the race",
+      "reason": "Multiple conflicting measurements of position_gain (12 and 19) are present without resolution or consensus. No single fact supports a definitive value. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting data on Jordan Hill's position gain: 12 vs 19. Race timing facts remain unresolved. #UltraMedia #RaceUpdate"
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-122-position_gain-timing",
+        "fictional-race-122-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-122-record_watch",
+    "A": {
+      "body": "At Ridge station, Jordan Hill is projected 156 seconds behind the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-122-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-122-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": -156.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Jordan Hill is projected 156 seconds behind the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Hill is projected 156 seconds behind the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-122-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Jordan Hill is at the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-122-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-122-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Jordan Hill is at the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Hill is at the checkpoint cutoff."
+    },
+    "B": {
+      "body": "The evidence provides cutoff buffer time (0 minutes) but lacks measurable pace delta, position gain, or record margin relative to projected times. No claims can be made without explicit timing comparisons or projected benchmarks.",
+      "citation_ids": [
+        "fictional-race-122-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No verifiable record margin or pace data available",
+      "headline": "No actionable data for Jordan Hill's race performance",
+      "reason": "The evidence only states 'cutoff_buffer_minutes = 0' and provides position data without elapsed time comparisons or projected benchmarks. No pace delta, position gain, or record margin values are explicitly given or computable from the provided data. Without a reference to projected times or known records, claims cannot be formed.",
+      "social_caption": "No record margin or pace data available for Jordan Hill. Race timing details are incomplete for analysis."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-122-pace_change",
+    "A": {
+      "body": "At Ridge station, Jordan Hill is 19 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-122-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-122-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 19.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Jordan Hill is 19 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Hill is 19 seconds per mile slower over the comparison segment."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-123-position_gain",
+    "A": {
+      "body": "At Ridge station, Casey Hill gained 12 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-123-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-123-position_gain-timing",
+          "metric": "position_gain",
+          "value": 12.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Casey Hill gained 12 places.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Hill gained 12 places."
+    },
+    "B": {
+      "body": "The evidence provides position gain data but does not indicate injury or a course record being broken. The athlete's position gain of 12 is consistent with race progression, not an injury or record achievement.",
+      "citation_ids": [
+        "fictional-race-123-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated",
+      "headline": "No evidence of injury or record-breaking",
+      "reason": "The evidence does not contain any information about injury, medical condition, or record achievement. The signal type requested is position_gain, which is present, but no claims about record breaking or injury can be made from the provided facts. No claim is generated due to lack of relevant or verifiable evidence for injury or record setting.",
+      "social_caption": "No injury or record broken. Position gain of 12 observed. Evidence only shows race progression, not medical issues or record achievement."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-123-record_watch",
+    "A": {
+      "body": "At Ridge station, Casey Hill is projected level with the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-123-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-123-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Casey Hill is projected level with the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Hill is projected level with the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-123-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Casey Hill has 9 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-123-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-123-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 9.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Casey Hill has 9 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Hill has 9 minutes before the checkpoint cutoff."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-123-pace_change",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-123-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for pace change is unavailable. No factual data exists to determine position gain, pace delta, or other relevant metrics. Verification required before drafting.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No pace change data available",
+      "headline": "Pace change signal unavailable for Casey Hill",
+      "reason": "The evidence excerpt explicitly states the signal measurement is unavailable and contains no facts. No measurable pace change or position data is provided to support any claim.",
+      "social_caption": "No pace change data available. Please verify source before publishing updates."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-124-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Riley Hill held position. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-124-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-124-position_gain-timing",
+          "metric": "position_gain",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Riley Hill held position.",
+      "reason": "",
+      "social_caption": "Race desk: Riley Hill held position."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-124-record_watch",
+    "A": {
+      "body": "At Ridge station, Riley Hill is projected 137 seconds behind the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-124-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-124-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": -137.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Riley Hill is projected 137 seconds behind the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Riley Hill is projected 137 seconds behind the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-124-cutoff_watch",
+    "A": {
+      "body": "The provided evidence contains no measurable facts about the cutoff watch signal for athlete Riley Hill. The excerpt explicitly states the signal measurement is unavailable and includes no elapsed times, positions, or other verifiable data at checkpoints.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Cutoff watch signal unavailable for Riley Hill",
+      "headline": "No timing data available for Riley Hill at Ridge and Valley stations",
+      "reason": "The evidence provides no factual data about elapsed time, position, or timing metrics at any checkpoint. The signal measurement is explicitly marked as unavailable, and no verifiable facts exist to support any claim about position, pace, or timing.",
+      "social_caption": "No timing data available for Riley Hill at Ridge and Valley stations. Signal verification required before drafting."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-124-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-124-pace_change",
+    "A": {
+      "body": "Two conflicting measurements of pace_delta_seconds_per_mile are reported: 6 and 13. Without resolution of which measurement is accurate or which is a data error, no consistent pace delta can be established. The conflicting data prevents a reliable assessment of performance or record margin.",
+      "citation_ids": [
+        "fictional-race-124-pace_change-timing",
+        "fictional-race-124-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting pace data prevents definitive assessment",
+      "headline": "Conflicting pace measurements observed for Riley Hill at Ridge and Valley stations",
+      "reason": "Multiple conflicting measurements of pace_delta_seconds_per_mile (6 and 13) are present without resolution or consensus. No single fact supports a consistent pace delta, and no claim can be made without resolving the discrepancy. Therefore, the evidence is insufficient for a publishable assertion.",
+      "social_caption": "Conflicting pace data (6s vs 13s per mile) observed for Riley Hill \u2014 no definitive pace delta can be established due to contradictory measurements."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-124-pace_change-timing",
+        "fictional-race-124-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-125-position_gain",
+    "A": {
+      "body": "At Ridge station, Taylor Hill lost 3 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-125-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-125-position_gain-timing",
+          "metric": "position_gain",
+          "value": -3.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Taylor Hill lost 3 places.",
+      "reason": "",
+      "social_caption": "Race desk: Taylor Hill lost 3 places."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-125-record_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-125-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for Taylor Hill's race is unavailable. No elapsed times or positions are provided at checkpoints to assess pace or position relative to the record. Without verified timing data, no claims can be made about performance or margin.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record watch data available for Taylor Hill",
+      "headline": "Record watch timing data unavailable for Taylor Hill",
+      "reason": "The evidence provided contains no factual data about elapsed time, position, or pace at any checkpoint. The excerpt explicitly states the signal measurement is unavailable, and the facts array is empty. No verifiable metrics exist to form claims about position gain, pace, or record margin.",
+      "social_caption": "No record watch data available. Verification required before assessing Taylor Hill's performance."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-125-cutoff_watch",
+    "A": {
+      "body": "Two sources report different cutoff buffer minutes: one indicates 28 minutes, another 35 minutes. The conflicting measurements prevent a definitive assessment of the race pace or record margin. No consistent value exists for cutoff_buffer_minutes across evidence sources.",
+      "citation_ids": [
+        "fictional-race-125-cutoff_watch-timing",
+        "fictional-race-125-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting cutoff buffer times reported",
+      "headline": "Conflicting data on cutoff buffer timing for Taylor Hill",
+      "reason": "Evidence contains conflicting values for cutoff_buffer_minutes (28 and 35). No single, consistent fact exists to support a claim. Without agreement on the metric value, no claims can be made with confidence. Therefore, disposition is insufficient_evidence.",
+      "social_caption": "Conflicting timing data: 28 vs 35 minutes cutoff buffer. No consensus on race pace or record margin. Race status remains unverified."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-125-cutoff_watch-timing",
+        "fictional-race-125-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-125-pace_change",
+    "A": {
+      "body": "The evidence provides only a pace delta of -11 seconds per mile, indicating a faster-than-projected pace, but offers no information about injury or course record achievement. No claims can be made regarding injury or record breaking.",
+      "citation_ids": [
+        "fictional-race-125-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No evidence of injury or record-breaking performance",
+      "headline": "No evidence supports injury or record-breaking claim",
+      "reason": "The evidence does not contain any information about injury, medical condition, or record-breaking achievement. The pace delta indicates a faster time, but no assertion about record status or athlete injury is supported by the provided facts.",
+      "social_caption": "No evidence of injury or record-breaking \u2014 only a faster-than-projected pace. Claims about injury or record must be verified with additional data."
+    },
+    "B": {
+      "body": "At Ridge station, Taylor Hill is 11 seconds per mile faster over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-125-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-125-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": -11.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Taylor Hill is 11 seconds per mile faster over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Taylor Hill is 11 seconds per mile faster over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-126-position_gain",
+    "A": {
+      "body": "The evidence provided does not contain measurable position gain data. The timing checkpoints include elapsed seconds and positions, but no position change or gain is explicitly recorded or calculable from the given facts.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No position gain data available",
+      "headline": "Position gain data missing for Quinn Hill",
+      "reason": "The evidence contains no facts related to position gain, position change, or movement between checkpoints. Required metrics like position_gain are missing or unmeasurable from the provided data.",
+      "social_caption": "No position gain data available for Quinn Hill at this checkpoint. Verify source before drafting updates."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-126-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-126-record_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-126-record_watch-timing",
+        "fictional-race-126-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide differing record margins: 228 seconds and 235 seconds. No single measurement is confirmed as authoritative. The conflicting data prevents a definitive assessment of the race's record status or pace.",
+      "citation_ids": [
+        "fictional-race-126-record_watch-timing",
+        "fictional-race-126-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting record margin measurements",
+      "headline": "Conflicting data on record margin observed",
+      "reason": "Multiple conflicting measurements of record_margin_seconds (228 and 235) are present without a consensus or authoritative source. No single fact is consistently supported across evidence. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting record margin data (228s vs 235s) observed. No definitive record margin established. Race status remains under review."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-126-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Quinn Hill is 1 minutes beyond the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-126-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-126-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": -1.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Quinn Hill is 1 minutes beyond the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Quinn Hill is 1 minutes beyond the checkpoint cutoff."
+    },
+    "B": {
+      "body": "The evidence provides cutoff_buffer_minutes of -1, indicating the athlete is ahead of the projected cutoff time, but does not mention injury or record achievement. No claims can be made about injury or record status due to lack of supporting facts.",
+      "citation_ids": [
+        "fictional-race-126-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated in evidence",
+      "headline": "No evidence of injury or record-breaking; timing data shows consistent progression",
+      "reason": "The evidence does not contain any information about injury, medical condition, or record achievement. The only measurable fact is a negative cutoff_buffer_minutes, which indicates timing performance relative to cutoff, not a record or injury. No claims can be made without explicit, verifiable facts.",
+      "social_caption": "No injury or record broken. Evidence shows Quinn Hill is ahead of cutoff, but no medical or record-related claims are supported."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-126-pace_change",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Quinn Hill has an unchanged pace over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-126-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-126-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Quinn Hill has an unchanged pace over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Quinn Hill has an unchanged pace over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-127-position_gain",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-127-position_gain-timing",
+        "fictional-race-127-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources report different position gains: one indicates a gain of 19, another a gain of 26. The conflicting measurements prevent a definitive assessment of Alex Hill's race progression or performance relative to projections.",
+      "citation_ids": [
+        "fictional-race-127-position_gain-timing",
+        "fictional-race-127-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting position gain measurements reported",
+      "headline": "Conflicting data on Alex Hill's position gain at Ridge and Valley stations",
+      "reason": "Conflicting measurements of position_gain (19 vs 26) are present in the evidence. No consistent value is established, and no other metrics (e.g., pace, margin) are provided to resolve the discrepancy. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting position gain data (19 vs 26) for Alex Hill at Ridge and Valley stations. Discrepancy prevents definitive assessment. #RaceData #UltraMedia"
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-127-record_watch",
+    "A": {
+      "body": "At Ridge station, Alex Hill is projected 204 seconds ahead of the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-127-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-127-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 204.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Alex Hill is projected 204 seconds ahead of the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Hill is projected 204 seconds ahead of the record target."
+    },
+    "B": {
+      "body": "The evidence provides a record margin of 204 seconds, indicating the race pace is ahead of projection, but does not contain any information about injury or course record breaking. No claims can be made regarding athlete injury or record achievement.",
+      "citation_ids": [
+        "fictional-race-127-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record established",
+      "headline": "No record confirmed: Evidence does not support injury or course record breach",
+      "reason": "The evidence does not contain any information about injury, course record breach, or athlete condition. The record margin is a pacing metric, not a confirmation of record achievement or injury. No claims can be made without explicit evidence.",
+      "social_caption": "No record broken. Evidence shows a 204-second margin ahead of projection, but no mention of injury or course record breach. Race data remains neutral."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-127-cutoff_watch",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Alex Hill is at the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-127-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-127-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Alex Hill is at the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Hill is at the checkpoint cutoff."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-127-pace_change",
+    "A": {
+      "body": "At Ridge station, Alex Hill is 16 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-127-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-127-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 16.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Alex Hill is 16 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Hill is 16 seconds per mile slower over the comparison segment."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-128-position_gain",
+    "A": {
+      "body": "The evidence provides only a position gain of 1, with no mention of injury, course record, or performance deviation. No data supports claims of injury or record achievement.",
+      "citation_ids": [
+        "fictional-race-128-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated",
+      "headline": "No evidence of injury or record-breaking",
+      "reason": "The evidence does not contain any information about injury, course record, or performance deviation. The position gain is neutral and does not imply record-breaking or injury. No claims can be made without explicit supporting facts.",
+      "social_caption": "No evidence of injury or record broken. Position gain of 1 only. Stay factual."
+    },
+    "B": {
+      "body": "At Ridge station, Rowan Hill gained 1 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-128-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-128-position_gain-timing",
+          "metric": "position_gain",
+          "value": 1.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Rowan Hill gained 1 places.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Hill gained 1 places."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-128-record_watch",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Rowan Hill is projected level with the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-128-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-128-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Rowan Hill is projected level with the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Hill is projected level with the record target."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-128-cutoff_watch",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Rowan Hill has 24 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-128-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-128-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 24.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Rowan Hill has 24 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Hill has 24 minutes before the checkpoint cutoff."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-128-pace_change",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-128-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for pace change is unavailable. No factual data on position gain, pace delta, or record margin is present to assess performance trends or timing changes between checkpoints.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No pace change data available for Rowan Hill",
+      "headline": "Pace change data missing for Rowan Hill at Ridge and Valley stations",
+      "reason": "The evidence provides no measurable pace change data or timing metrics for Rowan Hill. The excerpt explicitly states the signal measurement is unavailable, and no facts are provided to support claims about position gain, pace delta, or record margin. Without measurable timing or position data, no claims can be made.",
+      "social_caption": "No pace change data available for Rowan Hill. Verification required before assessing performance trends."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-129-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Sage Hill held position. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-129-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-129-position_gain-timing",
+          "metric": "position_gain",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Sage Hill held position.",
+      "reason": "",
+      "social_caption": "Race desk: Sage Hill held position."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-129-record_watch",
+    "A": {
+      "body": "At Ridge station, Sage Hill is projected 105 seconds behind the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-129-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-129-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": -105.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Sage Hill is projected 105 seconds behind the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Sage Hill is projected 105 seconds behind the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-129-cutoff_watch",
+    "A": {
+      "body": "The cutoff watch timing signal for athlete Sage Hill (Bib 229) is unavailable. No elapsed seconds or position data are provided at Ridge or Valley stations. Without verified timing data, no factual assertions can be made about position, pace, or performance.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Cutoff watch timing data unavailable",
+      "headline": "No timing data available for Sage Hill at Ridge and Valley stations",
+      "reason": "The evidence provides no factual data about elapsed time, position, or pace for Sage Hill at any checkpoint. The signal measurement is explicitly marked as unavailable. No citation IDs are present, and no measurable facts exist to support claims.",
+      "social_caption": "No timing data available for Sage Hill at Ridge and Valley stations. Verification required before any update."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-129-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-129-pace_change",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-129-pace_change-timing",
+        "fictional-race-129-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting pace_delta_seconds_per_mile values: -18 and -11. Without a verified, consistent measurement, no definitive pace or record margin can be established. The conflicting data indicates a lack of consensus in the timing observations.",
+      "citation_ids": [
+        "fictional-race-129-pace_change-timing",
+        "fictional-race-129-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting pace data prevents definitive assessment",
+      "headline": "Conflicting pace measurements observed for Sage Hill",
+      "reason": "Conflicting values for pace_delta_seconds_per_mile (-18 and -11) are present in the evidence. No single, consistent pace metric is established, and the data contradicts itself. Therefore, no claims can be made with confidence. The evidence does not support a definitive pace or record margin.",
+      "social_caption": "Conflicting pace data observed for Sage Hill \u2014 no definitive pace or record margin can be established due to inconsistent measurements."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-130-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Avery Santos gained 3 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-130-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-130-position_gain-timing",
+          "metric": "position_gain",
+          "value": 3.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Avery Santos gained 3 places.",
+      "reason": "",
+      "social_caption": "Race desk: Avery Santos gained 3 places."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-130-record_watch",
+    "A": {
+      "body": "The provided evidence contains no measurable timing data or facts to support a record watch assessment. The signal explicitly states the measurement is unavailable and provides no elapsed times, positions, or pace metrics for verification.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No timing data available for record watch signal",
+      "headline": "Record watch signal lacks measurable evidence",
+      "reason": "The evidence excerpt explicitly states 'The signal measurement is unavailable; verify before drafting.' and contains no factual data (facts array is empty). No measurable metrics such as position, elapsed time, or pace are provided to form claims or assess performance. Therefore, no claims can be generated, and the signal lacks sufficient evidence for publication.",
+      "social_caption": "No timing data available for record watch signal. Verification required before drafting any assessment."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-130-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-130-cutoff_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-130-cutoff_watch-timing",
+        "fictional-race-130-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting values for cutoff_buffer_minutes: 32 and 39. No single value is established due to inconsistency in the evidence. The race timing data does not resolve this discrepancy.",
+      "citation_ids": [
+        "fictional-race-130-cutoff_watch-timing",
+        "fictional-race-130-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting cutoff buffer measurements",
+      "headline": "Conflicting data on cutoff buffer minutes for Avery Santos at Ridge and Valley stations",
+      "reason": "Evidence contains conflicting values for cutoff_buffer_minutes (32 and 39) with no resolution or consensus. No claim can be made due to contradictory data.",
+      "social_caption": "Conflicting cutoff buffer times (32 vs 39) prevent a definitive assessment of Avery Santos' performance relative to the projected record."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-130-pace_change",
+    "A": {
+      "body": "At Ridge station, Avery Santos is 41 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-130-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-130-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 41.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Avery Santos is 41 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Avery Santos is 41 seconds per mile slower over the comparison segment."
+    },
+    "B": {
+      "body": "The evidence provides only a pace delta of +41 seconds per mile, indicating a slower pace than projected. There is no mention of injury, course record breach, or any related condition. All claims must be strictly supported by cited facts.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No evidence of injury or record-breaking performance",
+      "headline": "No evidence supports injury or record-breaking claim",
+      "reason": "The evidence does not contain any information about injury, course record status, or athlete condition. The pace delta is provided but not linked to a record breach or injury. No claims can be made without direct factual support from the evidence.",
+      "social_caption": "No evidence of injury or record break. Pace data shows a +41s/mile delta. Claims not supported by facts."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-131-position_gain",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-131-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for position gain is unavailable. No facts were provided to determine any positional change or timing progression for Morgan Santos at Ridge or Valley stations.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No position gain data available",
+      "headline": "Position gain data missing for Morgan Santos",
+      "reason": "The evidence excerpt explicitly states the signal measurement is unavailable and contains no facts about position gain or timing progression. No citation IDs are provided, and no numeric position changes can be derived from the given data.",
+      "social_caption": "No position gain data available for Morgan Santos. Verify source before drafting race updates."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-131-record_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-131-record_watch-timing",
+        "fictional-race-131-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting record margin measurements: -143 seconds and -136 seconds. The discrepancy in timing data prevents a definitive assessment of performance relative to the projected record. No consistent record margin is established.",
+      "citation_ids": [
+        "fictional-race-131-record_watch-timing",
+        "fictional-race-131-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting record margin measurements",
+      "headline": "Conflicting data on record margin for Morgan Santos at Ridge and Valley stations",
+      "reason": "Conflicting values for record_margin_seconds (-143 vs -136) are present in the evidence. No single, consistent value is established, and no claim can be made with confidence. Therefore, insufficient evidence exists to assert a record margin or performance outcome.",
+      "social_caption": "Conflicting record margin data (-143s vs -136s) for Morgan Santos at Ridge and Valley stations. Discrepancy prevents definitive record assessment. #RaceUpdate"
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-131-cutoff_watch",
+    "A": {
+      "body": "The evidence provides cutoff_buffer_minutes of -2, indicating the athlete is ahead of projected timing, but does not mention injury or record achievement. Position remains constant at 71 overall across checkpoints. No claims can be made about injury or record status without explicit evidence.",
+      "citation_ids": [
+        "fictional-race-131-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated in evidence",
+      "headline": "No evidence of injury or record-breaking; data shows consistent position.",
+      "reason": "Evidence does not contain information about injury or record achievement. The only measurable fact is a negative cutoff_buffer_minutes (-2), which indicates timing performance relative to projection, not medical condition or record status. No claim can be made about injury or record without explicit data.",
+      "social_caption": "No injury or record broken. Evidence shows Morgan Santos at position 71 with a -2 cutoff buffer \u2014 ahead of projection, but no indication of injury or record achievement."
+    },
+    "B": {
+      "body": "At Ridge station, Morgan Santos is 2 minutes beyond the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-131-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-131-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": -2.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Morgan Santos is 2 minutes beyond the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Morgan Santos is 2 minutes beyond the checkpoint cutoff."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-131-pace_change",
+    "A": {
+      "body": "At Ridge station, Morgan Santos has an unchanged pace over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-131-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-131-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Morgan Santos has an unchanged pace over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Morgan Santos has an unchanged pace over the comparison segment."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-132-position_gain",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-132-position_gain-timing",
+        "fictional-race-132-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting position gain measurements: one reports a gain of 12, another reports 19. Without a definitive source or resolution of the discrepancy, the actual position gain cannot be determined.",
+      "citation_ids": [
+        "fictional-race-132-position_gain-timing",
+        "fictional-race-132-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting position gain measurements",
+      "headline": "Conflicting data on Jordan Santos' position gain during the race",
+      "reason": "Conflicting measurements of position_gain (12 vs 19) are present in the evidence with no resolution or authoritative source to determine the correct value. No single fact supports a consistent position gain value. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting data on Jordan Santos' position gain: 12 vs 19. No consensus yet. #UltraMedia #RaceUpdate"
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-132-record_watch",
+    "A": {
+      "body": "At Ridge station, Jordan Santos is projected 144 seconds behind the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-132-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-132-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": -144.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Jordan Santos is projected 144 seconds behind the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Santos is projected 144 seconds behind the record target."
+    },
+    "B": {
+      "body": "The evidence provides a record margin of -144 seconds, indicating the athlete is ahead of the projected record, but this does not constitute a verified course record. No official record status or record-breaking position is confirmed in the timing data. The athlete's position over time does not support a record claim.",
+      "citation_ids": [
+        "fictional-race-132-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record established",
+      "headline": "No record confirmed: Evidence shows no record margin or position data for record validation",
+      "reason": "The evidence mentions a negative record margin, but no claim of a course record being achieved or verified. The timing data does not include a record-breaking position or elapsed time at a checkpoint that would confirm a record. Without a defined record threshold or official record confirmation, the record status cannot be asserted.",
+      "social_caption": "No record confirmed. Evidence shows a negative record margin, but no official record status or validation in timing data. Race result remains unverified."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-132-cutoff_watch",
+    "A": {
+      "body": "The evidence provided only includes a synthetic cutoff buffer of 0 minutes and does not contain measurable pace, position gain, or record margin data at specific checkpoints. No claims can be made without additional factual timing or performance metrics.",
+      "citation_ids": [
+        "fictional-race-132-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No verifiable performance data available",
+      "headline": "No actionable update available",
+      "reason": "The evidence does not provide sufficient factual data to determine position gain, pace delta, or record margin. Metrics such as pace_delta_seconds_per_mile, position_gain, or record_margin_seconds are missing or unmeasurable. The cutoff_buffer_minutes value is present but not sufficient to form a claim about performance or position changes.",
+      "social_caption": "No performance update available \u2014 synthetic data lacks measurable pace or position details for verification."
+    },
+    "B": {
+      "body": "At Ridge station, Jordan Santos is at the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-132-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-132-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Jordan Santos is at the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Santos is at the checkpoint cutoff."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-132-pace_change",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Jordan Santos is 13 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-132-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-132-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 13.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Jordan Santos is 13 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Santos is 13 seconds per mile slower over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-133-position_gain",
+    "A": {
+      "body": "The evidence provides position gain data but does not mention injury or record achievement. The athlete's position increased from 129 to 137, indicating a slight decline in overall ranking, with no indication of injury or record-breaking performance.",
+      "citation_ids": [
+        "fictional-race-133-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated",
+      "headline": "No evidence of injury or record-breaking",
+      "reason": "The evidence only states position gain and does not contain information about injury, record status, or athlete condition. No claim can be made regarding injury or record achievement due to missing or untrusted data.",
+      "social_caption": "No injury or record broken. Position gain data shows a slight drop in overall ranking. #UltraMedia #RaceEvidence"
+    },
+    "B": {
+      "body": "At Ridge station, Casey Santos gained 8 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-133-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-133-position_gain-timing",
+          "metric": "position_gain",
+          "value": 8.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Casey Santos gained 8 places.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Santos gained 8 places."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-133-record_watch",
+    "A": {
+      "body": "The evidence provides a record margin of 0 seconds, but no explicit pace delta, position gain, or cutoff buffer minutes. The timing data includes position changes but lacks sufficient metrics to assess pace or record performance relative to projections or other athletes. No claims can be formed without additional, verifiable metrics.",
+      "citation_ids": [
+        "fictional-race-133-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record margin or pace data available for Casey Santos at Ridge or Valley stations.",
+      "headline": "No record margin or pace data available for Casey Santos at Ridge or Valley stations.",
+      "reason": "The evidence only provides a record_margin_seconds of 0, but no data on pace_delta_seconds_per_mile, position_gain, latest_position, cutoff_buffer_minutes, or record_margin_seconds in context of pace or position changes. Required metrics for claims are missing or not explicitly provided in the facts. No verifiable claims can be formed without additional, specific timing or performance data.",
+      "social_caption": "No record margin or pace data available for Casey Santos at Ridge or Valley stations. Further evidence needed for analysis."
+    },
+    "B": {
+      "body": "At Ridge station, Casey Santos is projected level with the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-133-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-133-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Casey Santos is projected level with the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Santos is projected level with the record target."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-133-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Casey Santos has 13 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-133-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-133-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 13.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Casey Santos has 13 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Santos has 13 minutes before the checkpoint cutoff."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-133-pace_change",
+    "A": {
+      "body": "The signal measurement for pace change is unavailable. No factual data on pace or position changes can be verified from the provided evidence.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No pace change data available for Casey Santos",
+      "headline": "Pace change signal unavailable for Casey Santos at Ridge and Valley stations",
+      "reason": "The evidence excerpt explicitly states the signal measurement is unavailable and contains no facts about pace, position, or timing changes. No citation IDs are provided, and no measurable pace delta or position gain can be derived. Therefore, no claims can be made.",
+      "social_caption": "No pace change data available. Editor review required before further analysis."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-133-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-134-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Riley Santos held position. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-134-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-134-position_gain-timing",
+          "metric": "position_gain",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Riley Santos held position.",
+      "reason": "",
+      "social_caption": "Race desk: Riley Santos held position."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-134-record_watch",
+    "A": {
+      "body": "At Ridge station, Riley Santos is projected 18 seconds ahead of the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-134-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-134-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 18.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Riley Santos is projected 18 seconds ahead of the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Riley Santos is projected 18 seconds ahead of the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-134-cutoff_watch",
+    "A": {
+      "body": "The cutoff watch timing signal for Riley Santos is unavailable. No elapsed seconds or position data are provided at Ridge or Valley stations. The evidence source is marked as synthetic and lacks verifiable facts.",
+      "citation_ids": [
+        "fictional-race-134-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No timing data available for Riley Santos",
+      "headline": "Race data unavailable for Riley Santos at Ridge and Valley stations",
+      "reason": "The evidence excerpt states the signal measurement is unavailable and contains no facts. No elapsed times, positions, or metrics are provided for any checkpoint. No verifiable data exists to support any claim about position, pace, or timing.",
+      "social_caption": "No timing data available for Riley Santos \u2014 check source before drafting."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-134-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-134-pace_change",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-134-pace_change-timing",
+        "fictional-race-134-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting pace_delta_seconds_per_mile values: -31 and -24. Without resolution of the discrepancy, a consistent assessment of pace or record margin cannot be made. The conflicting data indicates a lack of consensus in the timing measurements.",
+      "citation_ids": [
+        "fictional-race-134-pace_change-timing",
+        "fictional-race-134-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting pace data prevents definitive assessment",
+      "headline": "Conflicting pace measurements observed for Riley Santos",
+      "reason": "Conflicting values for pace_delta_seconds_per_mile (-31 vs. -24) are present in the evidence. No single, consistent pace metric can be derived, and therefore no claims can be made. The data lacks agreement, preventing a reliable assessment of pace or record margin.",
+      "social_caption": "Conflicting pace data observed in Riley Santos' race \u2014 -31 and -24 seconds per mile. No definitive pace delta can be established due to inconsistency in measurements."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-135-position_gain",
+    "A": {
+      "body": "At Ridge station, Taylor Santos lost 4 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-135-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-135-position_gain-timing",
+          "metric": "position_gain",
+          "value": -4.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Taylor Santos lost 4 places.",
+      "reason": "",
+      "social_caption": "Race desk: Taylor Santos lost 4 places."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-135-record_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-135-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The record watch timing signal for Taylor Santos is currently unavailable. No measurable data or position updates are provided to assess performance or progress toward a record.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record watch data available",
+      "headline": "Record watch signal unavailable for Taylor Santos",
+      "reason": "The evidence provides no factual data on elapsed time, pace, position, or timing metrics at checkpoints. The signal measurement is explicitly marked as unavailable, and no supporting facts are present to form claims about position gain, pace, or record margin.",
+      "social_caption": "No record watch data available for Taylor Santos. Verify source before drafting updates."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-135-cutoff_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-135-cutoff_watch-timing",
+        "fictional-race-135-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting values for cutoff_buffer_minutes: one reports 2 minutes, another reports 9 minutes. Without resolution, the actual cutoff buffer remains undetermined.",
+      "citation_ids": [
+        "fictional-race-135-cutoff_watch-timing",
+        "fictional-race-135-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting cutoff buffer measurements",
+      "headline": "Conflicting data on cutoff buffer timing observed",
+      "reason": "Conflicting measurements for cutoff_buffer_minutes (2 vs 9 minutes) are present in the evidence. No single value is confirmed, and no fact matches a consistent metric across both sources. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting timing data found: 2 vs 9 minutes cutoff buffer. Final timing status pending resolution."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-135-pace_change",
+    "A": {
+      "body": "The evidence provides a pace delta of +18 seconds per mile, indicating a slower pace than projected, but offers no indication of injury or a course record being broken. No claims can be made regarding injury or record achievement.",
+      "citation_ids": [
+        "fictional-race-135-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No evidence of injury or record-breaking performance",
+      "headline": "No record broken; evidence shows neutral pace change",
+      "reason": "The evidence does not contain any information about injury, medical condition, or record-breaking performance. The pace delta is provided but not linked to injury or record achievement. No claims can be made without direct factual support.",
+      "social_caption": "No record broken. Evidence shows a +18 sec/mile pace delta, not injury or record achievement. #RaceAnalysis"
+    },
+    "B": {
+      "body": "At Ridge station, Taylor Santos is 18 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-135-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-135-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 18.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Taylor Santos is 18 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Taylor Santos is 18 seconds per mile slower over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-136-position_gain",
+    "A": {
+      "body": "The evidence provided contains no measurable position gain or timing data for Quinn Santos at Ridge station. The signal measurement is explicitly marked as unavailable, and no factual data exists to support a position gain calculation.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No position gain data available for Quinn Santos at Ridge station",
+      "headline": "No timing data to assess position gain for Quinn Santos",
+      "reason": "The evidence excerpt explicitly states the signal measurement is unavailable and contains no facts related to position gain or timing. No citation IDs are provided, and no measurable data exists to form a claim about position gain or any other metric.",
+      "social_caption": "No position gain data available for Quinn Santos at Ridge station. Signal measurement is unavailable \u2014 verify before drafting."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-136-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-136-record_watch",
+    "A": {
+      "body": "Two sources provide conflicting record margin values: 11 seconds and 18 seconds. No consistent value exists across evidence. The discrepancy prevents a definitive assessment of performance relative to the projected record.",
+      "citation_ids": [
+        "fictional-race-136-record_watch-timing",
+        "fictional-race-136-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting record margin measurements detected",
+      "headline": "Conflicting record margin data observed for Quinn Santos at Ridge and Valley stations",
+      "reason": "Evidence contains conflicting values for record_margin_seconds (11 vs 18). No single, consistent fact exists to support a claim. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting record margin data (11s vs 18s) observed for Quinn Santos \u2014 no definitive record margin established."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-136-record_watch-timing",
+        "fictional-race-136-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-136-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Quinn Santos has 8 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-136-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-136-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 8.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Quinn Santos has 8 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Quinn Santos has 8 minutes before the checkpoint cutoff."
+    },
+    "B": {
+      "body": "The evidence provides cutoff_buffer_minutes = 8, indicating the athlete is ahead of projected record timing, but does not mention injury or course record breach. Position data shows steady placement (72nd at Valley, 73rd at Ridge), with no indication of medical issues or record achievement.",
+      "citation_ids": [
+        "fictional-race-136-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated in evidence",
+      "headline": "No evidence of injury or record-breaking; data shows consistent position.",
+      "reason": "Evidence does not contain any information about injury, medical condition, or record achievement. The record margin and pace delta are not specified, and no claim about injury or record breaking is supported by the facts provided.",
+      "social_caption": "No injury or record broken reported. Evidence shows athlete in consistent position with 8-minute cutoff buffer."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-136-pace_change",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Quinn Santos has an unchanged pace over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-136-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-136-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Quinn Santos has an unchanged pace over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Quinn Santos has an unchanged pace over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-137-position_gain",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-137-position_gain-timing",
+        "fictional-race-137-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "Two sources provide conflicting position gain measurements: one reports a gain of 3, another a gain of 10. The data is inconsistent and lacks a definitive source for the actual position change. No single measurement is confirmed as accurate or authoritative.",
+      "citation_ids": [
+        "fictional-race-137-position_gain-timing",
+        "fictional-race-137-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting position gain measurements",
+      "headline": "Conflicting data on Alex Santos' position gain during the race",
+      "reason": "Multiple conflicting measurements of position_gain (3 vs. 10) exist without resolution or verification. No single fact supports a consistent position gain value. Therefore, no claim can be made with confidence.",
+      "social_caption": "Conflicting data on Alex Santos' position gain: one source shows +3, another +10. No consensus. Race position changes remain unverified."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-137-record_watch",
+    "A": {
+      "body": "At Ridge station, Alex Santos is projected 129 seconds ahead of the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-137-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-137-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 129.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Alex Santos is projected 129 seconds ahead of the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Santos is projected 129 seconds ahead of the record target."
+    },
+    "B": {
+      "body": "The evidence provides a synthetic record margin of 129 seconds, but does not include sufficient data to confirm if the athlete broke the course record or if the record margin reflects actual performance. No position, pace, or cutoff data is provided to validate claims about injury or record-breaking.",
+      "citation_ids": [
+        "fictional-race-137-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record margin or pace data available for assessment",
+      "headline": "Cannot verify record status or performance based on provided evidence",
+      "reason": "The evidence contains a synthetic record margin but lacks actual timing, pace, or cutoff data to verify if the athlete broke the course record or if the performance was valid. No claims can be made without verifiable metrics from the timing data.",
+      "social_caption": "No evidence supports injury or record-breaking. Data shows a synthetic record margin of 129 seconds \u2014 not enough to confirm actual performance or injury."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-137-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Alex Santos is at the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-137-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-137-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Alex Santos is at the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Santos is at the checkpoint cutoff."
+    },
+    "B": {
+      "body": "The evidence provides cutoff_buffer_minutes = 0, but no information on record margin, pace delta, or position gain is available to assess performance relative to projections or pace. No claims can be made without additional measurable metrics.",
+      "citation_ids": [
+        "fictional-race-137-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No verifiable record margin or pace data available",
+      "headline": "No record margin or pace data to report",
+      "reason": "The evidence only specifies cutoff_buffer_minutes = 0 and does not contain measurable values for position_gain, latest_position, pace_delta_seconds_per_mile, record_margin_seconds, or any other performance metric required to form a claim. Without these, no claims can be made.",
+      "social_caption": "No record margin or pace data available. Race timing details are incomplete for analysis."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-137-pace_change",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Alex Santos is 23 seconds per mile faster over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-137-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-137-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": -23.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Alex Santos is 23 seconds per mile faster over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Santos is 23 seconds per mile faster over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-138-position_gain",
+    "A": {
+      "body": "The evidence provides position gain data but does not mention injury or record achievement. The athlete's position improved, with a gain of -7, indicating a positive movement in the race. However, no information about injury or course record status is present.",
+      "citation_ids": [
+        "fictional-race-138-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated",
+      "headline": "No evidence of injury or record-breaking",
+      "reason": "The evidence only reports position gain and does not contain any information about injury, record status, or medical condition. The signal type requested is position_gain, which is present, but the headline hint requires asserting injury or record achievement, which is unsupported by the evidence.",
+      "social_caption": "Position gain data shows Rowan Santos moved up the field, but no evidence of injury or record-breaking was provided."
+    },
+    "B": {
+      "body": "At Ridge station, Rowan Santos lost 7 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-138-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-138-position_gain-timing",
+          "metric": "position_gain",
+          "value": -7.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Rowan Santos lost 7 places.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Santos lost 7 places."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-138-record_watch",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Rowan Santos is projected level with the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-138-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-138-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Rowan Santos is projected level with the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Santos is projected level with the record target."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-138-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Rowan Santos is 6 minutes beyond the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-138-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-138-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": -6.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Rowan Santos is 6 minutes beyond the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Santos is 6 minutes beyond the checkpoint cutoff."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-138-pace_change",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-138-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for pace change timing is unavailable. No factual data exists to determine position gain, pace delta, or other metrics related to pace changes. The evidence provided does not contain measurable pace or position data at checkpoints.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No pace change data available",
+      "headline": "Pace change signal unavailable for Rowan Santos",
+      "reason": "The evidence excerpt explicitly states the signal measurement is unavailable and contains no facts about pace, position, or timing metrics. No citation IDs are provided, and no measurable data exists to support claims about pace delta, position gain, or record margin.",
+      "social_caption": "No pace change data available for Rowan Santos. Verification required before drafting any update."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-139-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Sage Santos held position. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-139-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-139-position_gain-timing",
+          "metric": "position_gain",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Sage Santos held position.",
+      "reason": "",
+      "social_caption": "Race desk: Sage Santos held position."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-139-record_watch",
+    "A": {
+      "body": "At Ridge station, Sage Santos is projected 187 seconds ahead of the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-139-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-139-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 187.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Sage Santos is projected 187 seconds ahead of the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Sage Santos is projected 187 seconds ahead of the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-139-cutoff_watch",
+    "A": {
+      "body": "The cutoff watch signal for Sage Santos at both Ridge and Valley stations is missing or unverified. No elapsed times or positions are provided in the evidence. Without verified timing data, no race position or pace metrics can be established.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Cutoff watch signal unavailable for Sage Santos",
+      "headline": "No timing data available for Sage Santos at Ridge and Valley stations",
+      "reason": "The evidence contains no factual data about elapsed time, position, or timing metrics at any checkpoint. The excerpt explicitly states the signal is unavailable and provides no measurable facts to support claims. No citation IDs are present, and no timing facts exist to form claims.",
+      "social_caption": "No timing data available for Sage Santos at Ridge and Valley stations. Signal from cutoff watch is missing \u2014 verify before drafting."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-139-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-139-pace_change",
+    "A": {
+      "body": "Two sources provide conflicting pace_delta_seconds_per_mile values: -12 and -5. Without resolution of the discrepancy, no consistent pace trend or record margin can be established. The conflicting data prevents a reliable assessment of performance relative to projected records or pace trends.",
+      "citation_ids": [
+        "fictional-race-139-pace_change-timing",
+        "fictional-race-139-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting pace data prevents definitive assessment",
+      "headline": "Conflicting pace measurements observed for Sage Santos at Ridge and Valley stations",
+      "reason": "Conflicting values for pace_delta_seconds_per_mile (-12 and -5) are present in the evidence. No single, consistent pace metric can be derived, and no claim can be made without resolving the contradiction. Therefore, the signal is insufficient for publication.",
+      "social_caption": "Conflicting pace data from two sources (\u221212 vs \u22125) prevents a definitive assessment of Sage Santos' performance at Ridge and Valley stations. More evidence needed to resolve the discrepancy."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-139-pace_change-timing",
+        "fictional-race-139-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-140-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Avery Fox gained 10 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-140-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-140-position_gain-timing",
+          "metric": "position_gain",
+          "value": 10.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Avery Fox gained 10 places.",
+      "reason": "",
+      "social_caption": "Race desk: Avery Fox gained 10 places."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-140-record_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-140-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The provided evidence contains no measurable timing data or position metrics for Avery Fox at any checkpoint. The signal measurement is explicitly marked as unavailable, and no facts are present to support a record watch analysis.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record watch data available for Avery Fox",
+      "headline": "No timing data to assess performance or position trends",
+      "reason": "The evidence excerpt states the signal measurement is unavailable and contains no facts. No timing data, position, or pace metrics are provided to form a claim or assess performance. All required metrics are missing or absent.",
+      "social_caption": "No record watch data available. Verify source before drafting any performance assessment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-140-cutoff_watch",
+    "A": {
+      "body": "Two sources provide conflicting cutoff_buffer_minutes values: 18 and 25. Due to contradictory evidence, no consistent position gain or pace delta can be established. The race data lacks a definitive timing metric for the signal requested.",
+      "citation_ids": [
+        "fictional-race-140-cutoff_watch-timing",
+        "fictional-race-140-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting cutoff buffer measurements",
+      "headline": "Conflicting data on cutoff buffer timing for Avery Fox",
+      "reason": "Evidence contains conflicting values for cutoff_buffer_minutes (18 and 25). No consistent fact exists to support a single claim. Without agreement in the data, no claim can be made with confidence.",
+      "social_caption": "Conflicting timing data found for Avery Fox \u2014 two sources report different cutoff buffer minutes (18 vs 25). No definitive conclusion can be drawn at this time."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-140-cutoff_watch-timing",
+        "fictional-race-140-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-140-pace_change",
+    "A": {
+      "body": "At Ridge station, Avery Fox is 17 seconds per mile faster over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-140-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-140-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": -17.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Avery Fox is 17 seconds per mile faster over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Avery Fox is 17 seconds per mile faster over the comparison segment."
+    },
+    "B": {
+      "body": "The evidence provides only a pace delta of -17 seconds per mile, indicating a faster-than-projected pace, but offers no information about injury or course record achievement. No claims can be made regarding injury or record status.",
+      "citation_ids": [
+        "fictional-race-140-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No evidence of injury or record-breaking performance",
+      "headline": "No evidence supports injury or record break",
+      "reason": "The evidence does not contain any information about injury, medical condition, or record-breaking status. The pace delta indicates a faster time, but no assertion about record achievement or injury is supported by the provided facts.",
+      "social_caption": "No evidence of injury or record break. Pace data shows a faster-than-projected time, but no indication of injury or course record achievement."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-141-position_gain",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-141-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The evidence provided does not contain any measurable position gain data. The timing checkpoints include position overall at different stations, but no change in position between them is quantified or reported. Without a clear position difference and elapsed time, a position gain cannot be calculated or verified.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No position gain data available",
+      "headline": "Position gain data missing for Morgan Fox",
+      "reason": "The evidence contains no facts related to position gain, pace change, or positional difference between checkpoints. The position overall at each checkpoint is provided, but no elapsed time between positions or positional change is specified or computable from the given data.",
+      "social_caption": "No position gain data available for Morgan Fox. Verification required before drafting any update."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-141-record_watch",
+    "A": {
+      "body": "Two sources provide conflicting record margin values: -138 seconds and -131 seconds. No single consistent value exists for record_margin_seconds. The evidence contains contradictory measurements without resolution or reconciliation.",
+      "citation_ids": [
+        "fictional-race-141-record_watch-timing",
+        "fictional-race-141-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting record margin measurements",
+      "headline": "Conflicting data on record margin observed",
+      "reason": "Evidence contains two conflicting measurements of record_margin_seconds (-138 and -131) with no resolution or additional context to determine a single, verified value. No claim can be made due to contradiction.",
+      "social_caption": "Conflicting record margin data (-138s vs -131s) observed. No consensus value established. Further verification required."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-141-record_watch-timing",
+        "fictional-race-141-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-141-cutoff_watch",
+    "A": {
+      "body": "The evidence only includes cutoff timing data with a 42-minute buffer, indicating the athlete is ahead of projected times but does not confirm injury or a course record. No information about injury or performance beyond expected pace is available.",
+      "citation_ids": [
+        "fictional-race-141-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record or injury evidence provided",
+      "headline": "No evidence supports injury or record-breaking claim",
+      "reason": "The evidence does not contain any information about injury, medical condition, or performance beyond the cutoff buffer. The signal type is cutoff watch timing, which only provides positional and elapsed time data. No claim about record achievement or injury can be made from the provided facts.",
+      "social_caption": "No evidence of injury or record-breaking \u2014 only timing data shows Morgan Fox is ahead of projection by 42 minutes."
+    },
+    "B": {
+      "body": "At Ridge station, Morgan Fox has 42 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-141-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-141-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 42.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Morgan Fox has 42 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Morgan Fox has 42 minutes before the checkpoint cutoff."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-141-pace_change",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Morgan Fox has an unchanged pace over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-141-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-141-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Morgan Fox has an unchanged pace over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Morgan Fox has an unchanged pace over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-142-position_gain",
+    "A": {
+      "body": "Two sources report conflicting position gains: one indicates a gain of 2, another a gain of 9. The evidence contains no consensus or resolution of this discrepancy. Without a verified, consistent measurement, no definitive position gain can be assigned.",
+      "citation_ids": [
+        "fictional-race-142-position_gain-timing",
+        "fictional-race-142-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting position gain measurements reported",
+      "headline": "Conflicting data on Jordan Fox's position gain at Ridge and Valley stations",
+      "reason": "Multiple conflicting measurements of position_gain (2 vs. 9) are present without resolution or verification. No single fact supports a consistent value. Therefore, no claim can be made with confidence.",
+      "social_caption": "Conflicting data on Jordan Fox's position gain at Ridge and Valley stations \u2014 no consensus between sources."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-142-position_gain-timing",
+        "fictional-race-142-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-142-record_watch",
+    "A": {
+      "body": "At Ridge station, Jordan Fox is projected 54 seconds behind the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-142-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-142-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": -54.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Jordan Fox is projected 54 seconds behind the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Fox is projected 54 seconds behind the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-142-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Jordan Fox is at the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-142-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-142-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Jordan Fox is at the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Fox is at the checkpoint cutoff."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-142-pace_change",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Jordan Fox is 36 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-142-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-142-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 36.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Jordan Fox is 36 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Jordan Fox is 36 seconds per mile slower over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-143-position_gain",
+    "A": {
+      "body": "At Ridge station, Casey Fox gained 9 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-143-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-143-position_gain-timing",
+          "metric": "position_gain",
+          "value": 9.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Casey Fox gained 9 places.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Fox gained 9 places."
+    },
+    "B": {
+      "body": "The evidence provides position gain data but does not mention injury or record status. The athlete's position improved from 78 to 69, indicating a gain of 9 positions, but no information about course record or injury is present.",
+      "citation_ids": [
+        "fictional-race-143-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated",
+      "headline": "No evidence of injury or record-breaking",
+      "reason": "The evidence does not contain any information about injury, course record status, or medical condition. The signal type requested is position_gain, which is present, but the headline hint is untrusted and not supported by evidence. No claims can be made about injury or record achievement without explicit evidence.",
+      "social_caption": "Position gain of 9 positions observed, but no evidence of injury or record broken. Race facts only."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-143-record_watch",
+    "A": {
+      "body": "At Ridge station, Casey Fox is projected level with the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-143-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-143-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Casey Fox is projected level with the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Fox is projected level with the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-143-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Casey Fox has 9 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-143-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-143-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 9.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Casey Fox has 9 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Casey Fox has 9 minutes before the checkpoint cutoff."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-143-pace_change",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-143-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for pace change is unavailable. No factual data exists to determine position gain, pace delta, or other metrics related to pace change at any checkpoint. The evidence provided does not contain measurable pace or timing data for Casey Fox.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No pace change data available",
+      "headline": "Pace change signal unavailable for Casey Fox",
+      "reason": "The evidence excerpt explicitly states the signal measurement is unavailable and contains no facts about elapsed time, pace, or position changes. No measurable timing or positional data exists to support any claim about pace change or performance metrics.",
+      "social_caption": "No pace change data available for Casey Fox. Verification required before drafting any race bulletin."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-144-position_gain",
+    "A": {
+      "body": "At Ridge station, Riley Fox held position. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-144-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-144-position_gain-timing",
+          "metric": "position_gain",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Riley Fox held position.",
+      "reason": "",
+      "social_caption": "Race desk: Riley Fox held position."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-144-record_watch",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Riley Fox is projected 159 seconds ahead of the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-144-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-144-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 159.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Riley Fox is projected 159 seconds ahead of the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Riley Fox is projected 159 seconds ahead of the record target."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-144-cutoff_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-144-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for Riley Fox's timing at Ridge and Valley stations is unavailable. No factual data exists to determine position, pace, or performance metrics at these checkpoints.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No timing data available for Riley Fox at Ridge or Valley stations",
+      "headline": "Cutoff watch data unavailable for Riley Fox",
+      "reason": "The evidence provided contains no factual timing data or measurements. The excerpt explicitly states the signal measurement is unavailable, and no facts are listed in the evidence. No claims can be made without verifiable data.",
+      "social_caption": "No timing data available for Riley Fox at Ridge or Valley stations. Verification required before drafting updates."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-144-pace_change",
+    "A": {
+      "body": "Two conflicting measurements of pace_delta_seconds_per_mile are reported: 15 and 22. Without resolution of the discrepancy, no consistent pace change or record margin can be established for Riley Fox at Ridge and Valley stations.",
+      "citation_ids": [
+        "fictional-race-144-pace_change-timing",
+        "fictional-race-144-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting pace data prevents definitive assessment",
+      "headline": "Conflicting pace measurements observed for Riley Fox",
+      "reason": "Conflicting values for pace_delta_seconds_per_mile (15 and 22) are present in the evidence. No single, consistent pace metric can be derived, and no claim can be made without resolving the contradiction. Therefore, the evidence is insufficient for a publishable assertion.",
+      "social_caption": "Conflicting pace data (15s vs 22s) prevents a definitive assessment of Riley Fox's performance. More consistent measurements needed for analysis."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-144-pace_change-timing",
+        "fictional-race-144-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-145-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Taylor Fox gained 16 places. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-145-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-145-position_gain-timing",
+          "metric": "position_gain",
+          "value": 16.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Taylor Fox gained 16 places.",
+      "reason": "",
+      "social_caption": "Race desk: Taylor Fox gained 16 places."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-145-record_watch",
+    "A": {
+      "body": "The provided evidence contains no measurable timing facts or elapsed seconds at checkpoints. The signal indicates the data is unavailable, and no facts are present to support any metric or position assessment.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No timing data available for record watch signal",
+      "headline": "Record watch signal lacks measurable timing data",
+      "reason": "The evidence excerpt states the signal measurement is unavailable and contains no facts. No elapsed times, positions, or pace metrics are provided to form claims or assess performance. Without measurable data, no claims can be generated.",
+      "social_caption": "No timing data available for this record watch signal. Please verify source before drafting."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-145-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-145-cutoff_watch",
+    "A": {
+      "body": "Two evidence sources provide conflicting values for cutoff_buffer_minutes: one reports -10, the other -3. Without resolution of the discrepancy, a consistent assessment of pace or record margin cannot be made.",
+      "citation_ids": [
+        "fictional-race-145-cutoff_watch-timing",
+        "fictional-race-145-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting cutoff buffer measurements observed",
+      "headline": "Conflicting timing data: two sources report different cutoff buffer minutes",
+      "reason": "Conflicting values for cutoff_buffer_minutes (-10 vs -3) are present in the evidence. Without a resolved, consistent measurement, no claims can be made. The signal lacks sufficient agreement to support a draft assertion.",
+      "social_caption": "Conflicting timing data detected: two sources report different cutoff buffer minutes (-10 vs -3). Need resolution before assessing pace or record margin."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-145-cutoff_watch-timing",
+        "fictional-race-145-cutoff_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-145-pace_change",
+    "A": {
+      "body": "At Ridge station, Taylor Fox is 32 seconds per mile slower over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-145-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-145-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 32.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Taylor Fox is 32 seconds per mile slower over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Taylor Fox is 32 seconds per mile slower over the comparison segment."
+    },
+    "B": {
+      "body": "The evidence provides only a pace delta of +32 seconds per mile, indicating a slower pace than projected. There is no mention of injury, course record breach, or any related condition. All claims must be strictly supported by cited facts.",
+      "citation_ids": [
+        "fictional-race-145-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No evidence of injury or record-breaking performance",
+      "headline": "No evidence supports injury or record-breaking claim",
+      "reason": "The evidence does not contain any information about injury, course record status, or athlete condition. The pace delta is provided but not linked to record achievement or injury. No claims can be made without direct factual support.",
+      "social_caption": "No evidence of injury or record break. Pace data shows a +32s/mile delta \u2014 slower than projected. Claims not supported by facts."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-146-position_gain",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-146-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for position gain is unavailable in the provided evidence. No factual data exists to determine Quinn Fox's position change between Ridge and Valley stations.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No position gain data available for Quinn Fox",
+      "headline": "Position gain data missing for Quinn Fox at Ridge and Valley stations",
+      "reason": "The evidence contains no facts related to position gain or positional change. The excerpt explicitly states the signal measurement is unavailable, and no timing data includes position changes or gains. No citation IDs are valid due to missing facts.",
+      "social_caption": "No position gain data available for Quinn Fox \u2014 verify source before drafting updates."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-146-record_watch",
+    "A": {
+      "body": "Two sources provide conflicting record margin measurements: -150 seconds and -143 seconds. The discrepancy in timing data prevents a definitive assessment of whether Quinn Fox is ahead of or behind projected record pace. No consistent record margin exists due to contradictory evidence.",
+      "citation_ids": [
+        "fictional-race-146-record_watch-timing",
+        "fictional-race-146-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting record margin measurements",
+      "headline": "Conflicting data on record margin for Quinn Fox at Ridge and Valley stations",
+      "reason": "The evidence contains conflicting values for record_margin_seconds (-150 and -143), with no additional supporting facts to resolve the discrepancy. Without consensus on the record margin, no claims can be made with confidence. This constitutes insufficient evidence for a publishable assertion.",
+      "social_caption": "Conflicting record margin data (-150s vs -143s) prevents a definitive assessment of Quinn Fox's performance relative to the projected record."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-146-record_watch-timing",
+        "fictional-race-146-record_watch-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-146-cutoff_watch",
+    "A": {
+      "body": "The evidence provides only a cutoff buffer of 3 minutes and no information about injury or performance beyond standard timing. No claims can be made regarding injury or record achievement.",
+      "citation_ids": [
+        "fictional-race-146-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated in evidence",
+      "headline": "No evidence supports injury or record-breaking claim",
+      "reason": "The evidence does not contain any information about injury, performance deviation, or record achievement. The cutoff buffer is a timing metric, not a performance indicator. No claims can be made without explicit performance or health-related facts.",
+      "social_caption": "No evidence of injury or record broken. Race data shows only standard timing metrics. Further verification required."
+    },
+    "B": {
+      "body": "At Ridge station, Quinn Fox has 3 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-146-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-146-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 3.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Quinn Fox has 3 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Quinn Fox has 3 minutes before the checkpoint cutoff."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-146-pace_change",
+    "A": {
+      "body": "At Ridge station, Quinn Fox has an unchanged pace over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-146-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-146-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Quinn Fox has an unchanged pace over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Quinn Fox has an unchanged pace over the comparison segment."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-147-position_gain",
+    "A": {
+      "body": "Two conflicting measurements of position gain are reported: -2 and +5. Without a verified source or resolution of the discrepancy, the position gain cannot be determined with confidence.",
+      "citation_ids": [
+        "fictional-race-147-position_gain-timing",
+        "fictional-race-147-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting position data observed",
+      "headline": "Conflicting timing data for Alex Fox at Ridge and Valley stations",
+      "reason": "Multiple conflicting measurements of position_gain (\u22122 and +5) are present without resolution or consensus. No single fact supports a definitive value. Therefore, no claims can be made with confidence.",
+      "social_caption": "Conflicting position data reported for Alex Fox \u2014 -2 and +5. Discrepancy remains unresolved. No definitive position gain established."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-147-position_gain-timing",
+        "fictional-race-147-position_gain-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-147-record_watch",
+    "A": {
+      "body": "The evidence provides a record_margin_seconds of -162, indicating the athlete is ahead of the projected record in timing. However, no information about injury or course record status is present. The timing data shows position changes but no performance metrics or medical indicators.",
+      "citation_ids": [
+        "fictional-race-147-record_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record margin or pace data to confirm injury or record-breaking.",
+      "headline": "No evidence supports injury or course record achievement.",
+      "reason": "The evidence does not contain any information about injury, medical condition, or a broken course record. The record_margin_seconds value indicates performance relative to projection, but no claim about injury or record achievement is supported by the facts provided.",
+      "social_caption": "No evidence of injury or record-breaking. Timing data shows Alex Fox at positions 83 and 81, with a record margin of -162 seconds \u2014 ahead of projection, but no injury or record claim is supported."
+    },
+    "B": {
+      "body": "At Ridge station, Alex Fox is projected 162 seconds behind the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-147-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-147-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": -162.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Alex Fox is projected 162 seconds behind the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Fox is projected 162 seconds behind the record target."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-147-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Alex Fox is at the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-147-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-147-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Alex Fox is at the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Fox is at the checkpoint cutoff."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-147-pace_change",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Alex Fox has an unchanged pace over the comparison segment. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-147-pace_change-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-147-pace_change-timing",
+          "metric": "pace_delta_seconds_per_mile",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "Alex Fox has an unchanged pace over the comparison segment.",
+      "reason": "",
+      "social_caption": "Race desk: Alex Fox has an unchanged pace over the comparison segment."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-148-position_gain",
+    "A": {
+      "body": "At Ridge station, Rowan Fox held position. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-148-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-148-position_gain-timing",
+          "metric": "position_gain",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Rowan Fox held position.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Fox held position."
+    },
+    "B": {
+      "body": "The evidence provides only a position gain of 0 and no information about injury or course record status. No data supports claims of injury or record achievement.",
+      "citation_ids": [
+        "fictional-race-148-position_gain-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No record broken or injury indicated",
+      "headline": "No evidence of injury or record-breaking performance",
+      "reason": "The evidence does not contain any information about injury, medical condition, or record achievement. The position gain is 0, but no claim can be made about record status or injury. Required signals for injury or record are missing or unverified.",
+      "social_caption": "No evidence of injury or record-breaking. Position gain is 0. Stay factual."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-148-record_watch",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Rowan Fox is projected level with the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-148-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-148-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Rowan Fox is projected level with the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Fox is projected level with the record target."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-148-cutoff_watch",
+    "A": {
+      "body": "At Ridge station, Rowan Fox has 36 minutes before the checkpoint cutoff. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-148-cutoff_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-148-cutoff_watch-timing",
+          "metric": "cutoff_buffer_minutes",
+          "value": 36.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "Rowan Fox has 36 minutes before the checkpoint cutoff.",
+      "reason": "",
+      "social_caption": "Race desk: Rowan Fox has 36 minutes before the checkpoint cutoff."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-148-pace_change",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-148-pace_change-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The signal measurement for pace change is unavailable and no factual data were provided in the evidence. No position, time, or pace metrics can be verified for Rowan Fox at these checkpoints.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Pace change signal unavailable",
+      "headline": "No available data for pace change signal at Ridge and Valley stations",
+      "reason": "The evidence excerpt states the signal measurement is unavailable and contains no facts. No timing or positional data are provided to support any metric such as position gain, pace delta, or record margin. Without verifiable data, no claims can be made.",
+      "social_caption": "No pace change data available for Rowan Fox at Ridge and Valley stations. Signal verification required before any analysis."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-149-position_gain",
+    "A": null,
+    "B": {
+      "body": "At Ridge station, Sage Fox held position. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-149-position_gain-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-149-position_gain-timing",
+          "metric": "position_gain",
+          "value": 0.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Sage Fox held position.",
+      "reason": "",
+      "social_caption": "Race desk: Sage Fox held position."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-149-record_watch",
+    "A": {
+      "body": "At Ridge station, Sage Fox is projected 176 seconds ahead of the record target. This projection is not an achieved record. Fictional race evidence; editorial review required.",
+      "citation_ids": [
+        "fictional-race-149-record_watch-timing"
+      ],
+      "claims": [
+        {
+          "citation_id": "fictional-race-149-record_watch-timing",
+          "metric": "record_margin_seconds",
+          "value": 176.0
+        }
+      ],
+      "disposition": "draft",
+      "eyebrow": "Timing bulletin",
+      "headline": "Sage Fox is projected 176 seconds ahead of the record target.",
+      "reason": "",
+      "social_caption": "Race desk: Sage Fox is projected 176 seconds ahead of the record target."
+    },
+    "B": null,
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-149-cutoff_watch",
+    "A": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-149-cutoff_watch-timing"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The measurement is missing.",
+      "social_caption": ""
+    },
+    "B": {
+      "body": "The provided evidence contains no measurable timing data or position updates for Sage Fox at either Ridge or Valley stations. The signal measurement is explicitly marked as unavailable, and no factual data supports any position, pace, or elapsed time metrics.",
+      "citation_ids": [],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "No timing data available for Sage Fox at Ridge or Valley stations",
+      "headline": "Race data unavailable: No cutoff watch timing recorded for Sage Fox",
+      "reason": "The evidence explicitly states the signal measurement is unavailable and contains no facts about elapsed time, position, or pace. No citation IDs are provided, and no measurable claims can be derived from the data.",
+      "social_caption": "No timing data available for Sage Fox \u2014 verify source before drafting race updates."
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  },
+  {
+    "id": "fictional-race-149-pace_change",
+    "A": {
+      "body": "Two conflicting measurements of pace_delta_seconds_per_mile are reported: 7 and 14. Without resolution of the discrepancy, no consistent pace change or record margin can be established for Sage Fox at mile 48 and 62.",
+      "citation_ids": [
+        "fictional-race-149-pace_change-timing",
+        "fictional-race-149-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Conflicting pace data prevents definitive assessment",
+      "headline": "Conflicting pace measurements observed for Sage Fox",
+      "reason": "Conflicting measurements of pace_delta_seconds_per_mile (7 and 14) are present without resolution. No consistent value can be derived, and no claim can be made with confidence. Therefore, insufficient evidence exists to assert a valid pace change or record margin.",
+      "social_caption": "Conflicting pace data observed for Sage Fox \u2014 no definitive pace change or record margin can be established due to contradictory measurements."
+    },
+    "B": {
+      "body": "The supplied signal cannot support a reliable race update. Ask an editor to verify the source.",
+      "citation_ids": [
+        "fictional-race-149-pace_change-timing",
+        "fictional-race-149-pace_change-timing-conflict"
+      ],
+      "claims": [],
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Verification required",
+      "headline": "Hold the update pending evidence review.",
+      "reason": "The supplied measurements conflict.",
+      "social_caption": ""
+    },
+    "preferred": null,
+    "reviewer": null,
+    "claim_support": null,
+    "rationale": null
+  }
+]

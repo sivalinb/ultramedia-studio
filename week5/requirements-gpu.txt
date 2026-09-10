@@ -1,5 +1,8 @@
 # Python 3.11/3.12; Linux CUDA GPU. Install in a fresh Colab/Kaggle session.
 torch==2.8.0
+# Match Colab's optional vision/audio packages to the pinned torch ABI.
+torchvision==0.23.0
+torchaudio==2.8.0
 transformers==4.56.2
 trl==0.23.1
 peft==0.17.1

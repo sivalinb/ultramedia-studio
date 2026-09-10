@@ -1,0 +1,56 @@
+[
+  {
+    "revision": 1,
+    "reviewer": "Automated E2E fixture — not human review",
+    "decision": "approved",
+    "rationale": "Synthetic QA action only. Do not count this as human editorial review or training approval.",
+    "before": {
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "At Foresthill, Mara Velez moved from position 20 to position 11.",
+      "body": "Mara Velez moved from position 20 at Michigan Bluff to position 11 at Foresthill. This update is supplied as simulation data. Ask an editor to verify the source.",
+      "social_caption": "Race desk: Mara Velez moved from position 20 to position 11.",
+      "citation_ids": [
+        "timing-cab9ea7c-07e4-4f93-9f44-0492ea3b6b5e"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": 9,
+          "citation_id": "timing-cab9ea7c-07e4-4f93-9f44-0492ea3b6b5e"
+        },
+        {
+          "metric": "latest_position",
+          "value": 11,
+          "citation_id": "timing-cab9ea7c-07e4-4f93-9f44-0492ea3b6b5e"
+        }
+      ],
+      "reason": ""
+    },
+    "after": {
+      "disposition": "draft",
+      "eyebrow": "Race desk",
+      "headline": "A verified checkpoint update for Mara Velez.",
+      "body": "Mara Velez moved from position 20 at Michigan Bluff to position 11 at Foresthill. This update is supplied as simulation data. Ask an editor to verify the source.",
+      "social_caption": "Race desk: Mara Velez moved from position 20 to position 11.",
+      "citation_ids": [
+        "timing-cab9ea7c-07e4-4f93-9f44-0492ea3b6b5e"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": 9,
+          "citation_id": "timing-cab9ea7c-07e4-4f93-9f44-0492ea3b6b5e"
+        },
+        {
+          "metric": "latest_position",
+          "value": 11,
+          "citation_id": "timing-cab9ea7c-07e4-4f93-9f44-0492ea3b6b5e"
+        }
+      ],
+      "reason": ""
+    },
+    "training_consent": false,
+    "rights_basis": ""
+  }
+]

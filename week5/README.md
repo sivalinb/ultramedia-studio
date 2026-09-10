@@ -2,10 +2,16 @@
 
 Start with [SUBMISSION.md](SUBMISSION.md). Run [the Colab/Kaggle notebook](notebooks/UltraMedia_Week5_QLoRA.ipynb) with the supplied source ZIP to produce an actual adapter and measured comparison.
 
-The 600 supplied examples are synthetic and unapproved by humans. Local data, software and deterministic evidence are recorded; GPU training, model quality and editor preference remain unmeasured until the notebook and review are completed.
+The 600 supplied examples are synthetic and unapproved by humans. Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
 
 - [Data card](DATA_CARD.md)
 - [Evaluation protocol](EVALUATION.md)
 - [Serving and rollback](SERVING.md)
 - [Dataset manifest](data/synthetic/manifest.json)
 - [Local evidence](evidence/)
+
+- [End-to-end recording and verification](END_TO_END.md)
+- [Predeclared stronger prompt control](SCHEMA_CONTROL.md)
+- [Compute options and recovery](COMPUTE_OPTIONS.md)
+
+- [Detailed fine-tuning, data and flow reports](reports/README.md)

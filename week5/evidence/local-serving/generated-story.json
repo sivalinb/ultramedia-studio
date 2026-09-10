@@ -1,0 +1,85 @@
+{
+  "id": "2a46e739-3ea0-46ac-b961-6db6d59d81cf",
+  "race_id": "wser-demo",
+  "athlete_bib": "214",
+  "eyebrow": "Mara Velez's position improved from 20 to 11",
+  "headline": "Mara Velez gains 9 positions in Western States race segment",
+  "body": "Mara Velez, bib 214, moved from position 20 at Michigan Bluff to position 11 at Foresthill, a position gain of 9. This update is based on synthetic timing data from the race segment between Michigan Bluff and Foresthill. All timing events in this portfolio are simulated and labeled as such. The official course spans 100.2 miles with over 18,000 feet of climbing and nearly 23,000 feet of descending. Race management communications define operational cutoffs, and participants must finish by the official Sunday-morning deadline to be eligible for awards.",
+  "social_caption": "Mara Velez gains 9 positions from Michigan Bluff to Foresthill in Western States — a verified checkpoint update. All data is synthetic and simulation-based. A human editor must review before publication.",
+  "confidence": null,
+  "disposition": "draft",
+  "claims": [
+    {
+      "metric": "position_gain",
+      "value": 9,
+      "citation_id": "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93"
+    },
+    {
+      "metric": "latest_position",
+      "value": 11,
+      "citation_id": "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93"
+    }
+  ],
+  "reason": "The position gain and latest position are directly derived from the synthetic timing data provided. All data points are labeled as simulation and require human editorial review before publication. No other metrics or facts are requested or implied in the signal. The claims are fully supported by the cited evidence and match only explicitly stated facts in the timing record. No record margin or pac",
+  "review_revision": 0,
+  "quality_checks": {
+    "citation_ids_valid": true,
+    "structured_claims_supported": true,
+    "required_metric_covered": true,
+    "disposition_correct": true,
+    "numeric_tokens_supported": true,
+    "sensitive_language_absent": true,
+    "projection_not_achievement": true,
+    "automatic_checks_passed": true,
+    "semantic_faithfulness": "requires_human_review",
+    "confidence": null
+  },
+  "provider": "llamacpp:qwen3:4b-instruct",
+  "status": "pending_review",
+  "citations": [
+    {
+      "id": "timing-51cd9b6a-8ac3-4225-918d-6ec0c20fdd93",
+      "title": "Timing comparison · Foresthill",
+      "source_url": "ultramedia://timing/51cd9b6a-8ac3-4225-918d-6ec0c20fdd93",
+      "excerpt": "Synthetic timing: Mara Velez moved from position 20 at Michigan Bluff to position 11 at Foresthill.",
+      "score": 1
+    },
+    {
+      "id": "wser-course-profile",
+      "title": "Official course profile",
+      "source_url": "https://www.wser.org/",
+      "excerpt": "The Western States course starts in Olympic Valley and ends in Auburn. The official description lists more than 18,000 feet of climbing and nearly 23,000 feet of descending across the 100.2-mile course.",
+      "score": 0.0459
+    },
+    {
+      "id": "wser-canyons",
+      "title": "Canyon sector context",
+      "source_url": "https://www.wser.org/",
+      "excerpt": "The official race description identifies the California gold-country canyons and the Middle Fork of the American River crossing as defining course features before the finish in Auburn.",
+      "score": 0.0258
+    },
+    {
+      "id": "wser-finish-window",
+      "title": "Official finish window",
+      "source_url": "https://www.wser.org/participant-guide/",
+      "excerpt": "The participant guide states that runners must reach the finish no later than the official Sunday-morning deadline to be eligible for an award. Race management communications remain authoritative for operational cutoffs.",
+      "score": 0
+    },
+    {
+      "id": "wser-history",
+      "title": "Official year-by-year archive",
+      "source_url": "https://www.wser.org/year-by-year/",
+      "excerpt": "Western States publishes a year-by-year archive describing the event's history, notable performances, conditions, and participation changes. Historical context must not be represented as current live race data.",
+      "score": 0
+    },
+    {
+      "id": "simulation-policy",
+      "title": "UltraMedia simulation policy",
+      "source_url": "https://ultramedia-studio.siva-babu.chatgpt.site",
+      "excerpt": "All athlete names and live timing events in the portfolio demonstration are synthetic. Drafts must label simulation data internally and require a human editor before external publication.",
+      "score": 0
+    }
+  ],
+  "trace_id": "66eaf12e-190f-4697-b095-967c290fa5f5",
+  "created_at": "2026-09-09T04:38:19.714347"
+}

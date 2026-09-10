@@ -6,9 +6,13 @@
 
 ## Submission status
 
-The application, dataset, experiment runner, notebook, and local evidence are implemented. GPU training and the base-versus-adapter model comparison are **not run**. The owner requested a Colab/Kaggle notebook to execute those steps. No trained adapter, human-approved example, editor preference, or model-quality improvement is claimed in this source package.
+Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The stronger shared-schema GPU control is running. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
 
-This is a runnable research submission with measured software/data evidence. It becomes a completed fine-tuning experiment only when the notebook produces an actual adapter and held-out results. An honest negative result is acceptable: retain the base model if the adapter adds no value.
+[Original GPU evidence](reports/ORIGINAL_GPU_RESULTS.md), [matched local results](reports/LOCAL_COMPARISON_RESULTS.md), and [actual adapter application checks](evidence/adapter-serving/README.md).
+
+This is a research submission with measured software, data, and local-serving evidence. An honest negative result is acceptable: retain the base model if the adapter adds no value. Synthetic results and automated review fixtures cannot authorize production.
+
+Detailed reports: [fine-tuning, dataset accounting and flow diagrams](reports/README.md).
 
 ## What the project demonstrates
 
@@ -16,11 +20,11 @@ This is a runnable research submission with measured software/data evidence. It 
 |---|---|---|
 | Behavior versus knowledge | Writing behavior in the adapter; current facts in supplied timing/evidence | Shared input/output contract and saved evidence snapshots |
 | SFT | Chat prompt plus assistant-only completion target | 600 versioned synthetic examples; shared prompt formatter |
-| LoRA / QLoRA | Rank 16, alpha 32, attention and MLP projections; NF4 double quantization | GPU runner and pinned notebook; actual run pending |
+| LoRA / QLoRA | Rank 16, alpha 32, attention and MLP projections; NF4 double quantization | Completed T4 run; manifests, adapter hashes and measured VRAM |
 | Dataset governance | Provenance, original evidence, opt-in corrected revisions, independent race groups | Data card, manifest, audit, editor API tests |
-| Evaluation | Frozen base/adapted comparison, failed outputs retained, paired group bootstrap | Deterministic evidence now; model predictions after notebook |
-| Overfitting and leakage | Separate train/validation/test groups and validation checkpoint selection | Split hashes, overlap checks, training curves after notebook |
-| Serving | Adapter checksums, lineage-aware merge, GGUF comparison protocol and rollback | Merge script and serving guide; merged artifact pending |
+| Evaluation | Frozen base/adapted comparison, failed outputs retained, paired group bootstrap | Full original GPU and matched local predictions; stronger control running |
+| Overfitting and leakage | Separate train/validation/test groups and validation checkpoint selection | Split hashes, overlap checks, verified training curves and selected checkpoint 100 |
+| Serving | Adapter checksums, lineage-aware merge, GGUF comparison protocol and rollback | Verified base and adapted local serving, conversion hashes and raw E2E evidence |
 | Model card / release decision | Unmeasured fields stay null; no automatic production promotion | Evidence snapshot, model card, comparison gate |
 
 The teaching lab's intent-classification pattern becomes a structured drafting/abstention task. This is QLoRA SFT, not pretraining, RLHF, DPO, or an unperformed LoRA-vs-QLoRA ablation.
@@ -33,7 +37,7 @@ The teaching lab's intent-classification pattern becomes a structured drafting/a
 - `week5/DATA_CARD.md`, `EVALUATION.md`, `SERVING.md`: provenance, limitations, protocol and reproducibility.
 - `backend/src/ultramedia/`: shared contract, dataset audit, real-model experiment runner and application implementation.
 - `backend/tests/`: behavior tests including editorial revisions, tampering, unsupported claims, and abstention.
-- `week5/runs/<run>/`: **add after running the notebook** — adapter, training manifest, curves, base/adapted predictions, measured memory/tokens, comparison and completed editorial reviews.
+- `week5/runs/<run>/`: Full downloaded run with adapter, manifests, curves, predictions, memory/tokens and comparison. Large weights are excluded from Git; human review forms remain unfilled.
 
 ## Run the notebook
 
@@ -44,7 +48,7 @@ The teaching lab's intent-classification pattern becomes a structured drafting/a
 5. Complete blind editorial review using the supplied response pairs and source inputs. Keep the answer key separate until the review is complete.
 6. Update the submission with observed results and a reasoned keep-base/promote decision. A synthetic-only run cannot authorize production.
 
-The direct dependencies are pinned; `training-run.json` records every relevant resolved version and CUDA/GPU details. The Qwen model revision is immutable. A target-model GPU run is not claimed to have been validated locally. Hosted runtime availability and memory sufficiency must be checked in the notebook.
+The direct dependencies are pinned; `training-run.json` records every relevant resolved version and CUDA/GPU details. The Qwen model revision is immutable. The completed target-model GPU artifacts have been downloaded and independently verified locally. Hosted runtime availability and memory sufficiency must be checked in the notebook.
 
 ## Reproduce local checks
 
@@ -64,7 +68,7 @@ The checked-in npm lockfile was truncated in the starting repository; it was reg
 
 ## Demonstration narrative
 
-1. Open `/week5`: show the dataset counts, evidence conditions, provenance and the explicit untrained state.
+1. Open `/week5`: show the dataset counts, evidence conditions, provenance and the explicit experiment and release status.
 2. Inspect a supported signal, then a conflicting or missing signal. Show why abstention is the correct target.
 3. Open `/studio` with the Python API configured: generate a draft, correct wording, enter reviewer identity and notes, and save a versioned review. Training consent and rights basis are separate explicit fields.
 4. Show the model notebook and, when available, its actual adapter, validation curve and paired held-out results.
