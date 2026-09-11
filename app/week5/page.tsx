@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import ProjectEvidence from './ProjectEvidence';
 import ComparisonEvidence, { type RecordedComparison } from './ComparisonEvidence';
-import Link from 'next/link';
+import Link from '@/components/internal-link';
 import {
   ArrowLeft,
   ArrowDownToLine,

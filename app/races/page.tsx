@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable next/no-img-element */
 
-import Link from 'next/link';
+import Link from '@/components/internal-link';
 import { useState } from 'react';
 import { Activity, ArrowLeft, ArrowUpRight, CalendarDays, CheckCircle2, Database, Download, ExternalLink, Flag, MapPin, Mountain, ShieldCheck, Sparkles, Trophy } from 'lucide-react';
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/internal-link';
 import { Activity, ArrowUpRight, Bot, CheckCircle2, Clock3, Database, Eye, Film, FlaskConical, Gauge, Layers3, MapPin, Play, Radio, Share2, ShieldCheck, SlidersHorizontal, Sparkles, TrendingUp, Workflow, Zap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button, buttonVariants } from '@/components/ui/button';

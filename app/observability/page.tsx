@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/internal-link';
 import { Activity, ArrowLeft, ArrowUpRight, Ban, Boxes, Check, CheckCircle2, CircleDot, Clock3, Code2, Database, Download, FlaskConical, GitBranch, Layers3, Radio, Server, ShieldCheck, SlidersHorizontal, TerminalSquare, Workflow, X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
