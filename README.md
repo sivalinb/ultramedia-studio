@@ -7,6 +7,7 @@ UltraMedia Studio is an AI newsroom for ultramarathons. It converts race timing,
 - **Model observability:** `/observability`
 - **API docs:** `http://localhost:8000/docs` when the Python service is running
 - **System design:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- **Interface decision:** [Web product vs. Streamlit ADR](docs/ADR-001-WEB-VS-STREAMLIT.md)
 
 All athlete names and live timing values in the public portfolio are synthetic. Official course pages are used only as attributed context. Production use requires data rights, athlete privacy, editorial, accessibility, and security review with each race organizer.
 
