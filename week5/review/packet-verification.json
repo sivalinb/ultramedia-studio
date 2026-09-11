@@ -1,0 +1,13 @@
+{
+  "pages": 21,
+  "canonical_fields": 88,
+  "widgets": 88,
+  "filled_roundtrip_checked": 87,
+  "test_answers_only": true,
+  "human_reviews_completed": 0,
+  "pdf_sha256": "554bb9be76fd37f211a4190d50fb0ee28039b6551b2576c8aea1527b7799337f",
+  "source_sha256": "8fa266927213bdd7cee28d8a5627cc4ea1ee24a00f3801ca5b8ab9cd9ddade54",
+  "unit_tests_passed": 4,
+  "blank_pages_visually_reviewed": 21,
+  "contains_assignment_key": false
+}

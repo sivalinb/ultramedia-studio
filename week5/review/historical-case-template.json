@@ -1,0 +1,17 @@
+{
+  "status": "template_only_not_evidence",
+  "case_id": null,
+  "race_edition_group": null,
+  "athlete_pseudonym": null,
+  "scenario": null,
+  "sources": [{"url_or_export_reference": null, "publisher": null, "retrieved_at_utc": null, "observed_at": null, "timezone": null, "sha256": null, "permission_basis": null, "allowed_uses": [], "public_release_allowed": false}],
+  "transformations": [],
+  "personal_data_removed": [],
+  "inputs": {"moment": null, "timing": [], "evidence": []},
+  "missing_values": [],
+  "conflicts": [],
+  "domain_review": {"reviewer_id_private": null, "supported_facts": [], "expected_disposition": null, "unacceptable_claims": [], "reviewed_before_inference": false},
+  "training_overlap_checked": false,
+  "frozen_at_utc": null,
+  "ready_for_inference": false
+}
