@@ -6,6 +6,26 @@
 
 ![UltraMedia Race Desk turns fragmented race updates into evidence-backed stories](week5/diagrams/ultramedia-product-pitch.png)
 
+## Read this first: scope and data
+
+UltraMedia is an evaluated portfolio prototype, not a connected live-race service. The public interface demonstrates the intended newsroom experience; the checked-in backend demonstrates the governed workflow.
+
+| Layer | What is actually used |
+| --- | --- |
+| Fine-tuning data | 600 synthetic examples from 150 fictional race episodes; 0 human-approved production examples |
+| Runtime demo data | A governed Western States-style fixture with fictional athletes and timing records |
+| Race history | Attributed aggregate results for UTMB, Western States, Hardrock, and Cocodona; no private athlete profiles |
+| Retrieval | Local hashed-vector + lexical search over stored evidence |
+| Generation | Deterministic provider by default; Qwen runs only when Ollama, llama.cpp, or Fireworks is explicitly configured |
+| Live feeds | None. No organizer timing, GPS, weather, photo, or streaming contract is connected |
+| Publication | No automatic publish path; review decisions are stored separately |
+
+A real pilot must declare source rights, update cadence, stale/missing-read behavior, exact model and prompt versions, evaluation limits, privacy/retention rules, and the editor who holds publication authority.
+
+## Why begin with ultramarathons
+
+The featured races make the information challenge visible: UTMB circles Mont Blanc for 174 km; Western States crosses 100.2 miles with a 369-runner permit limit; Hardrock covers 101.8 high-altitude miles with a 48-hour cutoff; Cocodona spans about 250 miles with a 125-hour cutoff. Unlike a compact event window, an ultra disperses runners, cameras, checkpoints, weather, and storylines over remote terrain for one to five days. UltraMedia is designed to help a small editorial team find and verify those stories—not to replace race operations, safety systems, or human judgment.
+
 ## The problem
 
 Ultramarathon coverage arrives as fragmented timing updates, course notes, weather, GPS signals, and historical results. Media teams must verify those facts quickly, write for several channels, and avoid inventing meaning when evidence is incomplete.
@@ -42,7 +62,7 @@ The five new task probes produced **5/5** deterministic-rule passes, **3/5** bas
 
 - **RAG** supplies changing race facts and citation IDs.
 - **QLoRA fine-tuning** teaches stable editorial behavior, abstention, and JSON structure.
-- **LangGraph agents** retrieve, draft, verify, safety-check, and pause for review.
+- **LangGraph stages** retrieve, draft, verify, safety-check, and pause for review; they are not six autonomous LLM agents.
 - **Evals** compare the base and adapter on the same frozen cases.
 - **Observability** preserves training configuration, loss, model outputs, failures, traces, hashes, and release gates.
 - **Human review** remains the final publication authority.

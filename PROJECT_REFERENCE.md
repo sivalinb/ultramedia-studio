@@ -11,7 +11,7 @@ UltraMedia Studio is an AI newsroom for ultramarathons. It converts race timing,
 - **System design:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - **Interface decision:** [Web product vs. Streamlit ADR](docs/ADR-001-WEB-VS-STREAMLIT.md)
 
-All athlete names and live timing values in the public portfolio are synthetic. Official course pages are used only as attributed context. Production use requires data rights, athlete privacy, editorial, accessibility, and security review with each race organizer.
+All athlete names and live timing values in the public portfolio are synthetic. Official course pages are used only as attributed context. The public Site is a portfolio front end, not a production FastAPI deployment, and no organizer timing, GPS, weather, or media feed is connected. Production use requires data rights, stream adapters, latency and missing-data rules, athlete privacy, editorial, accessibility, reliability, and security review with each race organizer.
 
 ## Week 5 submission
 
@@ -23,7 +23,7 @@ Detailed methodology, all-example data inventory, interim loss curve and flow di
 
 - Governed race/timing ingestion from local fixtures and rights-cleared CSV exports
 - Hybrid hashed-vector-plus-lexical retrieval over timing and course evidence
-- Six-stage LangGraph workflow: moment detection, evidence retrieval, story writing, fact verification, safety editing, and human review queue
+- Six-stage LangGraph workflow: supplied-signal validation, evidence retrieval, story writing, bounded fact verification, selected sensitive-language checks, and human review queue
 - Qwen-compatible provider routing: zero-cost deterministic mode, local Ollama, or Fireworks
 - Structured numeric-claim and citation checks, with explicit human semantic review
 - Persistent race, story, approval, and trace records
@@ -128,5 +128,4 @@ backend/data/            Governed synthetic portfolio fixture
 docs/                    Architecture, governance, deployment, model card
 docker-compose.yml       PostgreSQL, API, Phoenix, optional Ollama
 ```
-
 
