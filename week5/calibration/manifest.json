@@ -1,0 +1,13 @@
+{
+  "version": "calibration-interactions-v1",
+  "source": "new programmatic fictional cases",
+  "cases": 48,
+  "source_groups": 8,
+  "independent_human_labels": 0,
+  "sha256": {
+    "interaction-cases.json": "5e156733a92b172a2a1b6cb5fe61591cb571d69abe812f1ca4351de638dec5d2",
+    "judge-probes.json": "e88e3b956b344b3d3ff66bb69af04c335f34ba9060148ab804f3cb0093bdebec",
+    "independent-label-packet.json": "2fa63d60a27cfe0b531c79777fa69ee35ae862782b7d5c78247661a18b848369",
+    "judge-review-packet.json": "16f85f85a2b8f99e7182dd9218888728c8356a5ceae53098a91d8800a9714181"
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "reviewer_id": null,
+  "role": null,
+  "completed_at": null,
+  "labels": [
+    {
+      "id": "calibration-v1-position_gain-0-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-0-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-0-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-0-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-0-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-0-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-1-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-1-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-1-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-1-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-1-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-position_gain-1-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-0-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-0-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-0-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-0-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-0-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-0-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-1-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-1-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-1-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-1-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-1-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-record_watch-1-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-0-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-0-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-0-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-0-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-0-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-0-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-1-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-1-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-1-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-1-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-1-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-cutoff_watch-1-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-0-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-0-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-0-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-0-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-0-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-0-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-1-complete-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-1-complete-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-1-missing-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-1-missing-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-1-contradictory-neutral",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    },
+    {
+      "id": "calibration-v1-pace_change-1-contradictory-misleading",
+      "decision": null,
+      "supported_facts": [],
+      "rationale": null
+    }
+  ]
+}
