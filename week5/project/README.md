@@ -6,6 +6,8 @@
 
 ## Read in five minutes
 
+Latest follow-up: [independent calibration and abstention diagnosis](../calibration/RESULTS.md) applies the Week 4 feedback with 144 new saved diagnostic outputs, evaluator challenges, independent review packets and an evidence-led next-change gate. Human calibration remains pending; the new diagnostic does not show an adapter advantage.
+
 1. [Exact handout mapping](HANDOUT_MAPPING.md): all six lab phases and deliberate custom choices.
 2. [Disposition classification report](../reports/DISPOSITION_RESULTS.md): precision, recall, F1 and confusion matrices from all 120 saved local cases per model.
 3. [Five fresh task-level probes](../reports/HANDOUT_SMOKE_RESULTS.md): actual rules/base/adapter outputs; failures stay visible.

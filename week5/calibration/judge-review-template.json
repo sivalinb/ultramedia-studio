@@ -1,0 +1,57 @@
+{
+  "reviewer_id": null,
+  "role": null,
+  "completed_at": null,
+  "labels": [
+    {
+      "id": "correct-position-loss",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "wrong-position-direction",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "correct-sensitive-denial",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "unsupported-sensitive-assertion",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "invented-citation",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "justified-hold",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "unnecessary-hold",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "correct-projection",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "wrong-projection-direction",
+      "decision": null,
+      "rationale": null
+    },
+    {
+      "id": "projection-as-achievement",
+      "decision": null,
+      "rationale": null
+    }
+  ]
+}

@@ -18,15 +18,17 @@ Duration is a recommendation, not a course rule. Use the actual recorded evidenc
 
 ## Ready assets
 
-- [Visual workflow](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/diagrams/week5-flow.svg), [training curve](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/reports/data/final-training/training-loss.png), and [actual run manifest](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/reports/data/final-training/training-run.json).
-- [Actual adapted application recording](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/evidence/adapter-serving/adapter-demo.webm).
-- [Five smoke probes and outcomes](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/reports/HANDOUT_SMOKE_RESULTS.md).
-- [Classification report](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/reports/DISPOSITION_RESULTS.md) and [complete fine-tuning reports](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/reports/README.md).
+- [Visual workflow](../diagrams/week5-flow.svg), [training curve](../reports/data/final-training/training-loss.png), and [actual run manifest](../reports/data/final-training/training-run.json).
+- [Actual adapted application recording](../evidence/adapter-serving/adapter-demo.webm).
+- [Five smoke probes and outcomes](../reports/HANDOUT_SMOKE_RESULTS.md).
+- [Classification report](../reports/DISPOSITION_RESULTS.md) and [complete fine-tuning reports](../reports/README.md).
 - [Public evidence page](https://ultramedia-studio.siva-babu.chatgpt.site/week5).
 
-- [Silent recorded project walkthrough](https://github.com/sivalinb/ultramedia-studio/blob/codex/week5-handout-alignment/week5/evidence/handout-page/project-walkthrough.webm): actual page interactions, not a Loom upload or narrated presentation.
+- [Silent recorded project walkthrough](../evidence/handout-page/project-walkthrough.webm): actual page interactions, not a Loom upload or narrated presentation.
 
 ## Remaining external actions
+
+Include the [Week 4 feedback follow-up](../calibration/RESULTS.md) in the demo: show the paired hint intervention, the new negative result and the separate label/judge calibration packets. Explain that the next change targets the abstention behavior indicated by these diagnostics only after independent calibration; do not present prepared forms as completed reviews.
 
 - Record or upload this walkthrough to Loom and place its accessible URL in `week5/project/submission-status.json`. No Loom account/upload is available in this execution, and a local video is not a Loom submission.
 - A real editor completes the blind pilot. This strengthens the custom project and is required by our production gate, not by the PDF for every submission.

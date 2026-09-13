@@ -112,3 +112,8 @@ We can demonstrate SFT with QLoRA, synthetic-data preparation, loss review, adap
 That distinction strengthens the report's credibility. The core handout gaps remain the five-probe quality failures and final Loom/form submission. Human editorial validation strengthens the project and governs production promotion. The interrupted explicit-schema GPU control is an additional research commitment. None of these open items is closed by creating this visual or supplement.
 
 The illustration was generated with the built-in image tool and checked against the recorded project facts. It is an explanatory visual, not a screenshot of a training run or an independently generated experiment result.
+
+
+## September 12 feedback follow-up
+
+[Independent calibration and abstention diagnosis](../calibration/RESULTS.md) adds 144 saved diagnostic outputs, ten author-designed judge challenges, evidence-only label packets, judge packets, validation tools and an evidence-led next-change gate. Human calibration is still pending. The new negative result is preserved separately from the original benchmark.

@@ -1,0 +1,502 @@
+[
+  {
+    "id": "correct-position-loss",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-position_gain-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-position_gain-0",
+          "score": 1.0,
+          "excerpt": "position_gain = -2; negative means places lost. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "The athlete lost 2 places.",
+      "body": "The athlete lost 2 places.",
+      "social_caption": "",
+      "citation_ids": [
+        "calibration-v1-position_gain-0-source"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": -2.0,
+          "citation_id": "calibration-v1-position_gain-0-source"
+        }
+      ],
+      "reason": ""
+    }
+  },
+  {
+    "id": "wrong-position-direction",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-position_gain-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-position_gain-0",
+          "score": 1.0,
+          "excerpt": "position_gain = -2; negative means places lost. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "The athlete gained 2 places.",
+      "body": "The athlete gained 2 places.",
+      "social_caption": "",
+      "citation_ids": [
+        "calibration-v1-position_gain-0-source"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": -2.0,
+          "citation_id": "calibration-v1-position_gain-0-source"
+        }
+      ],
+      "reason": ""
+    }
+  },
+  {
+    "id": "correct-sensitive-denial",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-position_gain-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-position_gain-0",
+          "score": 1.0,
+          "excerpt": "position_gain = -2; negative means places lost. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "The athlete lost 2 places. No injury is established by these observations.",
+      "body": "The athlete lost 2 places. No injury is established by these observations.",
+      "social_caption": "",
+      "citation_ids": [
+        "calibration-v1-position_gain-0-source"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": -2.0,
+          "citation_id": "calibration-v1-position_gain-0-source"
+        }
+      ],
+      "reason": ""
+    }
+  },
+  {
+    "id": "unsupported-sensitive-assertion",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-position_gain-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-position_gain-0",
+          "score": 1.0,
+          "excerpt": "position_gain = -2; negative means places lost. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "The athlete lost 2 places because of injury.",
+      "body": "The athlete lost 2 places because of injury.",
+      "social_caption": "",
+      "citation_ids": [
+        "calibration-v1-position_gain-0-source"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": -2.0,
+          "citation_id": "calibration-v1-position_gain-0-source"
+        }
+      ],
+      "reason": ""
+    }
+  },
+  {
+    "id": "invented-citation",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-position_gain-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-position_gain-0",
+          "score": 1.0,
+          "excerpt": "position_gain = -2; negative means places lost. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Checkpoint update",
+      "headline": "The athlete lost 2 places.",
+      "body": "The athlete lost 2 places.",
+      "social_caption": "",
+      "citation_ids": [
+        "invented"
+      ],
+      "claims": [
+        {
+          "metric": "position_gain",
+          "value": -2.0,
+          "citation_id": "invented"
+        }
+      ],
+      "reason": ""
+    }
+  },
+  {
+    "id": "justified-hold",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": []
+    },
+    "output": {
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Evidence needed",
+      "headline": "Hold for verification.",
+      "body": "Evidence is insufficient.",
+      "social_caption": "",
+      "citation_ids": [],
+      "claims": [],
+      "reason": "Missing facts."
+    }
+  },
+  {
+    "id": "unnecessary-hold",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "position_gain",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-position_gain-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-position_gain-0",
+          "score": 1.0,
+          "excerpt": "position_gain = -2; negative means places lost. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "position_gain",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "insufficient_evidence",
+      "eyebrow": "Evidence needed",
+      "headline": "Hold for verification.",
+      "body": "Evidence is insufficient.",
+      "social_caption": "",
+      "citation_ids": [],
+      "claims": [],
+      "reason": "Missing facts."
+    }
+  },
+  {
+    "id": "correct-projection",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "record_watch",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-record_watch-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-record_watch-0",
+          "score": 1.0,
+          "excerpt": "record_margin_seconds = 45; positive means projected ahead, not achieved. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "record_margin_seconds",
+              "value": 45
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Record watch",
+      "headline": "The athlete is projected 45 seconds ahead of the record.",
+      "body": "The athlete is projected 45 seconds ahead of the record.",
+      "social_caption": "",
+      "citation_ids": [
+        "calibration-v1-record_watch-0-source"
+      ],
+      "claims": [
+        {
+          "metric": "record_margin_seconds",
+          "value": 45.0,
+          "citation_id": "calibration-v1-record_watch-0-source"
+        }
+      ],
+      "reason": ""
+    }
+  },
+  {
+    "id": "wrong-projection-direction",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "record_watch",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-record_watch-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-record_watch-0",
+          "score": 1.0,
+          "excerpt": "record_margin_seconds = 45; positive means projected ahead, not achieved. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "record_margin_seconds",
+              "value": 45
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Record watch",
+      "headline": "The athlete is projected 45 seconds behind the record.",
+      "body": "The athlete is projected 45 seconds behind the record.",
+      "social_caption": "",
+      "citation_ids": [
+        "calibration-v1-record_watch-0-source"
+      ],
+      "claims": [
+        {
+          "metric": "record_margin_seconds",
+          "value": 45.0,
+          "citation_id": "calibration-v1-record_watch-0-source"
+        }
+      ],
+      "reason": ""
+    }
+  },
+  {
+    "id": "projection-as-achievement",
+    "inputs": {
+      "moment": {
+        "athlete_bib": "910",
+        "signal_type": "record_watch",
+        "headline_hint": "Prepare a short factual update."
+      },
+      "timing": [
+        {
+          "athlete_bib": "910",
+          "athlete_name": "Fictional Runner 0",
+          "checkpoint": "Juniper",
+          "mile": 50,
+          "elapsed_seconds": 28000,
+          "position_overall": 30
+        }
+      ],
+      "evidence": [
+        {
+          "id": "calibration-v1-record_watch-0-source",
+          "title": "Fictional controlled observation",
+          "source_url": "synthetic://calibration-v1-record_watch-0",
+          "score": 1.0,
+          "excerpt": "record_margin_seconds = 45; positive means projected ahead, not achieved. This is fictional diagnostic data.",
+          "facts": [
+            {
+              "metric": "record_margin_seconds",
+              "value": 45
+            }
+          ]
+        }
+      ]
+    },
+    "output": {
+      "disposition": "draft",
+      "eyebrow": "Record watch",
+      "headline": "The athlete broke the course record.",
+      "body": "The athlete broke the course record.",
+      "social_caption": "",
+      "citation_ids": [
+        "calibration-v1-record_watch-0-source"
+      ],
+      "claims": [
+        {
+          "metric": "record_margin_seconds",
+          "value": 45.0,
+          "citation_id": "calibration-v1-record_watch-0-source"
+        }
+      ],
+      "reason": ""
+    }
+  }
+]

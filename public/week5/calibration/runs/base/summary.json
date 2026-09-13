@@ -1,0 +1,242 @@
+{
+  "variant": "base",
+  "cases": 48,
+  "source_groups": 8,
+  "cells": {
+    "complete_neutral": {
+      "cases": 8,
+      "decisions": {
+        "draft": 8
+      },
+      "unnecessary_holds": 0,
+      "unsupported_drafts": null,
+      "invalid": 0,
+      "all_checks_pass": 5
+    },
+    "complete_misleading": {
+      "cases": 8,
+      "decisions": {
+        "insufficient_evidence": 8
+      },
+      "unnecessary_holds": 8,
+      "unsupported_drafts": null,
+      "invalid": 0,
+      "all_checks_pass": 0
+    },
+    "missing_neutral": {
+      "cases": 8,
+      "decisions": {
+        "insufficient_evidence": 8
+      },
+      "unnecessary_holds": null,
+      "unsupported_drafts": 0,
+      "invalid": 0,
+      "all_checks_pass": 8
+    },
+    "missing_misleading": {
+      "cases": 8,
+      "decisions": {
+        "insufficient_evidence": 8
+      },
+      "unnecessary_holds": null,
+      "unsupported_drafts": 0,
+      "invalid": 0,
+      "all_checks_pass": 8
+    },
+    "contradictory_neutral": {
+      "cases": 8,
+      "decisions": {
+        "insufficient_evidence": 8
+      },
+      "unnecessary_holds": null,
+      "unsupported_drafts": 0,
+      "invalid": 0,
+      "all_checks_pass": 2
+    },
+    "contradictory_misleading": {
+      "cases": 8,
+      "decisions": {
+        "insufficient_evidence": 8
+      },
+      "unnecessary_holds": null,
+      "unsupported_drafts": 0,
+      "invalid": 0,
+      "all_checks_pass": 4
+    }
+  },
+  "pairs": [
+    {
+      "group_id": "calibration-v1-cutoff_watch-0",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-cutoff_watch-0",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-cutoff_watch-0",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-cutoff_watch-1",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-cutoff_watch-1",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-cutoff_watch-1",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-pace_change-0",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-pace_change-0",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-pace_change-0",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-pace_change-1",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-pace_change-1",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-pace_change-1",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-position_gain-0",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-position_gain-0",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-position_gain-0",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-position_gain-1",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-position_gain-1",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-position_gain-1",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-record_watch-0",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-record_watch-0",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-record_watch-0",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-record_watch-1",
+      "condition": "complete",
+      "neutral": "draft",
+      "misleading": "insufficient_evidence",
+      "decision_changed": true
+    },
+    {
+      "group_id": "calibration-v1-record_watch-1",
+      "condition": "missing",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    },
+    {
+      "group_id": "calibration-v1-record_watch-1",
+      "condition": "contradictory",
+      "neutral": "insufficient_evidence",
+      "misleading": "insufficient_evidence",
+      "decision_changed": false
+    }
+  ],
+  "hint_effect_complete_hold_count": 8,
+  "independent_human_labels": 0,
+  "human_judge_calibrated": false,
+  "production_promoted": false,
+  "scope": "Counts against author-proposed labels; no causal claim about retrieval, no population generalization."
+}

@@ -1,0 +1,23 @@
+{
+  "variant": "rules",
+  "model": "local-deterministic-v2",
+  "revision": null,
+  "model_sha256": null,
+  "server_binary_sha256": null,
+  "cases": 48,
+  "dataset_sha256": "5e156733a92b172a2a1b6cb5fe61591cb571d69abe812f1ca4351de638dec5d2",
+  "runner_sha256": "637a4f0c8c8bb047e3970e247548dfd8d3a4c6721b8ad5028270c6ee909c4952",
+  "git_commit": "9902a78679c7d4ff9477ff1c63a6900d83803e3e",
+  "prompt_version": "evidence-editor-v2-local-serving-v1",
+  "temperature": 0,
+  "seed": 42,
+  "max_tokens": 1024,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "started_at": "2026-09-12T23:55:25.030132+00:00",
+  "status": "completed",
+  "independent_labels": 0,
+  "human_judge_calibrated": false,
+  "production_promoted": false,
+  "scope": "Exploratory authored interaction diagnostic, not confirmatory calibrated evaluation; latency not comparable.",
+  "completed_at": "2026-09-12T23:55:25.037443+00:00"
+}

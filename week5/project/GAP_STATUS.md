@@ -17,3 +17,8 @@ This records what was actually completed in the handout-alignment PR. A written 
 | Final submission | Deadline and form documented; separate PR supplied | Final GitHub/Loom link submission through the form |
 
 Independent human review is the project's production gate, not a universal handout submission requirement. No award outcome is promised.
+
+
+## September 12 feedback follow-up
+
+[Independent calibration and abstention diagnosis](../calibration/RESULTS.md) adds 144 saved diagnostic outputs, ten author-designed judge challenges, evidence-only label packets, judge packets, validation tools and an evidence-led next-change gate. Human calibration is still pending. The new negative result is preserved separately from the original benchmark.

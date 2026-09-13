@@ -28,6 +28,8 @@ Duration is a recommendation, not a course rule. Use the actual recorded evidenc
 
 ## Remaining external actions
 
+Include the [Week 4 feedback follow-up](../calibration/RESULTS.md) in the demo: show the paired hint intervention, the new negative result and the separate label/judge calibration packets. Explain that the next change targets the abstention behavior indicated by these diagnostics only after independent calibration; do not present prepared forms as completed reviews.
+
 - Record or upload this walkthrough to Loom and place its accessible URL in `week5/project/submission-status.json`. No Loom account/upload is available in this execution, and a local video is not a Loom submission.
 - A real editor completes the blind pilot. This strengthens the custom project and is required by our production gate, not by the PDF for every submission.
 - Submit the final GitHub URL plus Loom through the form. Verify anonymous access. No submission or reviewer contact occurs automatically.
