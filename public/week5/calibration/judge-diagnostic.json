@@ -1,0 +1,188 @@
+{
+  "status": "author_challenge_only_not_human_calibration",
+  "cases": 10,
+  "results": [
+    {
+      "id": "correct-position-loss",
+      "author_expected_acceptable": true,
+      "automatic_accept": true,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": true,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": false
+    },
+    {
+      "id": "wrong-position-direction",
+      "author_expected_acceptable": false,
+      "automatic_accept": true,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": true,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": true
+    },
+    {
+      "id": "correct-sensitive-denial",
+      "author_expected_acceptable": true,
+      "automatic_accept": false,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": false,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": false,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": true
+    },
+    {
+      "id": "unsupported-sensitive-assertion",
+      "author_expected_acceptable": false,
+      "automatic_accept": false,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": false,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": false,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": false
+    },
+    {
+      "id": "invented-citation",
+      "author_expected_acceptable": false,
+      "automatic_accept": false,
+      "checks": {
+        "citation_ids_valid": false,
+        "structured_claims_supported": false,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": false,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": false
+    },
+    {
+      "id": "justified-hold",
+      "author_expected_acceptable": true,
+      "automatic_accept": true,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": true,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": false
+    },
+    {
+      "id": "unnecessary-hold",
+      "author_expected_acceptable": false,
+      "automatic_accept": false,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": false,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": false,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": false
+    },
+    {
+      "id": "correct-projection",
+      "author_expected_acceptable": true,
+      "automatic_accept": true,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": true,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": false
+    },
+    {
+      "id": "wrong-projection-direction",
+      "author_expected_acceptable": false,
+      "automatic_accept": true,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": true,
+        "automatic_checks_passed": true,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": true
+    },
+    {
+      "id": "projection-as-achievement",
+      "author_expected_acceptable": false,
+      "automatic_accept": false,
+      "checks": {
+        "citation_ids_valid": true,
+        "structured_claims_supported": true,
+        "required_metric_covered": true,
+        "disposition_correct": true,
+        "numeric_tokens_supported": true,
+        "sensitive_language_absent": true,
+        "projection_not_achievement": false,
+        "automatic_checks_passed": false,
+        "semantic_faithfulness": "requires_human_review",
+        "confidence": null
+      },
+      "disagrees_with_author": false
+    }
+  ],
+  "independent_reviews": 0,
+  "production_promoted": false
+}

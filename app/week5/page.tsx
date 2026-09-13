@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import ProjectEvidence from './ProjectEvidence';
+import CalibrationEvidence from './CalibrationEvidence';
 import ComparisonEvidence, { type RecordedComparison } from './ComparisonEvidence';
 import Link from '@/components/internal-link';
 import {
@@ -144,6 +145,7 @@ export default function WeekFivePage() {
           </aside>
         </div>
         <ProjectEvidence />
+        <CalibrationEvidence />
         <section className="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ['Synthetic examples', audit.rows],
@@ -284,7 +286,7 @@ export default function WeekFivePage() {
           <h2 className="text-2xl font-semibold">Detailed fine-tuning reports</h2>
           <p className="mt-3 text-base leading-7 text-muted-foreground">Read the data inventory, training configuration and loss curves, experiment flow diagrams, full predictions, failure analysis and reproducibility receipts. Completed measurements and pending work are labeled in each report.</p>
           <div className="mt-4 flex flex-wrap gap-6 text-sm text-primary">
-            <a href="https://github.com/sivalinb/ultramedia-studio/tree/codex/week5-submission/week5/reports">Read reports on GitHub →</a>
+            <a href="https://github.com/sivalinb/ultramedia-studio/tree/main/week5/reports">Read reports on GitHub →</a>
             <a href="/week5/fine-tuning-reports.zip" download>Download reports and data →</a>
           </div>
         </section>

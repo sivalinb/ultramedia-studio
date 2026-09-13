@@ -27,4 +27,6 @@ If recurring savings are zero or negative, there is no break-even. If acceptance
 
 ## Evidence needed to reconsider
 
+The [new interaction diagnostic](../calibration/RESULTS.md) strengthens the research-only decision: the adapter scores 22/48 all-check passes versus the base's 27/48 and rules' 48/48 on new authored cases. Misleading hints increase holds, but neutral projection and empty-evidence citation failures also persist. Complete independent reference-label and judge calibration, repeat controlled interactions, then choose a targeted change. The new sample does not measure editorial labor or justify model promotion.
+
 Use the [blind editorial protocol](HUMAN_REVIEW.md) on new, rights-cleared examples authored independently of training. Compare rules, prompted base and adapter under the same user task. Collect factual-meaning errors, usefulness, correction time, ties and neither choices. Keep the current frozen scores and failures intact. Any training or prompt revision needs a new version and a fresh evaluation set.

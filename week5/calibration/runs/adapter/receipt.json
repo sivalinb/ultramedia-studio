@@ -1,0 +1,23 @@
+{
+  "variant": "adapter",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "model_sha256": "ac3d4d36947c9412e5dbd884a705b2223315bef9cb19028209b2c263743a6b24",
+  "server_binary_sha256": "a4326e5a5f846e2e469e08f9779339973536c4df6d9e5e6584b207a807b49659",
+  "cases": 48,
+  "dataset_sha256": "5e156733a92b172a2a1b6cb5fe61591cb571d69abe812f1ca4351de638dec5d2",
+  "runner_sha256": "637a4f0c8c8bb047e3970e247548dfd8d3a4c6721b8ad5028270c6ee909c4952",
+  "git_commit": "9902a78679c7d4ff9477ff1c63a6900d83803e3e",
+  "prompt_version": "evidence-editor-v2-local-serving-v1",
+  "temperature": 0,
+  "seed": 42,
+  "max_tokens": 1024,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "started_at": "2026-09-12T23:55:31.159231+00:00",
+  "status": "completed",
+  "independent_labels": 0,
+  "human_judge_calibrated": false,
+  "production_promoted": false,
+  "scope": "Exploratory authored interaction diagnostic, not confirmatory calibrated evaluation; latency not comparable.",
+  "completed_at": "2026-09-13T00:28:05.784816+00:00"
+}

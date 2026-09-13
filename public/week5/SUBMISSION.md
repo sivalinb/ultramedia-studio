@@ -6,6 +6,8 @@
 
 ## Submission status
 
+Latest feedback follow-up: [independent calibration and abstention diagnosis](calibration/RESULTS.md). A new 48-case-per-variant authored interaction pilot produced rules 48/48, base 27/48 and adapter 22/48 all-check passes. The negative result remains visible. Independent labels and judge calibration are prepared but unperformed; no production release is authorized by these diagnostics.
+
 Training completed 100 steps. The original GPU comparison is 44/120 base versus 120/120 adapter; the matched local comparison is 76/120 versus 109/120. The explicit-schema GPU control was interrupted during its adapter arm and awaits compatible Colab capacity; its completed base outputs are retained. All scores are automatic checks on 120 synthetic cases per model, not human editorial preference. The actual adapter passed 13 browser software checks; its separate application quality suite still fails one generation case. Human review and production promotion remain pending.
 
 [Original GPU evidence](reports/ORIGINAL_GPU_RESULTS.md), [matched local results](reports/LOCAL_COMPARISON_RESULTS.md), and [actual adapter application checks](evidence/adapter-serving/README.md).
@@ -22,7 +24,7 @@ Detailed reports: [fine-tuning, dataset accounting and flow diagrams](reports/RE
 | SFT | Chat prompt plus assistant-only completion target | 600 versioned synthetic examples; shared prompt formatter |
 | LoRA / QLoRA | Rank 16, alpha 32, attention and MLP projections; NF4 double quantization | Completed T4 run; manifests, adapter hashes and measured VRAM |
 | Dataset governance | Provenance, original evidence, opt-in corrected revisions, independent race groups | Data card, manifest, audit, editor API tests |
-| Evaluation | Frozen base/adapted comparison, failed outputs retained, paired group bootstrap | Full original GPU and matched local predictions; stronger control running |
+| Evaluation | Frozen base/adapted comparison, failed outputs retained, paired group bootstrap | Full original GPU and matched local predictions; explicit-schema GPU control interrupted, recovery pending |
 | Overfitting and leakage | Separate train/validation/test groups and validation checkpoint selection | Split hashes, overlap checks, verified training curves and selected checkpoint 100 |
 | Serving | Adapter checksums, lineage-aware merge, GGUF comparison protocol and rollback | Verified base and adapted local serving, conversion hashes and raw E2E evidence |
 | Model card / release decision | Unmeasured fields stay null; no automatic production promotion | Evidence snapshot, model card, comparison gate |
